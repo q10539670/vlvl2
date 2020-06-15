@@ -11,7 +11,7 @@ class UploadController extends Controller
     use Response;
 
     /*
-     * 上传图片
+     * 上传单张图片
      * */
     public function uploadSinglePic(Request $request)
     {
@@ -41,6 +41,16 @@ class UploadController extends Controller
             'storePath' => 'storage/' . $path,
             'prefix' => env('APP_URL')
         ]);
+    }
+
+    /*
+     * 上传多张图片
+     */
+    public function uploadMultiplePic(Request $request)
+    {
+        if(!$this->validationReferer()){
+            return response()->json(['error' => '未授权'], 410);
+        }
     }
 
     /*

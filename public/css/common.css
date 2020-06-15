@@ -1,0 +1,50 @@
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.margin-bottom-15 {
+    padding-bottom: 15px;
+}
+
+.padding-top-15 {
+    padding-top: 15px;
+}
+
+.padding-bottom-15 {
+    padding-bottom: 15px;
+}
+
+.padding-bottom-25 {
+    padding-bottom: 25px;
+}
+
+.share-warp {
+    padding: 25px 15px;
+}
+
+.liulan {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.ll-maxwidht-1080 {
+    padding-left: 25px;
+    padding-right: 25px;
+    max-width: 1080px !important;
+}
+
+.ll-maxwidht-1280 {
+    padding-left: 25px;
+    padding-right: 25px;
+    max-width: 1280px !important;
+}
+
+.ll-maxwidht-1580 {
+    padding-left: 25px;
+    padding-right: 25px;
+    max-width: 1580px !important;
+}
+
+.ll-center-tb th, td {
+    text-align: center;
+}
