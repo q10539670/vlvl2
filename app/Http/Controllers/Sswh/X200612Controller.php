@@ -14,7 +14,7 @@ class X200612Controller extends Common
     //世纪山水
     protected $itemName = 'x200612';
 
-    const END_TIME = '2021-06-30 23:59:59';
+    const END_TIME = '2020-06-30 23:59:59';
 
     /*
      * 获取/记录用户授权信息

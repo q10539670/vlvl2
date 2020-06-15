@@ -455,4 +455,13 @@ Route::post('/x200528t/post', 'X200528testController@post');                    
 Route::get( '/x200612/user',  'X200612Controller@user');                    //获取/记录用户信息
 Route::post('/x200612/score', 'X200612Controller@score');                  //提交成绩
 Route::post('/x200612/list',  'X200612Controller@list');                     //排行榜
-Route::get('/x200612/share', 'X200612Controller@share');                   //分享
+Route::post('/x200612/share', 'X200612Controller@share');                   //分享
+
+/**
+ * 金桥璟园   200615
+ */
+Route::post('/x200615/init', 'X200615Controller@appInitHandler');            //初始化程序
+Route::get( '/x200615/user', 'X200615Controller@user');                      //获取/记录用户信息
+Route::post('/x200615/post', 'X200615Controller@post');                      //提交信息
+Route::post('/x200615/prize','X200615Controller@randomPrize');               //抽奖
+Route::post('/x200615/share','X200615Controller@share');                     //分享

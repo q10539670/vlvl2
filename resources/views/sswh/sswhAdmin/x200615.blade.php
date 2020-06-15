@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <form class="form-inline" method="get" action="{{url('vlvl/x200528/index')}}">
+                    <form class="form-inline" method="get" action="{{url('vlvl/x200615/index')}}">
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail3"></label>
                             <input type="text"
@@ -101,8 +101,8 @@
                                 <tr>
                                     <th width="35" align="center">序号</th>
                                     <th style="text-align: center;">头像/昵称</th>
-{{--                                    <th style="text-align: center;">姓名</th>--}}
-{{--                                    <th style="text-align: center;">电话</th>--}}
+                                    <th style="text-align: center;">姓名</th>
+                                    <th style="text-align: center;">电话</th>
                                     <th style="text-align: center;">奖品</th>
                                     <th style="text-align: center;">中奖时间</th>
                                     <th style="text-align: center;">参与时间</th>
@@ -119,8 +119,8 @@
                                                  alt="">
                                             <div class="nickname">{{$user['nickname']}}</div>
                                         </td>
-{{--                                        <td>{{$user['name']}}</td>--}}
-{{--                                        <td>{{$user['phone']}}</td>--}}
+                                        <td>{{$user['name']}}</td>
+                                        <td>{{$user['phone']}}</td>
                                         <td>{{$user['prize']}}</td>
                                         <td>{{$user['prized_at']}}</td>
                                         <td>{{$user['updated_at']}}</td>

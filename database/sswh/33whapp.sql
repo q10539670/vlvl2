@@ -1035,3 +1035,22 @@ CREATE TABLE x200325_code (
   updated_at TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (id)
 )ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '宜昌中心老带新验证码';
+
+-- 金桥璟园
+CREATE TABLE x200615_user (
+  id int UNSIGNED AUTO_INCREMENT,
+  openid varchar(36) not null default '',
+  nickname varchar(64) not null default '' comment '昵称',
+  avatar varchar(255) not null default '' comment '头像',
+  name varchar(10) not null default '' comment '姓名',
+  phone varchar(11) not null default '' comment '手机号',
+  status tinyint not null default 0 comment '抽奖状态,0:未抽奖,1:已抽奖,2:已中奖',
+  prize_num int not null default 0 comment '抽奖次数',
+  share_name tinyint not null default 0 comment '分享次数',
+  prize_id tinyint not null default 0 comment '奖品ID',
+  prize varchar(16) not null default '' comment '奖品',
+  prize_at TIMESTAMP NULL DEFAULT NULL comment '中奖时间',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '金桥璟园扭蛋机游戏';

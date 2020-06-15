@@ -144,6 +144,10 @@ class GameReset extends Command
             'game_num' => 3,
             'share_num' => 1
         ]);   //世纪山水
+        DB::table('x200615_user')->update([
+            'prize_num' => 1,
+            'share_num' => 3
+        ]);   //金桥璟园
         return $this->info('重置成功');
     }
 }
