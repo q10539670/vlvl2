@@ -87,12 +87,12 @@ class X200615Controller extends Common
         if (!Helper::stopResubmit($this->itemName . ':randomPrize', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
-        if ($user->prize_num <= 0) {
-            return response()->json(['error' => '今日抽奖次数已用完'], 422);
-        }
-        if ($user->status != 0) {
-            return response()->json(['error' => '你已抽奖，无法再次抽奖'], 422);
-        }
+//        if ($user->prize_num <= 0) {
+//            return response()->json(['error' => '今日抽奖次数已用完'], 422);
+//        }
+//        if ($user->status != 0) {
+//            return response()->json(['error' => '你已抽奖，无法再次抽奖'], 422);
+//        }
         $dateStr = date('Ymd');
         //测试
         $dateStr = 'test';
