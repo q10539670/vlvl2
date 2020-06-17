@@ -24,13 +24,17 @@ class X200615Controller extends Common
         $openid = $request->openid;
         if (!$user = User::where(['openid' => $openid])->first()) {
             //查询总表
-            $info = $this->searchSswhUser($request);
-            $userInfo = $this->userInfo($request, $info, [
+//            $info = $this->searchSswhUser($request);
+//            $userInfo = $this->userInfo($request, [
+//                'prize_num' => 1,
+//                'share_num' => 3
+//            ]);
+            //新增数据到表中
+            User::create([
+                'openid' =>$openid,
                 'prize_num' => 1,
                 'share_num' => 3
             ]);
-            //新增数据到表中
-            User::create($userInfo);
             //查询
             $user = User::where(['openid' => $openid])->first();
         }
@@ -87,12 +91,12 @@ class X200615Controller extends Common
         if (!Helper::stopResubmit($this->itemName . ':randomPrize', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
-//        if ($user->prize_num <= 0) {
-//            return response()->json(['error' => '今日抽奖次数已用完'], 422);
-//        }
-//        if ($user->status != 0) {
-//            return response()->json(['error' => '你已抽奖，无法再次抽奖'], 422);
-//        }
+        if ($user->prize_num <= 0) {
+            return Helper::json(-1, '今日抽奖次数已用完');
+        }
+        if ($user->status == 1) {
+            return Helper::json(-1, '您已中奖');
+        }
         $dateStr = date('Ymd');
         //测试
         $dateStr = 'test';

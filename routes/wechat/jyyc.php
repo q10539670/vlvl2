@@ -136,3 +136,13 @@ Route::post('/x200331/prize', 'X200331Controller@randomPrize');            //抽
  */
 Route::get ('/x200422/user',  'X200422Controller@user');                   //获取/记录用户信息
 Route::post('/x200422/post', 'X200422Controller@post');
+
+/**
+ * 宜昌中心父亲节 200617
+ */
+Route::get('/x200617/user', 'X200617Controller@user');                    //获取/记录用户信息
+Route::post('/x200617/post', 'X200617Controller@post');                   //提交信息
+Route::post('/x200617/score', 'X200617Controller@score');                 //提交成绩
+Route::post('/x200617/prize', 'X200617Controller@randomPrize');           //抽奖
+Route::post('/x200617/list', 'X200617Controller@list');                   //排行榜
+Route::post('/x200617/init', 'X200617Controller@appInitHandler');         //初始化程序

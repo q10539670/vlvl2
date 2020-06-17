@@ -27,7 +27,7 @@ class X200615Controller extends Controller
         $exportUrl = asset('/vlvl/x200615/export');
         $redis = app('redis');
         $redis->select(0);
-        $redisShareData = $redis->hGetAll('wx:view:p_20200615');
+        $redisShareData = $redis->hGetAll('wx:view:jqjy20200615');
         return view('sswh.sswhAdmin.x200615', ['title' => '中国中铁·金桥璟园', 'paginator' => $paginator, 'exportUrl' => $exportUrl, 'redisShareData' => $redisShareData]);
     }
 

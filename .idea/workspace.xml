@@ -4,8 +4,12 @@
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200615Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200615Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200615Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200615Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200615/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X200615/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wechat/jyyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/jyyc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,22 +139,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\wx\backend\vlvl\app\Http\Controllers\Sswh\SswhAdmin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
       <recent name="D:\laragon\www\vlvl\app\Exports" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
       <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\wx\backend\vlvl\app\Http\Controllers\Sswh\SswhAdmin" />
     </key>
   </component>
   <component name="RunManager">
@@ -183,7 +187,8 @@
       <workItem from="1592203478480" duration="8609000" />
       <workItem from="1592273210678" duration="1319000" />
       <workItem from="1592287838574" duration="2514000" />
-      <workItem from="1592300542063" duration="800000" />
+      <workItem from="1592300542063" duration="844000" />
+      <workItem from="1592355578447" duration="16891000" />
     </task>
     <servers />
   </component>

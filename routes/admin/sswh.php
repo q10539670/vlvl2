@@ -334,3 +334,9 @@ Route::get('/x200612/export', 'X200612Controller@export');
  */
 Route::get('/x200615/index',  'X200615Controller@index');
 Route::get('/x200615/export', 'X200615Controller@export');
+
+/**
+ * 宜昌中心 200617
+ */
+Route::get('/x200617/index',  'X200617Controller@index');
+Route::get('/x200617/export', 'X200617Controller@export');
