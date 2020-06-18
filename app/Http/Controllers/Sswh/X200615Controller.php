@@ -99,11 +99,11 @@ class X200615Controller extends Common
         }
         $dateStr = date('Ymd');
         //测试
-        $dateStr = 'test';
+//        $dateStr = 'test';
         $redisCountBaseKey = 'wx:' . $this->itemName . ':prizeCount';
         $prize = new User();
         try {
-            $resultPrize = $prize->fixRandomPrize($redisCountBaseKey, $dateStr); // 固定概率抽奖
+            $resultPrize = $prize->fixRandomPrize($redisCountBaseKey, $dateStr, $request->openid); // 固定概率抽奖
             $redisCountKey = $resultPrize['prizeCountKey'];
         } catch (\Exception $e) {
             \Log::channel('wx')->info('金桥璟园_扭蛋', ['message' => $e->getMessage()]);

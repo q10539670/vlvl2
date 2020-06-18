@@ -14,7 +14,7 @@ class User extends Model
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 0.1;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 0.01;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
     private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
@@ -29,12 +29,13 @@ class User extends Model
     protected $prizeConf = [
         /*中奖数组*/
         'prize' => [
-            0 => ['prize_id' => 1, 'prize_level_name' => '三等奖', 'prize_name' => '定制古八景收藏邮折礼盒', 'v' => 1, 'count' => 0, 'limit' => 5],
-            1 => ['prize_id' => 2, 'prize_level_name' => '二等奖', 'prize_name' => '定制充电笔记本', 'v' => 1, 'count' => 0, 'limit' => 5],
-            2 => ['prize_id' => 3, 'prize_level_name' => '一等奖', 'prize_name' => '摩飞榨汁机', 'v' => 1, 'count' => 0, 'limit' => 5],
+            0 => ['prize_id' => 1, 'prize_level_name' => '四等奖', 'prize_name' => '宜昌中心定制数据线', 'v' => 10, 'count' => 0, 'limit' => 10],
+            1 => ['prize_id' => 2, 'prize_level_name' => '三等奖', 'prize_name' => '定制古八景收藏邮折礼盒', 'v' => 1, 'count' => 0, 'limit' => 1],
+            2 => ['prize_id' => 3, 'prize_level_name' => '二等奖', 'prize_name' => '定制充电笔记本', 'v' => 1, 'count' => 0, 'limit' => 1],
+            3 => ['prize_id' => 4, 'prize_level_name' => '一等奖', 'prize_name' => '摩飞榨汁机', 'v' => 1, 'count' => 0, 'limit' => 1],
         ],
         /*不中奖数组  该数组权重只对 中奖几率先大后小方式抽奖有效*/
-        'NotPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 100000],
+        'NotPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 1000000],
     ];
 
     /*

@@ -157,16 +157,20 @@ class X200617Controller extends Common
         if (time() > strtotime(self::END_TIME)) {
             return response()->json(['error' => '活动已结束'], 422);
         }
-//        if ($user->status == 1) {
-//            return response()->json(['error' => '你已中奖，无法再次获得奖品'], 422);
-//        }
+        if ($user->status == 1) {
+            return Helper::json(1, '抽奖成功', [
+                'user' => $user,
+                'prize' => '未中奖',
+                'prize_id' => 0,
+            ]);
+        }
         $redisBaseKey = 'wx:' . $this->itemName;
         $prize = new User();
         try {
             $resultPrize = $prize->fixRandomPrize($redisBaseKey); // 固定概率抽奖
             $redisCountKey = $resultPrize['prizeCountKey'];
         } catch (\Exception $e) {
-            \Log::channel('wx')->info('百事感恩节_抽奖', ['message' => $e->getMessage()]);
+            \Log::channel('wx')->info('宜昌中心父亲节_抽奖', ['message' => $e->getMessage()]);
             return response()->json(['error' => '抽奖失败,系统错误 ' . $e->getCode()], 422);
         }
         $redis = app('redis');
@@ -209,7 +213,7 @@ class X200617Controller extends Common
             $redis->del($v);
 //            }
         }
-        $redis->hmset('wx:' . $this->itemName . ':prizeCount', ['0' => 0, '1' => 0, '2' => 0, '3' => 0]);
+        $redis->hmset('wx:' . $this->itemName . ':prizeCount', ['0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' =>0]);
         $redis->set('wx:' . $this->itemName . ':prizeNum', 0);
         echo '应用初始化成功';
         exit();
