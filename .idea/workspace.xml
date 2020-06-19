@@ -4,9 +4,7 @@
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200617Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200617Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200615Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200615Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Jyyc/X200617/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jyyc/X200617/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200615/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X200615/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,6 +186,7 @@
       <workItem from="1592300542063" duration="844000" />
       <workItem from="1592355578447" duration="17527000" />
       <workItem from="1592442706951" duration="9877000" />
+      <workItem from="1592528494780" duration="3605000" />
     </task>
     <servers />
   </component>

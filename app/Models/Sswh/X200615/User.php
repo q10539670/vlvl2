@@ -16,7 +16,7 @@ class User extends Model
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 0.01;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 0.1;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
     private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
@@ -52,13 +52,13 @@ class User extends Model
         '20200618' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '1' => ['prize_id' => 1, 'limit' => 30],
-            '2' => ['prize_id' => 2, 'limit' => 1],
+            '2' => ['prize_id' => 2, 'limit' => 0],
         ],
         /*第二天*/
         '20200619' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '1' => ['prize_id' => 1, 'limit' => 30],
-            '2' => ['prize_id' => 2, 'limit' => 1],
+            '2' => ['prize_id' => 2, 'limit' => 2],
         ],
         /*第三天*/
         '20200620' => [
@@ -119,14 +119,12 @@ class User extends Model
     /*
      * 随机抽奖  中奖几率始终不变
      * */
-    public function fixRandomPrize($redisCountKey, $dateStr, $openid)
+    public function fixRandomPrize($redisCountKey, $dateStr)
     {
         if (!in_array($dateStr, ['20200618', '20200619', '20200620', '20200621', '20200622', '20200623', '20200624', '20200625', '20200626', '20200627', '20200628'])) {
             $dateStr = 'test';
         }
-        if ($openid == '')
         $zhongjianglv = $this->parseZhongJiangLv($this->zhongJiangLv); //解析中奖率 防止出错
-
         $quanZhong = 100;
         $finalConf = []; //最终生成的配置数组
         $jingduSum = 0; //精度计数
