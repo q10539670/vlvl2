@@ -465,3 +465,11 @@ Route::get( '/x200615/user', 'X200615Controller@user');                      //�
 Route::post('/x200615/post', 'X200615Controller@post');                      //提交信息
 Route::post('/x200615/prize','X200615Controller@randomPrize');               //抽奖
 Route::post('/x200615/share','X200615Controller@share');                     //分享
+
+/**
+ * 中国中铁·世纪山水   200622
+ */
+Route::get( '/x200622/user',   'X200622Controller@user');                  //获取/记录用户信息
+Route::post('/x200622/score',  'X200622Controller@score');                 //提交成绩
+Route::post('/x200622/list',   'X200622Controller@list');                  //排行榜
+Route::get( '/x200622/share',  'X200622Controller@share');                 //分享

@@ -119,7 +119,7 @@ class X200515Controller extends Common
         $scoreName = 'score_' . $week;
         $rankingName = 'ranking_' . $week;
         $where = function ($query) use ($scoreName, $request) {
-            $query->where($scoreName, '!=', 0);
+            $query->where($scoreName, '!=', 0)->where('address','!=',1);
         };
         $ranking = -1;
         $items = User::where($where)->orderBy($scoreName, 'asc')->orderBy('updated_at', 'asc')->take(50)->get()->toArray();

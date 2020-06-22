@@ -4,8 +4,13 @@
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200615Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200615Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200515Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200515Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200515Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200515Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Jyyc/X200617/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jyyc/X200617/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200615/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X200615/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200515.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200515.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,29 +140,74 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\wx\backend\vlvl\app\Http\Controllers\Sswh\SswhAdmin" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/oauth/token" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/x-www-form-urlencoded" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="code=U6ZR43&amp;grant_type=authorization_code&amp;redirect_uri=http%3A%2F%2Flocalhost%3A9001%2Fcallback&amp;scope=read_userinfo" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/example/hello" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="authorization" />
+                <option name="value" value="Bearer 53633acc-4f93-4e97-a89f-fec299a5b162" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="PHPUnit.phpunit.xml">
+    <configuration name="All in rest-api_4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_4.http">
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP 请求.All in rest-api_4" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -187,6 +237,8 @@
       <workItem from="1592355578447" duration="17527000" />
       <workItem from="1592442706951" duration="9877000" />
       <workItem from="1592528494780" duration="3605000" />
+      <workItem from="1592787067607" duration="36000" />
+      <workItem from="1592787117505" duration="9353000" />
     </task>
     <servers />
   </component>
@@ -198,6 +250,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="184" key="#Deployment/0.0.1920.1050@0.0.1920.1050" timestamp="1591754655527" />
+    <state x="757" y="381" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog" timestamp="1592792381234">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="757" y="381" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1592792381234" />
     <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592211368776">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -206,6 +262,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1592203808758" />
+    <state width="1860" height="282" key="GridCell.Tab.0.bottom" timestamp="1592794208179">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1860" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
+    <state width="1860" height="282" key="GridCell.Tab.0.center" timestamp="1592794208179">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1860" height="282" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
+    <state width="1860" height="282" key="GridCell.Tab.0.left" timestamp="1592794208179">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1860" height="282" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
+    <state width="1860" height="282" key="GridCell.Tab.0.right" timestamp="1592794208179">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1860" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
     <state x="456" y="171" key="SettingsEditor" timestamp="1592203101162">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

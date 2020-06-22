@@ -116,7 +116,7 @@ $map = [
                                     <th style="text-align: center;">头像/昵称</th>
                                     <th style="text-align: center;">姓名</th>
                                     <th style="text-align: center;">电话</th>
-                                    <th style="text-align: center;">地址</th>
+{{--                                    <th style="text-align: center;">地址</th>--}}
                                     <th style="text-align: center;">地图</th>
                                     <th style="text-align: center;">用时</th>
                                     <th style="text-align: center;">排名</th>
@@ -136,7 +136,7 @@ $map = [
                                         </td>
                                         <td>{{$user['name']}}</td>
                                         <td>{{$user['phone']}}</td>
-                                        <td>{{$user['address']}}</td>
+{{--                                        <td>{{$user['address']}}</td>--}}
                                         <td>
                                             {!! $map[$user['map_1']] !!}<br>
                                             {!! $map[$user['map_2']] !!}<br>

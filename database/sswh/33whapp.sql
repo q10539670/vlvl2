@@ -1072,3 +1072,18 @@ CREATE TABLE x200617_user (
   updated_at TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (id)
 )ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 中国中铁·世纪山水---赛龙舟游戏
+CREATE TABLE x200622_user (
+  id int UNSIGNED AUTO_INCREMENT,
+  openid varchar(36) not null default '',
+  nickname varchar(64) not null default '' comment '昵称',
+  avatar varchar(255) not null default '' comment '头像',
+  game_num int not null default 0 comment '游戏次数',
+  share_num int not null default 0 comment '分享次数',
+  score int not null default 0 comment '成绩',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+

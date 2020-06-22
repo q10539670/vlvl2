@@ -30,7 +30,7 @@ class X200515Controller extends Controller
 
 
         if ($request->input('order') || $week != '') {
-            $paginator = $query->where($scoreName,'!=',0)->orderBy($scoreName, 'asc')->orderBy('updated_at', 'asc')->paginate(15);
+            $paginator = $query->where($scoreName,'!=',0)->where('address','!=',1)->orderBy($scoreName, 'asc')->orderBy('updated_at', 'asc')->paginate(15);
         } else {
             $paginator = $query->orderBy('updated_at', 'desc')->paginate(15);
         }
