@@ -473,3 +473,11 @@ Route::get( '/x200622/user',   'X200622Controller@user');                  //获
 Route::post('/x200622/score',  'X200622Controller@score');                 //提交成绩
 Route::post('/x200622/list',   'X200622Controller@list');                  //排行榜
 Route::get( '/x200622/share',  'X200622Controller@share');                 //分享
+
+/**
+ * 美的投票
+ */
+Route::get( '/x200623/user',    'X200623Controller@user');                     //获取/记录用户信息
+Route::post('/x200623/program', 'X200623Controller@programs');             //获取参赛队伍
+Route::post('/x200623/vote',    'X200623Controller@vote');                    //获取参赛队伍
+Route::post('/x200623/upload',  'X200623Controller@uploadProgram');         //上传参赛队伍信息

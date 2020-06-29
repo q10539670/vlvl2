@@ -340,3 +340,9 @@ Route::get('/x200615/export', 'X200615Controller@export');
  */
 Route::get('/x200617/index',  'X200617Controller@index');
 Route::get('/x200617/export', 'X200617Controller@export');
+
+/**
+ * 美的 200623
+ */
+Route::get('/x200623/index',  'X200623Controller@index');
+Route::get('/x200623/export', 'X200623Controller@export');

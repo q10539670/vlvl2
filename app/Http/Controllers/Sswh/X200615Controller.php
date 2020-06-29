@@ -54,7 +54,7 @@ class X200615Controller extends Common
     public function post(Request $request)
     {
         if (time() > strtotime(self::END_TIME)) {
-            return response()->json(['error' => '活动时间截止，投票通道已关闭'], 422);
+            return response()->json(['error' => '活动时间截止'], 422);
         }
         if (!$user = User::where('openid', $request->openid)->first()) {
             return response()->json(['error' => '未授权'], 422);

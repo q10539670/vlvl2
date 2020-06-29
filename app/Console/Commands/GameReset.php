@@ -148,6 +148,9 @@ class GameReset extends Command
             'prize_num' => 1,
             'share_num' => 3
         ]);   //金桥璟园
+        DB::table('x200623_user')->update([
+            'vote_num' => 4
+        ]);   //金桥璟园
         return $this->info('重置成功');
     }
 }

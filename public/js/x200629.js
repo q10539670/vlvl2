@@ -67,7 +67,7 @@ var api = {
      */
     user: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x200422/user',
+            $.get(api.baseUrl + '/x200629/user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -80,9 +80,10 @@ var api = {
      */
     post: function (data) {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x200422/post',
+            $.post(api.baseUrl + '/x200629/post',
                 /*接收参数-start*/
                 {
+                    advise: data.advise,          //建议
                     name: data.name,              //姓名
                     phone: data.phone,            //电话
                 },

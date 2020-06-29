@@ -67,7 +67,7 @@ var api = {
      */
     user: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x200422/user',
+            $.get(api.baseUrl + '/x200623/user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -76,17 +76,29 @@ var api = {
     },
 
     /**
-     *   提交信息
+     * 投票
      */
-    post: function (data) {
+    vote: function (program_id) {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x200422/post',
+            $.post(api.baseUrl + '/x200623/vote',
                 /*接收参数-start*/
                 {
-                    name: data.name,              //姓名
-                    phone: data.phone,            //电话
+                    program_id: program_id  //节目ID
                 },
-                /*接收参数-end*/
+                function (res) {
+                    api.debug && console.log(res);
+                    resolve(res);
+                });
+        });
+    },
+
+
+    /**
+     * 获取所有节目
+     */
+    program: function () {
+        return new Promise(function (resolve, reject) {
+            $.post(api.baseUrl + '/x200623/program',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);

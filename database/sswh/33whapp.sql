@@ -1087,3 +1087,24 @@ CREATE TABLE x200622_user (
   PRIMARY KEY (id)
 )ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '用户表';
 
+-- 宜昌中心---意见箱
+CREATE TABLE x200629_user (
+  id int UNSIGNED AUTO_INCREMENT,
+  openid varchar(36) not null default '',
+  nickname varchar(64) not null default '' comment '昵称',
+  avatar varchar(255) not null default '' comment '头像',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+CREATE TABLE x200629_advise (
+  id int UNSIGNED AUTO_INCREMENT,
+  user_id int not null default 0 comment '用户ID',
+  advise varchar(1023) not null default '' comment '建议',
+  name varchar(16) not null default '' comment '姓名',
+  phone varchar(11) not null default '' comment '电话',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '建议表';

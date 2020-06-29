@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Common;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\Response;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Validator;
 
 class UploadController extends Controller
 {
     use Response;
-
+    protected $ratio = 70; //富文本图片压缩比率
     /*
      * 上传单张图片
      * */
@@ -46,11 +49,52 @@ class UploadController extends Controller
     /*
      * 上传多张图片
      */
-    public function uploadMultiplePic(Request $request)
+    public function uploadMultiplePic($file,$path)
     {
-        if(!$this->validationReferer()){
-            return response()->json(['error' => '未授权'], 410);
+//        $file = $request->file("images");
+        if (!empty($file)) {
+            foreach ($file as $key => $value) {
+                $len = $key;
+            }
+            if ($len > 25) {
+                return response()->json(['ResultData' => 6, 'info' => '最多可以上传25张图片']);
+            }
+            $m = 0;
+            $k = 0;
+            for ($i = 0; $i <= $len; $i++) {
+                // $n 表示第几张图片
+                $n = $i + 1;
+                if ($file[$i]->isValid()) {
+                    if (in_array(strtolower($file[$i]->extension()), ['jpeg', 'jpg', 'gif', 'gpeg', 'png'])) {
+                        $ext = $file[$i]->getClientOriginalExtension();//获取上传文件的后缀名
+                        $jpg = (string)Image::make($file[$i])->encode('jpg', $this->ratio);
+                        $filename = date('Ymd') . md5(time() . rand(10000, 99999)) . "." . $ext;
+                        Storage::disk('public')->put($filename, $jpg);    //保存图片
+                        $pathName = strstr($filename, date('Ymd'));
+                        if (env('APP_ENV') == 'local') {
+
+                            $newFileName = asset('/lvll/storage/edtior/') . '/' . $pathName;
+                        } else {
+                            $newFileName = asset('/lvll/storage/edtior/') . '/' . $pathName;
+                        }
+                        if ($newFileName) {
+                            $m = $m + 1;
+                        } else {
+                            $k = $k + 1;
+                        }
+                        $msg = $m . "张图片上传成功 " . $k . "张图片上传失败<br>";
+                        $return[] = ['ResultData' => 0, 'info' => $msg, 'newFileName' => $newFileName];
+                    } else {
+                        return response()->json(['ResultData' => 3, 'info' => '第' . $n . '张图片后缀名不合法!<br/>' . '只支持jpeg/jpg/png/gif格式']);
+                    }
+                } else {
+                    return response()->json(['ResultData' => 1, 'info' => '第' . $n . '张图片超过最大限制!<br/>' . '图片最大支持2M']);
+                }
+            }
+        } else {
+            return response()->json(['ResultData' => 5, 'info' => '请选择文件']);
         }
+        return $return;
     }
 
     /*

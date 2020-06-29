@@ -16,14 +16,13 @@ class X200615Export implements FromCollection, WithStrictNullComparison,WithHead
     */
     public function collection()
     {
-        $users = User::get([ 'nickname','name','phone', 'prize','prized_at','created_at','openid']);
+        $users = User::get([ 'name','phone', 'prize','prized_at','created_at','openid']);
         return $users;
     }
     // 定义 'headings()' 方法
     public function headings(): array
     {
         return [
-            '昵称',
             '姓名',
             '电话',
             '奖品',

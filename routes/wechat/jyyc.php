@@ -146,3 +146,9 @@ Route::post('/x200617/score', 'X200617Controller@score');                 //提�
 Route::post('/x200617/prize', 'X200617Controller@randomPrize');           //抽奖
 Route::post('/x200617/list', 'X200617Controller@list');                   //排行榜
 Route::post('/x200617/init', 'X200617Controller@appInitHandler');         //初始化程序
+
+/**
+ * 宜昌中心·获取用户信息
+ */
+Route::get ('/x200629/user',  'X200629Controller@user');                   //获取/记录用户信息
+Route::post('/x200629/post',  'X200629Controller@post');
