@@ -1108,3 +1108,47 @@ CREATE TABLE x200629_advise (
   updated_at TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (id)
 )ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '建议表';
+
+CREATE TABLE l20200701_hn_user(
+  id INT UNSIGNED AUTO_INCREMENT,
+  openid VARCHAR(36) NOT NULL DEFAULT '',
+  nickname varchar(16) not null default '' comment '微信昵称',
+  avatar varchar(255) not null default '' comment '微信头像',
+  truename VARCHAR(16) NOT NULL DEFAULT '' COMMENT '姓名',
+  phone VARCHAR(16) NOT NULL DEFAULT '' COMMENT '电话',
+  address VARCHAR(255) NOT NULL DEFAULT '' COMMENT '收货地址',
+  img_upload_num int not null default 0 comment '上传总次数',
+  img_pass_num int not null default 0 comment '通过次数',
+  game_num int not null default 0 comment '剩余抽奖次数',
+  prize_num int not null default 0 comment '累计抽奖次数',
+  bingo_num int not null default 0 comment '累计中奖次数',
+  created_at datetime NULL DEFAULT NULL,
+  updated_at datetime NULL DEFAULT NULL,
+  PRIMARY KEY (id),
+  key(openid)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '红牛_用户表';
+
+CREATE TABLE l20200701_hn_images(
+    id INT UNSIGNED AUTO_INCREMENT,
+    user_id int not null default 0 comment '用户id',
+    path VARCHAR(255) NOT NULL DEFAULT '' COMMENT '物理地址',
+    url VARCHAR(255) NOT NULL DEFAULT '' COMMENT 'url路径',
+    status tinyint not null default 0 comment '0：待审核 1:审核通过 2：审核不通过',
+    add_num  tinyint not null default 0 comment '通过后增加的抽奖次数',
+    content varchar(255) not null default '' comment '备注',
+    created_at datetime NULL DEFAULT NULL,
+    checked_at datetime NULL DEFAULT NULL comment "审核时间",
+    PRIMARY KEY (id),
+    key(user_id)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '红牛_小票表';
+
+CREATE TABLE l20200701_hn_prize_log(
+    id INT UNSIGNED AUTO_INCREMENT,
+    user_id int not null default 0 comment '用户id',
+    result_id int not null default 0 comment '抽奖结果 id',
+    result_name int not null default 0 comment '抽奖结果名称',
+    content varchar(255) not null default '' comment '备注',
+    created_at datetime NULL DEFAULT NULL comment "抽奖时间",
+    PRIMARY KEY (id),
+    key(user_id)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '红牛_抽奖记录表';

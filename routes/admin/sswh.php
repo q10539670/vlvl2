@@ -346,3 +346,10 @@ Route::get('/x200617/export', 'X200617Controller@export');
  */
 Route::get('/x200623/index',  'X200623Controller@index');
 Route::get('/x200623/export', 'X200623Controller@export');
+
+
+/**
+ * 宜昌中心 建议收集  200629
+ */
+Route::get('/x200629/index',  'X200629Controller@index');
+Route::get('/x200629/export', 'X200629Controller@export');

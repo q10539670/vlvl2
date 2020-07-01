@@ -11,4 +11,9 @@ class Advise extends Model
 
     protected $guarded = [];
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\Jyyc\X200629\User');
+    }
+
 }
