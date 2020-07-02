@@ -26,3 +26,13 @@ Route::post('/x200106r/set_round', '\App\Http\Controllers\Admin\Sswh\X200106Cont
 Route::get('/x200106r/get_prize/{round}', '\App\Http\Controllers\Admin\Sswh\X200106Controller@getPrizeNum');
 Route::post('/x200106r/prizes', '\App\Http\Controllers\Admin\Sswh\X200106Controller@getPrize');              //抽奖
 Route::get('/x200106r/get_round/', '\App\Http\Controllers\Admin\Sswh\X200106Controller@get_round');              //抽奖
+
+
+/**
+ * 红牛接口
+ */
+Route::get('admin/x200701/user',  'X200701Controller@user'); //用户
+Route::get('admin/x200701/ticket',  'X200701Controller@ticket'); //小票
+Route::get('admin/x200701/prize',  'X200701Controller@prizeLog'); //中奖记录
+Route::post('admin/x200701/check',  'X200701Controller@check'); //审核
+Route::get('admin/x200701/info',  'X200701Controller@info'); //h5信息

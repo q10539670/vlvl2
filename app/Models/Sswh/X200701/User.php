@@ -12,6 +12,9 @@ class User extends Model
 
     protected $guarded = [];
 
+    public function images() {
+        return $this->hasMany('App\Models\Sswh\X200701\Images');
+    }
     /*
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################

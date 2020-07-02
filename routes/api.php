@@ -38,7 +38,7 @@ Route::group(['prefix' => 'sswh', 'namespace' => 'Sswh'], function () {
     Route::group(['middleware' => 'wxAuthV1.jyycCheckOpenid'], function () {
         require __DIR__ . '/wechat/jyyc.php'; //均瑶宜昌中心 微信项目路由   需要openid
     });
-    require __DIR__ . '/wechat/sswh-NoAuth.php'; //三山文化 微信项目路由  不需要openid
+
 
     require __DIR__ . '/wechat/qwt-NoAuth.php'; //全网通 微信项目路由  不需要openid
 
@@ -74,6 +74,9 @@ Route::group(['prefix' => 'sswh'], function () {
 Route::post('/common/upload','\App\Http\Controllers\Common\UploadController@uploadSinglePic'); //上传图片
 
 //不需要验证openid
-Route::group(['prefix' => 'noauth'], function () {
-    require __DIR__ . '/wechat/sswh-NoAuth.php';
+Route::group(['prefix' => 'sswh','namespace' => 'Admin'], function () {
+    Route::group(['namespace' => 'Sswh'], function () {
+        require __DIR__ . '/wechat/sswh-NoAuth.php'; //三山文化 微信项目路由  不需要openid
+    });
+
 });

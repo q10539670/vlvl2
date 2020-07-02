@@ -16,16 +16,14 @@ class X200623Export implements FromCollection, WithStrictNullComparison,WithHead
      */
     public function collection()
     {
-        return Program::get([ 'number','actor','program','slogan','poll_1','poll_2','poll_3','poll_4']);
+        return Program::get([ 'number','program','poll_1','poll_2','poll_3','poll_4']);
     }
     // 定义 'headings()' 方法
     public function headings(): array
     {
         return [
             '编号',
-            '表演者',
-            '节目名称',
-            '宣言',
+            '名称',
             '第一轮成绩',
             '第二轮成绩',
             '第三轮成绩',

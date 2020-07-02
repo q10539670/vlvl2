@@ -10,6 +10,7 @@ use App\Models\Sswh\X200701\User;
 use App\Models\Sswh\X200701\Log;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class X200701Controller extends Common
@@ -58,6 +59,9 @@ class X200701Controller extends Common
         if (!$user = User::where('openid', $request->openid)->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
+        if (Images::where('user_id', $user->id)->whereBetween('created_at', $this->getToday())->first()) {
+            return response()->json(['error' => '每天只能上传一张小票'], 422);
+        }
         $validator = \Validator::make($request->all(), [
             'image' => 'required|image|max:' . (1024 * 6),
         ], [
@@ -78,12 +82,26 @@ class X200701Controller extends Common
         $image = [
             'user_id' => $user->id,
             'path' => $path,
-            'url' => 'https://cdnn.sanshanwenhua.com/statics/' . '/' . $path,
+            'url' => 'https://cdnn.sanshanwenhua.com/statics/' . $path,
         ];
         $images = Images::create($image);
         $user->img_upload_num++;
-        $user->save();
-        return $this->returnJson(1, '上传小票成功', ['images' => $images]);
+        $user->prize_num++;
+        $user->game_num++;
+        $result = $user->save();
+        $log = Log::create([
+            'user_id' => $user->id,
+            'origin' => 1    //来源上传
+        ]);
+        //开启事务
+        if ($image && $result && $log) {
+            DB::commit();
+            return $this->returnJson(1, '上传小票成功', ['images' => $images]);
+        } else {
+            DB::rollback();
+            return $this->returnJson(-1, '上传小票失败');
+        }
+
     }
 
     /*
@@ -137,6 +155,32 @@ class X200701Controller extends Common
                 return response()->json(['error' => '没有抽奖次数'], 422);
             }
         }
+        // ***********处理当天中奖和上传小票抽奖
+        if (!$log = Log::where('user_id', $user->id)->where('status', 0)->orderBy('origin', 'asc')->first()) {
+            return response()->json(['error' => '没有抽奖次数'], 422);
+        }
+        $prize = Log::where('user_id', $user->id)->where('status', 1)->first();
+        if ($log->origin == 1 || $prize) {
+            $user->game_num--;//抽奖次数-1
+            //存入中奖记录表
+            $log->result_id = 0;
+            $log->status = 2;
+            $log->result_name = '未中奖';
+            $log->prized_at = now()->toDateTimeString();
+            //开启事务
+            DB::beginTransaction();
+            try {
+                $user->save();
+                $log->save();
+                DB::commit();
+            } catch (\Exception $e) {
+                DB::rollback();
+                return Helper::json(-1, '抽奖失败');
+            }
+            return Helper::json(1, '抽奖成功', ['user' => $user, 'log' => $log, 'result_name' => '未中奖', 'result_id' => 0]);
+        }
+        //*******************结束
+        //处理正常抽奖
         $redis = app('redis');
         $redis->select(12);
         $redisCountBaseKey = 'wx:' . $this->itemName . ':prizeCount';
@@ -158,19 +202,28 @@ class X200701Controller extends Common
         }
         $user->game_num--;//抽奖次数-1
         if ($resultPrize['resultPrize']['prize_id'] != 0) {
+            $log->status = 1;
             $user->bingo_num++; //中奖次数+1
+        } else {
+            $log->status = 2;
         }
-        $prize = [
-            'user_id' => $user->id,
-            'result_id' => $resultPrize['resultPrize']['prize_id'],
-            'result_name' => $resultPrize['resultPrize']['prize_name']
-        ];
-        //存入中奖记录表
-        Log::create($prize);
-        $user->save();
+        $log->result_id = $resultPrize['resultPrize']['prize_id'];
+        $log->result_name = $resultPrize['resultPrize']['prize_name'];
+        $log->prized_at = now()->toDateTimeString();
+
+        try {
+            $user->save();
+            $log->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return Helper::json(-1, '抽奖失败');
+        }
         return Helper::json(1, '抽奖成功', [
             'user' => $user,
-            'prize' => $resultPrize['resultPrize']['prize_name'],
+            'log' => $log,
+            'result_name' => $resultPrize['resultPrize']['prize_name'],
+            'result_id' => $resultPrize['resultPrize']['prize_id'],
             'resultPrize' => $resultPrize
         ]);
     }
