@@ -65,7 +65,7 @@ class X200701Controller extends Common
         $validator = \Validator::make($request->all(), [
             'image' => 'required|image|max:' . (1024 * 6),
         ], [
-            'image.required' => '上传图片不能未空',
+            'image.required' => '上传图片不能为空',
             'image.image' => '上传类型只能是图片',
             'image.max' => '图片大小不能超过6M',
         ]);
@@ -159,7 +159,7 @@ class X200701Controller extends Common
         if (!$log = Log::where('user_id', $user->id)->where('status', 0)->orderBy('origin', 'asc')->first()) {
             return response()->json(['error' => '没有抽奖次数'], 422);
         }
-        $prize = Log::where('user_id', $user->id)->where('status', 1)->first();
+        $prize = Log::where('user_id', $user->id)->where('status', 1)->whereBetween('created_at',$this->getToday())->first();
         if ($log->origin == 1 || $prize) {
             $user->game_num--;//抽奖次数-1
             //存入中奖记录表
@@ -217,15 +217,40 @@ class X200701Controller extends Common
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
-            return Helper::json(-1, '抽奖失败');
+            return Helper::Json(-1, '抽奖失败');
         }
-        return Helper::json(1, '抽奖成功', [
+        return Helper::Json(1, '抽奖成功', [
             'user' => $user,
             'log' => $log,
             'result_name' => $resultPrize['resultPrize']['prize_name'],
             'result_id' => $resultPrize['resultPrize']['prize_id'],
             'resultPrize' => $resultPrize
         ]);
+    }
+
+    /*
+     * 上传记录
+     */
+    public function uploadLog(Request $request)
+    {
+        if (!$user = User::where(['openid' => $request->openid])->first()) {
+            return response()->json(['error' => '未授权'], 422);
+        }
+        $images = Images::where('user_id',$user->id)->get();
+        foreach ($images as $image) $image->prize;
+        return Helper::Json(1,'上传记录查询成功',['images'=>$images]);
+    }
+
+    /*
+     * 中奖记录
+     */
+    public function prizeLog(Request $request)
+    {
+        if (!$user = User::where(['openid' => $request->openid])->first()) {
+            return response()->json(['error' => '未授权'], 422);
+        }
+        $prizeLog = Log::where('user_id',$user->id)->where('status','!=',0)->get();
+        return Helper::Json(1,'上传记录查询成功',['prize_log'=>$prizeLog]);
     }
 
     /*

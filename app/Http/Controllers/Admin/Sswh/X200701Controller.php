@@ -26,8 +26,8 @@ class X200701Controller extends Controller
     {
         $condition = $request->input('condition');
         $type = $request->input('type');
-        $perPage = ($request->input('per_page') != '') ?$request->input('per_page'): 10;
-        $currentPage = $request->input('current_page')!='' ?$request->input('current_page'): 1;
+        $perPage = ($request->input('per_page') != '') ? $request->input('per_page') : 10;
+        $currentPage = $request->input('current_page') != '' ? $request->input('current_page') : 1;
         $query = User::when(($type && $condition), function ($query) use ($condition, $type) {
             return $query->where($type, 'like', '%' . $condition . '%');
         });
@@ -51,16 +51,26 @@ class X200701Controller extends Controller
      */
     public function ticket(Request $request)
     {
-        $nickname = $request->input('nickname');
+        $condition = $request->input('condition');
+        $type = $request->input('type');
         $status = $request->input('status');
-        $perPage = ($request->input('per_page') != '') ?$request->input('per_page'): 10;
-        $currentPage = $request->input('current_page')!='' ?$request->input('current_page'): 1;
-        $query = Images::when($status, function ($query) use ($status) {
+        $dateRange = $request->input('date_range');
+        $msg = $request->input('msg_status');
+        $dateRange = $dateRange != '' ? [$dateRange[0] . ' 00:00:00', $dateRange[1] . ' 23:59:59'] : '';
+        $perPage = ($request->input('per_page') != '') ? $request->input('per_page') : 10;
+        $currentPage = $request->input('current_page') != '' ? $request->input('current_page') : 1;
+        $query = Images::when($status != '', function ($query) use ($status) {
             return $query->where('status', $status);
         })
-            ->when($nickname, function ($query) use ($nickname) {
-                return $query->whereHas('user', function ($query) use ($nickname) {
-                    $query->where('nickname', 'like', '%' . $nickname . '%');
+            ->when($dateRange != '', function ($query) use ($dateRange) {
+                return $query->whereBetween('created_at', $dateRange);
+            })
+            ->when($msg != '', function ($query) use ($msg) {
+                return $query->where('msg_status', $msg);
+            })
+            ->when($condition != '', function ($query) use ($condition, $type) {
+                return $query->whereHas('user', function ($query) use ($condition, $type) {
+                    $query->where($type, 'like', '%' . $condition . '%');
                 });
             });
         $query = $query->orderBy('created_at', 'desc');
@@ -82,16 +92,26 @@ class X200701Controller extends Controller
      */
     public function prizeLog(Request $request)
     {
-        $nickname = $request->input('nickname');
-        $prizeId = $request->input('prize_id');
-        $perPage = ($request->input('per_page') != '') ?$request->input('per_page'): 10;
-        $currentPage = $request->input('current_page')!='' ?$request->input('current_page'): 1;
+        $condition = $request->input('condition');
+        $type = $request->input('type');
+        $status = $request->input('status') != '' ? $request->input('status'): 1; //默认查已中奖
+        $prizeId = $request->input('result_id');
+        $dateRange = $request->input('date_range');
+        $dateRange = $dateRange[0] != '' && $dateRange[1] != '' ? [$dateRange[0] . ' 00:00:00', $dateRange[1] . ' 23:59:59'] : '';
+        $perPage = ($request->input('per_page') != '') ? $request->input('per_page') : 10;
+        $currentPage = $request->input('current_page') != '' ? $request->input('current_page') : 1;
         $query = Log::when($prizeId, function ($query) use ($prizeId) {
-            return $query->where('result_id', $prizeId);
+            return $query->whereIn('result_id', $prizeId);
         })
-            ->when($nickname, function ($query) use ($nickname) {
-                return $query->whereHas('user', function ($query) use ($nickname) {
-                    $query->where('nickname', 'like', '%' . $nickname . '%');
+            ->when($dateRange != '', function ($query) use ($dateRange) {
+                return $query->whereBetween('prized_at', $dateRange);
+            })
+            ->when($status != '', function ($query) use ($status) {
+                return $query->where('status', $status);
+            })
+            ->when($condition != '', function ($query) use ($type, $condition) {
+                return $query->whereHas('user', function ($query) use ($type, $condition) {
+                    $query->where($type, 'like', '%' . $condition . '%');
                 });
             });
         $query = $query->orderBy('created_at', 'desc');
@@ -101,6 +121,7 @@ class X200701Controller extends Controller
         $items = $query->offset($perPage * ($currentPage - 1))->limit($perPage)->get();
         $paginator = new Paginator($items, $total, $perPage, $currentPage);
         foreach ($paginator as $prize) $prize->user;
+        foreach ($paginator as $prize) $prize->image;
 //        $exportUrl = asset('/vlvl/x200701/export_prize');
         return Helper::Json(1, '中奖记录查询成功', [
             'paginator' => $paginator,
@@ -137,23 +158,25 @@ class X200701Controller extends Controller
         $image->fill($request->all());
         $image->checked_at = now()->toDateTimeString();
         $image->add_num = $add_num;
-        $result = $image->save();
+        $user = User::find($image->user_id);
         if ($request->status == 1) {
-            $user = User::find($image->user_id);
             $user->prize_num += $add_num;
             $user->game_num += $add_num;
             $user->img_pass_num++;
-            $user->save();
         }
+        DB::beginTransaction();
         static $success = 0;
-        for ($i=0;$i<$add_num;$i++) {
+        for ($i = 0; $i < $add_num; $i++) {
             Log::create([
                 'user_id' => $image->user_id,
-                'origin' => 2    //来源审核
+                'origin' => 2,    //来源审核
+                'origin_image_id' => $image->id
             ]);
             $success++;
         }
-        if ($success == $add_num && $result) {
+        $user->save();
+        $image->save();
+        if ($success == $add_num && $user->save() && $image->save()) {
             DB::commit();
             return Helper::Json(1, '小票审核成功', ['images' => $image]);
         } else {

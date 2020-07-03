@@ -2,27 +2,26 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Sswh\X200623\Program;
-use App\Models\Sswh\X200623\User;
+use App\Models\Sswh\X200701\Images;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
 
-class X200623 extends Command
+class X200701 extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'x200623:ranking';
+    protected $signature = 'x200701:sendMsg';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '排名';
+    protected $description = '发送模板消息';
 
     const END_TIME = '2020-07-24 23:59:59';
 
@@ -44,9 +43,7 @@ class X200623 extends Command
     public function handle()
     {
         $program = Program::find(1);
-        $user = new User();
-        $week = $user->getWeek();
-        $week =5;
+        $week = $program->getWeek();
         if ($week > 1) {
             $week -= 1;
         } elseif ($week == 0 && time() > strtotime(self::END_TIME)) {
@@ -57,11 +54,11 @@ class X200623 extends Command
         $ranking = $week * 3;
         $pollName = 'poll_' . $week;
 
-        if (!Program::where('ranking', $ranking)->first()) {
+        if (Program::where('ranking', $ranking)->first()) {
             $where = function ($query) use ($pollName) {
-                $query->where($pollName, '!=', 0)->where('ranking','<',1);
+                $query->where($pollName, '!=', 0);
             };
-            $items = Program::where($where)->orderBy($pollName, 'desc')->orderBy('updated_at', 'asc')->get()->toArray();
+            $items = Program::where($where)->orderBy($pollName, 'asc')->orderBy('updated_at', 'asc')->get()->toArray();
             foreach ($items as $key => $item) {
                 $userR = Program::find($item['id']);
                 if ($key <= 2) {

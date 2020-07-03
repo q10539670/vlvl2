@@ -7,13 +7,13 @@ use App\Http\Controllers\Common\BaseV1Controller as Controller;
 use App\Models\Sswh\X200623\Program;
 use App\Models\Sswh\X200623\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 
 class X200623Controller extends Controller
 {
     public function index(Request $request)
     {
-        $name = $request->input('name');
         $program = $request->input('program');
         $week = $request->input('week');
         $user = new User();
@@ -29,16 +29,13 @@ class X200623Controller extends Controller
         }else {
             $pollName = 'poll_'. $week;
         }
-        $query = Program::when($name, function ($query) use ($name) {
-            return $query->where('name', 'like', '%' . $name . '%');
-        })
-        ->when($program, function ($query) use ($program) {
+        $query = Program::when($program, function ($query) use ($program) {
             return $query->where('program', 'like', '%' . $program . '%');
         });
         if ($request->input('order') || $week != '') {
             $paginator = $query->where($pollName,'!=',0)->orderBy($pollName, 'desc')->orderBy('updated_at', 'asc')->paginate(15);
         } else {
-            $paginator = $query->orderBy('updated_at', 'desc')->paginate(15);
+            $paginator = $query->orderBy('number', 'asc')->paginate(15);
         }
         $exportUrl = asset('/vlvl/x200623/export');
         $redis = app('redis');
@@ -52,6 +49,7 @@ class X200623Controller extends Controller
             'nowWeek' => $nowWeek
         ]);
     }
+
 
     public function export()
     {

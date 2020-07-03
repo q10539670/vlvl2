@@ -16,4 +16,9 @@ class Log extends Model
     {
         return $this->belongsTo('App\Models\Sswh\X200701\User');
     }
+
+    public function image()
+    {
+        return $this->belongsTo('App\Models\Sswh\X200701\Images','origin_image_id');
+    }
 }

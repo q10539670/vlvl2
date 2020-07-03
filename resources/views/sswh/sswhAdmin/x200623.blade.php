@@ -63,16 +63,9 @@ $weekNow = request()->input('week', '');
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail3"></label>
                             <input type="text"
-                                   name="name"
-                                   value="{{(request()->has('name')&&(request()->name!=''))?request()->name:''}}"
-                                   class="form-control" size="16" placeholder="请输入姓名查询">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail3"></label>
-                            <input type="text"
                                    name="program"
                                    value="{{(request()->has('program')&&(request()->program!=''))?request()->program:''}}"
-                                   class="form-control" size="16" placeholder="请输入节目查询">
+                                   class="form-control" size="16" placeholder="请输入队名查询">
                         </div>
                         <div class="form-group">
                             <select name="order" class="form-control">
@@ -114,9 +107,8 @@ $weekNow = request()->input('week', '');
                                 <thead>
                                 <tr>
                                     <th width="35" align="center">序号</th>
-                                    <th style="text-align: center;">节目</th>
-                                    <th style="text-align: center;">表演者</th>
-                                    <th style="text-align: center;">宣言</th>
+                                    <th width="35" align="center">编号</th>
+                                    <th style="text-align: center;">队名</th>
                                     <th style="text-align: center;">第一周票数</th>
                                     <th style="text-align: center;">第二周票数</th>
                                     <th style="text-align: center;">第三周票数</th>
@@ -129,9 +121,8 @@ $weekNow = request()->input('week', '');
                                     <tr align="center">
                                         <?php $index = $paginator->perPage() * ($paginator->currentPage() - 1) ?>
                                         <td>{{$index+$loop->iteration}}</td>
+                                        <td>{{$program['number']}}</td>
                                         <td>{{$program['program']}}</td>
-                                        <td>{{$program['actor']}}</td>
-                                        <td>{{$program['slogan']}}</td>
                                         <td>{{$program['poll_1']}}</td>
                                         <td>{{$program['poll_2']}}</td>
                                         <td>{{$program['poll_3']}}</td>

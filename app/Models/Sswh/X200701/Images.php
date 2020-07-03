@@ -15,4 +15,5 @@ class Images extends Model
     public function user() {
         return $this->belongsTo('App\Models\Sswh\X200701\User');
     }
+
 }
