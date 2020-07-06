@@ -94,7 +94,7 @@ class X200701Controller extends Controller
     {
         $condition = $request->input('condition');
         $type = $request->input('type');
-        $status = $request->input('status') != '' ? $request->input('status'): 1; //默认查已中奖
+        $status = $request->input('status') != '' ? $request->input('status'): [1,2]; //默认查已中奖
         $prizeId = $request->input('result_id');
         $dateRange = $request->input('date_range');
         $dateRange = $dateRange[0] != '' && $dateRange[1] != '' ? [$dateRange[0] . ' 00:00:00', $dateRange[1] . ' 23:59:59'] : '';
@@ -107,14 +107,14 @@ class X200701Controller extends Controller
                 return $query->whereBetween('prized_at', $dateRange);
             })
             ->when($status != '', function ($query) use ($status) {
-                return $query->where('status', $status);
+                return $query->whereIn('status', $status);
             })
             ->when($condition != '', function ($query) use ($type, $condition) {
                 return $query->whereHas('user', function ($query) use ($type, $condition) {
                     $query->where($type, 'like', '%' . $condition . '%');
                 });
             });
-        $query = $query->orderBy('created_at', 'desc');
+        $query = $query->orderBy('prized_at', 'desc');
         $total = $query->count();//获取查询总数
         $currentPage = $currentPage ?? 1; //当前页
         $perPage = $perPage ?? 10; //每页数量
@@ -160,7 +160,6 @@ class X200701Controller extends Controller
         $image->add_num = $add_num;
         $user = User::find($image->user_id);
         if ($request->status == 1) {
-            $user->prize_num += $add_num;
             $user->game_num += $add_num;
             $user->img_pass_num++;
         }

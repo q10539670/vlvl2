@@ -86,12 +86,12 @@ class X200701Controller extends Common
         ];
         $images = Images::create($image);
         $user->img_upload_num++;
-        $user->prize_num++;
         $user->game_num++;
         $result = $user->save();
         $log = Log::create([
             'user_id' => $user->id,
-            'origin' => 1    //来源上传
+            'origin' => 1,    //来源上传
+            'origin_image_id' => $images->id
         ]);
         //开启事务
         if ($image && $result && $log) {
@@ -159,9 +159,10 @@ class X200701Controller extends Common
         if (!$log = Log::where('user_id', $user->id)->where('status', 0)->orderBy('origin', 'asc')->first()) {
             return response()->json(['error' => '没有抽奖次数'], 422);
         }
-        $prize = Log::where('user_id', $user->id)->where('status', 1)->whereBetween('created_at',$this->getToday())->first();
+        $prize = Log::where('user_id', $user->id)->where('status', 1)->whereBetween('created_at', $this->getToday())->first();
         if ($log->origin == 1 || $prize) {
             $user->game_num--;//抽奖次数-1
+            $user->prize_num++;
             //存入中奖记录表
             $log->result_id = 0;
             $log->status = 2;
@@ -201,6 +202,7 @@ class X200701Controller extends Common
             return response()->json(['error' => '抽奖失败,请重新抽奖'], 422);
         }
         $user->game_num--;//抽奖次数-1
+        $user->prize_num++;
         if ($resultPrize['resultPrize']['prize_id'] != 0) {
             $log->status = 1;
             $user->bingo_num++; //中奖次数+1
@@ -236,9 +238,9 @@ class X200701Controller extends Common
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
-        $images = Images::where('user_id',$user->id)->get();
+        $images = Images::where('user_id', $user->id)->get();
         foreach ($images as $image) $image->prize;
-        return Helper::Json(1,'上传记录查询成功',['images'=>$images]);
+        return Helper::Json(1, '上传记录查询成功', ['images' => $images]);
     }
 
     /*
@@ -249,8 +251,8 @@ class X200701Controller extends Common
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
-        $prizeLog = Log::where('user_id',$user->id)->where('status','!=',0)->get();
-        return Helper::Json(1,'上传记录查询成功',['prize_log'=>$prizeLog]);
+        $prizeLog = Log::where('user_id', $user->id)->where('status', '!=', 0)->get();
+        return Helper::Json(1, '上传记录查询成功', ['prize_log' => $prizeLog]);
     }
 
     /*

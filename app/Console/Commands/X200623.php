@@ -43,10 +43,8 @@ class X200623 extends Command
      */
     public function handle()
     {
-        $program = Program::find(1);
         $user = new User();
         $week = $user->getWeek();
-        $week =5;
         if ($week > 1) {
             $week -= 1;
         } elseif ($week == 0 && time() > strtotime(self::END_TIME)) {

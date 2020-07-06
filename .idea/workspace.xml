@@ -5,15 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/X200623.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/X200623.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200623Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200623Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200701Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200623Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200623Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200701Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200701/Images.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X200701/Images.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200701/Log.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X200701/Log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X200701/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200623.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200623.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,6 +244,8 @@
       <workItem from="1593564758614" duration="12397000" />
       <workItem from="1593651349428" duration="22249000" />
       <workItem from="1593738269857" duration="18112000" />
+      <workItem from="1593997969458" duration="687000" />
+      <workItem from="1593998675309" duration="3791000" />
     </task>
     <servers />
   </component>
