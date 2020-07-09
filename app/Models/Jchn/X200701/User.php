@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Models\Sswh\X200701;
+namespace App\Models\Jchn\X200701;
 
 
 use Illuminate\Database\Eloquent\Model;

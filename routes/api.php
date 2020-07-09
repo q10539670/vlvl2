@@ -38,6 +38,9 @@ Route::group(['prefix' => 'sswh', 'namespace' => 'Sswh'], function () {
     Route::group(['middleware' => 'wxAuthV1.jyycCheckOpenid'], function () {
         require __DIR__ . '/wechat/jyyc.php'; //均瑶宜昌中心 微信项目路由   需要openid
     });
+    Route::group(['middleware' => 'wxAuthV1.jchnCheckOpenid'], function () {
+        require __DIR__ . '/wechat/jchn.php'; //均瑶宜昌中心 微信项目路由   需要openid
+    });
 
 
     require __DIR__ . '/wechat/qwt-NoAuth.php'; //全网通 微信项目路由  不需要openid
@@ -61,6 +64,12 @@ Route::group(['prefix' => 'sswh', 'namespace' => 'Jyyc'], function () {
         require __DIR__ . '/wechat/jyyc.php'; //均瑶宜昌中心 微信项目路由   需要openid
     });
     require __DIR__ . '/wechat/jyyc-NoAuth.php'; //均瑶宜昌中心 微信项目路由  不需要openid
+});
+Route::group(['prefix' => 'sswh', 'namespace' => 'Jchn'], function () {
+    Route::group(['middleware' => 'wxAuthV1.jchnCheckOpenid'], function () {
+        require __DIR__ . '/wechat/jchn.php'; //荆楚红牛 微信项目路由   需要openid
+    });
+    require __DIR__ . '/wechat/jchn-NoAuth.php'; //荆楚红牛 微信项目路由  不需要openid
 });
 
 Route::group(['prefix' => 'sswh'], function () {

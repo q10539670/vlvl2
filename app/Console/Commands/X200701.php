@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Helpers\Helper;
 use App\Models\Sswh\X200701\Images;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -35,40 +36,72 @@ class X200701 extends Command
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
+    /*
+     * template-id ： 3PU474JAjAn37yHCjH0mPNRaRTYyC2Knqx5sns3zxFw
+     * openid= oYYl55JPc5rJsUFIVomGcIZSs8E4 //test
      *
-     * @return mixed
-     */
-    public function handle()
+     * */
+    public function send($openid, $userId, $templateId = '3PU474JAjAn37yHCjH0mPNRaRTYyC2Knqx5sns3zxFw')
     {
-        $program = Program::find(1);
-        $week = $program->getWeek();
-        if ($week > 1) {
-            $week -= 1;
-        } elseif ($week == 0 && time() > strtotime(self::END_TIME)) {
-            $week = 4;
-        } else {
-            return $this->info('未到排名时间');
+        $url = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=' . Helper::getJchnAccessToken();
+        $nowStr = now()->toDateTimeString();
+        $resultMsg = '';
+        $contentMsg = '';
+        if (!in_array($ticket->check_status, [12, 21, 22, 24])) {
+            throw new \Exception("当前小票不符合模板消息发送场景", 201);
         }
-        $ranking = $week * 3;
-        $pollName = 'poll_' . $week;
-
-        if (Program::where('ranking', $ranking)->first()) {
-            $where = function ($query) use ($pollName) {
-                $query->where($pollName, '!=', 0);
-            };
-            $items = Program::where($where)->orderBy($pollName, 'asc')->orderBy('updated_at', 'asc')->get()->toArray();
-            foreach ($items as $key => $item) {
-                $userR = Program::find($item['id']);
-                if ($key <= 2) {
-                    $userR->fill(['ranking' => $key + (($week - 1) * 3) + 1]);
-                }
-                $userR->save();
-            }
-            return $this->info('排名成功');
-        } else {
-            return $this->info('已排名了');
+        if ($ticket->check_status == 12) { //审核不通过
+            $resultMsg = '不通过';
+            $contentMsg = '统一小票审核： '.explode('&&', $ticket->result_check_desc)[0];
+//            $contentMsg = '【小票编号：' . $ticket->id . '】 ' . explode('&&', $ticket->result_check_desc)[0];
+        } elseif ($ticket->check_status == 21) { //红包已发放
+            $resultMsg = '通过';
+            $contentMsg = '统一小票审核： 红包已发放';
+//            $contentMsg = '【小票编号：' . $ticket->id . '】 红包已发放';
+        } elseif ($ticket->check_status == 22) { //红包发放失败
+            $resultMsg = '通过';
+//            $contentMsg = '【小票id：' . $ticket->id . '】 ' . $ticket->result_redpack_desc;
+            $contentMsg = '红包已发放失败，已被微信拦截';
+//            $contentMsg = '【小票编号：' . $ticket->id . '】 红包已发放失败';
+        } elseif ($ticket->check_status == 24) { //当日红包已发完
+            $resultMsg = '通过';
+            $contentMsg = '当日红包已发完';
+//            $contentMsg = '【小票编号：' . $ticket->id . '】 当日红包已发完';
         }
+        $data = [
+            'touser' => $openid,
+            'template_id' => $templateId,
+            'data' => [
+                'phrase1' => ['value' => $resultMsg],
+                'thing3' => ['value' => $contentMsg],
+                'date5' => ['value' => $nowStr],
+            ],
+            "page" => "pages/index/index",
+//            "page" => "pages/redlist/redlist",
+            "lang" => "zh_CN",
+//            'miniprogram_state' => 'trial', //跳转小程序类型：developer 为开发版；trial 为体验版；formal 为正式版；默认为正式版
+        ];
+        $client = new \GuzzleHttp\Client();
+        $result = json_decode($client->request('POST', $url, ['json' => $data])->getBody()->getContents(), true);
+        $msg = [
+            'ticket_id' => $ticket->id,
+            'user_id' => $userId,
+            'type' => 'xcx',
+            'openid' => $openid,
+            'msg_content' => $contentMsg,
+            'msg_result' => $resultMsg,
+            'result_code' => $result['errcode'],
+            'result_msg' => $result['errmsg'],
+            'msg_send_at' => $nowStr,
+            'created_at' => now()->toDateTimeString(),
+        ];
+        if ($result['errcode'] == 0) {
+            $msg['status'] = 1;
+        } else {
+            $msg['status'] = 2;
+        }
+        Msg::create($msg);
+        $ticket->msg_status = $msg['status'];
+        $ticket->save();
     }
 }

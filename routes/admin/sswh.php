@@ -353,3 +353,10 @@ Route::get('/x200623/export', 'X200623Controller@export');
  */
 Route::get('/x200629/index',  'X200629Controller@index');
 Route::get('/x200629/export', 'X200629Controller@export');
+
+
+/**
+ * 兰州·中海铂悦府  200708
+ */
+Route::get('/x200708/index',  'X200708Controller@index');
+Route::get('/x200708/export', 'X200708Controller@export');

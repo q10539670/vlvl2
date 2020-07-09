@@ -132,6 +132,16 @@ class Helper
         return json_decode($redis->get('wx:whjctj:access_token'), true)['access_token'];
     }
 
+    /**
+     * 获取荆楚红牛 access_token
+     */
+    public static function getJchnAccessToken()
+    {
+        $redis = env('APP_ENV') == 'local' ? Redis::connection('sswh') : Redis::connection('default');
+        $redis->select('11');
+        return json_decode($redis->get('wx:whjchn:access_token'), true)['access_token'];
+    }
+
     /*
      * 获取当前类名 小写
      * */

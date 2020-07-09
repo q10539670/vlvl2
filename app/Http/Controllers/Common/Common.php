@@ -8,6 +8,7 @@ use App\Models\Jctj\JctjUsers as Jctj;
 use App\Models\Qwt\QwtUsers as Qwt;
 use App\Models\Sswh\SswhUsers as Sswh;
 use App\Models\Jyyc\JyycUsers as Jyyc;
+use App\Models\Jchn\JchnUsers as Jchn;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Common\BaseV1Controller as Controller;
 
@@ -66,6 +67,18 @@ class Common extends Controller
         return $user;
     }
 
+    /**
+     * 查询江宸天街文化用户
+     * @param Request $request
+     * @return
+     */
+    public function searchJchnUser(Request $request)
+    {
+        $user = Jchn::select('nickname', 'headimgurl')
+            ->where('openid', $request->openid)
+            ->first();
+        return $user;
+    }
     /**
      * 拼接用户信息
      * @param Request $request
@@ -162,6 +175,9 @@ class Common extends Controller
                     break;
                 case 'Jctj':
                     $token = Helper::getJctjAccessToken();
+                    break;
+                case 'Jchn':
+                    $token = Helper::getJchnAccessToken();
                     break;
                 default:
                     $token = Helper::getSswhAccessToken();

@@ -18,7 +18,11 @@ return [
         'key' => '92fbee1b3fcbf91eab49566afec782dc'
     ],
     'jyyc' => [
-        'openid' =>	'o9kSI0Sij5vxchIEcaeYBU4mzdX0',
+        'openid' => 'o9kSI0Sij5vxchIEcaeYBU4mzdX0',
         'key' => '8d6b639771daec8d56bdace8477029f1'
-]
+    ],
+    'jchn' => [
+        'openid' => 'oWFKkjgQ1iH26ws1joABOTyvZsqU',
+        'key' => 'ec02b3e9fee36caf91f0f91161bc84f0'
+    ]
 ];

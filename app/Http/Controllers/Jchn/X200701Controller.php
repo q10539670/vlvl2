@@ -1,15 +1,14 @@
 <?php
 
 
-namespace App\Http\Controllers\Sswh;
+namespace App\Http\Controllers\Jchn;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Common\Common;
-use App\Models\Sswh\X200701\Images;
-use App\Models\Sswh\X200701\User;
-use App\Models\Sswh\X200701\Log;
+use App\Models\Jchn\X200701\Images;
+use App\Models\Jchn\X200701\User;
+use App\Models\Jchn\X200701\Log;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -32,7 +31,7 @@ class X200701Controller extends Common
         $openid = $request->openid;
         if (!$user = User::where(['openid' => $openid])->first()) {
             //查询总表
-            $info = $this->searchSswhUser($request);
+            $info = $this->searchJchnUser($request);
             $userInfo = $this->userInfo($request, $info);
             //新增数据到表中
             User::create($userInfo);
