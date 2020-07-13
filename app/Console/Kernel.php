@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('x191220:cmd location')->everyMinute(); //长沙天街 娃娃机抽奖
 //        $schedule->command('dx190925:cmd export')->everyMinute();
         $schedule->command('x200515:ranking')->dailyAt('00:01');
-
+        $schedule->command('x200701:sendMsg')->everyMinute();
     }
 
     /**

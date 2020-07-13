@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Sswh;
 
-use App\Exports\X200701ExportUser;
+//use App\Exports\X200701ExportUser;
 use App\Helpers\Helper;
 use App\Http\Controllers\Common\BaseV1Controller as Controller;
-use App\Models\Sswh\X200701\User;
-use App\Models\Sswh\X200701\Log;
-use App\Models\Sswh\X200701\Images;
+use App\Models\Jchn\X200701\User;
+use App\Models\Jchn\X200701\Log;
+use App\Models\Jchn\X200701\Images;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,6 +17,9 @@ use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 class X200701Controller extends Controller
 {
+    //红牛抽奖
+    protected $itemName = 'x200701';
+    const TYPE = 'test';
     /**
      * 用户
      * @param Request $request
@@ -94,7 +97,7 @@ class X200701Controller extends Controller
     {
         $condition = $request->input('condition');
         $type = $request->input('type');
-        $status = $request->input('status') != '' ? $request->input('status'): [1,2]; //默认查已中奖
+        $status = $request->input('status') != '' ? $request->input('status'): [1,2,11,21]; //默认查已中奖
         $prizeId = $request->input('result_id');
         $dateRange = $request->input('date_range');
         $dateRange = $dateRange[0] != '' && $dateRange[1] != '' ? [$dateRange[0] . ' 00:00:00', $dateRange[1] . ' 23:59:59'] : '';
@@ -159,11 +162,29 @@ class X200701Controller extends Controller
         $image->checked_at = now()->toDateTimeString();
         $image->add_num = $add_num;
         $user = User::find($image->user_id);
+        $log = Log::where('origin',1)->where('origin_image_id',$request->id)->where('status',11)->first();
         if ($request->status == 1) {
             $user->game_num += $add_num;
             $user->img_pass_num++;
+            if ($log) {
+                $log->status = 1;
+            }
+        }
+        if ($request->status == 2) {
+            if ($log) {
+                $redis = app('redis');
+                $redis->select(12);
+                $redisCountKey = 'wx:' . $this->itemName . ':prizeCount:'.self::TYPE;
+                $redis->hIncrBy($redisCountKey, $log->result_id, -1);  //超发 中奖数回退
+                $log->status = 2;
+                $log->result_id = 0;
+                $log->result_name = '未中奖';
+                $log->content = '小票审核未通过';
+                $user->bingo_num--; //中奖次数+1
+            }
         }
         DB::beginTransaction();
+        $log->save();
         static $success = 0;
         for ($i = 0; $i < $add_num; $i++) {
             Log::create([
@@ -175,7 +196,7 @@ class X200701Controller extends Controller
         }
         $user->save();
         $image->save();
-        if ($success == $add_num && $user->save() && $image->save()) {
+        if ($success == $add_num && $user->save() && $image->save() && $log->save()) {
             DB::commit();
             return Helper::Json(1, '小票审核成功', ['images' => $image]);
         } else {

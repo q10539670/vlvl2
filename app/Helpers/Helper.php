@@ -139,7 +139,7 @@ class Helper
     {
         $redis = env('APP_ENV') == 'local' ? Redis::connection('sswh') : Redis::connection('default');
         $redis->select('11');
-        return json_decode($redis->get('wx:whjchn:access_token'), true)['access_token'];
+        return json_decode($redis->get('wx:jchnsj:access_token'), true)['access_token'];
     }
 
     /*

@@ -18,7 +18,7 @@ class X191220 extends Command
     /**
      * The console command description.
      *
-     * @var stringapp
+     * @var string
      */
     protected $description = '长沙洋湖天街';
 

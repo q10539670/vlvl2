@@ -4,20 +4,13 @@
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/X191220.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/X191220.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/X200701.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/X200701.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Common/Common.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Common/Common.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200701/Images.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/Images.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200701/Log.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/Log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/wxauthv1.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/wxauthv1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200629.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200629.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200701Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,6 +258,7 @@
       <workItem from="1594255941122" duration="2299000" />
       <workItem from="1594260059484" duration="14000" />
       <workItem from="1594263999588" duration="1511000" />
+      <workItem from="1594601606491" duration="9192000" />
     </task>
     <servers />
   </component>

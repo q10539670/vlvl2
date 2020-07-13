@@ -153,13 +153,14 @@ class X200701Controller extends Common
             if ($user->game_num <= 0) {
                 return response()->json(['error' => '没有抽奖次数'], 422);
             }
+
         }
-        // ***********处理当天中奖和上传小票抽奖
+        // ***********处理当天中奖
         if (!$log = Log::where('user_id', $user->id)->where('status', 0)->orderBy('origin', 'asc')->first()) {
             return response()->json(['error' => '没有抽奖次数'], 422);
         }
-        $prize = Log::where('user_id', $user->id)->where('status', 1)->whereBetween('created_at', $this->getToday())->first();
-        if ($log->origin == 1 || $prize) {
+        $prize = Log::where('user_id', $user->id)->whereIn('status', [1,11])->whereBetween('created_at', $this->getToday())->first();
+        if ($prize) {
             $user->game_num--;//抽奖次数-1
             $user->prize_num++;
             //存入中奖记录表
@@ -205,6 +206,7 @@ class X200701Controller extends Common
         if ($resultPrize['resultPrize']['prize_id'] != 0) {
             $log->status = 1;
             $user->bingo_num++; //中奖次数+1
+            if ($log->origin == 1) $log->status = 11;
         } else {
             $log->status = 2;
         }
