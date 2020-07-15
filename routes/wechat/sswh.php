@@ -469,23 +469,31 @@ Route::post('/x200615/share','X200615Controller@share');                     //�
 /**
  * 中国中铁·世纪山水   200622
  */
-Route::get( '/x200622/user',   'X200622Controller@user');                  //获取/记录用户信息
-Route::post('/x200622/score',  'X200622Controller@score');                 //提交成绩
-Route::post('/x200622/list',   'X200622Controller@list');                  //排行榜
-Route::get( '/x200622/share',  'X200622Controller@share');                 //分享
+Route::get( '/x200622/user',   'X200622Controller@user');                    //获取/记录用户信息
+Route::post('/x200622/score',  'X200622Controller@score');                   //提交成绩
+Route::post('/x200622/list',   'X200622Controller@list');                    //排行榜
+Route::get( '/x200622/share',  'X200622Controller@share');                   //分享
 
 /**
- * 美的投票
+ * 美的投票  200623
  */
-Route::get( '/x200623/user',    'X200623Controller@user');                     //获取/记录用户信息
-Route::post('/x200623/program', 'X200623Controller@programs');             //获取参赛队伍
-Route::post('/x200623/vote',    'X200623Controller@vote');                    //获取参赛队伍
-Route::post('/x200623/upload',  'X200623Controller@uploadProgram');         //上传参赛队伍信息
-Route::post('/x200623/update/{id}',  'X200623Controller@updateProgram');         //上传参赛队伍信息
+Route::get( '/x200623/user',    'X200623Controller@user');                   //获取/记录用户信息
+Route::post('/x200623/program', 'X200623Controller@programs');               //获取参赛队伍
+Route::post('/x200623/vote',    'X200623Controller@vote');                   //投票
+Route::post('/x200623/upload',  'X200623Controller@uploadProgram');          //上传参赛队伍信息
+Route::post('/x200623/update/{id}','X200623Controller@updateProgram');       //更新参赛队伍信息
 
 
 /**
- * 兰州·中海铂悦府 报名
+ * 兰州·中海铂悦府 报名   200708
  */
 Route::get( '/x200708/user', 'X200708Controller@user');                      //获取/记录用户信息
 Route::post('/x200708/post', 'X200708Controller@post');                      //提交信息
+
+/**
+ * 中国中铁·世纪山水   200715
+ */
+Route::get( '/x200715/user',   'X200715Controller@user');                    //获取/记录用户信息
+Route::post('/x200715/score',  'X200715Controller@score');                   //提交成绩
+Route::post('/x200715/list',   'X200715Controller@list');                    //排行榜
+Route::get( '/x200715/share',  'X200715Controller@share');                   //分享

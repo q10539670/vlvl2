@@ -152,3 +152,10 @@ Route::post('/x200617/init', 'X200617Controller@appInitHandler');         //初�
  */
 Route::get ('/x200629/user',  'X200629Controller@user');                   //获取/记录用户信息
 Route::post('/x200629/post',  'X200629Controller@post');
+
+/**
+ * 宜昌中心  200716
+ */
+Route::get( '/x200716/user',  'X200716Controller@user');                   //获取/记录用户信息
+Route::post('/x200716/prize', 'X200716Controller@randomPrize');            //抽奖
+Route::post('/x200716/init',  'X200716Controller@appInitHandler');         //初始化程序

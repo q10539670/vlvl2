@@ -1165,3 +1165,31 @@ CREATE TABLE x200708_user (
   updated_at TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (id)
 )ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+--中国中铁·世纪山水
+CREATE TABLE x200715_user (
+  id int UNSIGNED AUTO_INCREMENT,
+  openid varchar(36) not null default '',
+  nickname varchar(64) not null default '' comment '昵称',
+  avatar varchar(255) not null default '' comment '头像',
+  game_num int not null default 0 comment '游戏次数',
+  share_num tinyint(1) not null default 0 comment '分享次数',
+  score int not null default 0 comment '游戏分数',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+--宜昌中心
+CREATE TABLE x200716_user (
+  id int UNSIGNED AUTO_INCREMENT,
+  openid varchar(36) not null default '',
+  nickname varchar(64) not null default '' comment '昵称',
+  avatar varchar(255) not null default '' comment '头像',
+  status int not null default 0 comment '抽奖状态 0:未抽奖 1:已抽奖',
+  prize_id tinyint(1) not null default 0 comment '中奖ID',
+  prize varchar(16) not null default '' comment '奖品',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+)ENGINE = innodb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '用户表';

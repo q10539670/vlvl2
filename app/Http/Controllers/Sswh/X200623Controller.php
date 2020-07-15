@@ -17,7 +17,7 @@ class X200623Controller extends Common
     protected $itemName = 'x200623';
     protected $prod = 'cdnn';   // (cdnn / wx)
 
-    const END_TIME = '2020-07-24 23:59:59';
+    const END_TIME = '2020-07-24 12:00:00';
 
 
     /*
@@ -51,15 +51,7 @@ class X200623Controller extends Common
      */
     public function programs(Request $request)
     {
-        $where = function ($query) use ($request) {
-            if ($request->has('search') && ($request->search != '')) {
-                if (is_numeric($request->search)) {
-                    $query->where('number', $request->search);
-                } else {
-                    $query->where('program', 'like', '%' . $request->search . '%');
-                }
-            }
-        };
+
         $user = new User();
         $week = $user->getWeek();
         if ($week < 1) {
@@ -69,21 +61,21 @@ class X200623Controller extends Common
             $week = 4;
         }
         //获取所有参赛舞团
-        $programs = Program::where($where)->orderBy('ranking', 'asc')->orderBy('number', 'asc')->get();
+        $programs = Program::orderBy('number', 'asc')->get();
         $programsList = Program::orderBy('poll_' . $week, 'desc')->orderBy('updated_at', 'asc')->get();
         foreach ($programsList as $k => $v) {
             for ($i = 0; $i < count($programs); $i++) {
                 if ($v['id'] == $programs[$i]['id']) {
                     $programs[$i]['rank'] = $k + 1;
-
-
                     if (strstr($programs[$i]['images'], '|')) {
                         $programs[$i]['images'] = explode('|', $programs[$i]['images']);
                     } else {
                         $programs[$i]['images'] = [$programs[$i]['images']];
                     }
                 }
+
             }
+
         }
 
         $prefix = 'https://' . $this->prod . '.sanshanwenhua.com/statics/';
@@ -123,7 +115,10 @@ class X200623Controller extends Common
         }
         $data = ['20200704', '20200711', '20200718', '20200725'];
         $today = date('Ymd');
-//        $today = '20200704';
+        $todayTime = now()->toDateTimeString();
+        if ($todayTime > '2020-07-17 12:00:00' && $todayTime < '2020-07-17 23:59:59') {
+            $today = '20200718';
+        }
         if (in_array($today, $data)) {
             return response()->json(['error' => '今日统计票数，不能投票'], 422);
         }

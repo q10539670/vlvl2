@@ -360,3 +360,17 @@ Route::get('/x200629/export', 'X200629Controller@export');
  */
 Route::get('/x200708/index',  'X200708Controller@index');
 Route::get('/x200708/export', 'X200708Controller@export');
+
+/**
+ * 兰州·中海铂悦府  200715
+ */
+Route::get('/x200715/index',  'X200715Controller@index');
+Route::get('/x200715/export', 'X200715Controller@export');
+
+/**
+ * 宜昌中心 生活服务启示录  200716
+ */
+Route::get('/x200716/index',  'X200716Controller@index');
+Route::get('/x200716/export', 'X200716Controller@export');
+
+
