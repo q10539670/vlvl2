@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200623Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200623Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/jyyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/jyyc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
-    </list>
+    <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -261,7 +251,7 @@
       <workItem from="1594601606491" duration="9192000" />
       <workItem from="1594688644854" duration="602000" />
       <workItem from="1594774519110" duration="5727000" />
-      <workItem from="1594797861128" duration="9097000" />
+      <workItem from="1594797861128" duration="9237000" />
     </task>
     <servers />
   </component>

@@ -29,7 +29,7 @@ class User extends Model
     protected $prizeConf = [
         /*中奖数组*/
         'prize' => [
-            0 => ['prize_id' => 1, 'prize_level_name' => '伴手礼', 'prize_name' => '定制礼品', 'v' => 10, 'count' => 0, 'limit' => 10],
+            0 => ['prize_id' => 1, 'prize_level_name' => '伴手礼', 'prize_name' => '定制礼品', 'v' => 197, 'count' => 0, 'limit' => 100000],
             1 => ['prize_id' => 2, 'prize_level_name' => '幸运奖', 'prize_name' => '定制充电笔记本套盒', 'v' => 1, 'count' => 0, 'limit' => 1],
             2 => ['prize_id' => 3, 'prize_level_name' => '一等奖', 'prize_name' => '摩飞榨汁机', 'v' => 1, 'count' => 0, 'limit' => 1],
             3 => ['prize_id' => 4, 'prize_level_name' => '特等奖', 'prize_name' => '小狗吸尘器', 'v' => 1, 'count' => 0, 'limit' => 1],
