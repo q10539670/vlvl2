@@ -120,37 +120,41 @@ class GameReset extends Command
 //        DB::table('x200115_user')->update([
 //            'num' => 3,
 //        ]);   //长沙美的投票
-        DB::table('x200424_user')->update([
-            'topic_num' => 3,
-            'status' => 0
-        ]);   //长沙美的投票
-        DB::table('x200509_user')->update([
-            'game_num' => 2,
-            'share_num' => 1,
-            'level' => 0
-        ]);   //奥莱520 天生一对
-        DB::table('x200512_user')->update([
-            'poll_num' => 1,
-            'share_num' => 3
-        ]);   //长沙美的投票
-        DB::table('x200515_user')->update([
-            'game_num' => 3,
-            'share_num' => 1
-        ]);   //长沙美的投票
-        DB::table('x200528_user')->update([
-            'game_num' => 3
-        ]);   //长沙美的投票
-        DB::table('x200612_user')->update([
-            'game_num' => 3,
-            'share_num' => 1
-        ]);   //世纪山水
-        DB::table('x200615_user')->update([
-            'prize_num' => 1,
-            'share_num' => 3
-        ]);   //金桥璟园
+//        DB::table('x200424_user')->update([
+//            'topic_num' => 3,
+//            'status' => 0
+//        ]);   //长沙美的投票
+//        DB::table('x200509_user')->update([
+//            'game_num' => 2,
+//            'share_num' => 1,
+//            'level' => 0
+//        ]);   //奥莱520 天生一对
+//        DB::table('x200512_user')->update([
+//            'poll_num' => 1,
+//            'share_num' => 3
+//        ]);   //长沙美的投票
+//        DB::table('x200515_user')->update([
+//            'game_num' => 3,
+//            'share_num' => 1
+//        ]);   //长沙美的投票
+//        DB::table('x200528_user')->update([
+//            'game_num' => 3
+//        ]);   //长沙美的投票
+//        DB::table('x200612_user')->update([
+//            'game_num' => 3,
+//            'share_num' => 1
+//        ]);   //世纪山水
+//        DB::table('x200615_user')->update([
+//            'prize_num' => 1,
+//            'share_num' => 3
+//        ]);   //世纪山水
         DB::table('x200623_user')->update([
-            'vote_num' => 4
+            'vote_num' => 2
         ]);   //金桥璟园
+        DB::table('x200715_user')->update([
+            'game_num' => 1,
+            'share_num' => 2
+        ]);   //世纪山水
         return $this->info('重置成功');
     }
 }

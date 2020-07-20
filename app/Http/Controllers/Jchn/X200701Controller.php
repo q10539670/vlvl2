@@ -22,7 +22,6 @@ class X200701Controller extends Common
 
     //test:测试 gold:正式
     const TYPE = 'test';
-
     /*
      * 获取/记录用户授权信息
      * */

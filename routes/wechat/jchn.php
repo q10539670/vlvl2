@@ -5,6 +5,9 @@
 /**
  * 红牛抽奖
  */
+Route::middleware('auth:admins')->group(function () {
+    Route::get('/', 'HomeController@index'); //后台首页
+});
 Route::get( '/x200701/user',    'X200701Controller@user');                     //获取/记录用户信息
 Route::post('/x200701/images',  'X200701Controller@images');                   //上传小票
 Route::post('/x200701/prize',   'X200701Controller@randomPrize');              //抽奖

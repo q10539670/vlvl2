@@ -103,13 +103,14 @@ class X200623Controller extends Common
         if ($user['vote_num'] <= 0) {
             return response()->json(['error' => '今日投票次数已用完，明天可以继续为TA投票'], 422);
         }
-        if ($user['ranking'] > 0) {
+        $program = Program::find($request->program_id);
+        if ($program['ranking'] > 0) {
             return response()->json(['error' => '该队伍已获阶段前三，不再参与投票'], 422);
         }
         if ($voteNums = VoteLog::where('user_id', $user->id)->where('program_id', $request->program_id)->whereBetween('created_at', $this->getToday())->count() >= 2) {
             return response()->json(['error' => '每个节目最多投2票'], 422);
         }
-        $program = Program::find($request->program_id);
+
         if (!$program) {
             return response()->json(['error' => '您投票的节目不存在'], 422);
         }

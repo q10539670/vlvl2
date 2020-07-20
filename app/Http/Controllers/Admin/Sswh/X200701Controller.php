@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin\Sswh;
 
-//use App\Exports\X200701ExportUser;
 use App\Helpers\Helper;
 use App\Http\Controllers\Common\BaseV1Controller as Controller;
+use App\Models\Jchn\X200701\Admin;
 use App\Models\Jchn\X200701\User;
 use App\Models\Jchn\X200701\Log;
 use App\Models\Jchn\X200701\Images;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 class X200701Controller extends Controller
@@ -20,9 +20,45 @@ class X200701Controller extends Controller
     //红牛抽奖
     protected $itemName = 'x200701';
     const TYPE = 'test';
+
+    public function __construct()
+    {
+        $this->middleware('auth:admins', ['except' => ['register', 'login']]);
+    }
+
+    public function login(Request $request)
+    {
+        $username = $request->username;
+        $password = $request->password;
+
+        if (!$username || !$password) {
+            return response()->json(['error' => '用户名或密码填写错误！'],422);
+        }
+
+        $admin = Admin::where('username', $username)->first();
+        if (!$admin) {
+            return response()->json(['error' => '此用户名不存在！']);
+        }
+        if ($admin->status != 1) {
+            return response()->json(['error' => '此用户已被停用！']);
+        }
+        if (!Hash::check($password, $admin->password)) {
+            return response()->json(['error' => '密码填写错误！']);
+        }
+
+        $credentials = request(['username', 'password']);
+        if (!$token = auth('admins')->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        return Helper::Json(1,'登陆成功',[
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'expires_in' => auth('admins')->factory()->getTTL() * 60
+        ]);
+    }
     /**
      * 用户
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function user(Request $request)
@@ -32,13 +68,15 @@ class X200701Controller extends Controller
         $perPage = ($request->input('per_page') != '') ? $request->input('per_page') : 10;
         $currentPage = $request->input('current_page') != '' ? $request->input('current_page') : 1;
         $query = User::when(($type && $condition), function ($query) use ($condition, $type) {
-            return $query->where($type, 'like', '%' . $condition . '%');
+            return $query->where($type, 'like', '%'.$condition.'%');
         });
         $query = $query->orderBy('created_at', 'desc');
         $total = $query->count();//获取查询总数
         $items = $query->offset($perPage * ($currentPage - 1))->limit($perPage)->get();
         $paginator = new Paginator($items, $total, $perPage, $currentPage);
-        foreach ($paginator as $user) $user->images;
+        foreach ($paginator as $user) {
+            $user->images;
+        }
 //        $exportUrl = asset('/vlvl/x200701/export_user');
 
         return Helper::Json(1, '用户获取成功', [
@@ -49,7 +87,7 @@ class X200701Controller extends Controller
 
     /**
      * 小票
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function ticket(Request $request)
@@ -59,7 +97,7 @@ class X200701Controller extends Controller
         $status = $request->input('status');
         $dateRange = $request->input('date_range');
         $msg = $request->input('msg_status');
-        $dateRange = $dateRange != '' ? [$dateRange[0] . ' 00:00:00', $dateRange[1] . ' 23:59:59'] : '';
+        $dateRange = $dateRange != '' ? [$dateRange[0].' 00:00:00', $dateRange[1].' 23:59:59'] : '';
         $perPage = ($request->input('per_page') != '') ? $request->input('per_page') : 10;
         $currentPage = $request->input('current_page') != '' ? $request->input('current_page') : 1;
         $query = Images::when($status != '', function ($query) use ($status) {
@@ -73,14 +111,16 @@ class X200701Controller extends Controller
             })
             ->when($condition != '', function ($query) use ($condition, $type) {
                 return $query->whereHas('user', function ($query) use ($condition, $type) {
-                    $query->where($type, 'like', '%' . $condition . '%');
+                    $query->where($type, 'like', '%'.$condition.'%');
                 });
             });
         $query = $query->orderBy('created_at', 'desc');
         $total = $query->count();//获取查询总数
         $items = $query->offset($perPage * ($currentPage - 1))->limit($perPage)->get();
         $paginator = new Paginator($items, $total, $perPage, $currentPage);
-        foreach ($paginator as $image) $image->user;
+        foreach ($paginator as $image) {
+            $image->user;
+        }
 //        $exportUrl = asset('/vlvl/x200701/export_images');
         return Helper::Json(1, '小票查询成功', [
             'paginator' => $paginator,
@@ -90,17 +130,19 @@ class X200701Controller extends Controller
 
     /**
      * 中奖记录
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function prizeLog(Request $request)
     {
         $condition = $request->input('condition');
         $type = $request->input('type');
-        $status = $request->input('status') != '' ? $request->input('status'): [1,2,11,21]; //默认查已中奖
+        $status = $request->input('status') != '' ? $request->input('status') : [1, 2, 11, 21]; //默认查已中奖
         $prizeId = $request->input('result_id');
         $dateRange = $request->input('date_range');
-        $dateRange = $dateRange[0] != '' && $dateRange[1] != '' ? [$dateRange[0] . ' 00:00:00', $dateRange[1] . ' 23:59:59'] : '';
+        $dateRange = $dateRange[0] != '' && $dateRange[1] != '' ? [
+            $dateRange[0].' 00:00:00', $dateRange[1].' 23:59:59'
+        ] : '';
         $perPage = ($request->input('per_page') != '') ? $request->input('per_page') : 10;
         $currentPage = $request->input('current_page') != '' ? $request->input('current_page') : 1;
         $query = Log::when($prizeId, function ($query) use ($prizeId) {
@@ -114,7 +156,7 @@ class X200701Controller extends Controller
             })
             ->when($condition != '', function ($query) use ($type, $condition) {
                 return $query->whereHas('user', function ($query) use ($type, $condition) {
-                    $query->where($type, 'like', '%' . $condition . '%');
+                    $query->where($type, 'like', '%'.$condition.'%');
                 });
             });
         $query = $query->orderBy('prized_at', 'desc');
@@ -123,8 +165,12 @@ class X200701Controller extends Controller
         $perPage = $perPage ?? 10; //每页数量
         $items = $query->offset($perPage * ($currentPage - 1))->limit($perPage)->get();
         $paginator = new Paginator($items, $total, $perPage, $currentPage);
-        foreach ($paginator as $prize) $prize->user;
-        foreach ($paginator as $prize) $prize->image;
+        foreach ($paginator as $prize) {
+            $prize->user;
+        }
+        foreach ($paginator as $prize) {
+            $prize->image;
+        }
 //        $exportUrl = asset('/vlvl/x200701/export_prize');
         return Helper::Json(1, '中奖记录查询成功', [
             'paginator' => $paginator,
@@ -134,7 +180,7 @@ class X200701Controller extends Controller
 
     /**
      *审核
-     * @param Request $request
+     * @param  Request  $request
      * @param $id
      * @return JsonResponse
      */
@@ -155,26 +201,29 @@ class X200701Controller extends Controller
         if ($validator->fails()) {
             return Helper::Json(-1, $validator->errors()->first());
         }
-        $add_num = floor($request->num / 2);
+        $add_num = floor($request->num / 2) - 1;
         $image = Images::find($request->id);
-        if ($image->status != 0) return Helper::Json(-1, '小票已被审核');
+        if ($image->status != 0) {
+            return Helper::Json(-1, '小票已被审核');
+        }
         $image->fill($request->all());
         $image->checked_at = now()->toDateTimeString();
         $image->add_num = $add_num;
         $user = User::find($image->user_id);
-        $log = Log::where('origin',1)->where('origin_image_id',$request->id)->where('status',11)->first();
+        $log = Log::where('origin', 1)->where('origin_image_id', $request->id)->where('status', 11)->first();
         if ($request->status == 1) {
             $user->game_num += $add_num;
             $user->img_pass_num++;
             if ($log) {
                 $log->status = 1;
             }
+
         }
         if ($request->status == 2) {
             if ($log) {
                 $redis = app('redis');
                 $redis->select(12);
-                $redisCountKey = 'wx:' . $this->itemName . ':prizeCount:'.self::TYPE;
+                $redisCountKey = 'wx:'.$this->itemName.':prizeCount:'.self::TYPE;
                 $redis->hIncrBy($redisCountKey, $log->result_id, -1);  //超发 中奖数回退
                 $log->status = 2;
                 $log->result_id = 0;

@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Storage;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Redis;
@@ -172,4 +173,47 @@ class Helper
         return '`' . $emojiStr;    //昵称前面加半角符号 防止 EXCEL报错
     }
 
+    /**
+     * 发送模板消息
+     * @throws GuzzleException
+     */
+    public static function sendTemplateMsg($data,$template)
+    {
+        $url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token='.self::getJchnAccessToken();
+        $nowStr = now()->toDateTimeString();
+        $images = Images::where('msg_status', 0)->where('status', '!=', 0)->get();
+        foreach ($images as $image) {
+            if ($image->status == 1) {
+                $resultMsg = '审核通过';
+                $keyword1 = $image->add_num.'次抽奖机会';
+
+            } else {
+                $resultMsg = '审核未通过';
+                $keyword1 = '无';
+            }
+            $user = User::find($image->user_id);
+            $data = [
+                'touser' => $user->openid,
+                'template_id' => 'Etn2eu1jpDwpuQAJMPzmLM19p7FZOFn_Lw_UzSVEHpQ',
+                'data' => [
+                    'first' => ['value' => $resultMsg],
+                    'keyword1' => ['value' => $keyword1],
+                    'keyword2' => ['value' => $nowStr],
+                    'remark' => ['value' => '']
+                ],
+                "url" => "https://wx.sanshanwenhua.com/items/hn20200703/index.html",
+//            "page" => "pages/redlist/redlist",
+                "lang" => "zh_CN",
+//            'miniprogram_state' => 'trial', //跳转小程序类型：developer 为开发版；trial 为体验版；formal 为正式版；默认为正式版
+            ];
+            $client = new \GuzzleHttp\Client();
+            $result = json_decode($client->request('POST', $url, ['json' => $data])->getBody()->getContents(), true);
+            if ($result['errcode'] == 0) {
+                $image->msg_status = 1;
+            } else {
+                $image->msg_status = 2;
+            }
+            $image->save();
+        }
+    }
 }

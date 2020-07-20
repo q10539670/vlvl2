@@ -158,4 +158,4 @@ Route::post('/x200629/post',  'X200629Controller@post');
  */
 Route::get( '/x200716/user',  'X200716Controller@user');                   //获取/记录用户信息
 Route::post('/x200716/prize', 'X200716Controller@randomPrize');            //抽奖
-Route::post('/x200716/init',  'X200716Controller@appInitHandler');         //初始化程序
+Route::get('/x200716/init',  'X200716Controller@appInitHandler');         //初始化程序

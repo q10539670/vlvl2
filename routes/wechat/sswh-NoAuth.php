@@ -31,8 +31,16 @@ Route::get('/x200106r/get_round/', '\App\Http\Controllers\Admin\Sswh\X200106Cont
 /**
  * 红牛接口
  */
-Route::get('admin/x200701/user',  'X200701Controller@user'); //用户
-Route::get('admin/x200701/ticket',  'X200701Controller@ticket'); //小票
-Route::get('admin/x200701/prize',  'X200701Controller@prizeLog'); //中奖记录
-Route::post('admin/x200701/check',  'X200701Controller@check'); //审核
-Route::get('admin/x200701/info',  'X200701Controller@info'); //h5信息
+Route::prefix('admin')->group(function () {
+    Route::post('register', 'X200701Controller@register');
+    Route::post('login', 'X200701Controller@login');
+});
+Route::prefix('admin')->middleware('auth:admins')->group(function () {
+    Route::get('/', 'HomeController@index'); //后台首页
+    Route::get('x200701/user',  'X200701Controller@user'); //用户
+    Route::get('x200701/ticket',  'X200701Controller@ticket'); //小票
+    Route::get('x200701/prize',  'X200701Controller@prizeLog'); //中奖记录
+    Route::post('x200701/check',  'X200701Controller@check'); //审核
+    Route::get('x200701/info',  'X200701Controller@info'); //h5信息
+});
+
