@@ -158,6 +158,7 @@ class X200701Controller extends Common
         if (!$log = Log::where('user_id', $user->id)->where('status', 0)->orderBy('origin', 'asc')->first()) {
             return response()->json(['error' => '没有抽奖次数'], 422);
         }
+
         $prize = Log::where('user_id', $user->id)->whereIn('status', [1,11])->whereBetween('created_at', $this->getToday())->first();
         if ($prize) {
             $user->game_num--;//抽奖次数-1
@@ -180,6 +181,30 @@ class X200701Controller extends Common
             return Helper::json(1, '抽奖成功', ['user' => $user, 'log' => $log, 'result_name' => '未中奖', 'result_id' => 0]);
         }
         //*******************结束
+
+        //*****************处理审核失败的抽奖
+        if ($log->origin == 1 && $log->status == 0 && $log->image->status == 2) {
+            $user->game_num--;//抽奖次数-1
+            $user->prize_num++;
+            //存入中奖记录表
+            $log->result_id = 0;
+            $log->status = 2;
+            $log->result_name = '未中奖';
+            $log->prized_at = now()->toDateTimeString();
+            //开启事务
+            DB::beginTransaction();
+            try {
+                $user->save();
+                $log->save();
+                DB::commit();
+            } catch (\Exception $e) {
+                DB::rollback();
+                return Helper::json(-1, '抽奖失败');
+            }
+            return Helper::json(1, '抽奖成功', ['user' => $user, 'log' => $log, 'result_name' => '未中奖', 'result_id' => 0]);
+        }
+        //*************结束
+
         //处理正常抽奖
         $redis = app('redis');
         $redis->select(12);
@@ -205,7 +230,7 @@ class X200701Controller extends Common
         if ($resultPrize['resultPrize']['prize_id'] != 0) {
             $log->status = 1;
             $user->bingo_num++; //中奖次数+1
-            if ($log->origin == 1) $log->status = 11;
+            if ($log->origin == 1 && $log->image->status == 0) $log->status = 11;
         } else {
             $log->status = 2;
         }

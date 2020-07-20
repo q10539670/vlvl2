@@ -21,18 +21,58 @@ class X200701Controller extends Controller
     protected $itemName = 'x200701';
     const TYPE = 'test';
 
-    public function __construct()
+//    public function __construct()
+//    {
+//        $this->middleware('x200701', ['except' => ['register', 'login']]);
+//    }
+
+    /**
+     * 后台管理员注册
+     * @param  Request  $request
+     * @return JsonResponse
+     */
+    public function register(Request $request)
     {
-        $this->middleware('auth:admins', ['except' => ['register', 'login']]);
+        $name = $request->name;
+        $username = $request->username;
+        $password = $request->password;
+        $check_password = $request->check_password;
+
+        if (!$name || !$password || !$username) {
+            return response()->json(['error' => '用户名、昵称或密码必填！']);
+        }
+
+        if ($check_password != $password) {
+            return response()->json(['error' => '两次密码输入不一致！']);
+        }
+
+        $admin = Admin::where('username', $username)->first();
+        if ($admin) {
+            return response()->json(['error' => '用户名已被注册！']);
+        }
+
+        $password = Hash::make($password);
+        $admin = Admin::create([
+            'name' => $name,
+            'username' => $username,
+            'password' => $password
+        ]);
+
+        return Helper::Json(1, '注册成功', ['admin' => $admin]);
     }
 
+    /**
+     * 用户登录
+     * @param  Request  $request
+     * @return JsonResponse
+     */
     public function login(Request $request)
     {
         $username = $request->username;
         $password = $request->password;
 
         if (!$username || !$password) {
-            return response()->json(['error' => '用户名或密码填写错误！'],422);
+            return response()->json(['error' => '用户名或密码填写错误！'], 422);
         }
 
         $admin = Admin::where('username', $username)->first();
@@ -50,12 +90,14 @@ class X200701Controller extends Controller
         if (!$token = auth('admins')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-        return Helper::Json(1,'登陆成功',[
+        return Helper::Json(1, '登陆成功', [
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'expires_in' => auth('admins')->factory()->getTTL() * 60
+            'expires_in' => auth('admins')->factory()->getTTL() * 60,
+            'admin' => $admin
         ]);
     }
+
     /**
      * 用户
      * @param  Request  $request
@@ -120,6 +162,7 @@ class X200701Controller extends Controller
         $paginator = new Paginator($items, $total, $perPage, $currentPage);
         foreach ($paginator as $image) {
             $image->user;
+            $image->admin;
         }
 //        $exportUrl = asset('/vlvl/x200701/export_images');
         return Helper::Json(1, '小票查询成功', [
@@ -198,26 +241,55 @@ class X200701Controller extends Controller
             'status.regex' => '状态参数错误',
             'num.required_if' => '产品数量不能为空',
         ]);
-        if ($validator->fails()) {
-            return Helper::Json(-1, $validator->errors()->first());
+        if (!$image = Images::find($request->id)) {
+            return Helper::Json(-1, '该小票不存在');
         }
-        $add_num = floor($request->num / 2) - 1;
-        $image = Images::find($request->id);
         if ($image->status != 0) {
             return Helper::Json(-1, '小票已被审核');
         }
-        $image->fill($request->all());
+        if ($validator->fails()) {
+            return Helper::Json(-1, $validator->errors()->first());
+        }
+
+        $image->status = $request->status;
         $image->checked_at = now()->toDateTimeString();
-        $image->add_num = $add_num;
+        $image->admin_id = $request->user->id;
         $user = User::find($image->user_id);
         $log = Log::where('origin', 1)->where('origin_image_id', $request->id)->where('status', 11)->first();
         if ($request->status == 1) {
+            if ($request->num == 1) {
+                $add_num = 0;
+            } else {
+                $add_num = floor($request->num / 2) - 1;
+            }
+            $image->add_num = $add_num;
+            $image->num = $request->num;
             $user->game_num += $add_num;
             $user->img_pass_num++;
+            static $success = 0;
+            DB::beginTransaction();
+            for ($i = 0; $i < $add_num; $i++) {
+                Log::create([
+                    'user_id' => $image->user_id,
+                    'origin' => 2,    //来源审核
+                    'origin_image_id' => $image->id
+                ]);
+                $success++;
+            }
             if ($log) {
                 $log->status = 1;
+                $log->save();
             }
-
+            $user->save();
+            $image->save();
+            if ($success == $add_num && $user->save() && $image->save()) {
+                DB::commit();
+                $image->admin;
+                return Helper::Json(1, '小票审核成功', ['images' => $image]);
+            } else {
+                DB::rollBack();
+                return Helper::Json(-1, '小票审核失败');
+            }
         }
         if ($request->status == 2) {
             if ($log) {
@@ -230,32 +302,21 @@ class X200701Controller extends Controller
                 $log->result_name = '未中奖';
                 $log->content = '小票审核未通过';
                 $user->bingo_num--; //中奖次数+1
+                $log->save();
+            }
+            $user->save();
+            $image->save();
+            $image->admin;
+            if ($user->save() && $image->save()) {
+                DB::commit();
+                $image->admin;
+                return Helper::Json(1, '小票审核成功', ['images' => $image]);
+            } else {
+                DB::rollBack();
+                return Helper::Json(-1, '小票审核失败');
             }
         }
-        DB::beginTransaction();
-        $log->save();
-        static $success = 0;
-        for ($i = 0; $i < $add_num; $i++) {
-            Log::create([
-                'user_id' => $image->user_id,
-                'origin' => 2,    //来源审核
-                'origin_image_id' => $image->id
-            ]);
-            $success++;
-        }
-        $user->save();
-        $image->save();
-        if ($success == $add_num && $user->save() && $image->save() && $log->save()) {
-            DB::commit();
-            return Helper::Json(1, '小票审核成功', ['images' => $image]);
-        } else {
-            DB::rollBack();
-            return Helper::Json(-1, '小票审核失败');
-        }
-
-
     }
-
     /**
      * h5信息
      * @return JsonResponse

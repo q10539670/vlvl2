@@ -68,6 +68,8 @@ class Kernel extends HttpKernel
         'wxAuthV1.jyycCheckOpenid' => \App\Http\Middleware\WxAuthV1\JyycCheckOpenid::class,
         'wxAuthV1.jchnCheckOpenid' => \App\Http\Middleware\WxAuthV1\JchnCheckOpenid::class,
         'ticket_l191127_login' => \App\Http\Middleware\Ticket\L191127::class,
+        'x200701' => \App\Http\Middleware\X200701::class,
+        'cors' => \App\Http\Middleware\Cors::class,
     ];
 
     /**

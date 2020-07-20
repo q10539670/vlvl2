@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/X200701.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/X200701.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200701Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200623Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200623Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/Images.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/Images.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/jchn.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/jchn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/jyyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/jyyc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +144,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models/Jchn/X200701" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Middleware" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -160,11 +153,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\app\Http\Middleware" />
       <recent name="D:\laragon\www\vlvl\app\Models\Jchn\X200701" />
       <recent name="D:\laragon\www\vlvl\public\js" />
       <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
       <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
@@ -276,7 +269,7 @@
       <workItem from="1594797861128" duration="9237000" />
       <workItem from="1594883258236" duration="2136000" />
       <workItem from="1594947415524" duration="8769000" />
-      <workItem from="1595206947914" duration="5673000" />
+      <workItem from="1595206947914" duration="16842000" />
     </task>
     <servers />
   </component>
@@ -308,10 +301,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="757" y="381" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1592792381234" />
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595226951649">
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595229520297">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595226951649" />
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595229520297" />
     <state x="1197" y="334" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0" timestamp="1594172695929">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -340,10 +333,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1860" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
-    <state x="713" y="244" key="NewPhpClassDialog" timestamp="1593594033851">
+    <state x="713" y="244" key="NewPhpClassDialog" timestamp="1595231563089">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="713" y="244" key="NewPhpClassDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1593594033851" />
+    <state x="713" y="244" key="NewPhpClassDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595231563089" />
     <state x="785" y="448" key="NewPhpFileDialog" timestamp="1594202178387">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

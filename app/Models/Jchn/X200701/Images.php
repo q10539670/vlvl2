@@ -13,7 +13,11 @@ class Images extends Model
     protected $guarded = [];
 
     public function user() {
-        return $this->belongsTo('App\Models\Sswh\X200701\User');
+        return $this->belongsTo('App\Models\Jchn\X200701\User');
+    }
+
+    public function admin() {
+        return $this->belongsTo('App\Models\Jchn\X200701\Admin');
     }
 
 }

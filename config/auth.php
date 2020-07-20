@@ -83,7 +83,7 @@ return [
 
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Jchn\X200701::class,
+            'model' => App\Models\Jchn\X200701\Admin::class,
         ]
     ],
 
