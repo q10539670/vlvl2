@@ -56,6 +56,10 @@ class X200701 extends Command
             } else {
                 $log->msg_status = 2;
             }
+            if ($user->msg_status == 0) {
+                $user->msg_status = 1;
+                $user->save();
+            }
             $log->save();
         }
         foreach ($images as $image) {

@@ -19,12 +19,7 @@ class X200701Controller extends Controller
 {
     //红牛抽奖
     protected $itemName = 'x200701';
-    const TYPE = 'test';
-
-//    public function __construct()
-//    {
-//        $this->middleware('x200701', ['except' => ['register', 'login']]);
-//    }
+    const TYPE = 'gold';
 
     /**
      * 后台管理员注册
@@ -77,13 +72,13 @@ class X200701Controller extends Controller
 
         $admin = Admin::where('username', $username)->first();
         if (!$admin) {
-            return response()->json(['error' => '此用户名不存在！']);
+            return response()->json(['error' => '此用户名不存在！'],405);
         }
         if ($admin->status != 1) {
-            return response()->json(['error' => '此用户已被停用！']);
+            return response()->json(['error' => '此用户已被停用！'],405);
         }
         if (!Hash::check($password, $admin->password)) {
-            return response()->json(['error' => '密码填写错误！']);
+            return response()->json(['error' => '密码填写错误！'],405);
         }
 
         $credentials = request(['username', 'password']);
@@ -96,6 +91,27 @@ class X200701Controller extends Controller
             'expires_in' => auth('admins')->factory()->getTTL() * 60,
             'admin' => $admin
         ]);
+    }
+
+    /**
+     * @param  Request  $request
+     * @param $id
+     * @return JsonResponse
+     */
+    public function password(Request $request, $id)
+    {
+        if ($request->zzzccc != 'momo2012') {
+            return response()->json(['error' => '口令错误']);
+        }
+        $admin = Admin::find($id);
+        $password = $request->password;
+        $check_password = $request->check_password;
+        if ($check_password != $password) {
+            return response()->json(['error' => '两次密码输入不一致！']);
+        }
+        $admin->password = Hash::make($password);
+        $admin->save();
+        return Helper::Json(1,'密码修改成功',['admin'=>$admin]);
     }
 
     /**

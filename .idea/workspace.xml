@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Models/Sswh/X200722/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/X200701.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/X200701.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200701Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/Images.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/Images.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/jwt.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jwt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +149,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Middleware" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -152,19 +157,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\app\Http\Middleware" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Jchn\X200701" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
       <recent name="D:\laragon\www\vlvl\routes\wechat" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -270,6 +275,8 @@
       <workItem from="1594883258236" duration="2136000" />
       <workItem from="1594947415524" duration="8769000" />
       <workItem from="1595206947914" duration="16842000" />
+      <workItem from="1595293894219" duration="5077000" />
+      <workItem from="1595379110831" duration="11784000" />
     </task>
     <servers />
   </component>
@@ -353,5 +360,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="827" y="419" key="publish.login/0.0.1920.1050@0.0.1920.1050" timestamp="1591949737138" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1595322531751">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1595322531751" />
   </component>
 </project>

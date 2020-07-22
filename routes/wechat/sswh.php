@@ -497,3 +497,11 @@ Route::get( '/x200715/user',   'X200715Controller@user');                    //�
 Route::post('/x200715/score',  'X200715Controller@score');                   //提交成绩
 Route::post('/x200715/list',   'X200715Controller@list');                    //排行榜
 Route::get( '/x200715/share',  'X200715Controller@share');                   //分享
+
+/**
+ * 大桥·龙虾节   200722
+ */
+Route::get( '/x200722/user',   'X200722Controller@user');                    //获取/记录用户信息
+Route::post('/x200722/score',  'X200722Controller@score');                   //提交成绩
+Route::post('/x200722/list',   'X200722Controller@list');                    //排行榜
+Route::get( '/x200722/share',  'X200722Controller@share');                   //分享

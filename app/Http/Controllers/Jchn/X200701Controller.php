@@ -21,7 +21,7 @@ class X200701Controller extends Common
     const END_TIME = '2020-08-03 23:59:59';
 
     //test:测试 gold:正式
-    const TYPE = 'test';
+    const TYPE = 'gold';
     /*
      * 获取/记录用户授权信息
      * */

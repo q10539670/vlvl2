@@ -373,4 +373,8 @@ Route::get('/x200715/export', 'X200715Controller@export');
 Route::get('/x200716/index',  'X200716Controller@index');
 Route::get('/x200716/export', 'X200716Controller@export');
 
-
+/**
+ * 大桥·龙虾节  200722
+ */
+Route::get('/x200722/index',  'X200722Controller@index');
+Route::get('/x200722/export', 'X200722Controller@export');

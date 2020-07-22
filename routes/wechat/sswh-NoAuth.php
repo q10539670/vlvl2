@@ -33,6 +33,7 @@ Route::get('/x200106r/get_round/', '\App\Http\Controllers\Admin\Sswh\X200106Cont
 Route::prefix('admin')->group(function () {
 //    Route::post('x200701/register', 'X200701Controller@register');
     Route::post('x200701/login', 'X200701Controller@login');
+    Route::post('x200701/pwd/{admin}','X200701Controller@password');
 });
 Route::prefix('admin')->middleware(['x200701', 'cors'])->group(function () {
     Route::get('x200701/user', 'X200701Controller@user'); //用户
