@@ -20,7 +20,8 @@
         "overtrue/laravel-wechat": "~4.0",
         "predis/predis": "^1.1",
         "simplesoftwareio/simple-qrcode": "~2",
-        "tymon/jwt-auth": "dev-develop"
+        "tymon/jwt-auth": "dev-develop",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
