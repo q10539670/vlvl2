@@ -54,7 +54,8 @@ class X200701 extends Command
             if ($result['errcode'] == 0) {
                 $log->msg_status = 1;
             } else {
-                $log->msg_status = 2;
+                $log->msg_status = $result['errcode'];
+                $log->msg_error = $result['errmsg'];
             }
             if ($user->msg_status == 0) {
                 $user->msg_status = 1;
@@ -75,7 +76,8 @@ class X200701 extends Command
             if ($result['errcode'] == 0) {
                 $image->msg_status = 1;
             } else {
-                $image->msg_status = 2;
+                $image->msg_status = $result['errcode'];
+                $image->msg_error = $result['errmsg'];
             }
             $image->save();
         }

@@ -40,12 +40,12 @@ class UserAuthorize extends Controller
     {
         $expire = time() + 60 * 60 * 24 * 7;
         $appName = $request->input('appname') != '' ? $request->input('appname'): '33wh';
+        $mode = $request->input('auth');//判断授权方式 --wx:静默授权 wxauth:获取用户信息授权
+        $scope = $mode == 'wx' ? 'snsapi_base' : 'snsapi_userinfo';
         if (!$openid = Cookie::get($appName)) {
             $wxInfo = config('wxconfig');
             $appId = $wxInfo[$appName]['appId'];
             $appSecret = $wxInfo[$appName]['appSecret'];
-            $mode = $request->input('auth');//判断授权方式 --wx:静默授权 wxauth:获取用户信息授权
-            $scope = $mode == 'wx' ? 'snsapi_base' : 'snsapi_userinfo';
             $sendUrl = route('auth.auth');
             $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$appId."&redirect_uri=".urlencode($sendUrl)."&response_type=code&scope=".$scope."#wechat_redirect";
             $client = new \GuzzleHttp\Client();
@@ -107,7 +107,7 @@ class UserAuthorize extends Controller
                 return Helper::Json(-1, 'error', ['errcode' => $accessTokenArr['errcode']]);
             }
         }
-        return Helper::Json(1, 'success', ['openid' => $openid]);
+        return Helper::Json(1, 'success', ['openid' => $openid,'$cope'=>$scope]);
     }
 
     /**

@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/X200701.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/X200701.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Common/UserAuthorize.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Common/UserAuthorize.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +141,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ydf_mall" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -272,7 +273,8 @@
       <workItem from="1595552203701" duration="3762000" />
       <workItem from="1595573602974" duration="6112000" />
       <workItem from="1595811628436" duration="25317000" />
-      <workItem from="1595898626997" duration="14151000" />
+      <workItem from="1595898626997" duration="19733000" />
+      <workItem from="1595984229716" duration="6960000" />
     </task>
     <servers />
   </component>
@@ -288,6 +290,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="842" y="387" key="#Notifications/0.0.1920.1050@0.0.1920.1050" timestamp="1594798469464" />
+    <state x="536" y="170" key="#SSH_配置" timestamp="1595929837343">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="536" y="170" key="#SSH_配置/0.0.1920.1050@0.0.1920.1050" timestamp="1595929837343" />
     <state x="807" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594200925888">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -316,10 +322,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="771" y="209" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1920.1050@0.0.1920.1050" timestamp="1594172629411" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1595217338808">
+    <state x="716" y="200" key="#选项" timestamp="1595930000055">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1595217338808" />
+    <state x="716" y="200" key="#选项/0.0.1920.1050@0.0.1920.1050" timestamp="1595930000055" />
+    <state x="552" y="183" key="#部署" timestamp="1595929992630">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="183" key="#部署/0.0.1920.1050@0.0.1920.1050" timestamp="1595929992630" />
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1595919706567">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1595919706567" />
     <state width="1860" height="282" key="GridCell.Tab.0.bottom" timestamp="1592794208179">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
