@@ -1,4 +1,4 @@
---武汉江宸天街
+-- 武汉江宸天街
 CREATE TABLE x191028_user (
   id int UNSIGNED AUTO_INCREMENT,
   openid VARCHAR(36) NOT NULL DEFAULT '',
@@ -21,7 +21,7 @@ CREATE TABLE x191028_user (
 )ENGINE = innodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '用户表';
 
 
---武汉江宸天街 20191206
+-- 武汉江宸天街 20191206
 CREATE TABLE x191206_user (
   id int UNSIGNED AUTO_INCREMENT,
   openid VARCHAR(36) NOT NULL DEFAULT '',

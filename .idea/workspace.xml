@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/X200701.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/X200701.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Common/UserAuthorize.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Common/UserAuthorize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/jctj.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/jctj.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/lx190604mld.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/jyyc.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/qwt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/qwt.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/tdr.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/tdr.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wechat/jyyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/jyyc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,30 +144,31 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ydf_mall" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Jyyc\X200730" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\config" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\config" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -201,7 +208,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.phpunit.xml">
+  <component name="RunManager" selected="数据库脚本.jyyc.sql">
+    <configuration name="jyyc.sql" type="DatabaseScript" editBeforeRun="true" singleton="false" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/database/sswh/jyyc.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="a4171e62-8060-4230-8c81-2066f79d5cdc" namespace="schema/&quot;33wh&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="All in rest-api_4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_4.http">
       <method v="2" />
     </configuration>
@@ -211,6 +224,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="数据库脚本.jyyc.sql" />
         <item itemvalue="HTTP 请求.All in rest-api_4" />
       </list>
     </recent_temporary>
@@ -274,7 +288,8 @@
       <workItem from="1595573602974" duration="6112000" />
       <workItem from="1595811628436" duration="25317000" />
       <workItem from="1595898626997" duration="19733000" />
-      <workItem from="1595984229716" duration="6960000" />
+      <workItem from="1595984229716" duration="6985000" />
+      <workItem from="1596073234534" duration="10237000" />
     </task>
     <servers />
   </component>
@@ -294,6 +309,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="536" y="170" key="#SSH_配置/0.0.1920.1050@0.0.1920.1050" timestamp="1595929837343" />
+    <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596075950626">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1596075950626" />
     <state x="807" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594200925888">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -310,10 +329,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="757" y="381" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1592792381234" />
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595813408728">
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596097389060">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595813408728" />
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1596097389060" />
     <state x="1197" y="334" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0" timestamp="1594172695929">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -322,6 +341,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="771" y="209" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1920.1050@0.0.1920.1050" timestamp="1594172629411" />
+    <state x="672" y="172" key="#jyyc.sql" timestamp="1596076345226">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="672" y="172" key="#jyyc.sql/0.0.1920.1050@0.0.1920.1050" timestamp="1596076345226" />
     <state x="716" y="200" key="#选项" timestamp="1595930000055">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -330,26 +353,30 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#部署/0.0.1920.1050@0.0.1920.1050" timestamp="1595929992630" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1595919706567">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1596077601676">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1595919706567" />
-    <state width="1860" height="282" key="GridCell.Tab.0.bottom" timestamp="1592794208179">
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1596077601676" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1596076351368">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1860" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
-    <state width="1860" height="282" key="GridCell.Tab.0.center" timestamp="1592794208179">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1596076351368" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1596076351368">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1860" height="282" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
-    <state width="1860" height="282" key="GridCell.Tab.0.left" timestamp="1592794208179">
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1596076351368" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1596076351368">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1860" height="282" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
-    <state width="1860" height="282" key="GridCell.Tab.0.right" timestamp="1592794208179">
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1596076351368" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1596076351368">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1860" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1592794208179" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1596076351368" />
+    <state width="152" height="477" key="HiddenNamespacesPopup" timestamp="1596075672829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="152" height="477" key="HiddenNamespacesPopup/0.0.1920.1050@0.0.1920.1050" timestamp="1596075672829" />
     <state x="713" y="244" key="NewPhpClassDialog" timestamp="1595817845287">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -358,10 +385,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="785" y="448" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595812668162" />
-    <state x="456" y="171" key="SettingsEditor" timestamp="1592203101162">
+    <state x="456" y="171" key="SettingsEditor" timestamp="1596076302091">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="456" y="171" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1592203101162" />
+    <state x="456" y="171" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1596076302091" />
+    <state x="474" y="204" key="com.intellij.database.dbimport.ImportDialog" timestamp="1596076679049">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="474" y="204" key="com.intellij.database.dbimport.ImportDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1596076679049" />
+    <state x="775" y="342" width="370" height="361" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1596078212675">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="775" y="342" width="370" height="361" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1596078212675" />
     <state x="790" y="256" key="ftp.server.browser" timestamp="1591754654166">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

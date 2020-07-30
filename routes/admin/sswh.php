@@ -378,3 +378,9 @@ Route::get('/x200716/export', 'X200716Controller@export');
  */
 Route::get('/x200722/index',  'X200722Controller@index');
 Route::get('/x200722/export', 'X200722Controller@export');
+
+/**
+ * 宜昌中心·物业女神_投票  200730
+ */
+Route::get('/x200730/index',  'X200730Controller@index');
+Route::get('/x200730/export', 'X200730Controller@export');

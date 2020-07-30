@@ -1,4 +1,4 @@
---电信10月份抽红包
+-- 电信10月份抽红包
 CREATE TABLE x191022_user (
   id int UNSIGNED AUTO_INCREMENT,
   openid VARCHAR(36) NOT NULL DEFAULT '',
@@ -37,7 +37,7 @@ CREATE TABLE dx190925_help (
   PRIMARY KEY (id)
 )ENGINE = innodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '分享表';
 
---电信11月份抽红包
+-- 电信11月份抽红包
 CREATE TABLE `x191119_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `openid` varchar(36) NOT NULL DEFAULT '',
@@ -70,7 +70,7 @@ CREATE TABLE `x191119_user` (
   KEY `address_code` (`address_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='电信2019年11月用户表';
 
---电信11月份抽红包
+-- 电信11月份抽红包
 CREATE TABLE x191212_user (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   openid varchar(36) NOT NULL DEFAULT '',
