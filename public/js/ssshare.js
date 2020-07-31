@@ -10,6 +10,7 @@
 		urlshare:"https://wx.sanshanwenhua.com/vlvl/api/common/share", //分享api接口地址
 		urlauth:"https://wx.sanshanwenhua.com/vlvl/api/common/auth", //授权api接口地址,
 		urlgetappid:"https://wx.sanshanwenhua.com/vlvl/api/common/app_id", //获取appid接口地址
+		urlwxview:"https://wx.sanshanwenhua.com/vlvl/api/common/view", //纪录浏览量分享量接口地址
 		getQueryString:function(name){
 			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 		    var r = window.location.search.substr(1).match(reg);

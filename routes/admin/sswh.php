@@ -384,3 +384,9 @@ Route::get('/x200722/export', 'X200722Controller@export');
  */
 Route::get('/x200730/index',  'X200730Controller@index');
 Route::get('/x200730/export', 'X200730Controller@export');
+
+/**
+ * 宜昌中心·投票  200731
+ */
+Route::get('/x200731/index',  'X200731Controller@index');
+Route::get('/x200731/export', 'X200731Controller@export');

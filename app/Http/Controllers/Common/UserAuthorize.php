@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+session_start();
 
 class UserAuthorize extends Controller
 {
@@ -14,7 +15,7 @@ class UserAuthorize extends Controller
     {
         //获取参数
         $url = urldecode($request->input('url'));
-        $appName = $request->input('appname') != '' ? $request->input('appname'): '33wh';
+        $appName = $request->input('appname') != '' ? $request->input('appname') : '33wh';
         //公众号的appid、secret
         $wxInfo = config('wxconfig');
         $appId = $wxInfo[$appName]['appId'];
@@ -38,11 +39,11 @@ class UserAuthorize extends Controller
 
     public function auth(Request $request)
     {
-        $expire = time() + 60 * 60 * 24 * 7;
-        $appName = $request->input('appname') != '' ? $request->input('appname'): '33wh';
+        $item = $this->getItemName();
+        $appName = $request->input('appname') != '' ? $request->input('appname') : '33wh';
         $mode = $request->input('auth');//判断授权方式 --wx:静默授权 wxauth:获取用户信息授权
         $scope = $mode == 'wx' ? 'snsapi_base' : 'snsapi_userinfo';
-        if (!$openid = Cookie::get($appName)) {
+        if (!isset($_SESSION[$item])) {
             $wxInfo = config('wxconfig');
             $appId = $wxInfo[$appName]['appId'];
             $appSecret = $wxInfo[$appName]['appSecret'];
@@ -62,7 +63,8 @@ class UserAuthorize extends Controller
             $accessTokenArr = json_decode(file_get_contents($url), true);
             if (!isset($accessTokenArr['errcode'])) {
                 $openid = $accessTokenArr["openid"];
-                Cookie::set(['key' => 'access_token', 'value' => $accessTokenArr["access_token"], 'expire' => $expire]);
+//                Cookie::set(['key' => 'access_token', 'value' => $accessTokenArr["access_token"], 'expire' => $expire]);
+                $_SESSION['access_token'] = $accessTokenArr["access_token"];
                 $sql = DB::table($table)->where('openid', $openid)->first();
                 if ($scope == "snsapi_userinfo") {
                     $url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$accessTokenArr["access_token"]."&openid=".$openid."&lang=zh_CN";
@@ -74,12 +76,14 @@ class UserAuthorize extends Controller
                         $userInfo['nickname'] = self::filterEmoji($userInfo['nickname']);
                         $userInfo['nickname2'] = base64_encode($userInfo['nickname']);
                         $uid = DB::table($table)->insertGetId((array) $userInfo);
-                        Cookie::set(['key' => 'uid', 'value' => $uid, 'expire' => $expire]);
+//                        Cookie::set(['key' => 'uid', 'value' => $uid, 'expire' => $expire]);
+                        $_SESSION['uid'] = $uid;
                     } else {
                         $userInfo['nickname'] = self::filterEmoji($userInfo['nickname']);
                         $userInfo["updateTime"] = time();
                         DB::table($table)->where('openid', $openid)->update((array) $userInfo);
-                        Cookie::set(['key' => 'uid', 'value' => $sql->id, 'expire' => $expire]);
+//                        Cookie::set(['key' => 'uid', 'value' => $sql->id, 'expire' => $expire]);
+                        $_SESSION['uid'] = $sql->id;
                     }
                 } else {
                     if (!$sql) {
@@ -90,11 +94,12 @@ class UserAuthorize extends Controller
                         ]);
                     }
                 }
-                Cookie::set(['key' => $appName, 'value' => $openid, 'expire' => $expire]);
+//                Cookie::set(['key' => $appName, 'value' => $openid, 'expire' => $expire]);
+                $_SESSION[$item] = $openid;
                 /*
                  * 更新项目名称
                  */
-                $item = $this->getItemName();
+
                 $items = DB::table($table)->where('openid', $openid)->get('items');
                 $itemsArr = explode(",", $items[0]->items);
 
@@ -107,7 +112,50 @@ class UserAuthorize extends Controller
                 return Helper::Json(-1, 'error', ['errcode' => $accessTokenArr['errcode']]);
             }
         }
-        return Helper::Json(1, 'success', ['openid' => $openid,'$cope'=>$scope]);
+        return Helper::Json(1, 'success', ['openid' => $_SESSION[$item], 'cope' => $scope]);
+    }
+
+    public function wxView(Request $request)
+    {
+        $item = $this->getItemName();
+//        $item = 'ycsjss20200727';
+        $op = $request->input('op') != '' ? $request->input('op') : 'view';
+        $title = $request->input('title');
+        $redis = app('redis');
+        $redis->select(0);
+        $key = 'wx:view:'.$item;
+        if (!empty($item)) {
+            $actionArr = ['view', 'share'];
+            // 请求方法是否合法
+            if (in_array($op, $actionArr)) {
+                // 当前访问页面是否有请求数据
+                if ($redis->exists($key)) {
+                    if ($op == 'view') {
+                        if ($request->input('titleBtn')) {
+                            $redis->hset($key, "remark", $title);
+                        }
+                        $redis->hset($key, "lastViewTime", time());
+                    } else {
+                        if ($op == 'share') {
+                            $op = 'share';
+                            $redis->hset($key, "lastShareTime", time());
+                        }
+                    }
+                    $redis->hIncrBy($key, $op, 1);
+                } else {
+                    $itemInfo = array(
+                        "itemName" => $item, "remark" => $title, "view" => 1, "lastViewTime" => time(),
+                        "addTime" => time()
+                    );
+                    $redis->hmset($key, $itemInfo);
+                }
+                return Helper::Json(1,'记录浏览量-初始化成功');
+            } else {
+                return Helper::Json(0,'记录浏览量-方法不合法');
+            }
+        } else {
+            return Helper::Json(-1,'记录浏览量-item不存在');
+        }
     }
 
     /**
@@ -118,7 +166,7 @@ class UserAuthorize extends Controller
     public function appId(Request $request)
     {
         $wxInfo = config('wxconfig');
-        $appName = $request->input('appname') != '' ? $request->input('appname'): '33wh';
+        $appName = $request->input('appname') != '' ? $request->input('appname') : '33wh';
         $appId = $wxInfo[$appName]['appId'];
         return Helper::Json(1, 'success', ['appname' => $appName, 'appid' => $appId]);
     }

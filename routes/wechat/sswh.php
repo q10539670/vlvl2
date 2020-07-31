@@ -7,6 +7,10 @@
  */
 
 //Route::any('/test','L190429Controller@test');
+
+
+
+
 Route::any('/test2', 'L190603Controller@test2');
 //Route::get('foo', function () {
 //    return 'Hello World';
@@ -505,3 +509,9 @@ Route::get( '/x200722/user',   'X200722Controller@user');                    //�
 Route::post('/x200722/score',  'X200722Controller@score');                   //提交成绩
 Route::post('/x200722/list',   'X200722Controller@list');                    //排行榜
 Route::get( '/x200722/share',  'X200722Controller@share');                   //分享
+
+/**
+ * 宜昌中心 报名  200731
+ */
+Route::get( '/x200731/user',   'X200731Controller@user');                    //获取/记录用户信息
+Route::post('/x200731/post',  'X200731Controller@post');                     //报名

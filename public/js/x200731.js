@@ -67,7 +67,7 @@ var api = {
      */
     user: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x20200730/user',
+            $.get(api.baseUrl + '/x200731/user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -78,25 +78,13 @@ var api = {
     /**
      *   获取/记录 用户信息
      */
-    contestants: function () {
+    post: function (data) {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x200730/contestants',
-                function (res) {
-                    api.debug && console.log(res);
-                    resolve(res);
-                });
-        });
-    },
-
-    /**
-     * 投票
-     */
-    vote: function (cid) {
-        return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x200730/vote',
+            $.post(api.baseUrl + '/x200731/post',
                 /*接收参数-start*/
                 {
-                    cid: cid  //节目ID
+                    name: data.name,  //姓名
+                    phone:data.phone  //电话
                 },
                 function (res) {
                     api.debug && console.log(res);

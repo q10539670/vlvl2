@@ -84,6 +84,7 @@ Route::post('/common/upload','\App\Http\Controllers\Common\UploadController@uplo
 Route::post('/common/app_id','\App\Http\Controllers\Common\UserAuthorize@appId');
 Route::post('/common/auth','\App\Http\Controllers\Common\UserAuthorize@auth')->name('auth.auth');
 Route::post('/common/share','\App\Http\Controllers\Common\UserAuthorize@share');
+Route::post('/common/view','\App\Http\Controllers\Common\UserAuthorize@wxView');
 
 //不需要验证openid
 Route::group(['prefix' => 'sswh','namespace' => 'Admin'], function () {
