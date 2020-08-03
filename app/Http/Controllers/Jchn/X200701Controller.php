@@ -18,7 +18,7 @@ class X200701Controller extends Common
     protected $itemName = 'x200701';
     protected $prod = 'cdnn';   // (cdnn / wx)
 
-    const END_TIME = '2020-08-03 23:59:59';
+    const END_TIME = '2020-08-31 23:59:59';
 
     //test:测试 gold:正式
     const TYPE = 'gold';
