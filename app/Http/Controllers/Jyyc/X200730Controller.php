@@ -33,7 +33,7 @@ class X200730Controller extends Common
             //查询总表
             $info = $this->searchJyycUser($request);
             $userInfo = $this->userInfo($request, $info, [
-                'vote_num' => 2
+                'vote_num' => 3
             ]);
             //新增数据到表中
             User::create($userInfo);

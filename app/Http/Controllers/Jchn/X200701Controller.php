@@ -60,7 +60,7 @@ class X200701Controller extends Common
         if (Images::where('user_id', $user->id)->whereBetween('created_at', $this->getToday())->first()) {
             return response()->json(['error' => '每天只能上传一张小票'], 422);
         }
-        $validator = \Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'image' => 'required|image|max:' . (1024 * 6),
         ], [
             'image.required' => '上传图片不能为空',

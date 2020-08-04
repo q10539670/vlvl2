@@ -4,8 +4,9 @@
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jchn/X200701Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200730Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200730Controller.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +293,8 @@
       <workItem from="1596073234534" duration="10977000" />
       <workItem from="1596158283118" duration="13564000" />
       <workItem from="1596416142625" duration="3975000" />
-      <workItem from="1596423543078" duration="3363000" />
+      <workItem from="1596423543078" duration="3598000" />
+      <workItem from="1596502939262" duration="6847000" />
     </task>
     <servers />
   </component>

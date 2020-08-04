@@ -148,17 +148,20 @@ class GameReset extends Command
 //            'prize_num' => 1,
 //            'share_num' => 3
 //        ]);   //世纪山水
-        DB::table('x200623_user')->update([
-            'vote_num' => 2
-        ]);   //金桥璟园
-        DB::table('x200715_user')->update([
-            'game_num' => 1,
-            'share_num' => 2
-        ]);   //世纪山水
-        DB::table('x200722_user')->update([
-            'game_num' => 1,
-            'share_num' => 1
-        ]);   //世纪山水
+//        DB::table('x200623_user')->update([
+//            'vote_num' => 2
+//        ]);   //金桥璟园
+//        DB::table('x200715_user')->update([
+//            'game_num' => 1,
+//            'share_num' => 2
+//        ]);   //世纪山水
+//        DB::table('x200722_user')->update([
+//            'game_num' => 1,
+//            'share_num' => 1
+//        ]);   //世纪山水
+        DB::table('x200730_user')->update([
+            'vote_num' => 3
+        ]);   //宜昌中心
         return $this->info('重置成功');
     }
 }
