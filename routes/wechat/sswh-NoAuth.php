@@ -31,7 +31,7 @@ Route::get('/x200106r/get_round/', '\App\Http\Controllers\Admin\Sswh\X200106Cont
  * 红牛接口
  */
 Route::prefix('admin')->group(function () {
-//    Route::post('x200701/register', 'X200701Controller@register');
+    Route::post('x200701/register', 'X200701Controller@register');
     Route::post('x200701/login', 'X200701Controller@login');
     Route::post('x200701/pwd/{admin}','X200701Controller@password');
 });
