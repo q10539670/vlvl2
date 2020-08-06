@@ -390,3 +390,12 @@ Route::get('/x200730/export', 'X200730Controller@export');
  */
 Route::get('/x200731/index',  'X200731Controller@index');
 Route::get('/x200731/export', 'X200731Controller@export');
+
+
+/**
+ * 楚天地产·上传  200806
+ */
+Route::get('/x200806/index',  'X200806Controller@index');
+Route::post('/x200806/delete', 'X200806Controller@delete')->name('x200806.del');
+
+
