@@ -19,8 +19,9 @@ class X200730Controller extends Common
     //物业女神投票
     protected $itemName = 'x200730';
 
+    const START_TIME = '2020-08-14 00:00:00';
     //结束时间
-    const END_TIME = '2020-08-16 12:00:00';
+    const END_TIME = '2020-08-16 23:59:59';
 
 
     /*
@@ -55,6 +56,9 @@ class X200730Controller extends Common
      */
     public function vote(Request $request)
     {
+        if (time() < strtotime(self::START_TIME)) {
+            return response()->json(['error' => '活动时间还未开始，投票通道未开启'], 422);
+        }
         if (time() > strtotime(self::END_TIME)) {
             return response()->json(['error' => '活动时间截止，投票通道已关闭'], 422);
         }
