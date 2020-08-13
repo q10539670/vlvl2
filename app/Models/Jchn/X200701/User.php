@@ -39,7 +39,7 @@ class User extends Model
             2 => ['prize_id' => 3, 'prize_level_name' => '五等奖', 'prize_name' => '赠饮(6听礼包装)', 'money' => 50, 'v' => 40, 'count' => 0, 'limit' => 0],
             3 => ['prize_id' => 4, 'prize_level_name' => '四等奖', 'prize_name' => '球场免费体验券', 'money' => 50, 'v' => 100, 'count' => 0, 'limit' => 0],
             4 => ['prize_id' => 5, 'prize_level_name' => '三等奖', 'prize_name' => '欢乐谷全日门票', 'money' => 50, 'v' => 30, 'count' => 0, 'limit' => 0],
-            5 => ['prize_id' => 6, 'prize_level_name' => '二等奖', 'prize_name' => '玛雅全日门票', 'money' => 50, 'v' => 30, 'count' => 0, 'limit' => 0],
+            5 => ['prize_id' => 6, 'prize_level_name' => '二等奖', 'prize_name' => '玛雅全日门票', 'money' => 50, 'v' => 200, 'count' => 0, 'limit' => 0],
             6 => ['prize_id' => 7, 'prize_level_name' => '一等奖', 'prize_name' => 'adidas椰子鞋', 'money' => 50, 'v' => 5, 'count' => 0, 'limit' => 0],
         ],
         /*不中奖   --未中奖*/

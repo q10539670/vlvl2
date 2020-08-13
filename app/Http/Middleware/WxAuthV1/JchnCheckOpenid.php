@@ -26,10 +26,12 @@ class JchnCheckOpenid
         if($request->hasHeader('authorization')){ //调试用户
             $authorization = $request->header('authorization');
             if($authorization == config('wxauthv1.jchn.key')){
+
                 $request->openid = config('wxauthv1.jchn.openid');
                 return $next($request);
             }
         }
+
         return response()->json(['error' => '未授权'], 410);
     }
 

@@ -24,7 +24,7 @@ class X200730Controller extends Common
         $exportUrl = asset('/vlvl/x200730/export');
         $redis = app('redis');
         $redis->select(0);
-        $redisShareData = $redis->hGetAll('wx:view:yc20200730');
+        $redisShareData = $redis->hGetAll('wx:view:yc20200729');
         return view('sswh.sswhAdmin.x200730', [
             'title' => '宜昌中心·物业女神_投票',
             'paginator' => $paginator,

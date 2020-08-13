@@ -8,7 +8,7 @@ class JyycCheckOpenid
 {
     /**
      * Handle an incoming request.
-     * 武汉江宸天街 授权
+     * 均瑶宜昌 授权
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next
      * @return mixed

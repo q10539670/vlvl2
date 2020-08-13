@@ -14,7 +14,7 @@ class X200716Controller extends Common
     //宜昌中心生活服务启示录
     protected $itemName = 'x200716';
 
-    const END_TIME = '2021-06-21 23:59:59';
+    const END_TIME = '2020-06-21 23:59:59';
 
     /*
      * 获取/记录用户授权信息

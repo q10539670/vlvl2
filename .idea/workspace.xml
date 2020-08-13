@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_2020_8_13_9_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200730Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200730Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200716Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200716Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200730Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200730Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JchnCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JchnCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JyycCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JyycCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/getUserAuthorize.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/tdr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/tdr.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/tdr1.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +44,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/database/sswh/tdr1.sql" root0="SKIP_INSPECTION" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -139,7 +170,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ydf_mall" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -297,11 +328,31 @@
       <workItem from="1596596466559" duration="3676000" />
       <workItem from="1596676788156" duration="15380000" />
       <workItem from="1596762804001" duration="8342000" />
+      <workItem from="1597021701383" duration="4895000" />
+      <workItem from="1597049948464" duration="2847000" />
+      <workItem from="1597109498426" duration="2666000" />
+      <workItem from="1597197019797" duration="10797000" />
+      <workItem from="1597281493496" duration="3059000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="672" y="172" key="#33whapp.sql" timestamp="1596176845622">
@@ -364,10 +415,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#部署/0.0.1920.1050@0.0.1920.1050" timestamp="1595929992630" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1596443887306">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1597132898721">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1596443887306" />
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1597132898721" />
     <state width="1293" height="285" key="GridCell.Tab.0.bottom" timestamp="1596681198492">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
