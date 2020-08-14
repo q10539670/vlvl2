@@ -20,18 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_2020_8_13_9_18.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200730Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200730Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200716Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200716Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200730Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200730Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JchnCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JchnCheckOpenid.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JyycCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JyycCheckOpenid.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/getUserAuthorize.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sswh/tdr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sswh/tdr.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/tdr1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +161,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ydf_mall" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Sswh" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -178,19 +169,19 @@
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Sswh\X200806" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\public\js" />
       <recent name="D:\laragon\www\vlvl\config" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\public\js" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -333,6 +324,7 @@
       <workItem from="1597109498426" duration="2666000" />
       <workItem from="1597197019797" duration="10797000" />
       <workItem from="1597281493496" duration="3059000" />
+      <workItem from="1597367732391" duration="8150000" />
     </task>
     <servers />
   </component>

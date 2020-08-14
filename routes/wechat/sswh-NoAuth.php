@@ -43,3 +43,4 @@ Route::prefix('admin')->middleware(['x200701', 'cors'])->group(function () {
     Route::get('x200701/info', 'X200701Controller@info'); //h5信息
 });
 
+Route::get('/x200814/user', 'X200814Controller@user');   //测试

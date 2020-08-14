@@ -1542,15 +1542,15 @@ CREATE TABLE x200731_user
 -- 楚天地产 上传
 CREATE TABLE x200806_user
 (
-    id         INT UNSIGNED AUTO_INCREMENT,
-    openid     VARCHAR(36)  NOT NULL DEFAULT '',
-    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
-    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
-    phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
-    img_upload_num INT NOT NULL DEFAULT 0 COMMENT '上传次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    id             INT UNSIGNED AUTO_INCREMENT,
+    openid         VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar         VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name           VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    phone          VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    img_upload_num INT          NOT NULL DEFAULT 0 COMMENT '上传次数',
+    created_at     TIMESTAMP    NULL     DEFAULT NULL,
+    updated_at     TIMESTAMP    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1560,8 +1560,8 @@ CREATE TABLE x200806_user
 CREATE TABLE x200806_images
 (
     id         INT UNSIGNED AUTO_INCREMENT,
-    user_id INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '关联用户表',
-    images VARCHAR(255) NOT NULL DEFAULT '' COMMENT '图片',
+    user_id    INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '关联用户表',
+    images     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '图片',
     created_at TIMESTAMP    NULL     DEFAULT NULL,
     updated_at TIMESTAMP    NULL     DEFAULT NULL,
     PRIMARY KEY (id),
@@ -1570,3 +1570,23 @@ CREATE TABLE x200806_images
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '上传图片表';
+
+
+
+CREATE TABLE x200817_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    status     TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '状态',
+    prize      VARCHAR(36)  NOT NULL DEFAULT '' COMMENT '奖品',
+    created_at TIMESTAMP    NULL     DEFAULT NULL,
+    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
