@@ -124,43 +124,43 @@ Route::post('/x191220/verification', 'X191220Controller@verification');
 /**
  * 宜昌中心·天宸府 191224 温州商会
  */
-Route::get('/x191224/index',  'X191224Controller@index');
+Route::get('/x191224/index', 'X191224Controller@index');
 Route::get('/x191224/export', 'X191224Controller@export');
 
 /**
  * 宜昌中心·天宸府 191225 钢材商会
  */
-Route::get('/x191225/index',  'X191225Controller@index');
+Route::get('/x191225/index', 'X191225Controller@index');
 Route::get('/x191225/export', 'X191225Controller@export');
 
 /**
  * 宜昌中心·天宸府 191225a 孝感商会
  */
-Route::get('/x191225a/index',  'X191225aController@index');
+Route::get('/x191225a/index', 'X191225aController@index');
 Route::get('/x191225a/export', 'X191225aController@export');
 
 /**
  * 宜昌中心·天宸府 191225b  台州商会
  */
-Route::get('/x191225b/index',  'X191225bController@index');
+Route::get('/x191225b/index', 'X191225bController@index');
 Route::get('/x191225b/export', 'X191225bController@export');
 
 /**
  * 宜昌中心·天宸府 200102  招商音乐会
  */
-Route::get('/x200102/index',  'X200102Controller@index');
+Route::get('/x200102/index', 'X200102Controller@index');
 Route::get('/x200102/export', 'X200102Controller@export');
 
 /**
  * 宜昌中心·天宸府 200102a  华为抽奖
  */
-Route::get('/x200102z/index',  'X200102aController@index');
+Route::get('/x200102z/index', 'X200102aController@index');
 Route::get('/x200102z/export', 'X200102aController@export');
 
 /**
  * 宜昌中心·天宸府 200106  台州商会
  */
-Route::get('/x200106/index',  'X200106Controller@index');
+Route::get('/x200106/index', 'X200106Controller@index');
 Route::get('/x200106/export', 'X200106Controller@export');
 Route::get('/x200106r/users', 'X200106Controller@prizeUsers');    //抽奖用户
 Route::get('/x200106r/round', 'X200106Controller@round');         //当前抽奖轮数
@@ -172,32 +172,32 @@ Route::get('/x200106r/get_round', 'X200106Controller@getRound');//抽奖
 /**
  * 宜昌中心·天宸府 200106a  台州商会
  */
-Route::get('/x200106a/index',  'X200106aController@index');
+Route::get('/x200106a/index', 'X200106aController@index');
 Route::get('/x200106a/export', 'X200106aController@export');
 
 
 /**
  * 大桥 200103
  */
-Route::get('/x200103/index',  'X200103Controller@index');
+Route::get('/x200103/index', 'X200103Controller@index');
 Route::get('/x200103/export', 'X200103Controller@export');
 
 /**
  * 宜昌中心·天宸府 200108
  */
-Route::get('/x200108/index',  'X200108Controller@index');
+Route::get('/x200108/index', 'X200108Controller@index');
 Route::get('/x200108/export', 'X200108Controller@export');
 
 /**
  * 百事可乐新年 200109
  */
-Route::get('/x200109/index',  'X200109Controller@index');
+Route::get('/x200109/index', 'X200109Controller@index');
 Route::get('/x200109/export', 'X200109Controller@export');
 
 /**
  * 湘中新年投票 200113
  */
-Route::get('/x200113/index',  'X200113Controller@index');
+Route::get('/x200113/index', 'X200113Controller@index');
 Route::get('/x200113/export', 'X200113Controller@export');
 Route::post('/x200113/delete', 'X200113Controller@delete')->name('x200113.delete');
 Route::post('/x200113/black', 'X200113Controller@blackList')->name('x200113.black');
@@ -205,197 +205,211 @@ Route::post('/x200113/black', 'X200113Controller@blackList')->name('x200113.blac
 /**
  * 奥特莱斯大富翁游戏 200114
  */
-Route::get('/x200114/index',  'X200114Controller@index');
+Route::get('/x200114/index', 'X200114Controller@index');
 Route::get('/x200114/export', 'X200114Controller@export');
 
 /**
  * 长沙美的投票 200115
  */
-Route::get( '/x200115/index',  'X200115Controller@index');
-Route::get( '/x200115/export', 'X200115Controller@export');
+Route::get('/x200115/index', 'X200115Controller@index');
+Route::get('/x200115/export', 'X200115Controller@export');
 Route::post('/x200115/delete', 'X200115Controller@delete')->name('x200115.delete');
 
 /**
  * 上传图片 200120
  */
-Route::get('/x200117/index',  'X200117Controller@index');
+Route::get('/x200117/index', 'X200117Controller@index');
 Route::get('/x200117/export', 'X200117Controller@export');
 
 /**
  * 上传图片 200120
  */
-Route::get( '/x200120/index',  'X200120Controller@index');
-Route::get( '/x200120/export', 'X200120Controller@export');
+Route::get('/x200120/index', 'X200120Controller@index');
+Route::get('/x200120/export', 'X200120Controller@export');
 
 /**
  * 百事新年 200121
  */
-Route::get( '/x200121/index',  'X200121Controller@index');
-Route::get( '/x200121/export', 'X200121Controller@export');
+Route::get('/x200121/index', 'X200121Controller@index');
+Route::get('/x200121/export', 'X200121Controller@export');
 
 /**
  * 美的情人节 200212
  */
-Route::get( '/x200212/index',  'X200212Controller@index');
-Route::get( '/x200212/export', 'X200212Controller@export');
+Route::get('/x200212/index', 'X200212Controller@index');
+Route::get('/x200212/export', 'X200212Controller@export');
 
 /**
  * 美的 200305
  */
-Route::get( '/x200305/index',  'X200305Controller@index');
-Route::get( '/x200305/export', 'X200305Controller@export');
+Route::get('/x200305/index', 'X200305Controller@index');
+Route::get('/x200305/export', 'X200305Controller@export');
 
 /**
  * 武汉院子报名 200307
  */
-Route::get( '/x200307/index',  'X200307Controller@index');
-Route::get( '/x200307/export', 'X200307Controller@export');
+Route::get('/x200307/index', 'X200307Controller@index');
+Route::get('/x200307/export', 'X200307Controller@export');
 
 /**
  * 中国中铁 200413
  */
-Route::get( '/x200413/index',  'X200413Controller@index');
-Route::get( '/x200413/export', 'X200413Controller@export');
+Route::get('/x200413/index', 'X200413Controller@index');
+Route::get('/x200413/export', 'X200413Controller@export');
 
 /**
  * 宜昌中心 200422
  */
-Route::get( '/x200422/index',  'X200422Controller@index');
-Route::get( '/x200422/export', 'X200422Controller@export');
+Route::get('/x200422/index', 'X200422Controller@index');
+Route::get('/x200422/export', 'X200422Controller@export');
 
 /**
  * 大桥鸡精 200424
  */
-Route::get( '/x200424/index',  'X200424Controller@index');
-Route::get( '/x200424/export', 'X200424Controller@export');
+Route::get('/x200424/index', 'X200424Controller@index');
+Route::get('/x200424/export', 'X200424Controller@export');
 
 /**
  * 中国中铁·金桥璟园 200429
  */
-Route::get( '/x200429/index',  'X200429Controller@index');
-Route::get( '/x200429/export', 'X200429Controller@export');
+Route::get('/x200429/index', 'X200429Controller@index');
+Route::get('/x200429/export', 'X200429Controller@export');
 
 /**
  * 武汉院子 200430
  */
-Route::get( '/l200430/index',  'L200430Controller@index');
-Route::get( '/l200430/export', 'L200430Controller@export');
+Route::get('/l200430/index', 'L200430Controller@index');
+Route::get('/l200430/export', 'L200430Controller@export');
 
 /**
  * 中国中铁·金桥璟园 200507
  */
-Route::get( '/x200507/index',  'X200507Controller@index');
-Route::get( '/x200507/export', 'X200507Controller@export');
+Route::get('/x200507/index', 'X200507Controller@index');
+Route::get('/x200507/export', 'X200507Controller@export');
 
 /**
  * 奥莱天生一对 200509
  */
-Route::get( '/x200509/index',  'X200509Controller@index');
-Route::get( '/x200509/export', 'X200509Controller@export');
+Route::get('/x200509/index', 'X200509Controller@index');
+Route::get('/x200509/export', 'X200509Controller@export');
 
 /**
  * 投票 200512
  */
-Route::get( '/x200512/index',  'X200512Controller@index');
-Route::get( '/x200512/export', 'X200512Controller@export');
+Route::get('/x200512/index', 'X200512Controller@index');
+Route::get('/x200512/export', 'X200512Controller@export');
 
 /**
  * 中国中铁·金桥璟园 200514
  */
-Route::get( '/x200514/index',  'X200514Controller@index');
-Route::get( '/x200514/export', 'X200514Controller@export');
+Route::get('/x200514/index', 'X200514Controller@index');
+Route::get('/x200514/export', 'X200514Controller@export');
 
 /**
  * 美好置业 200515
  */
-Route::get( '/x200515/index',  'X200515Controller@index');
-Route::get( '/x200515/export', 'X200515Controller@export');
+Route::get('/x200515/index', 'X200515Controller@index');
+Route::get('/x200515/export', 'X200515Controller@export');
 
 /**
  * 中国中铁·金桥璟园 200521
  */
-Route::get( '/x200521/index',  'X200521Controller@index');
-Route::get( '/x200521/export', 'X200521Controller@export');
+Route::get('/x200521/index', 'X200521Controller@index');
+Route::get('/x200521/export', 'X200521Controller@export');
 
 /**
  * 山海大观 200528
  */
-Route::get( '/x200528/index',  'X200528Controller@index');
-Route::get( '/x200528/export', 'X200528Controller@export');
+Route::get('/x200528/index', 'X200528Controller@index');
+Route::get('/x200528/export', 'X200528Controller@export');
 
 /**
  * 世纪山水 200612
  */
-Route::get('/x200612/index',  'X200612Controller@index');
+Route::get('/x200612/index', 'X200612Controller@index');
 Route::get('/x200612/export', 'X200612Controller@export');
 
 /**
  * 世纪山水 200615
  */
-Route::get('/x200615/index',  'X200615Controller@index');
+Route::get('/x200615/index', 'X200615Controller@index');
 Route::get('/x200615/export', 'X200615Controller@export');
 
 /**
  * 宜昌中心 200617
  */
-Route::get('/x200617/index',  'X200617Controller@index');
+Route::get('/x200617/index', 'X200617Controller@index');
 Route::get('/x200617/export', 'X200617Controller@export');
 
 /**
  * 美的 200623
  */
-Route::get('/x200623/index',  'X200623Controller@index');
+Route::get('/x200623/index', 'X200623Controller@index');
 Route::get('/x200623/export', 'X200623Controller@export');
 
 
 /**
  * 宜昌中心 建议收集  200629
  */
-Route::get('/x200629/index',  'X200629Controller@index');
+Route::get('/x200629/index', 'X200629Controller@index');
 Route::get('/x200629/export', 'X200629Controller@export');
 
 
 /**
  * 兰州·中海铂悦府  200708
  */
-Route::get('/x200708/index',  'X200708Controller@index');
+Route::get('/x200708/index', 'X200708Controller@index');
 Route::get('/x200708/export', 'X200708Controller@export');
 
 /**
  * 兰州·中海铂悦府  200715
  */
-Route::get('/x200715/index',  'X200715Controller@index');
+Route::get('/x200715/index', 'X200715Controller@index');
 Route::get('/x200715/export', 'X200715Controller@export');
 
 /**
  * 宜昌中心 生活服务启示录  200716
  */
-Route::get('/x200716/index',  'X200716Controller@index');
+Route::get('/x200716/index', 'X200716Controller@index');
 Route::get('/x200716/export', 'X200716Controller@export');
 
 /**
  * 大桥·龙虾节  200722
  */
-Route::get('/x200722/index',  'X200722Controller@index');
+Route::get('/x200722/index', 'X200722Controller@index');
 Route::get('/x200722/export', 'X200722Controller@export');
 
 /**
  * 宜昌中心·物业女神_投票  200730
  */
-Route::get('/x200730/index',  'X200730Controller@index');
+Route::get('/x200730/index', 'X200730Controller@index');
 Route::get('/x200730/export', 'X200730Controller@export');
 
 /**
  * 宜昌中心·投票  200731
  */
-Route::get('/x200731/index',  'X200731Controller@index');
+Route::get('/x200731/index', 'X200731Controller@index');
 Route::get('/x200731/export', 'X200731Controller@export');
 
 
 /**
  * 楚天地产·上传  200806
  */
-Route::get('/x200806/index',  'X200806Controller@index');
+Route::get('/x200806/index', 'X200806Controller@index');
 Route::post('/x200806/delete', 'X200806Controller@delete')->name('x200806.del');
 
 
+/**
+ * 金地华中·第六届纳凉音乐节抽奖 200817
+ */
+Route::get('/x200817/index', 'X200817Controller@index');
+Route::get('/x200817/export', 'X200817Controller@export');
+Route::get('/x200817r/users', 'X200817Controller@prizeUsers');    //抽奖用户
+Route::get('/x200817r/round', 'X200817Controller@round');         //当前抽奖轮数
+
+
+/**
+ * 金地华中·第六届纳凉音乐节_听歌识曲 200818
+ */
+Route::get('/x200818/index',  'X200818Controller@index');
+Route::get('/x200818/export', 'X200818Controller@export');

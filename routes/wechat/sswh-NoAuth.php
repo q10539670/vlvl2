@@ -44,3 +44,6 @@ Route::prefix('admin')->middleware(['x200701', 'cors'])->group(function () {
 });
 
 Route::get('/x200814/user', 'X200814Controller@user');   //测试
+
+
+Route::get('/x200817r/prize', 'X200817Controller@prize');        //抽奖

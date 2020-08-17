@@ -9,8 +9,6 @@
 //Route::any('/test','L190429Controller@test');
 
 
-
-
 Route::any('/test2', 'L190603Controller@test2');
 //Route::get('foo', function () {
 //    return 'Hello World';
@@ -245,194 +243,193 @@ Route::post('/x191220/init', 'X191220Controller@appInitHandler');          //初
 /**
  * 华为抽奖   200102
  */
-Route::post('/x200102a/init',  'X200102Controller@appInitHandler');          //初始化程序
-Route::get( '/x200102a/user',  'X200102Controller@user');                    //获取/记录用户信息
-Route::post('/x200102a/post',  'X200102Controller@post');                    //提交信息
+Route::post('/x200102a/init', 'X200102Controller@appInitHandler');          //初始化程序
+Route::get('/x200102a/user', 'X200102Controller@user');                    //获取/记录用户信息
+Route::post('/x200102a/post', 'X200102Controller@post');                    //提交信息
 Route::post('/x200102a/prize', 'X200102Controller@randomPrize');            //抽奖
 Route::post('/x200102a/share', 'X200102Controller@share');                  //分享
 
 /**
  * 大桥   200103
  */
-Route::get( '/x200103/user',  'X200103Controller@user');                    //获取/记录用户信息
+Route::get('/x200103/user', 'X200103Controller@user');                    //获取/记录用户信息
 Route::post('/x200103/score', 'X200103Controller@score');                  //提交成绩
-Route::post('/x200103/list',  'X200103Controller@list');                     //排行榜
+Route::post('/x200103/list', 'X200103Controller@list');                     //排行榜
 Route::post('/x200103/share', 'X200103Controller@share');                   //分享
 
 /**
  * 华为抽奖   200102
  */
-Route::post('/x200109/init',  'X200109Controller@appInitHandler');          //初始化程序
-Route::get( '/x200109/user',  'X200109Controller@user');                    //获取/记录用户信息
-Route::post('/x200109/post',  'X200109Controller@post');                    //提交信息
+Route::post('/x200109/init', 'X200109Controller@appInitHandler');          //初始化程序
+Route::get('/x200109/user', 'X200109Controller@user');                    //获取/记录用户信息
+Route::post('/x200109/post', 'X200109Controller@post');                    //提交信息
 Route::post('/x200109/prize', 'X200109Controller@randomPrize');            //抽奖
 
 /**
  * 湘中新年 200113
  */
-Route::get( '/x200113/user', 'X200113Controller@user');                   //获取/记录用户信息
+Route::get('/x200113/user', 'X200113Controller@user');                   //获取/记录用户信息
 Route::post('/x200113/post', 'X200113Controller@post');                  //用户提交报名
-Route::post('/x200113/users','X200113Controller@users');                //获取参赛用户
+Route::post('/x200113/users', 'X200113Controller@users');                //获取参赛用户
 Route::post('/x200113/vote', 'X200113Controller@vote');                  //获取参赛用户
 Route::post('/x200113/detail', 'X200113Controller@detail');                  //获取参赛用户
-
 
 
 /**
  * 奥特莱斯 200114
  */
-Route::get( '/x200114/user', 'X200114Controller@user');                   //获取/记录用户信息
+Route::get('/x200114/user', 'X200114Controller@user');                   //获取/记录用户信息
 Route::post('/x200114/score', 'X200114Controller@score');                  //用户提交报名
-Route::post('/x200114/list','X200114Controller@list');                //获取参赛用户
+Route::post('/x200114/list', 'X200114Controller@list');                //获取参赛用户
 Route::post('/x200114/share', 'X200114Controller@share');                   //分享
-Route::get( '/x200114/game_num', 'X200114Controller@gameNum');                   //游戏次数
-Route::get( '/x200114/add', 'X200114Controller@addGame');                   //游戏次数
+Route::get('/x200114/game_num', 'X200114Controller@gameNum');                   //游戏次数
+Route::get('/x200114/add', 'X200114Controller@addGame');                   //游戏次数
 
 /**
  * 湘中新年 200115
  */
-Route::get( '/x200115/user', 'X200115Controller@user');                   //获取/记录用户信息
+Route::get('/x200115/user', 'X200115Controller@user');                   //获取/记录用户信息
 Route::post('/x200115/post', 'X200115Controller@post');                  //用户提交报名
-Route::post('/x200115/users','X200115Controller@users');                //获取参赛用户
+Route::post('/x200115/users', 'X200115Controller@users');                //获取参赛用户
 Route::post('/x200115/vote', 'X200115Controller@vote');                  //获取参赛用户
 Route::post('/x200115/detail', 'X200115Controller@detail');                  //获取参赛用户
 
 /**
  * 世纪山水抽奖   200117
  */
-Route::post('/x200117/init',  'X200117Controller@appInitHandler');          //初始化程序
-Route::get( '/x200117/user',  'X200117Controller@user');                    //获取/记录用户信息
-Route::post('/x200117/post',  'X200117Controller@post');                    //提交信息
+Route::post('/x200117/init', 'X200117Controller@appInitHandler');          //初始化程序
+Route::get('/x200117/user', 'X200117Controller@user');                    //获取/记录用户信息
+Route::post('/x200117/post', 'X200117Controller@post');                    //提交信息
 Route::post('/x200117/prize', 'X200117Controller@randomPrize');            //抽奖
 Route::post('/x200117/share', 'X200117Controller@share');                  //分享
 
 /**
  * 图片上传 200120
  */
-Route::get( '/x200120/user',  'X200120Controller@user');                    //获取/记录用户信息
-Route::post('/x200120/post',  'X200120Controller@post');                    //提交信息
+Route::get('/x200120/user', 'X200120Controller@user');                    //获取/记录用户信息
+Route::post('/x200120/post', 'X200120Controller@post');                    //提交信息
 
 
 /**
  * 百事新春
  */
-Route::get( '/x200121/user',  'X200121Controller@user');                    //获取/记录用户信息
-Route::post('/x200121/post',  'X200121Controller@post');                    //提交信息
-Route::post('/x200121/love',  'X200121Controller@click');                    //提交信息
-Route::post('/x200121/help',  'X200121Controller@help');                    //提交信息
-Route::post('/x200121/list',  'X200121Controller@list');                    //提交信息
-Route::post('/x200121/share',  'X200121Controller@share');                    //提交信息
+Route::get('/x200121/user', 'X200121Controller@user');                    //获取/记录用户信息
+Route::post('/x200121/post', 'X200121Controller@post');                    //提交信息
+Route::post('/x200121/love', 'X200121Controller@click');                    //提交信息
+Route::post('/x200121/help', 'X200121Controller@help');                    //提交信息
+Route::post('/x200121/list', 'X200121Controller@list');                    //提交信息
+Route::post('/x200121/share', 'X200121Controller@share');                    //提交信息
 
 
 /**
  * 美的情人节 200212
  */
-Route::get( '/x200212/user',  'X200212Controller@user');                    //获取/记录用户信息
-Route::post('/x200212/score',  'X200212Controller@score');                  //提交成绩
-Route::get('/x200212/list',  'X200212Controller@list');                     //排行榜
+Route::get('/x200212/user', 'X200212Controller@user');                    //获取/记录用户信息
+Route::post('/x200212/score', 'X200212Controller@score');                  //提交成绩
+Route::get('/x200212/list', 'X200212Controller@list');                     //排行榜
 
 
 /**
  * 美的    200305
  */
-Route::get ('/x200305/user', 'X200305Controller@user');                 //获取/记录用户信息
+Route::get('/x200305/user', 'X200305Controller@user');                 //获取/记录用户信息
 Route::post('/x200305/post', 'X200305Controller@post');                //分享加油
-Route::get('/x200305/share','X200305Controller@share');               //加油页面
+Route::get('/x200305/share', 'X200305Controller@share');               //加油页面
 Route::post('/x200305/like', 'X200305Controller@like');                //分享加油
-Route::get ('/x200305/list', 'X200305Controller@list');                 //排行榜
+Route::get('/x200305/list', 'X200305Controller@list');                 //排行榜
 
 /**
  * 武汉院子报名    200307
  */
-Route::get ('/x200307/user', 'X200307Controller@user');                 //获取/记录用户信息
+Route::get('/x200307/user', 'X200307Controller@user');                 //获取/记录用户信息
 Route::post('/x200307/post', 'X200307Controller@post');                //报名
 
 
 /**
  * 中国中铁    200312
  */
-Route::post('/x200312/init',  'X200312Controller@appInitHandler');          //初始化程序
-Route::get ('/x200312/user', 'X200312Controller@user');                 //获取/记录用户信息
+Route::post('/x200312/init', 'X200312Controller@appInitHandler');          //初始化程序
+Route::get('/x200312/user', 'X200312Controller@user');                 //获取/记录用户信息
 Route::post('/x200312/topic', 'X200312Controller@topic');               //报名
 Route::post('/x200312/prize', 'X200312Controller@randomPrize');         //抽奖
 
 /**
  * 中国中铁    200413
  */
-Route::get ('/x200413/user', 'X200413Controller@user');                 //获取/记录用户信息
+Route::get('/x200413/user', 'X200413Controller@user');                 //获取/记录用户信息
 Route::post('/x200413/post', 'X200413Controller@post');                //给自己砍价
-Route::get ('/x200413/share','X200413Controller@share');               //分享砍价
+Route::get('/x200413/share', 'X200413Controller@share');               //分享砍价
 Route::post('/x200413/help', 'X200413Controller@help');                //帮忙砍价
-Route::get ('/x200413/list', 'X200413Controller@list');                 //排行榜
+Route::get('/x200413/list', 'X200413Controller@list');                 //排行榜
 
 /**
  * 大桥·厨艺答题  200424
  */
-Route::get ('/x200424/init', 'X200424Controller@appInitHandler');          //初始化
-Route::get ('/x200424/user', 'X200424Controller@user');                    //获取/记录用户信息
+Route::get('/x200424/init', 'X200424Controller@appInitHandler');          //初始化
+Route::get('/x200424/user', 'X200424Controller@user');                    //获取/记录用户信息
 Route::post('/x200424/post', 'X200424Controller@post');                    //提交信息
-Route::get ('/x200424/topic','X200424Controller@topic');                   //答题
-Route::post('/x200424/prize','X200424Controller@randomPrize');             //抽奖
+Route::get('/x200424/topic', 'X200424Controller@topic');                   //答题
+Route::post('/x200424/prize', 'X200424Controller@randomPrize');             //抽奖
 
 /**
  * 中国中铁·金桥璟园    200429
  */
-Route::post('/x200429/init',  'X200429Controller@appInitHandler');         //初始化程序
-Route::get ('/x200429/user',  'X200429Controller@user');                   //获取/记录用户信息
+Route::post('/x200429/init', 'X200429Controller@appInitHandler');         //初始化程序
+Route::get('/x200429/user', 'X200429Controller@user');                   //获取/记录用户信息
 Route::post('/x200429/prize', 'X200429Controller@randomPrize');            //抽奖
 Route::post('/x200429/topic', 'X200429Controller@topic');                  //答题
 
 /**
  * 中国中铁·金桥璟园    200507
  */
-Route::post('/x200507/init',  'X200507Controller@appInitHandler');         //初始化程序
-Route::get ('/x200507/user',  'X200507Controller@user');                   //获取/记录用户信息
+Route::post('/x200507/init', 'X200507Controller@appInitHandler');         //初始化程序
+Route::get('/x200507/user', 'X200507Controller@user');                   //获取/记录用户信息
 Route::post('/x200507/prize', 'X200507Controller@randomPrize');            //抽奖
 Route::post('/x200507/topic', 'X200507Controller@topic');                  //答题
 
 /**
  * 奥莱520   200509
  */
-Route::get( '/x200509/user',  'X200509Controller@user');                   //获取/记录用户信息
+Route::get('/x200509/user', 'X200509Controller@user');                   //获取/记录用户信息
 Route::post('/x200509/score', 'X200509Controller@score');                  //提交成绩
-Route::post('/x200509/list',  'X200509Controller@list');                   //排行榜
-Route::get('/x200509/share',  'X200509Controller@share');                  //分享
+Route::post('/x200509/list', 'X200509Controller@list');                   //排行榜
+Route::get('/x200509/share', 'X200509Controller@share');                  //分享
 
 /**
  * 投票   200512
  */
-Route::get( '/x200512/user',  'X200512Controller@user');                   //获取/记录用户信息
+Route::get('/x200512/user', 'X200512Controller@user');                   //获取/记录用户信息
 Route::get('/x200512/images', 'X200512Controller@images');                 //获取所有图片
-Route::post('/x200512/poll',  'X200512Controller@poll');                   //投票
-Route::post('/x200512/share',  'X200512Controller@share');                 //分享
-Route::post('/x200512/upload','X200512Controller@uploadImages');           //上传
-Route::post('/x200512/post',  'X200512Controller@post');                   //提交信息
-Route::post('/x200512/prize','X200512Controller@randomPrize');             //抽奖
-Route::post('/x200512/init',  'X200512Controller@appInitHandler');         //初始化程序
+Route::post('/x200512/poll', 'X200512Controller@poll');                   //投票
+Route::post('/x200512/share', 'X200512Controller@share');                 //分享
+Route::post('/x200512/upload', 'X200512Controller@uploadImages');           //上传
+Route::post('/x200512/post', 'X200512Controller@post');                   //提交信息
+Route::post('/x200512/prize', 'X200512Controller@randomPrize');             //抽奖
+Route::post('/x200512/init', 'X200512Controller@appInitHandler');         //初始化程序
 
 /**
  * 中国中铁·金桥璟园    200514
  */
-Route::post('/x200514/init',  'X200514Controller@appInitHandler');         //初始化程序
-Route::get ('/x200514/user',  'X200514Controller@user');                   //获取/记录用户信息
+Route::post('/x200514/init', 'X200514Controller@appInitHandler');         //初始化程序
+Route::get('/x200514/user', 'X200514Controller@user');                   //获取/记录用户信息
 Route::post('/x200514/prize', 'X200514Controller@randomPrize');            //抽奖
 Route::post('/x200514/topic', 'X200514Controller@topic');                  //答题
 
 /**
  * 美好置业   200515
  */
-Route::get( '/x200515/user',   'X200515Controller@user');                  //获取/记录用户信息
-Route::post('/x200515/score',  'X200515Controller@score');                 //提交成绩
-Route::post('/x200515/list',   'X200515Controller@list');                  //排行榜
-Route::post('/x200515/post',   'X200515Controller@post');                  //提交信息
-Route::get( '/x200515/share',  'X200515Controller@share');                 //分享
-Route::get( '/x200515/ranking','X200515Controller@ranking');               //排名
+Route::get('/x200515/user', 'X200515Controller@user');                  //获取/记录用户信息
+Route::post('/x200515/score', 'X200515Controller@score');                 //提交成绩
+Route::post('/x200515/list', 'X200515Controller@list');                  //排行榜
+Route::post('/x200515/post', 'X200515Controller@post');                  //提交信息
+Route::get('/x200515/share', 'X200515Controller@share');                 //分享
+Route::get('/x200515/ranking', 'X200515Controller@ranking');               //排名
 
 /**
  * 中国中铁·金桥璟园    200521
  */
-Route::post('/x200521/init',  'X200521Controller@appInitHandler');         //初始化程序
-Route::get ('/x200521/user',  'X200521Controller@user');                   //获取/记录用户信息
+Route::post('/x200521/init', 'X200521Controller@appInitHandler');         //初始化程序
+Route::get('/x200521/user', 'X200521Controller@user');                   //获取/记录用户信息
 Route::post('/x200521/prize', 'X200521Controller@randomPrize');            //抽奖
 Route::post('/x200521/topic', 'X200521Controller@topic');                  //答题
 
@@ -440,88 +437,104 @@ Route::post('/x200521/topic', 'X200521Controller@topic');                  //答
 /**
  * 山海大观    200528
  */
-Route::post('/x200528/init',  'X200528Controller@appInitHandler');         //初始化程序
-Route::get ('/x200528/user',  'X200528Controller@user');                   //获取/记录用户信息
+Route::post('/x200528/init', 'X200528Controller@appInitHandler');         //初始化程序
+Route::get('/x200528/user', 'X200528Controller@user');                   //获取/记录用户信息
 Route::post('/x200528/prize', 'X200528Controller@randomPrize');            //抽奖
 Route::post('/x200528/post', 'X200528Controller@post');                    //提交
 
 /**
  * 山海大观    200528test
  */
-Route::post('/x200528t/init',  'X200528testController@appInitHandler');         //初始化程序
-Route::get ('/x200528t/user',  'X200528testController@user');                   //获取/记录用户信息
+Route::post('/x200528t/init', 'X200528testController@appInitHandler');         //初始化程序
+Route::get('/x200528t/user', 'X200528testController@user');                   //获取/记录用户信息
 Route::post('/x200528t/prize', 'X200528testController@randomPrize');            //抽奖
 Route::post('/x200528t/post', 'X200528testController@post');                    //提交
 
 /**
  * 世纪山水   200612
  */
-Route::get( '/x200612/user',  'X200612Controller@user');                    //获取/记录用户信息
+Route::get('/x200612/user', 'X200612Controller@user');                    //获取/记录用户信息
 Route::post('/x200612/score', 'X200612Controller@score');                  //提交成绩
-Route::post('/x200612/list',  'X200612Controller@list');                     //排行榜
+Route::post('/x200612/list', 'X200612Controller@list');                     //排行榜
 Route::post('/x200612/share', 'X200612Controller@share');                   //分享
 
 /**
  * 金桥璟园   200615
  */
 Route::post('/x200615/init', 'X200615Controller@appInitHandler');            //初始化程序
-Route::get( '/x200615/user', 'X200615Controller@user');                      //获取/记录用户信息
+Route::get('/x200615/user', 'X200615Controller@user');                      //获取/记录用户信息
 Route::post('/x200615/post', 'X200615Controller@post');                      //提交信息
-Route::post('/x200615/prize','X200615Controller@randomPrize');               //抽奖
-Route::post('/x200615/share','X200615Controller@share');                     //分享
+Route::post('/x200615/prize', 'X200615Controller@randomPrize');               //抽奖
+Route::post('/x200615/share', 'X200615Controller@share');                     //分享
 
 /**
  * 中国中铁·世纪山水   200622
  */
-Route::get( '/x200622/user',   'X200622Controller@user');                    //获取/记录用户信息
-Route::post('/x200622/score',  'X200622Controller@score');                   //提交成绩
-Route::post('/x200622/list',   'X200622Controller@list');                    //排行榜
-Route::get( '/x200622/share',  'X200622Controller@share');                   //分享
+Route::get('/x200622/user', 'X200622Controller@user');                    //获取/记录用户信息
+Route::post('/x200622/score', 'X200622Controller@score');                   //提交成绩
+Route::post('/x200622/list', 'X200622Controller@list');                    //排行榜
+Route::get('/x200622/share', 'X200622Controller@share');                   //分享
 
 /**
  * 美的投票  200623
  */
-Route::get( '/x200623/user',    'X200623Controller@user');                   //获取/记录用户信息
+Route::get('/x200623/user', 'X200623Controller@user');                   //获取/记录用户信息
 Route::post('/x200623/program', 'X200623Controller@programs');               //获取参赛队伍
-Route::post('/x200623/vote',    'X200623Controller@vote');                   //投票
-Route::post('/x200623/upload',  'X200623Controller@uploadProgram');          //上传参赛队伍信息
-Route::post('/x200623/update/{id}','X200623Controller@updateProgram');       //更新参赛队伍信息
+Route::post('/x200623/vote', 'X200623Controller@vote');                   //投票
+Route::post('/x200623/upload', 'X200623Controller@uploadProgram');          //上传参赛队伍信息
+Route::post('/x200623/update/{id}', 'X200623Controller@updateProgram');       //更新参赛队伍信息
 
 
 /**
  * 兰州·中海铂悦府 报名   200708
  */
-Route::get( '/x200708/user', 'X200708Controller@user');                      //获取/记录用户信息
+Route::get('/x200708/user', 'X200708Controller@user');                      //获取/记录用户信息
 Route::post('/x200708/post', 'X200708Controller@post');                      //提交信息
 
 /**
  * 中国中铁·世纪山水   200715
  */
-Route::get( '/x200715/user',   'X200715Controller@user');                    //获取/记录用户信息
-Route::post('/x200715/score',  'X200715Controller@score');                   //提交成绩
-Route::post('/x200715/list',   'X200715Controller@list');                    //排行榜
-Route::get( '/x200715/share',  'X200715Controller@share');                   //分享
+Route::get('/x200715/user', 'X200715Controller@user');                    //获取/记录用户信息
+Route::post('/x200715/score', 'X200715Controller@score');                   //提交成绩
+Route::post('/x200715/list', 'X200715Controller@list');                    //排行榜
+Route::get('/x200715/share', 'X200715Controller@share');                   //分享
 
 /**
  * 大桥·龙虾节   200722
  */
-Route::get( '/x200722/user',   'X200722Controller@user');                    //获取/记录用户信息
-Route::post('/x200722/score',  'X200722Controller@score');                   //提交成绩
-Route::post('/x200722/list',   'X200722Controller@list');                    //排行榜
-Route::get( '/x200722/share',  'X200722Controller@share');                   //分享
+Route::get('/x200722/user', 'X200722Controller@user');                    //获取/记录用户信息
+Route::post('/x200722/score', 'X200722Controller@score');                   //提交成绩
+Route::post('/x200722/list', 'X200722Controller@list');                    //排行榜
+Route::get('/x200722/share', 'X200722Controller@share');                   //分享
 
 /**
  * 宜昌中心 报名  200731
  */
-Route::get( '/x200731/user',   'X200731Controller@user');                    //获取/记录用户信息
-Route::post('/x200731/post',  'X200731Controller@post');                     //报名
+Route::get('/x200731/user', 'X200731Controller@user');                    //获取/记录用户信息
+Route::post('/x200731/post', 'X200731Controller@post');                     //报名
 
 /**
  * 楚天地产 上传  200806
  */
-Route::get( '/x200806/user',   'X200806Controller@user');                    //获取/记录用户信息
-Route::post('/x200806/post',   'X200806Controller@post');                    //提奖信息
+Route::get('/x200806/user', 'X200806Controller@user');                    //获取/记录用户信息
+Route::post('/x200806/post', 'X200806Controller@post');                    //提奖信息
 Route::post('/x200806/upload', 'X200806Controller@upload');                  //上传
-Route::post( '/x200806/images', 'X200806Controller@images');                  //获取所有照片
+Route::post('/x200806/images', 'X200806Controller@images');                  //获取所有照片
+
+
+/**
+ * 金地华中第六届纳凉音乐节 抽奖  200817
+ */
+Route::get('/x200817/user', 'X200817Controller@user');                    //获取/记录用户信息
+Route::post('/x200817/post', 'X200817Controller@post');                    //提奖信息
+Route::post('/x200817/prize', 'X200817Controller@prize');                  //上传
+Route::get('/x200817/prize_user', 'X200817Controller@prizeUsers');         //获取所有照片
+
+/**
+ * 金地华中第六届纳凉音乐节 游戏  200817
+ */
+Route::get('/x200818/user', 'X200818Controller@user');                    //获取/记录用户信息
+Route::post('/x200818/score', 'X200818Controller@score');                 //提奖信息
+Route::get('/x200818/list', 'X200818Controller@list');                 //提奖信息
 
 

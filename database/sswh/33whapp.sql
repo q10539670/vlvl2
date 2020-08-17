@@ -1572,7 +1572,7 @@ CREATE TABLE x200806_images
   COLLATE utf8mb4_unicode_ci COMMENT '上传图片表';
 
 
-
+-- 金地华中第六届纳凉音乐节 抽奖
 CREATE TABLE x200817_user
 (
     id         INT UNSIGNED AUTO_INCREMENT,
@@ -1583,6 +1583,25 @@ CREATE TABLE x200817_user
     phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
     status     TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '状态',
     prize      VARCHAR(36)  NOT NULL DEFAULT '' COMMENT '奖品',
+    created_at TIMESTAMP    NULL     DEFAULT NULL,
+    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 金地华中第六届纳凉音乐节 游戏
+CREATE TABLE x200818_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    score      INT(10)      NOT NULL DEFAULT 0 COMMENT '最佳游戏成绩',
+    game_num   TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '游戏次数',
+    ranking    INT(10)      NOT NULL DEFAULT 0 COMMENT '最佳排名',
+    ranking_at DATETIME     NULL     DEFAULT NULL COMMENT '最佳排名时间',
     created_at TIMESTAMP    NULL     DEFAULT NULL,
     updated_at TIMESTAMP    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
