@@ -24,7 +24,7 @@ class X200818Controller extends Controller
         $exportUrl = asset('/vlvl/x200818/export');
         $redis = app('redis');
         $redis->select(0);
-        $redisShareData = $redis->hGetAll('wx:view:yc20200106');
+        $redisShareData = $redis->hGetAll('wx:view:jdmusic0817');
 
         return view('sswh.sswhAdmin.x200818', [
             'title' => '金地华中·第六届纳凉音乐节_听歌识曲', 'paginator' => $paginator, 'exportUrl' => $exportUrl,

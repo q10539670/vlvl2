@@ -62,12 +62,14 @@ var api = {
     * */
     baseUrl: 'https://wx.sanshanwenhua.com/vlvl/api/sswh',
 
+    // **********************
+    // H5
     /**
      *   获取/记录 用户信息
      */
     user: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x200817/user',
+            $.get(api.baseUrl + '/x200817/site1_1/user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -80,11 +82,12 @@ var api = {
      */
     post: function (data) {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x200817/post',
+            $.post(api.baseUrl + '/x200817/site1_1/post',
                 /*接收参数-start*/
                 {
-                    name: data.name,  //姓名
-                    phone: data.phone  //电话
+                    name: data.name,      //姓名
+                    phone: data.phone,    //电话
+                    room_no: data.room_no //房号
                 },
                 function (res) {
                     api.debug && console.log(res);
@@ -92,13 +95,16 @@ var api = {
                 });
         });
     },
+    //***************************
 
+    //***************************
+    // 大屏幕
     /**
      *   获取抽奖用户池
      */
     prizeUser: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x200806/prize_user',
+            $.get(api.baseUrl + '/x200817/site1_1/prize_user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -111,11 +117,12 @@ var api = {
      */
     prize: function () {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x200817/prize',
+            $.post(api.baseUrl + '/x200817/site1_1/prize',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
                 });
         });
     },
+    //********************
 };

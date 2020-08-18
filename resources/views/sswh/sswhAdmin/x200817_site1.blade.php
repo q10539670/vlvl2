@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>金地华中·第六届纳凉音乐节抽奖</title>
+    <title>金地华中·第六届纳凉音乐节场地一抽奖</title>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -31,7 +31,7 @@
         <nav class="navbar navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="javascript:void(0)" class="navbar-brand"><b>金地华中·第六届纳凉音乐节抽奖</b></a>
+                    <a href="javascript:void(0)" class="navbar-brand"><b>金地华中·第六届纳凉音乐节抽奖<span style="color: #E8BF6A">场地一</span></b></a>
                 </div>
                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 
@@ -58,17 +58,17 @@
                     @if($round == 0)
                     <span id="alert" style="text-align: center">当前抽奖已停止</span>
                     @else
-                        <span id="alert" style="text-align: center">当前为第{{$round}}轮抽奖</span>
+                        <span id="alert" style="text-align: center">当前为场地一第{{$round}}轮抽奖</span>
                     @endif
                         <br><br>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <button type="button" onclick="round(this,1,1)" class="btn btn-block btn-info">第一轮幸运奖(5名)</button>
-                        <button type="button" onclick="round(this,2,1)" class="btn btn-block btn-info">第二轮幸运奖(5名)</button>
-                        <button type="button" onclick="round(this,3,1)" class="btn btn-block btn-info">第三轮三等奖(3名)</button>
-                        <button type="button" onclick="round(this,4,1)" class="btn btn-block btn-info">第四轮二等奖(2名)</button>
-                        <button type="button" onclick="round(this,5,1)" class="btn btn-block btn-info">第五轮一等奖(1名)</button>
+                        <button type="button" onclick="round(this,1,1)" class="btn btn-block btn-warning">第一轮幸运奖(5名)</button>
+                        <button type="button" onclick="round(this,2,1)" class="btn btn-block btn-warning">第二轮幸运奖(5名)</button>
+                        <button type="button" onclick="round(this,3,1)" class="btn btn-block btn-warning">第三轮三等奖(3名)</button>
+                        <button type="button" onclick="round(this,4,1)" class="btn btn-block btn-warning">第四轮二等奖(2名)</button>
+                        <button type="button" onclick="round(this,5,1)" class="btn btn-block btn-warning">第五轮一等奖(1名)</button>
                         <button type="button" onclick="round(this,0,0)" class="btn btn-block btn-danger">停止</button>
                     </div>
 
@@ -148,13 +148,13 @@
     function round(obj, round,status) {
         var msg = '';
         if (round == 0) {
-            msg = '确定停止抽奖吗?'
+            msg = '确定停止场地一抽奖吗?'
         } else {
-            msg = '确定开启第' + round + '波抽奖吗?'
+            msg = '确定开启场地一第' + round + '波抽奖吗?'
         }
         layer.confirm(msg, function () {
             $.ajax({
-                url: '{{url('vlvl/x200817r/set_round')}}',
+                url: '{{url('vlvl/x200817/set_site1round')}}',
                 type: 'post',
                 data: {'round': round, 'status':status, _token: '{{csrf_token()}}'},
                 success: function (res) {
@@ -162,8 +162,8 @@
                         layer.msg('停止抽奖');
                         $('#alert').html('当前抽奖未开始');
                     } else {
-                        layer.msg('开启第' + round + '波抽奖成功');
-                        $('#alert').html('当前为第' + round + '波抽奖');
+                        layer.msg('开启场地一第' + round + '波抽奖成功');
+                        $('#alert').html('当前为场地一第' + round + '波抽奖');
                         $('#round').val(round)
                     }
                 }

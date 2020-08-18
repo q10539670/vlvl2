@@ -21,11 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200817/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X200817/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/X200817Export.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/X200817Site1_1Export.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200817Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200817Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200818Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200818Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site1_1Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200818Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200818Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200817/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X200817/Site1_1User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/x200817.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/x200817site1_1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200817.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200817.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200817r.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200817_site1.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +170,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Exports" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -173,19 +178,19 @@
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\public\js" />
       <recent name="D:\laragon\www\vlvl\config" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Sswh\X200817" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -329,7 +334,9 @@
       <workItem from="1597197019797" duration="10797000" />
       <workItem from="1597281493496" duration="3059000" />
       <workItem from="1597367732391" duration="8150000" />
-      <workItem from="1597627187640" duration="17999000" />
+      <workItem from="1597627187640" duration="18075000" />
+      <workItem from="1597659318765" duration="333000" />
+      <workItem from="1597712855738" duration="18976000" />
     </task>
     <servers />
   </component>
@@ -380,18 +387,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="760" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1595225838942" />
-    <state x="757" y="258" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593395430686">
+    <state x="757" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597718095839">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="757" y="258" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1593395430686" />
+    <state x="757" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1597718095839" />
     <state x="757" y="381" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog" timestamp="1592792381234">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="757" y="381" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1592792381234" />
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597657733053">
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597738930057">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1597657733053" />
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1597738930057" />
     <state x="1197" y="334" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0" timestamp="1594172695929">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -412,10 +419,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#部署/0.0.1920.1050@0.0.1920.1050" timestamp="1595929992630" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1597132898721">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1597733786387">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1597132898721" />
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1597733786387" />
     <state width="1293" height="285" key="GridCell.Tab.0.bottom" timestamp="1596681198492">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

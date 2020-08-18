@@ -525,11 +525,26 @@ Route::post('/x200806/images', 'X200806Controller@images');                  //�
 /**
  * 金地华中第六届纳凉音乐节 抽奖  200817
  */
-Route::get('/x200817/user', 'X200817Controller@user');                    //获取/记录用户信息
-Route::post('/x200817/post', 'X200817Controller@post');                    //提奖信息
-Route::post('/x200817/prize', 'X200817Controller@prize');                  //上传
-Route::get('/x200817/prize_user', 'X200817Controller@prizeUsers');         //获取所有照片
-
+//场地一 第一天
+Route::get( '/x200817/site1_1/user',      'X200817Site1_1Controller@user');                //获取/记录用户信息
+Route::post('/x200817/site1_1/post',      'X200817Site1_1Controller@post');                //提交信息
+Route::post('/x200817/site1_1/prize',     'X200817Site1_1Controller@prize');               //抽奖
+Route::get( '/x200817/site1_1/prize_user','X200817Site1_1Controller@prizeUsers');         //获取所有抽奖人
+//场地一 第二天
+Route::get( '/x200817/site1_2/user',      'X200817Site1_2Controller@user');                //获取/记录用户信息
+Route::post('/x200817/site1_2/post',      'X200817Site1_2Controller@post');                //提交信息
+Route::post('/x200817/site1_2/prize',     'X200817Site1_2Controller@prize');               //抽奖
+Route::get( '/x200817/site1_2/prize_user','X200817Site1_2Controller@prizeUsers');         //获取所有抽奖人
+//场地二 第一天
+Route::get( '/x200817/site2_1/user',      'X200817Site2_1Controller@user');                //获取/记录用户信息
+Route::post('/x200817/site2_1/post',      'X200817Site2_1Controller@post');                //提交信息
+Route::post('/x200817/site2_1/prize',     'X200817Site2_1Controller@prize');               //抽奖
+Route::get( '/x200817/site2_1/prize_user','X200817Site2_1Controller@prizeUsers');         //获取所有抽奖人
+//场地二 第二天
+Route::get( '/x200817/site2_2/user',      'X200817Site2_2Controller@user');                //获取/记录用户信息
+Route::post('/x200817/site2_2/post',      'X200817Site2_2Controller@post');                //提交信息
+Route::post('/x200817/site2_2/prize',     'X200817Site2_2Controller@prize');               //抽奖
+Route::get( '/x200817/site2_2/prize_user','X200817Site2_2Controller@prizeUsers');         //获取所有抽奖人
 /**
  * 金地华中第六届纳凉音乐节 游戏  200817
  */

@@ -2,13 +2,13 @@
 
 namespace App\Exports;
 
-use App\Models\Sswh\X200817\User;
+use App\Models\Sswh\X200817\Site1_2User as User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithStrictNullComparison;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class X200817Export implements FromCollection, WithStrictNullComparison,WithHeadings,ShouldAutoSize
+class X200817Site1_2Export implements FromCollection, WithStrictNullComparison,WithHeadings,ShouldAutoSize
 {
 
     /**
@@ -16,7 +16,7 @@ class X200817Export implements FromCollection, WithStrictNullComparison,WithHead
      */
     public function collection()
     {
-        return User::get(['nickname','name','phone','round','prize','created_at','prized_at']);
+        return User::get(['nickname','name','phone','room_no','round','prize','created_at','prized_at']);
     }
     // 定义 'headings()' 方法
     public function headings(): array
@@ -25,6 +25,7 @@ class X200817Export implements FromCollection, WithStrictNullComparison,WithHead
             '昵称',
             '姓名',
             '电话',
+            '房号',
             '第几轮中奖',
             '奖品',
             '参与时间',

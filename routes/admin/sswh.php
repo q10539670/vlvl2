@@ -403,9 +403,15 @@ Route::post('/x200806/delete', 'X200806Controller@delete')->name('x200806.del');
  * 金地华中·第六届纳凉音乐节抽奖 200817
  */
 Route::get('/x200817/index', 'X200817Controller@index');
-Route::get('/x200817/export', 'X200817Controller@export');
-Route::get('/x200817r/users', 'X200817Controller@prizeUsers');    //抽奖用户
-Route::get('/x200817r/round', 'X200817Controller@round');         //当前抽奖轮数
+Route::get('/x200817/export1-1', 'X200817Controller@export_site1_1');
+Route::get('/x200817/export1-2', 'X200817Controller@export_site1_2');
+Route::get('/x200817/export2-1', 'X200817Controller@export_site2_1');
+Route::get('/x200817/export2-2', 'X200817Controller@export_site2_2');
+
+Route::get('/x200817/round_site1', 'X200817Controller@site1Round');                   //当前抽奖轮数
+Route::get('/x200817/round_site2', 'X200817Controller@site2Round');                   //当前抽奖轮数
+Route::post('/x200817/set_site1round', 'X200817Controller@setSite1Round');            //设置抽奖轮数
+Route::post('/x200817/set_site2round', 'X200817Controller@setSite2Round');            //设置抽奖轮数
 
 
 /**

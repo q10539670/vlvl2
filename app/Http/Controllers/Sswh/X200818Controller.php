@@ -105,13 +105,13 @@ class X200818Controller extends Common
         }
         $listAll = User::orderBy('score', 'desc')->orderBy('ranking_at', 'asc')->orderBy('created_at', 'asc')->get()->toArray();
         //去掉成绩为0的结果
-//        $list = array_filter($listAll, function($values){return $values['score'];});
+        $list = array_filter($listAll, function($values){return $values['score'];});
         $ranking = -1;
-        foreach ($listAll as $key => $value) {
+        foreach ($list as $key => $value) {
             if ($value['openid'] == $request->openid) {
                 $ranking = $key + 1;
             }
         }
-        return $this->returnJson(1, "排行榜数据查询成功", ['ranking' =>$ranking,'user'=>$user,'list' => $listAll]);
+        return $this->returnJson(1, "排行榜数据查询成功", ['ranking' =>$ranking,'user'=>$user,'list' => $list]);
     }
 }

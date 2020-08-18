@@ -5,13 +5,13 @@ namespace App\Models\Sswh\X200817;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Site1_2User extends Model
 {
-    protected $table = 'x200817_user';
+    protected $table = 'x200817_site1-2_user';
 
     protected $guarded = [];
 
-    const ITEM = 'x200817';
+    const ITEM = 'x200817_site1';
 
     /*
      * 获取当前抽奖轮数
@@ -49,7 +49,7 @@ class User extends Model
     public static function getFormatUser($users)
     {
         foreach ($users as $key =>$user) {
-            $users[$key]['hide_phone'] = User::formatPhone($user['phone']);
+            $users[$key]['hide_phone'] = self::formatPhone($user['phone']);
         }
         return $users;
     }
