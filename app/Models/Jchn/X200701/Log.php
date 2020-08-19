@@ -14,11 +14,11 @@ class Log extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\Sswh\X200701\User');
+        return $this->belongsTo('App\Models\Jchn\X200701\User');
     }
 
     public function image()
     {
-        return $this->belongsTo('App\Models\Sswh\X200701\Images','origin_image_id');
+        return $this->belongsTo('App\Models\Jchn\X200701\Images','origin_image_id');
     }
 }

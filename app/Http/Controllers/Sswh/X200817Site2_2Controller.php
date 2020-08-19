@@ -85,13 +85,18 @@ class X200817Site2_2Controller extends Common
      */
     public function prizeUsers()
     {
-        $prizeUsers = User::where('status', '!=', 1)->where('phone','!=','')->get()->toArray();
+        $prizeUsers = User::where('phone','!=','')->get()->toArray();
         $count = count($prizeUsers);
         $prizeUsers = User::getFormatUser($prizeUsers);
         return $this->returnJson(1, '查询成功', ['prizeUsers' => $prizeUsers, 'count' => $count]);
 
     }
 
+    public function getRound()
+    {
+        $round = User::getRound();
+        return $this->returnJson(1, '查询成功', ['round' => $round]);
+    }
     /**
      * @return false|JsonResponse|string
      */
@@ -118,8 +123,8 @@ class X200817Site2_2Controller extends Common
                     $user->status = 1;
                     $user->prized_at = now()->toDateTimeString();
                     $user->round = $round;
-                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                     $user->save();
+                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
                 return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
                 break;
@@ -139,8 +144,8 @@ class X200817Site2_2Controller extends Common
                     $user->status = 1;
                     $user->prized_at = now()->toDateTimeString();
                     $user->round = $round;
-                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                     $user->save();
+                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
                 return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
                 break;
@@ -160,8 +165,8 @@ class X200817Site2_2Controller extends Common
                     $user->status = 1;
                     $user->prized_at = now()->toDateTimeString();
                     $user->round = $round;
-                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                     $user->save();
+                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
                 return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
                 break;
@@ -181,8 +186,8 @@ class X200817Site2_2Controller extends Common
                     $user->status = 1;
                     $user->prized_at = now()->toDateTimeString();
                     $user->round = $round;
-                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                     $user->save();
+                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
                 return $this->returnJson(1, '抽奖成', ['prizes' => $prizes]);
                 break;
@@ -202,8 +207,8 @@ class X200817Site2_2Controller extends Common
                     $user->status = 1;
                     $user->prized_at = now()->toDateTimeString();
                     $user->round = $round;
-                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                     $user->save();
+                    $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
                 return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
                 break;

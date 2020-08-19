@@ -16,7 +16,7 @@ class X200818Controller extends Controller
     public function index(Request $request)
     {
         if ($request->input('order')) {
-            $paginator = User::where('score','!=',0)->orderBy('score', 'desc')->orderBy('updated_at', 'asc')->paginate(10);
+            $paginator = User::orderBy('score', 'desc')->orderBy('ranking_at', 'asc')->orderBy('created_at', 'asc')->paginate(10);
         }else {
             $paginator = User::orderBy('updated_at', 'desc')->paginate(10);
 

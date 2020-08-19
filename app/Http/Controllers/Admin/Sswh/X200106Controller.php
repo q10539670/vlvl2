@@ -15,7 +15,7 @@ class X200106Controller extends Controller
 {
     protected $item = 'x200106';
 
-    const REDPACK_OPEN = true;  //红包开关
+    const REDPACK_OPEN = false;  //红包开关
 
 
     public function index(Request $request)

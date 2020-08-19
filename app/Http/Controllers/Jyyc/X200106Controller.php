@@ -17,7 +17,7 @@ class X200106Controller extends Common
     protected $itemName = 'x200106';
 
     const OPEN_SEND_REDPACK = false;  //红包开关
-    const END_TIME = '2020-01-06 23:59:59';  //结束时间
+    const END_TIME = '2021-01-06 23:59:59';  //结束时间
 
     /*
      * 获取/记录用户授权信息

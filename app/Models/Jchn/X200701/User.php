@@ -13,13 +13,13 @@ class User extends Model
     protected $guarded = [];
 
     public function images() {
-        return $this->hasMany('App\Models\Sswh\X200701\Images');
+        return $this->hasMany('App\Models\Jchn\X200701\Images');
     }
     /*
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 0.3;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 0.8;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
     private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
@@ -34,16 +34,16 @@ class User extends Model
     protected $prizeConf = [
         /*中奖数组*/
         'prize' => [
-            0 => ['prize_id' => 1, 'prize_level_name' => '七等奖', 'prize_name' => '战马笔袋', 'money' => 1, 'v' => 50, 'count' => 0, 'limit' => 0],
-            1 => ['prize_id' => 2, 'prize_level_name' => '六等奖', 'prize_name' => '爱奇艺月卡', 'money' => 10, 'v' => 200, 'count' => 0, 'limit' => 0],
-            2 => ['prize_id' => 3, 'prize_level_name' => '五等奖', 'prize_name' => '赠饮(6听礼包装)', 'money' => 50, 'v' => 40, 'count' => 0, 'limit' => 0],
-            3 => ['prize_id' => 4, 'prize_level_name' => '四等奖', 'prize_name' => '球场免费体验券', 'money' => 50, 'v' => 100, 'count' => 0, 'limit' => 0],
-            4 => ['prize_id' => 5, 'prize_level_name' => '三等奖', 'prize_name' => '欢乐谷全日门票', 'money' => 50, 'v' => 30, 'count' => 0, 'limit' => 0],
-            5 => ['prize_id' => 6, 'prize_level_name' => '二等奖', 'prize_name' => '玛雅全日门票', 'money' => 50, 'v' => 200, 'count' => 0, 'limit' => 0],
-            6 => ['prize_id' => 7, 'prize_level_name' => '一等奖', 'prize_name' => 'adidas椰子鞋', 'money' => 50, 'v' => 5, 'count' => 0, 'limit' => 0],
+            0 => ['prize_id' => 1, 'prize_level_name' => '七等奖', 'prize_name' => '战马笔袋', 'money' => 1, 'v' => 2, 'count' => 0, 'limit' => 0],
+            1 => ['prize_id' => 2, 'prize_level_name' => '六等奖', 'prize_name' => '爱奇艺月卡', 'money' => 10, 'v' => 3, 'count' => 0, 'limit' => 0],
+            2 => ['prize_id' => 3, 'prize_level_name' => '五等奖', 'prize_name' => '赠饮(6听礼包装)', 'money' => 50, 'v' => 2, 'count' => 0, 'limit' => 0],
+            3 => ['prize_id' => 4, 'prize_level_name' => '四等奖', 'prize_name' => '球场免费体验券', 'money' => 50, 'v' => 2, 'count' => 0, 'limit' => 0],
+            4 => ['prize_id' => 5, 'prize_level_name' => '三等奖', 'prize_name' => '欢乐谷全日门票', 'money' => 50, 'v' => 0, 'count' => 0, 'limit' => 0],
+            5 => ['prize_id' => 6, 'prize_level_name' => '二等奖', 'prize_name' => '玛雅全日门票', 'money' => 50, 'v' => 800, 'count' => 0, 'limit' => 0],
+            6 => ['prize_id' => 7, 'prize_level_name' => '一等奖', 'prize_name' => 'adidas椰子鞋', 'money' => 50, 'v' => 1, 'count' => 0, 'limit' => 0],
         ],
         /*不中奖   --未中奖*/
-        'notPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'money' => 0, 'v' => 100, 'count' => 0, 'limit' => 100000],
+        'notPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'money' => 0, 'v' => 190, 'count' => 0, 'limit' => 100000],
     ];
 
     protected $prizeConfLimit = [

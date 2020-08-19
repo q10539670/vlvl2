@@ -113,6 +113,19 @@ var api = {
     },
 
     /**
+     *
+     * 获取当前抽奖轮数
+     */
+    round: function () {
+        return new Promise(function (resolve, reject) {
+            $.get(api.baseUrl + '/x200817/site2_2/get_round',
+                function (res) {
+                    api.debug && console.log(res);
+                    resolve(res);
+                });
+        });
+    },
+    /**
      * 抽奖
      */
     prize: function () {

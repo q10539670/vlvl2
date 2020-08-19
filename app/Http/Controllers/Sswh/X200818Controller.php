@@ -34,6 +34,12 @@ class X200818Controller extends Common
             //查询
             $user = User::where(['openid' => $openid])->first();
         }
+        if ($user->nickname == '' && $user->avatar == '') {
+            $info = $this->searchSswhUser($request);
+            $user->nickname = $info['nickname'];
+            $user->avatar = $info['headimgurl'];
+            $user->save();
+        }
         return Helper::json(1, '获取/记录用户信息成功', [
             'user' => $user,
             'is_active_time' => (time() > strtotime(self::END_TIME)) ? 0 : 1,

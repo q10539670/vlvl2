@@ -417,5 +417,5 @@ Route::post('/x200817/set_site2round', 'X200817Controller@setSite2Round');      
 /**
  * 金地华中·第六届纳凉音乐节_听歌识曲 200818
  */
-Route::get('/x200818/index',  'X200818Controller@index');
+Route::get('/x200818/index', 'X200818Controller@index');
 Route::get('/x200818/export', 'X200818Controller@export');

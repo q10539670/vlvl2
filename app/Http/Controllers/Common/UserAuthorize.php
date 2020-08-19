@@ -42,8 +42,12 @@ class UserAuthorize extends Controller
         $item = $this->getItemName();
         $appName = $request->input('appname') != '' ? $request->input('appname') : '33wh';
         $mode = $request->input('auth');//判断授权方式 --wx:静默授权 wxauth:获取用户信息授权
-        $scope = $mode == 'wx' ? 'snsapi_base' : 'snsapi_userinfo';
-        if (!isset($_SESSION[$item])) {
+        if ($mode == 'wx') {
+            $scope = 'snsapi_base';
+        } else {
+            $scope = 'snsapi_userinfo';
+        }
+        if (!isset($_SESSION[$item]) || !isset($_SESSION['scope']) || !$_SESSION['scope'] == $scope) {
             $wxInfo = config('wxconfig');
             $appId = $wxInfo[$appName]['appId'];
             $appSecret = $wxInfo[$appName]['appSecret'];
@@ -80,6 +84,7 @@ class UserAuthorize extends Controller
                         $_SESSION['uid'] = $uid;
                     } else {
                         $userInfo['nickname'] = self::filterEmoji($userInfo['nickname']);
+                        $userInfo['nickname2'] = base64_encode($userInfo['nickname']);
                         $userInfo["updateTime"] = time();
                         DB::table($table)->where('openid', $openid)->update((array) $userInfo);
 //                        Cookie::set(['key' => 'uid', 'value' => $sql->id, 'expire' => $expire]);
@@ -96,6 +101,7 @@ class UserAuthorize extends Controller
                 }
 //                Cookie::set(['key' => $appName, 'value' => $openid, 'expire' => $expire]);
                 $_SESSION[$item] = $openid;
+                $_SESSION['scope'] = $scope;
                 /*
                  * 更新项目名称
                  */
