@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Sswh;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Common\Common;
+use App\Models\Sswh\X200817\Site1_1User;
 use App\Models\Sswh\X200817\Site1_2User as User;
+use App\Models\Sswh\X200817\Site2_1User;
+use App\Models\Sswh\X200817\Site2_2User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -55,8 +58,20 @@ class X200817Site1_2Controller extends Common
             return response()->json(['error' => '未授权'], 422);
         }
 
+        if (Site1_1User::where('openid',$request->openid)->where('name','!=', '')->first()) {
+            return response()->json(['error' => '您已报名其他相同活动'], 422);
+        }
+        if (Site2_1User::where('openid',$request->openid)->where('name','!=', '')->first()) {
+            return response()->json(['error' => '您已报名其他相同活动'], 422);
+        }
+        if (Site2_2User::where('openid',$request->openid)->where('name','!=', '')->first()) {
+            return response()->json(['error' => '您已报名其他相同活动'], 422);
+        }
         if (!Helper::stopResubmit($this->itemName.':post', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
+        }
+        if ($user->name != '') {
+            return Helper::Json(-1, '您已提交报名');
         }
         //检查信息
         $validator = Validator::make($request->all(), [
@@ -121,7 +136,7 @@ class X200817Site1_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成功', ['prizeUsers' => $prizes]);
                 break;
             case 2:
                 if (User::where('round', 2)->first()) {
@@ -142,7 +157,7 @@ class X200817Site1_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成功', ['prizeUsers' => $prizes]);
                 break;
             case 3:
                 if (User::where('round', 3)->first()) {
@@ -163,7 +178,7 @@ class X200817Site1_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成功', ['prizeUsers' => $prizes]);
                 break;
             case 4 :
                 if (User::where('round', 4)->first()) {
@@ -184,7 +199,7 @@ class X200817Site1_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成', ['prizeUsers' => $prizes]);
                 break;
             case 5 :
                 if (User::where('round', 5)->first()) {
@@ -205,7 +220,7 @@ class X200817Site1_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成功', ['prizeUsers' => $prizes]);
                 break;
             default:
                 break;

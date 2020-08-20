@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Sswh;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Common\Common;
+use App\Models\Sswh\X200817\Site1_2User;
+use App\Models\Sswh\X200817\Site2_1User;
 use App\Models\Sswh\X200817\Site2_2User as User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -54,9 +56,22 @@ class X200817Site2_2Controller extends Common
         if (!$user = User::where('openid', $request->openid)->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
+        if (Site1_2User::where('openid',$request->openid)->where('name','!=', '')->first()) {
+            return response()->json(['error' => '您已报名其他相同活动'], 422);
+        }
+        if (Site2_1User::where('openid',$request->openid)->where('name','!=', '')->first()) {
+            return response()->json(['error' => '您已报名其他相同活动'], 422);
+        }
+        if (Site2_1User::where('openid',$request->openid)->where('name','!=', '')->first()) {
+            return response()->json(['error' => '您已报名其他相同活动'], 422);
+        }
 
         if (!Helper::stopResubmit($this->itemName.':post', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
+        }
+
+        if ($user->name != '') {
+            return Helper::Json(-1, '您已提交报名');
         }
         //检查信息
         $validator = Validator::make($request->all(), [
@@ -85,7 +100,7 @@ class X200817Site2_2Controller extends Common
      */
     public function prizeUsers()
     {
-        $prizeUsers = User::where('phone','!=','')->get()->toArray();
+        $prizeUsers = User::where('phone', '!=', '')->get()->toArray();
         $count = count($prizeUsers);
         $prizeUsers = User::getFormatUser($prizeUsers);
         return $this->returnJson(1, '查询成功', ['prizeUsers' => $prizeUsers, 'count' => $count]);
@@ -97,6 +112,7 @@ class X200817Site2_2Controller extends Common
         $round = User::getRound();
         return $this->returnJson(1, '查询成功', ['round' => $round]);
     }
+
     /**
      * @return false|JsonResponse|string
      */
@@ -116,7 +132,7 @@ class X200817Site2_2Controller extends Common
                 if (User::where('status', '!=', 1)->count() < 5) {
                     return $this->returnJson(1, ['error' => '抽奖人数不足']);
                 }
-                $prizes = User::where('status', '!=', 1)->where('phone','!=','')->get()->random(5);
+                $prizes = User::where('status', '!=', 1)->where('phone', '!=', '')->get()->random(5);
                 foreach ($prizes as $key => $user) {
                     $user->prize_id = 4;
                     $user->prize = '幸运奖';
@@ -126,7 +142,7 @@ class X200817Site2_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成功', ['prizeUsers' => $prizes]);
                 break;
             case 2:
                 if (User::where('round', 2)->first()) {
@@ -137,7 +153,7 @@ class X200817Site2_2Controller extends Common
                 if (User::where('status', '!=', 1)->count() < 5) {
                     return $this->returnJson(1, ['error' => '抽奖人数不足']);
                 }
-                $prizes = User::where('status', '!=', 1)->where('phone','!=','')->get()->random(5);
+                $prizes = User::where('status', '!=', 1)->where('phone', '!=', '')->get()->random(5);
                 foreach ($prizes as $key => $user) {
                     $user->prize_id = 4;
                     $user->prize = '幸运奖';
@@ -147,7 +163,7 @@ class X200817Site2_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成功', ['prizeUsers' => $prizes]);
                 break;
             case 3:
                 if (User::where('round', 3)->first()) {
@@ -158,7 +174,7 @@ class X200817Site2_2Controller extends Common
                 if (User::where('status', '!=', 1)->count() < 3) {
                     return $this->returnJson(1, ['error' => '抽奖人数不足']);
                 }
-                $prizes = User::where('status', '!=', 1)->where('phone','!=','')->get()->random(3);
+                $prizes = User::where('status', '!=', 1)->where('phone', '!=', '')->get()->random(3);
                 foreach ($prizes as $key => $user) {
                     $user->prize_id = 3;
                     $user->prize = '三等奖';
@@ -168,7 +184,7 @@ class X200817Site2_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成功', ['prizeUsers' => $prizes]);
                 break;
             case 4 :
                 if (User::where('round', 4)->first()) {
@@ -179,7 +195,7 @@ class X200817Site2_2Controller extends Common
                 if (User::where('status', '!=', 1)->count() < 2) {
                     return $this->returnJson(1, ['error' => '抽奖人数不足']);
                 }
-                $prizes = User::where('status', '!=', 1)->where('phone','!=','')->get()->random(2);
+                $prizes = User::where('status', '!=', 1)->where('phone', '!=', '')->get()->random(2);
                 foreach ($prizes as $key => $user) {
                     $user->prize_id = 2;
                     $user->prize = '二等奖';
@@ -189,7 +205,7 @@ class X200817Site2_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成', ['prizeUsers' => $prizes]);
                 break;
             case 5 :
                 if (User::where('round', 5)->first()) {
@@ -200,7 +216,7 @@ class X200817Site2_2Controller extends Common
                 if (User::where('status', '!=', 1)->count() < 1) {
                     return $this->returnJson(1, ['error' => '抽奖人数不足']);
                 }
-                $prizes = User::where('status', '!=', 1)->where('phone','!=','')->get()->random(1);
+                $prizes = User::where('status', '!=', 1)->where('phone', '!=', '')->get()->random(1);
                 foreach ($prizes as $key => $user) {
                     $user->prize_id = 1;
                     $user->prize = '一等奖';
@@ -210,7 +226,7 @@ class X200817Site2_2Controller extends Common
                     $user->save();
                     $prizes[$key]['hide_phone'] = User::formatPhone($user->phone);
                 }
-                return $this->returnJson(1, '抽奖成功', ['prizes' => $prizes]);
+                return $this->returnJson(1, '抽奖成功', ['prizeUsers' => $prizes]);
                 break;
             default:
                 break;
