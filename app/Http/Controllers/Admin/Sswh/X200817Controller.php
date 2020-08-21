@@ -49,7 +49,7 @@ class X200817Controller extends Controller
             ->when(!preg_match("/^\d{11}$/", $nameOrPhone), function ($query) use ($nameOrPhone) {
                 return $query->where('name', 'like', '%'.$nameOrPhone.'%');
             });
-        $paginator = $query->orderBy('created_at', 'desc')->paginate(10);
+        $paginator = $query->orderBy('round','desc')->orderBy('created_at', 'desc')->paginate(10);
         $exportUrl = asset('/vlvl/x200817/export'.$site);
         $redis = app('redis');
         $redis->select(0);

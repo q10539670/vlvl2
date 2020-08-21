@@ -11,6 +11,7 @@ use App\Models\Sswh\X200817\Site2_1User;
 use App\Models\Sswh\X200817\Site2_2User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -231,6 +232,4 @@ class X200817Site1_1Controller extends Common
                 break;
         }
     }
-
-
 }

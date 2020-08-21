@@ -53,10 +53,10 @@ $siteNow = request()->input('site', '');
                         <div class="form-group">
                             <select name="site" class="form-control">
                                 <option value="">请选择活动场次</option>
-                                <option {{($siteNow =='1-1')?'selected':''}} value="1-1">场地一/第一场</option>
-                                <option {{($siteNow =='1-2')?'selected':''}} value="1-2">场地一/第二场</option>
-                                <option {{($siteNow =='2-1')?'selected':''}} value="2-1">场地二/第一场</option>
-                                <option {{($siteNow =='2-2')?'selected':''}} value="2-2">场地二/第二场</option>
+                                <option {{($siteNow =='1-1')?'selected':''}} value="1-1">1-1天悦</option>
+                                <option {{($siteNow =='1-2')?'selected':''}} value="1-2">1-2自在城</option>
+                                <option {{($siteNow =='2-1')?'selected':''}} value="2-1">2-1湖山境</option>
+                                <option {{($siteNow =='2-2')?'selected':''}} value="2-2">2-2悦江时代</option>
                             </select>
                         </div>
 

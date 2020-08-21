@@ -21,11 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200817Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200817Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site1_1Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site1_1Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site1_2Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site1_2Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site2_1Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site2_1Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site2_2Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site2_2Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/SswhCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/SswhCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200817.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200817.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,6 +332,7 @@
       <workItem from="1597712855738" duration="19711000" />
       <workItem from="1597800587426" duration="18087000" />
       <workItem from="1597886709328" duration="15252000" />
+      <workItem from="1597972532760" duration="13023000" />
     </task>
     <servers />
   </component>
