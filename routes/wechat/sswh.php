@@ -547,4 +547,8 @@ Route::get('/x200818/user', 'X200818Controller@user');                    //获�
 Route::post('/x200818/score', 'X200818Controller@score');                 //提奖信息
 Route::get('/x200818/list', 'X200818Controller@list');                    //提奖信息
 
-
+/**
+ * 金桥 报名  200823
+ */
+Route::get( '/x200823/user', 'X200823Controller@user');                    //获取/记录用户信息
+Route::post('/x200823/post', 'X200823Controller@post');                     //报名

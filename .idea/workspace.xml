@@ -22,9 +22,8 @@
     <list default="true" id="6badf6a1-0e52-4be2-8897-49e27ccb42bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200817Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200817Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site1_1Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200817Site1_1Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jchn/X200701/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200817.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200817.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +162,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ydf_mall" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -171,19 +170,19 @@
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\public\js" />
       <recent name="D:\laragon\www\vlvl\config" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Sswh\X200817" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -332,7 +331,8 @@
       <workItem from="1597712855738" duration="19711000" />
       <workItem from="1597800587426" duration="18087000" />
       <workItem from="1597886709328" duration="15252000" />
-      <workItem from="1597972532760" duration="13023000" />
+      <workItem from="1597972532760" duration="14327000" />
+      <workItem from="1598231697707" duration="5318000" />
     </task>
     <servers />
   </component>
@@ -415,6 +415,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#部署/0.0.1920.1050@0.0.1920.1050" timestamp="1595929992630" />
+    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1598234174238">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1598234174238" />
     <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1597801857829">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

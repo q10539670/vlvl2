@@ -419,3 +419,10 @@ Route::post('/x200817/set_site2round', 'X200817Controller@setSite2Round');      
  */
 Route::get('/x200818/index', 'X200818Controller@index');
 Route::get('/x200818/export', 'X200818Controller@export');
+
+
+/**
+ * 金桥璟园·预约  200823
+ */
+Route::get('/x200823/index', 'X200823Controller@index');
+Route::get('/x200823/export', 'X200823Controller@export');
