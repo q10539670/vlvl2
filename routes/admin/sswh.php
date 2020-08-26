@@ -426,3 +426,9 @@ Route::get('/x200818/export', 'X200818Controller@export');
  */
 Route::get('/x200823/index', 'X200823Controller@index');
 Route::get('/x200823/export', 'X200823Controller@export');
+
+/**
+ * 金桥璟园·预约  200826
+ */
+Route::get('/x200826/index', 'X200826Controller@index');
+Route::get('/x200826/export', 'X200826Controller@export');

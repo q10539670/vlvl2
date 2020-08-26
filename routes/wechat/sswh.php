@@ -552,3 +552,11 @@ Route::get('/x200818/list', 'X200818Controller@list');                    //提�
  */
 Route::get( '/x200823/user', 'X200823Controller@user');                    //获取/记录用户信息
 Route::post('/x200823/post', 'X200823Controller@post');                     //报名
+
+/**
+ * 拼图抽奖   200826
+ */
+Route::post('/x200826/init',  'X200826Controller@appInitHandler');            //初始化程序
+Route::get( '/x200826/user',  'X200826Controller@user');                      //获取/记录用户信息
+Route::post('/x200826/post',  'X200826Controller@post');                      //提交信息
+Route::post('/x200826/prize', 'X200826Controller@randomPrize');               //抽奖
