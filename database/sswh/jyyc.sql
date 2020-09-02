@@ -40,3 +40,22 @@ create table x200730_log
 ) ENGINE = innodb
   DEFAULT CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '记录表';
+
+
+create table x200901_user
+(
+    id         int unsigned auto_increment,
+    nickname   varchar(64)  default '' not null comment '昵称',
+    avatar     varchar(255) default '' not null comment '头像',
+    name       varchar(16)  default '' not null comment '姓名',
+    phone      varchar(11)  default '' not null comment '电话',
+    status     tinyint(1)   default 0  not null comment '状态: 0,未抽奖 1:已中奖 2:未中奖',
+    prize      varchar(16)  default '' not null comment '中奖奖品',
+    prize_id   tinyint(1)   default 0  not null comment '奖品ID',
+    prized_at  datetime                null comment '中奖时间',
+    created_at datetime                null,
+    updated_at datetime                null,
+    primary key (id)
+) ENGINE = innodb
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';

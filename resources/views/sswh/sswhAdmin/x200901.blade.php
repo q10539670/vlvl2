@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <form class="form-inline" method="get" action="{{url('vlvl/x200826/index')}}">
+                    <form class="form-inline" method="get" action="{{url('vlvl/x200901/index')}}">
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail3"></label>
                             <input type="text"
@@ -104,7 +104,6 @@
                                     <th style="text-align: center;">姓名</th>
                                     <th style="text-align: center;">电话</th>
                                     <th style="text-align: center;">奖品</th>
-                                    <th style="text-align: center;">剩余次数</th>
                                     <th style="text-align: center;">中奖时间</th>
                                     <th style="text-align: center;">参与时间</th>
                                 </tr>
@@ -123,7 +122,6 @@
                                         <td>{{$user['name']}}</td>
                                         <td>{{$user['phone']}}</td>
                                         <td>{{$user['prize']}}</td>
-                                        <td>{{$user['game_num']}}</td>
                                         <td>{{$user['prized_at']}}</td>
                                         <td>{{$user['updated_at']}}</td>
                                     </tr>

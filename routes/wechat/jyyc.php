@@ -166,3 +166,11 @@ Route::get('/x200716/init', 'X200716Controller@appInitHandler');         //初�
 Route::get('/x200730/user', 'X200730Controller@user');                    //获取/记录用户信息
 Route::post('/x200730/vote', 'X200730Controller@vote');                   //投票
 Route::get('/x200730/contestants', 'X200730Controller@contestants');      //获取所有选手
+
+
+/**
+ * 20200901
+ */
+Route::get( '/x200901/user',  'X200901Controller@user');                   //获取/记录用户信息
+Route::post('/x200901/prize', 'X200901Controller@prize');                  //抽奖
+Route::post('/x200901/post',  'X200901Controller@post');                   //抽奖

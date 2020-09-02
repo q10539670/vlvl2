@@ -2,8 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="47.104.77.178" id="0b70de88-40b1-4751-9c13-3dca4496dfe0" port="22" customName="三山" nameFormat="CUSTOM" username="sanshanxqy" />
-      <sshConfig authType="PASSWORD" host="47.104.77.178" id="bd3a434b-d04a-41fd-b385-0c3ca03299c2" port="22" customName="三山" nameFormat="CUSTOM" username="sanshanxqy" />
+      <sshConfig authType="PASSWORD" host="47.104.77.178" id="da86c52d-1e41-4dfb-8fe0-7beea729f393" port="22" nameFormat="DESCRIPTIVE" username="sanshanxqy" />
     </configs>
   </component>
 </project>

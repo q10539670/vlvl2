@@ -27,7 +27,7 @@ class X200826Controller extends Common
         if (!$user = User::where(['openid' => $openid])->first()) {
             //查询总表
             $info = $this->searchSswhUser($request);
-            $userInfo = $this->userInfo($request, $info);
+            $userInfo = $this->userInfo($request, $info,['game_num' => 4]);
             //新增数据到表中
             User::create($userInfo);
             //查询
@@ -82,11 +82,16 @@ class X200826Controller extends Common
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
+        if ($user->game_num <=0) {
+            return response()->json(['error' => '游戏次数已用完'], 422);
+        }
         //阻止重复提交
         if (!Helper::stopResubmit($this->itemName.':randomPrize', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
         if ($user->status == 1) {
+            $user->game_num--;
+            $user->save();
             return Helper::json(-1, '您已中奖');
         }
         $redisCountBaseKey = 'wx:'.$this->itemName.':prizeCount';
@@ -112,6 +117,7 @@ class X200826Controller extends Common
         } else {
             $user->status = 2;
         }
+        $user->game_num--;
         $user->prize = $resultPrize['resultPrize']['prize_name'];
         $user->prize_id = $resultPrize['resultPrize']['prize_id'];
         $user->save();

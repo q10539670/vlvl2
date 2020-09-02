@@ -432,3 +432,9 @@ Route::get('/x200823/export', 'X200823Controller@export');
  */
 Route::get('/x200826/index', 'X200826Controller@index');
 Route::get('/x200826/export', 'X200826Controller@export');
+
+/**
+ * 宜昌中心·臻享福利  200901
+ */
+Route::get('/x200901/index',  'X200901Controller@index');
+Route::get('/x200901/export', 'X200901Controller@export');
