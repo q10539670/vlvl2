@@ -42,6 +42,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('x200701:sendMsg')->everyMinute();
     }
 
+
     /**
      * Register the commands for the application.
      *
