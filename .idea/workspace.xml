@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_2020_8_13_9_18.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4171e62-8060-4230-8c81-2066f79d5cdc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4171e62-8060-4230-8c81-2066f79d5cdc/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Admin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vagrant.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vlvl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vlvl.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200826Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X200826Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200826Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200826Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sswh/jyyc.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/jyyc.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200826.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x200826.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/jyyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/jyyc.php" afterDir="false" />
-    </list>
+    <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,6 +146,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Console/Commands" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -207,7 +182,7 @@
       <workItem from="1598928983802" duration="1720000" />
       <workItem from="1598942682639" duration="3332000" />
       <workItem from="1598947997692" duration="5760000" />
-      <workItem from="1599010204829" duration="16763000" />
+      <workItem from="1599010204829" duration="16969000" />
     </task>
     <servers />
   </component>
