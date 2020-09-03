@@ -106,10 +106,10 @@ class X200901Controller extends Common
         $dateStr = date('Ymd');
         $dateStr = '20200904';
         if (!in_array($dateStr, $this->prizeDate)) {  //判断是否为周五
-            return response()->json(['error' => '抽奖还未开始'], 422);
+            return response()->json(['error' => '抽奖还未开始,请周五再来'], 422);
         }
-        if (date('H') < 10) {  //判断当前时间小于20点
-            return response()->json(['error' => '抽奖还未开始'], 422);
+        if (date('H') < 9) {  //判断当前时间小于20点
+            return response()->json(['error' => '抽奖还未开始,请20:00再来'], 422);
         }
         $phones = [
             '13388420202' => 3,

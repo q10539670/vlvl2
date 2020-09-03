@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->command('game:reset')->dailyAt('00:01');
-        $schedule->command('game:reset:week')->weeklyOn(3, '16:47');
+        $schedule->command('game:reset:week')->weeklyOn(6, '00:01');
 //        $schedule->command('dx190925:cmd location')->everyMinute();
 //        $schedule->command('x191009:cmd location')->everyMinute();
 //        $schedule->command('x191022:cmd location')->everyMinute();

@@ -48,6 +48,13 @@
                         {{--</a>--}}
                         {{--</li>--}}
                     </ul>
+{{--                    <ul class="nav navbar-nav ml-auto">--}}
+{{--                        <li>--}}
+{{--                            <a class="nav-link"><b>浏览量</b>--}}
+{{--                            <span>{{$redisShareData['view']??0}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -61,7 +68,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="info-box">
                             <span class="info-box-icon bg-aqua"><i class="fa fa-flickr"></i></span>
 
@@ -79,8 +86,8 @@
                             <span class="info-box-icon bg-green"><i class="fa fa-weixin"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">分享</span>
-                                <span class="info-box-number">{{$redisShareData['share']??0}}</span>
+                                <span class="info-box-text">参与人数</span>
+                                <span class="info-box-number">{{$paginator->total()??0}}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
