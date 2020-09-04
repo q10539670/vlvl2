@@ -174,3 +174,4 @@ Route::get('/x200730/contestants', 'X200730Controller@contestants');      //获�
 Route::get( '/x200901/user',  'X200901Controller@user');                   //获取/记录用户信息
 Route::post('/x200901/prize', 'X200901Controller@prize');                  //抽奖
 Route::post('/x200901/post',  'X200901Controller@post');                   //抽奖
+Route::get('/x200901/init',  'X200901Controller@appInitHandler');         //抽奖

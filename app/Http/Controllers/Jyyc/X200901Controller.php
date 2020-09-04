@@ -69,6 +69,14 @@ class X200901Controller extends Common
         if (!Helper::stopResubmit($this->itemName.':post', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
+        $dateStr = date('Ymd');
+//        $dateStr = '20200904';
+        if (!in_array($dateStr, $this->prizeDate)) {  //判断是否为周五
+            return response()->json(['error' => '抽奖还未开始,请周五再来'], 422);
+        }
+        if (date('H') < 20) {  //判断当前时间小于20点
+            return response()->json(['error' => '抽奖还未开始,请20:00再来'], 422);
+        }
         //检查信息
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -104,11 +112,11 @@ class X200901Controller extends Common
             return response()->json(['error' => '您已经中奖了'], 422);
         }
         $dateStr = date('Ymd');
-        $dateStr = '20200904';
+//        $dateStr = '20200904';
         if (!in_array($dateStr, $this->prizeDate)) {  //判断是否为周五
             return response()->json(['error' => '抽奖还未开始,请周五再来'], 422);
         }
-        if (date('H') < 9) {  //判断当前时间小于20点
+        if (date('H') < 20) {  //判断当前时间小于20点
             return response()->json(['error' => '抽奖还未开始,请20:00再来'], 422);
         }
         $phones = [
@@ -137,8 +145,33 @@ class X200901Controller extends Common
             '18986765706' => 1,
         ];
         if (!in_array($user->phone, array_keys($phones))) {
-            $user->status = 2;
-            $user->prize = '未中奖';
+            $redisBaseKey = 'wx:'.$this->itemName.':prizeCount:'.$dateStr;
+            $prize = new User();
+            try {
+                $resultPrize = $prize->fixRandomPrize($redisBaseKey, $dateStr); // 固定概率抽奖
+                $redisCountKey = $resultPrize['prizeCountKey'];
+            } catch (\Exception $e) {
+                \Log::channel('wx')->info('宜昌中心生活服务启示录_抽奖', ['message' => $e->getMessage()]);
+                return response()->json(['error' => '抽奖失败,系统错误 '.$e->getCode(), 'message' => $e->getMessage()], 422);
+            }
+            $redis = app('redis');
+            $redis->select(12);
+            $redisCount = $redis->hIncrBy($redisCountKey, $resultPrize['resultPrize']['prize_id'], 1); //中奖数累计+1
+            //超发 中奖数回退 此次抽奖失效
+            if ($redisCount > $resultPrize['resultPrize']['limit']) {
+                $redis->hIncrBy($redisCountKey, $resultPrize['resultPrize']['prize_id'], -1);  //超发 中奖数回退
+                $redis->incrBy('wx:'.$this->itemName.':prizeNum', -1);
+                return response()->json(['error' => '抽奖失败,请重新抽奖'], 422);
+            }
+            if ($resultPrize['resultPrize']['prize_id'] != 0) {
+                $redis->incrBy('wx:'.$this->itemName.':prizeNum', 1);
+                $user->status = 1;
+                $user->prized_at = now()->toDateTimeString();
+            } else {
+                $user->status = 2;
+            }
+            $user->prize = $resultPrize['resultPrize']['prize_name'];
+            $user->prize_id = $resultPrize['resultPrize']['prize_id'];
         } else {
             $user->status = 1;
             $user->prize = $this->prize[$dateStr][$phones[$user->phone]]['prize'];
@@ -147,8 +180,26 @@ class X200901Controller extends Common
         }
         $user->prize_num--;
         $user->save();
-        return Helper::Json(1, '抽奖成功', ['user' => $user]);
+        return Helper::Json(1, '抽奖成功', ['user' => $user, 'resultPrize'=>$resultPrize]);
     }
 
-
+    /*
+     * 应用初始化
+     */
+    public function appInitHandler()
+    {
+        $redis = app('redis');
+        $redis->select(12);
+        $dateArr = ['test', '20200904', '20200911', '20200918', '20200925'];
+        foreach ($redis->keys('wx:'.$this->itemName.':prizeCount:*') as $v) {
+//            if(!in_array($v,$dateArr)){
+            $redis->del($v);
+//            }
+        }
+        foreach ($dateArr as $k => $v) {
+            $redis->hmset('wx:'.$this->itemName.':prizeCount:'.$v, ['99' => 0, '0' => 0]);
+        }
+        echo '应用初始化成功';
+        exit();
+    }
 }
