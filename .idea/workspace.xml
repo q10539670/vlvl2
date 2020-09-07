@@ -150,7 +150,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Console/Commands" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -189,7 +189,8 @@
       <workItem from="1598947997692" duration="5760000" />
       <workItem from="1599010204829" duration="17319000" />
       <workItem from="1599094971895" duration="8761000" />
-      <workItem from="1599183234183" duration="14039000" />
+      <workItem from="1599183234183" duration="14169000" />
+      <workItem from="1599441807948" duration="11245000" />
     </task>
     <servers />
   </component>

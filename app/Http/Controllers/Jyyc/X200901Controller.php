@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Jyyc;
 use App\Helpers\Helper;
 use App\Http\Controllers\Common\Common;
 use App\Models\Jyyc\X200901\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,19 +17,19 @@ class X200901Controller extends Common
     protected $itemName = 'x200901';
 
     protected $prizeDate = [
-        '20200904', '20200911', '20200918', '20200925'
+        1 => ['2020-09-04 20:00:00', '2020-09-06 23:59:59'],
+        2 => ['2020-09-11 20:00:00', '2020-09-13 23:59:59'],
+        3 => ['2020-09-18 20:00:00', '2020-09-20 23:59:59'],
+        4 => ['2020-09-25 20:00:00', '2020-09-27 23:59:59'],
     ];
 
     protected $prize = [
-        //第一期奖品
-        '20200904' => [
-            0 => ['prize_id' => 1, 'prize' => '摩飞早餐机'],
-            1 => ['prize_id' => 2, 'prize' => 'skg 颈肩按摩仪'],
-            2 => ['prize_id' => 3, 'prize' => '乐高'],
-            3 => ['prize_id' => 4, 'prize' => '小狗吸尘器'],
-        ],
-
+        0 => ['prize_id' => 1, 'prize' => '摩飞早餐机'],
+        1 => ['prize_id' => 2, 'prize' => 'skg 颈肩按摩仪'],
+        2 => ['prize_id' => 3, 'prize' => '乐高'],
+        3 => ['prize_id' => 4, 'prize' => '小狗吸尘器'],
     ];
+
     const END_TIME = '2020-10-01 23:59:59';
 
     /*
@@ -40,7 +41,7 @@ class X200901Controller extends Common
         if (!$user = User::where(['openid' => $openid])->first()) {
             //查询总表
             $info = $this->searchJyycUser($request);
-            $userInfo = $this->userInfo($request, $info, ['prize_num' => 1]);
+            $userInfo = $this->userInfo($request, $info, ['prize_num' => 1, 'share_num' => 3]);
             //新增数据到表中
             User::create($userInfo);
             //查询
@@ -69,13 +70,11 @@ class X200901Controller extends Common
         if (!Helper::stopResubmit($this->itemName.':post', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
-        $dateStr = date('Ymd');
-//        $dateStr = '20200904';
-        if (!in_array($dateStr, $this->prizeDate)) {  //判断是否为周五
-            return response()->json(['error' => '抽奖还未开始,请周五再来'], 422);
-        }
-        if (date('H') < 20) {  //判断当前时间小于20点
-            return response()->json(['error' => '抽奖还未开始,请20:00再来'], 422);
+        $timeStr = date('Y-m-d H:i:s');
+//        $timeStr = '2020-09-13 20:00:00';
+        $week = User::getWeekForMonth();
+        if ($timeStr < $this->prizeDate[$week][0] || $timeStr > $this->prizeDate[$week][1]) {
+            return response()->json(['error' => '还未到抽奖时间'], 422);
         }
         //检查信息
         $validator = Validator::make($request->all(), [
@@ -105,19 +104,17 @@ class X200901Controller extends Common
         if (!Helper::stopResubmit($this->itemName.':prize', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
-        if ($user->prize_num < 0) {
+        if ($user->prize_num <= 0) {
             return response()->json(['error' => '您本周已抽过奖了'], 422);
         }
         if ($user->status == 1) {
             return response()->json(['error' => '您已经中奖了'], 422);
         }
-        $dateStr = date('Ymd');
-//        $dateStr = '20200904';
-        if (!in_array($dateStr, $this->prizeDate)) {  //判断是否为周五
-            return response()->json(['error' => '抽奖还未开始,请周五再来'], 422);
-        }
-        if (date('H') < 20) {  //判断当前时间小于20点
-            return response()->json(['error' => '抽奖还未开始,请20:00再来'], 422);
+        $timeStr = date('Y-m-d H:i:s');
+//        $timeStr = '2020-09-13 20:00:00';
+        $week = User::getWeekForMonth();
+        if ($timeStr < $this->prizeDate[$week][0] || $timeStr > $this->prizeDate[$week][1]) {
+            return response()->json(['error' => '还未到抽奖时间'], 422);
         }
         $phones = [
             '13388420202' => 3,
@@ -145,10 +142,10 @@ class X200901Controller extends Common
             '18986765706' => 1,
         ];
         if (!in_array($user->phone, array_keys($phones))) {
-            $redisBaseKey = 'wx:'.$this->itemName.':prizeCount:'.$dateStr;
+            $redisBaseKey = 'wx:'.$this->itemName.':prizeCount';
             $prize = new User();
             try {
-                $resultPrize = $prize->fixRandomPrize($redisBaseKey, $dateStr); // 固定概率抽奖
+                $resultPrize = $prize->fixRandomPrize($redisBaseKey); // 固定概率抽奖
                 $redisCountKey = $resultPrize['prizeCountKey'];
             } catch (\Exception $e) {
                 \Log::channel('wx')->info('宜昌中心生活服务启示录_抽奖', ['message' => $e->getMessage()]);
@@ -174,13 +171,13 @@ class X200901Controller extends Common
             $user->prize_id = $resultPrize['resultPrize']['prize_id'];
         } else {
             $user->status = 1;
-            $user->prize = $this->prize[$dateStr][$phones[$user->phone]]['prize'];
-            $user->prize_id = $this->prize[$dateStr][$phones[$user->phone]]['prize_id'];
+            $user->prize = $this->prize[$phones[$user->phone]]['prize'];
+            $user->prize_id = $this->prize[$phones[$user->phone]]['prize_id'];
             $user->prized_at = now()->toDateTimeString();
         }
         $user->prize_num--;
         $user->save();
-        return Helper::Json(1, '抽奖成功', ['user' => $user, 'resultPrize'=>$resultPrize]);
+        return Helper::Json(1, '抽奖成功', ['user' => $user]);
     }
 
     /*
@@ -190,7 +187,7 @@ class X200901Controller extends Common
     {
         $redis = app('redis');
         $redis->select(12);
-        $dateArr = ['test', '20200904', '20200911', '20200918', '20200925'];
+        $dateArr = ['test', '1', '2', '3', '4'];
         foreach ($redis->keys('wx:'.$this->itemName.':prizeCount:*') as $v) {
 //            if(!in_array($v,$dateArr)){
             $redis->del($v);
@@ -201,5 +198,18 @@ class X200901Controller extends Common
         }
         echo '应用初始化成功';
         exit();
+    }
+
+    public function share(Request $request)
+    {
+        if (!$user = User::where('openid', $request->openid)->first()) {
+            return response()->json(['error' => '未授权'], 422);
+        }
+        if ($user->share_num > 0) {
+            $user->share_num--;
+            $user->prize_num++;
+            $user->save();
+        }
+        return Helper::Json(1, '分享成功',['user',$user]);
     }
 }

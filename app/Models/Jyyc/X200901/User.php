@@ -14,7 +14,7 @@ class User extends Model
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 1;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 0.15;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
 //    private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
@@ -34,7 +34,7 @@ class User extends Model
             ],
         ],
         /*不中奖数组  该数组权重只对 中奖几率先大后小方式抽奖有效*/
-        'NotPrize' => [
+        'notPrize' => [
             'prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 1000000
         ],
     ];
@@ -43,46 +43,60 @@ class User extends Model
         /*测试*/
         'test' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
-            '99' => ['prize_id' => 99, 'limit' => 10],
+            '99' => ['prize_id' => 99, 'limit' => 11],
         ],
-        '20200904' => [
+        '1' => [
+            '0' => ['prize_id' => 0, 'limit' => 100000],
+            '99' => ['prize_id' => 99, 'limit' => 11],
+        ],
+        '2' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '99' => ['prize_id' => 99, 'limit' => 10],
         ],
-        '20200911' => [
+        '3' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '99' => ['prize_id' => 99, 'limit' => 10],
         ],
-        '20200918' => [
-            '0' => ['prize_id' => 0, 'limit' => 100000],
-            '99' => ['prize_id' => 99, 'limit' => 10],
-        ],
-        '20200925' => [
+        '4' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '99' => ['prize_id' => 99, 'limit' => 10],
         ],
     ];
 
     /*
+     * 获取今天是当月第几个星期
+     */
+    public static function getWeekForMonth() :int
+    {
+        $time = strtotime(date('Ymd'));
+        $wk_day = date('w', strtotime(date('Y-m-1 00:00:00', $time))) ? : 7; //今天周几
+        $day = date('d', $time) - (8 - $wk_day); //今天几号
+        return $day <= 0 ? 1 : ceil($day / 7) + 1; //计算是第几个星期
+    }
+
+    /*
      * 随机抽奖  中奖几率始终不变
      * */
-    public function fixRandomPrize($redisCountKey, $timeStr)
+    public function fixRandomPrize($redisCountKey)
     {
-        $prizeCountKey = $redisCountKey;
-        $redis = app('redis');
-        $redis->select(12);
-        if (!$prizeCountArr = $redis->hGetAll($prizeCountKey)) {
-            throw new \Exception('缓存获取中奖统计失败', -2);
-        }
         $zhongjianglv = $this->parseZhongJiangLv($this->zhongJiangLv); //解析中奖率 防止出错
+        $quanZhong = 100;
         $finalConf = []; //最终生成的配置数组
         $jingduSum = 0; //精度计数
         $resultPrize = null; // 最终的中奖的信息
+        $prizeCountKey = $redisCountKey . ':' . self::getWeekForMonth();
+        $redis = app('redis');
+        $redis->select(12);
+        if (!$prizeCountArr = $redis->hGetAll($prizeCountKey)) {
+//            dd($prizeCountKey);
+            throw new \Exception('缓存获取中奖统计失败', -2);
+        }
+        //配置
         foreach ($this->prizeConf['prize'] as $k => $arr) {
-            $idStr = strval($arr['prize_id']);
-            $this->prizeConf['prize'][$k]['count'] = $prizeCountArr[$idStr];
-            $this->prizeConf['prize'][$k]['limit'] = $this->prizeConfLimit[$timeStr][$idStr]['limit'];
-            $this->prizeConf['prize'][$k]['v'] = $arr['v'] * 10;   //中奖权重 增加除不中奖以外的权重
+            $moneyStr = strval($arr['prize_id']);
+            $this->prizeConf['prize'][$k]['count'] = $prizeCountArr[$moneyStr];
+            $this->prizeConf['prize'][$k]['limit'] = $this->prizeConfLimit[self::getWeekForMonth()][$moneyStr]['limit'];
+            $this->prizeConf['prize'][$k]['v'] = $arr['v'] * $quanZhong;   //中奖权重 增加除不中奖以外的权重
         }
         /*去除奖品发完的奖项*/
         foreach ($this->prizeConf['prize'] as $k => $arr) {
@@ -96,12 +110,12 @@ class User extends Model
             $this->prizeConf['notPrize']['v'] = round($jingduSum * (1 - $zhongjianglv));  //四舍五入
             $finalConf['resNotPrize'] = $this->prizeConf['notPrize'];
         } else {    // 奖品已发完
-            $jingduSum = $this->prizeConf['afterPrize']['v'] = 1000;
-            $finalConf['resNotPrize'] = $this->prizeConf['afterPrize'];
+            $jingduSum = $this->prizeConf['notPrize']['v'] = 1000;
+            $finalConf['resNotPrize'] = $this->prizeConf['notPrize'];
         }
         /*计算百分比*/
         foreach ($finalConf as $k => $arr) {
-            $finalConf[$k]['v100'] = round($arr['v'] * 100 / $jingduSum, 2).'%';
+            $finalConf[$k]['v100'] = round($arr['v'] * 100 / $jingduSum, 2) . '%';
         }
         /*随机抽奖*/
         foreach ($finalConf as $key => $prize) {
@@ -113,10 +127,7 @@ class User extends Model
                 $jingduSum -= $prize['v'];
             }
         }
-        return [
-            'resultPrize' => $resultPrize, 'finalConf' => $finalConf, 'prizeConf' => $this->prizeConf,
-            'prizeCountKey' => $prizeCountKey
-        ];
+        return ['resultPrize' => $resultPrize, 'finalConf' => $finalConf, 'prizeConf' => $this->prizeConf, 'prizeCountKey' => $prizeCountKey];
     }
 
     /*

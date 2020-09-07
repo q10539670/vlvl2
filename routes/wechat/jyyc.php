@@ -175,3 +175,4 @@ Route::get( '/x200901/user',  'X200901Controller@user');                   //获
 Route::post('/x200901/prize', 'X200901Controller@prize');                  //抽奖
 Route::post('/x200901/post',  'X200901Controller@post');                   //抽奖
 Route::get('/x200901/init',  'X200901Controller@appInitHandler');         //抽奖
+Route::get('/x200901/share',  'X200901Controller@share');         //抽奖
