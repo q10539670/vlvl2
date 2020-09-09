@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200901Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200901Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Jyyc/X200901/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jyyc/X200901/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/jyyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/jyyc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +187,8 @@
       <workItem from="1599010204829" duration="17319000" />
       <workItem from="1599094971895" duration="8761000" />
       <workItem from="1599183234183" duration="14169000" />
-      <workItem from="1599441807948" duration="11245000" />
+      <workItem from="1599441807948" duration="11772000" />
+      <workItem from="1599615503608" duration="4579000" />
     </task>
     <servers />
   </component>

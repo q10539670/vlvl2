@@ -41,7 +41,8 @@ class GameResetForWeek extends Command
     {
         DB::table('x200901_user')->where('status',2)->update([
             'prize_num' => 1,
-            'status' => 0
+            'status' => 0,
+            'share_num' =>3
         ]);   //宜昌中心
         return $this->info('重置成功');
     }
