@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameResetForWeek.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameResetForWeek.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200901Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Jyyc/X200901Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Qwt/Dx190925Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Qwt/Dx190925Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Jyyc/X200901/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jyyc/X200901/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/x200901.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/x200901.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +194,9 @@
       <workItem from="1599094971895" duration="8761000" />
       <workItem from="1599183234183" duration="14169000" />
       <workItem from="1599441807948" duration="11772000" />
-      <workItem from="1599615503608" duration="4579000" />
+      <workItem from="1599615503608" duration="5447000" />
+      <workItem from="1599700770761" duration="9333000" />
+      <workItem from="1599787087746" duration="10292000" />
     </task>
     <servers />
   </component>

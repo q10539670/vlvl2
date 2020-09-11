@@ -27,7 +27,6 @@ class X200901Controller extends Common
         0 => ['prize_id' => 1, 'prize' => '摩飞早餐机'],
         1 => ['prize_id' => 2, 'prize' => 'skg 颈肩按摩仪'],
         2 => ['prize_id' => 3, 'prize' => '乐高'],
-        3 => ['prize_id' => 4, 'prize' => '小狗吸尘器'],
     ];
 
     const END_TIME = '2020-10-01 23:59:59';
@@ -41,7 +40,7 @@ class X200901Controller extends Common
         if (!$user = User::where(['openid' => $openid])->first()) {
             //查询总表
             $info = $this->searchJyycUser($request);
-            $userInfo = $this->userInfo($request, $info, ['prize_num' => 1, 'share_num' => 3]);
+            $userInfo = $this->userInfo($request, $info, ['prize_num' => 1, 'share_num' => 2]);
             //新增数据到表中
             User::create($userInfo);
             //查询
@@ -117,29 +116,20 @@ class X200901Controller extends Common
             return response()->json(['error' => '还未到抽奖时间'], 422);
         }
         $phones = [
-            '13388420202' => 3,
-            '15971636505' => 1,
-            '13872656328' => 2,
-            '15347070272' => 3,
-            '15671006883' => 0,
-            '18607209389' => 2,
-            '13972003313' => 3,
-            '18995896555' => 0,
-            '18871788125' => 3,
-            '18671728495' => 2,
-            '15997557253' => 0,
-            '18672650136' => 2,
-            '18672091188' => 1,
-            '18672096221' => 0,
-            '18672100070' => 2,
-            '13972040905' => 1,
-            '18688837688' => 0,
-            '13439360601' => 3,
-            '15872641452' => 1,
-            '15671017333' => 0,
-            '18007203778' => 1,
-            '13657176777' => 3,
-            '18986765706' => 1,
+            '18871788125' => 0,
+            '13872586080' => 1,
+            '13997705186' => 2,
+            '13997720874' => 1,
+            '13094185089' => 0,
+            '18986812999' => 2,
+            '13872578099' => 1,
+            '18671607513' => 0,
+            '13487219601' => 2,
+            '13972599660' => 2,
+            '15997669695' => 0,
+            '13207206666' => 2,
+            '13545764970' => 1,
+            '18751287980' => 0,
         ];
         if (!in_array($user->phone, array_keys($phones))) {
             $redisBaseKey = 'wx:'.$this->itemName.':prizeCount';
@@ -194,7 +184,8 @@ class X200901Controller extends Common
 //            }
         }
         foreach ($dateArr as $k => $v) {
-            $redis->hmset('wx:'.$this->itemName.':prizeCount:'.$v, ['99' => 0, '0' => 0]);
+            $redis->hmset('wx:'.$this->itemName.':prizeCount:'.$v,
+                [0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 97 => 0, 98 => 0, 99 => 0]);
         }
         echo '应用初始化成功';
         exit();
@@ -210,6 +201,6 @@ class X200901Controller extends Common
             $user->prize_num++;
             $user->save();
         }
-        return Helper::Json(1, '分享成功',['user',$user]);
+        return Helper::Json(1, '分享成功', ['user'=>$user]);
     }
 }

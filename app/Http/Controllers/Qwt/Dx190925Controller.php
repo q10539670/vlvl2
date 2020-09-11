@@ -18,7 +18,7 @@ class Dx190925Controller extends Common
     protected $itemName = 'dx190925';
     protected $title = '全网通（9月）';
 
-    const END_TIME = '2019-09-29 23:59:59';  //活动截止时间
+    const END_TIME = '2022-09-29 23:59:59';  //活动截止时间
 
     /**
      * 获取/记录 用户信息
@@ -35,7 +35,7 @@ class Dx190925Controller extends Common
         if (!$user) {
             $info = $this->searchQwtUser($request);
             $userInfo = $this->userInfo($request, $info, [
-                'share_code' => $this->getUniqueCode(6),
+                'share_code' => User::getUniqueCode(6),
                 'prize_num' => 2
             ]);
             //新增数据到表中

@@ -106,4 +106,17 @@ var api = {
                 });
         });
     },
+
+    /**
+     * 分享
+     */
+    share: function () {
+        return new Promise(function (resolve, reject) {
+            $.get(api.baseUrl + '/x200901/share',
+                function (res) {
+                    api.debug && console.log(res);
+                    resolve(res);
+                });
+        });
+    },
 };
