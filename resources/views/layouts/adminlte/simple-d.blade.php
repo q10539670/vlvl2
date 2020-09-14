@@ -87,7 +87,7 @@
 
                             <div class="info-box-content">
                                 <span class="info-box-text">参与人数</span>
-                                <span class="info-box-number">{{$paginator->total()??0}}</span>
+                                <span class="info-box-number">{{$total??0}}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>

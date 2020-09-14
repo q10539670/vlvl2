@@ -438,3 +438,10 @@ Route::get('/x200826/export', 'X200826Controller@export');
  */
 Route::get('/x200901/index',  'X200901Controller@index');
 Route::get('/x200901/export', 'X200901Controller@export');
+
+/**
+ * 金茂武汉·报名  200914
+ */
+Route::get('/x200914/index',  'X200914Controller@index');
+Route::get('/x200914/export', 'X200914Controller@export');
+

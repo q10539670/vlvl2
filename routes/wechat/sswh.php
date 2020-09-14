@@ -560,3 +560,11 @@ Route::post('/x200826/init',  'X200826Controller@appInitHandler');            //
 Route::get( '/x200826/user',  'X200826Controller@user');                      //获取/记录用户信息
 Route::post('/x200826/post',  'X200826Controller@post');                      //提交信息
 Route::post('/x200826/prize', 'X200826Controller@randomPrize');               //抽奖
+
+
+/**
+ * 金茂报名   200914
+ */
+Route::get('/x200914/init',  'X200914Controller@appInitHandler');            //初始化程序
+Route::get( '/x200914/user',  'X200914Controller@user');                      //获取/记录用户信息
+Route::post('/x200914/signup',  'X200914Controller@signUp');                  //报名

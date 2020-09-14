@@ -26,10 +26,11 @@ class X200731Controller extends Controller
             });
         $paginator = $query->orderBy('created_at', 'desc')->paginate(10);
         $exportUrl = asset('/vlvl/x200731/export');
+        $total = User::count();
         $redis = app('redis');
         $redis->select(0);
         $redisShareData = $redis->hGetAll('wx:view:ycsjss20200727');
-        return view('sswh.sswhAdmin.x200731', ['title' => '世纪山水·投票', 'paginator' => $paginator, 'exportUrl' => $exportUrl, 'redisShareData' => $redisShareData]);
+        return view('sswh.sswhAdmin.x200731', ['title' => '世纪山水·投票', 'paginator' => $paginator, 'exportUrl' => $exportUrl, 'redisShareData' => $redisShareData,'total'=>$total]);
     }
 
     public function export()

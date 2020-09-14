@@ -8,8 +8,8 @@ CREATE TABLE lx190604mld_user
     avatar      VARCHAR(255) NOT NULL DEFAULT '',
     post_num    INT          NOT NULL DEFAULT 0 COMMENT '用户提交信息次数',
     message_num INT          NOT NULL DEFAULT 0 COMMENT '用户反馈次数',
-    created_at  TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at  TIMESTAMP    NULL     DEFAULT NULL,
+    created_at  DATETIME    NULL     DEFAULT NULL,
+    updated_at  DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id),
     KEY (openid)
 ) ENGINE = INNODB
@@ -26,8 +26,8 @@ CREATE TABLE lx190604mld_post
     user_name    VARCHAR(64)  NOT NULL DEFAULT '',
     user_phone   VARCHAR(30)  NOT NULL DEFAULT '',
     user_sale    VARCHAR(64)  NOT NULL DEFAULT '',
-    created_at   TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at   TIMESTAMP    NULL     DEFAULT NULL,
+    created_at   DATETIME    NULL     DEFAULT NULL,
+    updated_at   DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -40,8 +40,8 @@ CREATE TABLE lx190604mld_message
     id         INT UNSIGNED AUTO_INCREMENT,
     user_id    INT       NOT NULL DEFAULT 0 COMMENT '',
     message    text,
-    created_at TIMESTAMP NULL     DEFAULT NULL,
-    updated_at TIMESTAMP NULL     DEFAULT NULL,
+    created_at DATETIME NULL     DEFAULT NULL,
+    updated_at DATETIME NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -61,8 +61,8 @@ CREATE TABLE bl190716_user
     score      INT          NOT NULL DEFAULT 0 COMMENT '游戏成绩',
     help_num   INT          NOT NULL DEFAULT 0 COMMENT '助力次数',
     total      INT          NOT NULL DEFAULT 0 COMMENT '总成绩',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -74,7 +74,7 @@ CREATE TABLE bl190716_help
     id             INT UNSIGNED AUTO_INCREMENT,
     target_user_id INT       NOT NULL DEFAULT 0,
     help_user_id   INT       NOT NULL DEFAULT 0,
-    created_at     TIMESTAMP NULL     DEFAULT NULL,
+    created_at     DATETIME NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -92,8 +92,8 @@ CREATE TABLE ls190726_score
     game_num   INT          NOT NULL DEFAULT 0 COMMENT '游戏次数',
     share_num  INT          NOT NULL DEFAULT 0 COMMENT '分享次数',
     total      INT          NOT NULL DEFAULT 0 COMMENT '总成绩',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -106,8 +106,8 @@ CREATE TABLE ls190726_score_log
     id         INT UNSIGNED AUTO_INCREMENT,
     user_id    INT       NOT NULL DEFAULT 0,
     score      INT       NOT NULL DEFAULT 0 COMMENT '游戏成绩',
-    created_at TIMESTAMP NULL     DEFAULT NULL,
-    updated_at TIMESTAMP NULL     DEFAULT NULL,
+    created_at DATETIME NULL     DEFAULT NULL,
+    updated_at DATETIME NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -127,8 +127,8 @@ CREATE TABLE bm190805_user
     age         TINYINT      NOT NULL DEFAULT 0 COMMENT '年龄',
     cooking_age TINYINT      NOT NULL DEFAULT 0 COMMENT '厨龄',
     specialty   VARCHAR(30)  NOT NULL DEFAULT '' COMMENT '拿手菜',
-    created_at  TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at  TIMESTAMP    NULL     DEFAULT NULL,
+    created_at  DATETIME    NULL     DEFAULT NULL,
+    updated_at  DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -148,8 +148,8 @@ CREATE TABLE lx190808_user
     game_num   INT          NOT NULL DEFAULT 0 COMMENT '游戏次数 -1:无限次数',
     share_num  INT          NOT NULL DEFAULT 0 COMMENT '分享次数',
     total      INT          NOT NULL DEFAULT 0 COMMENT '总成绩',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -162,8 +162,8 @@ CREATE TABLE lx190808_score_log
     id         INT UNSIGNED AUTO_INCREMENT,
     user_id    INT       NOT NULL DEFAULT 0,
     score      INT       NOT NULL DEFAULT 0 COMMENT '游戏成绩',
-    created_at TIMESTAMP NULL     DEFAULT NULL,
-    updated_at TIMESTAMP NULL     DEFAULT NULL,
+    created_at DATETIME NULL     DEFAULT NULL,
+    updated_at DATETIME NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -178,8 +178,8 @@ CREATE TABLE tp190822_team
     team_name  VARCHAR(255) NOT NULL DEFAULT '' COMMENT '参赛队伍名称',
     team_img   VARCHAR(255) NOT NULL DEFAULT '' COMMENT '参赛队伍图片',
     poll       INT          NOT NULL DEFAULT 0 COMMENT '票数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -193,8 +193,8 @@ CREATE TABLE tp190822_user
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     vote_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '剩余投票次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -208,8 +208,8 @@ CREATE TABLE tp190822_vote_log
     team_id    INT          NOT NULL DEFAULT 0 COMMENT '队伍id',
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -229,8 +229,8 @@ CREATE TABLE bm190830_team
     team_introduction VARCHAR(255) NOT NULL DEFAULT '' COMMENT '舞团简介',
     team_age          INT          NOT NULL DEFAULT 0 COMMENT '成员均龄',
     phone             VARCHAR(15)  NOT NULL DEFAULT '' COMMENT '负责人电话',
-    created_at        TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at        TIMESTAMP    NULL     DEFAULT NULL,
+    created_at        DATETIME    NULL     DEFAULT NULL,
+    updated_at        DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -250,8 +250,8 @@ CREATE TABLE bt190902_user
     polls      INT          NOT NULL DEFAULT 0 COMMENT '票数',
     num        TINYINT      NOT NULL DEFAULT 1 COMMENT '剩余投票次数',
     share_num  TINYINT      NOT NULL DEFAULT 1 COMMENT '分享+投票次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -265,8 +265,8 @@ CREATE TABLE bt190902_vote_log
     target_id  INT          NOT NULL DEFAULT 0 COMMENT '目标id',
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -283,8 +283,8 @@ CREATE TABLE tp190905_team
     team_introduction VARCHAR(255) NOT NULL DEFAULT '' COMMENT '舞团简介',
     team_slogan       VARCHAR(255) NOT NULL DEFAULT '' COMMENT '舞团宣言',
     poll              INT          NOT NULL DEFAULT 0 COMMENT '票数',
-    created_at        TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at        TIMESTAMP    NULL     DEFAULT NULL,
+    created_at        DATETIME    NULL     DEFAULT NULL,
+    updated_at        DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -298,8 +298,8 @@ CREATE TABLE tp190905_user
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     vote_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '剩余投票次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -313,8 +313,8 @@ CREATE TABLE tp190905_vote_log
     team_id    INT          NOT NULL DEFAULT 0 COMMENT '队伍id',
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -328,8 +328,8 @@ CREATE TABLE tp190911_users
     number     INT          NOT NULL DEFAULT 0 COMMENT '编号',
     name       VARCHAR(255) NOT NULL DEFAULT '' COMMENT '姓名',
     poll       INT          NOT NULL DEFAULT 0 COMMENT '票数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -343,8 +343,8 @@ CREATE TABLE tp190911_user
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     vote_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '剩余投票次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -358,8 +358,8 @@ CREATE TABLE tp190911_vote_log
     player_id  INT          NOT NULL DEFAULT 0 COMMENT '选手id',
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -377,8 +377,8 @@ CREATE TABLE hjf190916_user
     phone      VARCHAR(15)  NOT NULL DEFAULT '' COMMENT '电话',
     gasoline   INT          NOT NULL DEFAULT 0 COMMENT '油气值',
     help_num   INT          NOT NULL DEFAULT 0 COMMENT '加油次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -392,8 +392,8 @@ CREATE TABLE hjf190916_help
     help_user_id   INT          NOT NULL DEFAULT 0 COMMENT '用户id',
     nickname       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar         VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at     TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at     TIMESTAMP    NULL     DEFAULT NULL,
+    created_at     DATETIME    NULL     DEFAULT NULL,
+    updated_at     DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -411,8 +411,8 @@ CREATE TABLE bl190920_user
     phone      VARCHAR(15)  NOT NULL DEFAULT '' COMMENT '电话',
     draw_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖次数',
     help_num   INT          NOT NULL DEFAULT 0 COMMENT '助力',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -426,8 +426,8 @@ CREATE TABLE bl190920_help
     help_user_id   INT          NOT NULL DEFAULT 0 COMMENT '用户id',
     nickname       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar         VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at     TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at     TIMESTAMP    NULL     DEFAULT NULL,
+    created_at     DATETIME    NULL     DEFAULT NULL,
+    updated_at     DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -442,8 +442,8 @@ CREATE TABLE bl190920_draw
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     truename   VARCHAR(255) NOT NULL DEFAULT '' COMMENT '姓名',
     phone      VARCHAR(15)  NOT NULL DEFAULT '' COMMENT '电话',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -455,8 +455,8 @@ CREATE TABLE bl190920_draw_log
     id         INT UNSIGNED AUTO_INCREMENT,
     user_id    INT       NOT NULL DEFAULT 0 COMMENT '用户id',
     draw       TINYINT   NOT NULL DEFAULT 0 COMMENT '0:未中奖,1:中奖',
-    created_at TIMESTAMP NULL     DEFAULT NULL,
-    updated_at TIMESTAMP NULL     DEFAULT NULL,
+    created_at DATETIME NULL     DEFAULT NULL,
+    updated_at DATETIME NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -483,9 +483,9 @@ CREATE TABLE dx190925_user
     cards_num            TINYINT      NOT NULL DEFAULT 0 COMMENT '卡数量',
     status               TINYINT      NOT NULL DEFAULT 0 COMMENT '是否抽奖:1,已抽奖,2,未抽奖',
     prize                TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品',
-    prize_at             TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at           TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at           TIMESTAMP    NULL     DEFAULT NULL,
+    prize_at             DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at           DATETIME    NULL     DEFAULT NULL,
+    updated_at           DATETIME    NULL     DEFAULT NULL,
     a                    TINYINT      NOT NULL DEFAULT 0 COMMENT '卡1',
     b                    TINYINT      NOT NULL DEFAULT 0 COMMENT '卡2',
     c                    TINYINT      NOT NULL DEFAULT 0 COMMENT '卡3',
@@ -506,8 +506,8 @@ CREATE TABLE dx190925_help
     nickname       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar         VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     status         TINYINT      NOT NULL DEFAULT 0 COMMENT '是否有效',
-    created_at     TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at     TIMESTAMP    NULL     DEFAULT NULL,
+    created_at     DATETIME    NULL     DEFAULT NULL,
+    updated_at     DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -528,8 +528,8 @@ CREATE TABLE x190929_user
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖',
     prize_id   TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品ID',
     prize      VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '奖品',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -544,8 +544,8 @@ CREATE TABLE x190929_draw
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     truename   VARCHAR(255) NOT NULL DEFAULT '' COMMENT '姓名',
     phone      VARCHAR(15)  NOT NULL DEFAULT '' COMMENT '电话',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -557,8 +557,8 @@ CREATE TABLE x190929_draw_log
     id         INT UNSIGNED AUTO_INCREMENT,
     user_id    INT       NOT NULL DEFAULT 0 COMMENT '用户id',
     draw       TINYINT   NOT NULL DEFAULT 0 COMMENT '0:未中奖,1:中奖',
-    created_at TIMESTAMP NULL     DEFAULT NULL,
-    updated_at TIMESTAMP NULL     DEFAULT NULL,
+    created_at DATETIME NULL     DEFAULT NULL,
+    updated_at DATETIME NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -572,8 +572,8 @@ CREATE TABLE x190929_help
     help_user_id   INT          NOT NULL DEFAULT 0 COMMENT '用户id',
     nickname       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar         VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at     TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at     TIMESTAMP    NULL     DEFAULT NULL,
+    created_at     DATETIME    NULL     DEFAULT NULL,
+    updated_at     DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -594,8 +594,8 @@ CREATE TABLE x191008_user
     ticket     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖券0:没有,1:获取,2:使用',
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖',
     prize      VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '奖品',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -610,8 +610,8 @@ CREATE TABLE x191008_info
     phone      VARCHAR(16) NOT NULL DEFAULT '' COMMENT '手机号码',
     projects   VARCHAR(32) NOT NULL DEFAULT '' COMMENT '认购签约项目名',
     status     TINYINT     NOT NULL DEFAULT 0 COMMENT '验证状态:0,未验证1,已验证',
-    created_at TIMESTAMP   NULL     DEFAULT NULL,
-    updated_at TIMESTAMP   NULL     DEFAULT NULL,
+    created_at DATETIME   NULL     DEFAULT NULL,
+    updated_at DATETIME   NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -623,9 +623,9 @@ CREATE TABLE x191008_token
     id         INT UNSIGNED AUTO_INCREMENT,
     token      VARCHAR(12) NOT NULL DEFAULT '' COMMENT '令牌',
     status     TINYINT     NOT NULL DEFAULT 0 COMMENT '是否使用:0,未使用1,已使用',
-    used_at    TIMESTAMP   NULL     DEFAULT NULL,
-    created_at TIMESTAMP   NULL     DEFAULT NULL,
-    updated_at TIMESTAMP   NULL     DEFAULT NULL,
+    used_at    DATETIME   NULL     DEFAULT NULL,
+    created_at DATETIME   NULL     DEFAULT NULL,
+    updated_at DATETIME   NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -653,9 +653,9 @@ CREATE TABLE x191009_user
     verification      TINYINT      NOT NULL DEFAULT 0 COMMENT '核销状态,0:未核销,1:已核销',
     prize_id          TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品ID',
     prize             VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '奖品',
-    prize_at          TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at        TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at        TIMESTAMP    NULL     DEFAULT NULL,
+    prize_at          DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at        DATETIME    NULL     DEFAULT NULL,
+    updated_at        DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -674,10 +674,10 @@ CREATE TABLE x191014_user
     prize_id     TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品ID',
     prize        VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '奖品',
     prize_code   VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '中奖码',
-    prize_at     TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
+    prize_at     DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
     verification TINYINT      NOT NULL DEFAULT 0 COMMENT '核销状态,0:未核销,1:已核销',
-    created_at   TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at   TIMESTAMP    NULL     DEFAULT NULL,
+    created_at   DATETIME    NULL     DEFAULT NULL,
+    updated_at   DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -691,8 +691,8 @@ CREATE TABLE x191014_shop
     team_name  VARCHAR(255) NOT NULL DEFAULT '' COMMENT '商家名称',
     team_img   VARCHAR(255) NOT NULL DEFAULT '' COMMENT '商家图片',
     poll       INT          NOT NULL DEFAULT 0 COMMENT '票数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -706,8 +706,8 @@ CREATE TABLE x191014_vote_log
     shop_id    INT          NOT NULL DEFAULT 0 COMMENT '商家id',
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -722,8 +722,8 @@ CREATE TABLE x191014_comment
     COMMENT    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '评论',
     images     text         NULL     DEFAULT '' COMMENT '图片',
     rated      TINYINT      NOT NULL DEFAULT 0 COMMENT '打分',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -743,8 +743,8 @@ CREATE TABLE x191029_user
     id_num     VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '身份证号',
     banquet_id TINYINT      NOT NULL DEFAULT 0 COMMENT '私宴id',
     banquet    VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '私宴名称',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -763,8 +763,8 @@ CREATE TABLE x191101_user
     game_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '游戏次数',
     share_num  TINYINT      NOT NULL DEFAULT 0 COMMENT '分享次数',
     score      INT          NOT NULL DEFAULT 0 COMMENT '游戏成绩',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -781,8 +781,8 @@ CREATE TABLE x191115_user
     name       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '姓名',
     phone      VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '电话',
     pty        VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '节目类型',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -804,9 +804,9 @@ CREATE TABLE x191122_user
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖',
     prize_id   TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品ID',
     prize      VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '奖品',
-    prize_at   TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    prize_at   DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -828,9 +828,9 @@ CREATE TABLE x191125_user
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖',
     prize_id   TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品ID',
     prize      VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '奖品',
-    prize_at   TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    prize_at   DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -847,9 +847,9 @@ CREATE TABLE auto_check_v3_prize
     join_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '参与活动次数',
     prize      INT          NOT NULL DEFAULT 0 COMMENT '中奖金额',
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '状态 0:未分配,1:分配未确认,2:已分配确认,3:红包发送成功,4:红包发送失败',
-    prized_at  TIMESTAMP    NULL     DEFAULT NULL COMMENT '红包发送时间',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    prized_at  DATETIME    NULL     DEFAULT NULL COMMENT '红包发送时间',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -872,10 +872,10 @@ CREATE TABLE X191202_user
     prize_id     TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品id',
     prize_code   VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '奖品核销码',
     validate     TINYINT      NOT NULL DEFAULT 0 COMMENT '是否核销,0:未核销,1:已核销',
-    prized_at    TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    validated_at TIMESTAMP    NULL     DEFAULT NULL COMMENT '核销时间',
-    created_at   TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at   TIMESTAMP    NULL     DEFAULT NULL,
+    prized_at    DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    validated_at DATETIME    NULL     DEFAULT NULL COMMENT '核销时间',
+    created_at   DATETIME    NULL     DEFAULT NULL,
+    updated_at   DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -888,8 +888,8 @@ CREATE TABLE X191202_info
     name       VARCHAR(16) NOT NULL DEFAULT '' COMMENT '姓名',
     card_id    VARCHAR(4)  NOT NULL DEFAULT '' COMMENT '身份证后4位',
     status     TINYINT     NOT NULL DEFAULT 0 COMMENT '验证状态,0:未验证,1:已验证',
-    created_at TIMESTAMP   NULL     DEFAULT NULL,
-    updated_at TIMESTAMP   NULL     DEFAULT NULL,
+    created_at DATETIME   NULL     DEFAULT NULL,
+    updated_at DATETIME   NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -908,9 +908,9 @@ CREATE TABLE x191202a_user
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖',
     prize_id   TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品ID',
     prize      VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '奖品',
-    prize_at   TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    prize_at   DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -932,9 +932,9 @@ CREATE TABLE x191203_user
     money              TINYINT(4)   NOT NULL DEFAULT '0' COMMENT '中奖金额',
     redpack_return_msg VARCHAR(128) NOT NULL DEFAULT '' COMMENT '红包返回信息',
     redpack_describle  text COMMENT '红包详情',
-    prized_at          TIMESTAMP    NULL     DEFAULT NULL,
-    created_at         TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at         TIMESTAMP    NULL     DEFAULT NULL,
+    prized_at          DATETIME    NULL     DEFAULT NULL,
+    created_at         DATETIME    NULL     DEFAULT NULL,
+    updated_at         DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id),
     KEY openid (openid),
     KEY status (status),
@@ -957,9 +957,9 @@ CREATE TABLE x191211_user
     money              INT          NOT NULL DEFAULT 0 COMMENT '中奖金额',
     redpack_return_msg VARCHAR(128) NOT NULL DEFAULT '' COMMENT '红包返回信息',
     redpack_describle  text COMMENT '红包详情',
-    prized_at          TIMESTAMP    NULL     DEFAULT NULL,
-    created_at         TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at         TIMESTAMP    NULL     DEFAULT NULL,
+    prized_at          DATETIME    NULL     DEFAULT NULL,
+    created_at         DATETIME    NULL     DEFAULT NULL,
+    updated_at         DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id),
     KEY openid (openid),
     KEY status (status),
@@ -981,9 +981,9 @@ CREATE TABLE x200106_user
     prize              INT          NOT NULL DEFAULT 0 COMMENT '中奖奖品',
     redpack_return_msg VARCHAR(128) NOT NULL DEFAULT '' COMMENT '红包返回信息',
     redpack_describle  text COMMENT '红包详情',
-    prized_at          TIMESTAMP    NULL     DEFAULT NULL,
-    created_at         TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at         TIMESTAMP    NULL     DEFAULT NULL,
+    prized_at          DATETIME    NULL     DEFAULT NULL,
+    created_at         DATETIME    NULL     DEFAULT NULL,
+    updated_at         DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id),
     KEY openid (openid),
     KEY status (status),
@@ -1008,9 +1008,9 @@ CREATE TABLE x200102a_user
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖',
     prize_id   TINYINT      NOT NULL DEFAULT 0 COMMENT '中奖ID',
     prize      INT          NOT NULL DEFAULT 0 COMMENT '中奖奖品',
-    prized_at  TIMESTAMP    NULL     DEFAULT NULL,
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    prized_at  DATETIME    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id),
     KEY openid (openid),
     KEY status (status),
@@ -1030,8 +1030,8 @@ CREATE TABLE x200103_user
     game_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '游戏次数',
     share_num  TINYINT      NOT NULL DEFAULT 0 COMMENT '分享次数',
     score      INT          NOT NULL DEFAULT 0 COMMENT '游戏分数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1053,9 +1053,9 @@ CREATE TABLE x200109_user
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖',
     prize_id   TINYINT      NOT NULL DEFAULT 0 COMMENT '中奖ID',
     prize      INT          NOT NULL DEFAULT 0 COMMENT '中奖奖品',
-    prized_at  TIMESTAMP    NULL     DEFAULT NULL,
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    prized_at  DATETIME    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id),
     KEY openid (openid),
     KEY status (status),
@@ -1077,8 +1077,8 @@ CREATE TABLE x200113_user
     image      VARCHAR(255) NOT NULL DEFAULT '' COMMENT '照片',
     polls      INT          NOT NULL DEFAULT 0 COMMENT '票数',
     num        TINYINT      NOT NULL DEFAULT 0 COMMENT '剩余投票次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1092,8 +1092,8 @@ CREATE TABLE x200113_vote_log
     target_id  INT          NOT NULL DEFAULT 0 COMMENT '目标id',
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1111,8 +1111,8 @@ CREATE TABLE x200114_user
     score      INT          NOT NULL DEFAULT 0 COMMENT '分数',
     game_num   INT          NOT NULL DEFAULT 0 COMMENT '剩余次数',
     share_num  INT          NOT NULL DEFAULT 0 COMMENT '分享次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1125,8 +1125,8 @@ CREATE TABLE x200120_user
     id         INT UNSIGNED AUTO_INCREMENT,
     openid     VARCHAR(36) NOT NULL DEFAULT '',
     image      text        NOT NULL DEFAULT '图片',
-    created_at TIMESTAMP   NULL     DEFAULT NULL,
-    updated_at TIMESTAMP   NULL     DEFAULT NULL,
+    created_at DATETIME   NULL     DEFAULT NULL,
+    updated_at DATETIME   NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1141,8 +1141,8 @@ CREATE TABLE x200121_user
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     love       INT          NOT NULL DEFAULT 0 COMMENT '热爱值',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1156,8 +1156,8 @@ CREATE TABLE x200121_help
     help_user_id   INT          NOT NULL DEFAULT 0 COMMENT '用户id',
     nickname       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar         VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at     TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at     TIMESTAMP    NULL     DEFAULT NULL,
+    created_at     DATETIME    NULL     DEFAULT NULL,
+    updated_at     DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1169,8 +1169,8 @@ CREATE TABLE x200121_love
     id             INT UNSIGNED AUTO_INCREMENT,
     target_user_id INT       NOT NULL DEFAULT 0 COMMENT '目标id',
     help_user_id   INT       NOT NULL DEFAULT 0 COMMENT '用户id',
-    created_at     TIMESTAMP NULL     DEFAULT NULL,
-    updated_at     TIMESTAMP NULL     DEFAULT NULL,
+    created_at     DATETIME NULL     DEFAULT NULL,
+    updated_at     DATETIME NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1185,8 +1185,8 @@ CREATE TABLE x200212_user
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     score      INT          NOT NULL DEFAULT 0 COMMENT '成绩',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1204,8 +1204,8 @@ CREATE TABLE x20200305_user
     phone      VARCHAR(15)  NOT NULL DEFAULT '' COMMENT '电话',
     likes      INT          NOT NULL DEFAULT 0 COMMENT '点赞数',
     like_num   INT          NOT NULL DEFAULT 0 COMMENT '点赞次数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1219,8 +1219,8 @@ CREATE TABLE x20200305_like
     help_user_id   INT          NOT NULL DEFAULT 0 COMMENT '用户id',
     nickname       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar         VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at     TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at     TIMESTAMP    NULL     DEFAULT NULL,
+    created_at     DATETIME    NULL     DEFAULT NULL,
+    updated_at     DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1236,8 +1236,8 @@ CREATE TABLE x200307_user
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     name       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '真实姓名',
     phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '手机号',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1256,9 +1256,9 @@ CREATE TABLE x200312_user
     money              TINYINT      NOT NULL DEFAULT 0 COMMENT '中奖金额',
     redpack_return_msg VARCHAR(128) NOT NULL DEFAULT '' COMMENT '红包返回信息',
     redpack_describle  text COMMENT '红包详情',
-    prize_at           TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at         TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at         TIMESTAMP    NULL     DEFAULT NULL,
+    prize_at           DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at         DATETIME    NULL     DEFAULT NULL,
+    updated_at         DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1274,8 +1274,8 @@ CREATE TABLE x200325_user
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     custom_num TINYINT      NOT NULL DEFAULT 0 COMMENT '邀请客户数量',
     money      INT          NOT NULL DEFAULT 0 COMMENT '中奖总额',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1293,9 +1293,9 @@ CREATE TABLE x200325_code
     money              INT          NOT NULL DEFAULT 0 COMMENT '中奖金额',
     redpack_return_msg VARCHAR(128) NOT NULL DEFAULT '' COMMENT '红包返回信息',
     redpack_describle  text COMMENT '红包详情',
-    prize_at           TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at         TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at         TIMESTAMP    NULL     DEFAULT NULL,
+    prize_at           DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at         DATETIME    NULL     DEFAULT NULL,
+    updated_at         DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1316,9 +1316,9 @@ CREATE TABLE x200615_user
     share_name TINYINT      NOT NULL DEFAULT 0 COMMENT '分享次数',
     prize_id   TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品ID',
     prize      VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '奖品',
-    prize_at   TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    prize_at   DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1338,9 +1338,9 @@ CREATE TABLE x200617_user
     status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态,0:未抽奖,1:已抽奖,2:已中奖',
     prize_id   TINYINT      NOT NULL DEFAULT 0 COMMENT '奖品ID',
     prize      VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '奖品',
-    prized_at  TIMESTAMP    NULL     DEFAULT NULL COMMENT '中奖时间',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    prized_at  DATETIME    NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1357,8 +1357,8 @@ CREATE TABLE x200622_user
     game_num   INT          NOT NULL DEFAULT 0 COMMENT '游戏次数',
     share_num  INT          NOT NULL DEFAULT 0 COMMENT '分享次数',
     score      INT          NOT NULL DEFAULT 0 COMMENT '成绩',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1372,8 +1372,8 @@ CREATE TABLE x200629_user
     openid     VARCHAR(36)  NOT NULL DEFAULT '',
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1387,8 +1387,8 @@ CREATE TABLE x200629_advise
     advise     VARCHAR(1023) NOT NULL DEFAULT '' COMMENT '建议',
     name       VARCHAR(16)   NOT NULL DEFAULT '' COMMENT '姓名',
     phone      VARCHAR(11)   NOT NULL DEFAULT '' COMMENT '电话',
-    created_at TIMESTAMP     NULL     DEFAULT NULL,
-    updated_at TIMESTAMP     NULL     DEFAULT NULL,
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1460,8 +1460,8 @@ CREATE TABLE x200708_user
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
     phone      VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '电话',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1478,8 +1478,8 @@ CREATE TABLE x200715_user
     game_num   INT          NOT NULL DEFAULT 0 COMMENT '游戏次数',
     share_num  TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '分享次数',
     score      INT          NOT NULL DEFAULT 0 COMMENT '游戏分数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1496,8 +1496,8 @@ CREATE TABLE x200716_user
     status     INT          NOT NULL DEFAULT 0 COMMENT '抽奖状态 0:未抽奖 1:已抽奖',
     prize_id   TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '中奖ID',
     prize      VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '奖品',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1514,8 +1514,8 @@ CREATE TABLE x200722_user
     game_num   INT          NOT NULL DEFAULT 0 COMMENT '游戏次数',
     share_num  TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '分享次数',
     score      INT          NOT NULL DEFAULT 0 COMMENT '游戏分数',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1531,8 +1531,8 @@ CREATE TABLE x200731_user
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
     phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1549,8 +1549,8 @@ CREATE TABLE x200806_user
     name           VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
     phone          VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
     img_upload_num INT          NOT NULL DEFAULT 0 COMMENT '上传次数',
-    created_at     TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at     TIMESTAMP    NULL     DEFAULT NULL,
+    created_at     DATETIME    NULL     DEFAULT NULL,
+    updated_at     DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1562,8 +1562,8 @@ CREATE TABLE x200806_images
     id         INT UNSIGNED AUTO_INCREMENT,
     user_id    INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '关联用户表',
     images     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '图片',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id),
     KEY (user_id)
 ) ENGINE = INNODB
@@ -1583,8 +1583,8 @@ CREATE TABLE x200817_user
     phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
     status     TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '状态',
     prize      VARCHAR(36)  NOT NULL DEFAULT '' COMMENT '奖品',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1602,8 +1602,8 @@ CREATE TABLE x200818_user
     game_num   TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '游戏次数',
     ranking    INT(10)      NOT NULL DEFAULT 0 COMMENT '最佳排名',
     ranking_at DATETIME     NULL     DEFAULT NULL COMMENT '最佳排名时间',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
@@ -1621,8 +1621,28 @@ CREATE TABLE x200826_user
     phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
     status     TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '状态',
     prize      VARCHAR(36)  NOT NULL DEFAULT '' COMMENT '奖品',
-    created_at TIMESTAMP    NULL     DEFAULT NULL,
-    updated_at TIMESTAMP    NULL     DEFAULT NULL,
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+CREATE TABLE x200914_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    item_id    TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '项目编号',
+    item       VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '项目名称',
+    room_no    VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '房号',
+    sign_up_at DATETIME    NULL     DEFAULT NULL COMMENT '报名时间',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER

@@ -27,10 +27,12 @@ class X200901Controller extends Controller
         $exportUrl = asset('/vlvl/x200901/export');
         $redis = app('redis');
         $redis->select(0);
+        $total = User::count();
         $redisShareData = $redis->hGetAll('wx:view:yc20200901');
         return view('sswh.sswhAdmin.x200901', [
             'title' => '宜昌中心·臻享福利', 'paginator' => $paginator, 'exportUrl' => $exportUrl,
-            'redisShareData' => $redisShareData
+            'redisShareData' => $redisShareData,
+            'total' => $total
         ]);
     }
 
