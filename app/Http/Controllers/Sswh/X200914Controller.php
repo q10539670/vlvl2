@@ -14,9 +14,9 @@ class X200914Controller extends Common
     //金茂报名
     protected $itemName = 'x200914';
 
-    protected $itemCount = [1 => 150, 2 => 50, 3 => 100, 4 => 50];
+    protected $itemCount = [1 => 75, 2 => 25, 3 => 50, 4 => 25];
 
-    const END_TIME = '2020-09-26 15:30:00';
+    const END_TIME = '2020-09-24 18:00:00';
 
     const RELEASE = 'test'; //test:测试 formal:正式
 
