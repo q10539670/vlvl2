@@ -16,12 +16,7 @@ class X200901Controller extends Common
     //宜昌中心·臻享福利
     protected $itemName = 'x200901';
 
-    protected $prizeDate = [
-        1 => ['2020-09-04 20:00:00', '2020-09-06 23:59:59'],
-        2 => ['2020-09-11 20:00:00', '2020-09-13 23:59:59'],
-        3 => ['2020-09-18 20:00:00', '2020-09-20 23:59:59'],
-        4 => ['2020-09-25 20:00:00', '2020-09-27 23:59:59'],
-    ];
+    protected $prizeDate = ['2020-09-04','2020-09-11','2020-09-18','2020-09-25'];
 
     protected $prize = [
         0 => ['prize_id' => 1, 'prize' => '摩飞早餐机'],
@@ -69,11 +64,12 @@ class X200901Controller extends Common
         if (!Helper::stopResubmit($this->itemName.':post', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
-        $timeStr = date('Y-m-d H:i:s');
-//        $timeStr = '2020-09-13 20:00:00';
-        $week = User::getWeekForMonth();
-        if ($timeStr < $this->prizeDate[$week][0] || $timeStr > $this->prizeDate[$week][1]) {
-            return response()->json(['error' => '还未到抽奖时间'], 422);
+        $dateStr = date('Y-m-d');
+        if (!in_array($dateStr, $this->prizeDate)) {  //判断是否为周五
+            return response()->json(['error' => '抽奖还未开始,请周五再来'], 422);
+        }
+        if (date('H') < 20) {  //判断当前时间小于20点
+            return response()->json(['error' => '抽奖还未开始,请20:00再来'], 422);
         }
         //检查信息
         $validator = Validator::make($request->all(), [
@@ -109,27 +105,36 @@ class X200901Controller extends Common
         if ($user->status == 1) {
             return response()->json(['error' => '您已经中奖了'], 422);
         }
-        $timeStr = date('Y-m-d H:i:s');
-//        $timeStr = '2020-09-13 20:00:00';
+        $dateStr = date('Y-m-d');
         $week = User::getWeekForMonth();
-        if ($timeStr < $this->prizeDate[$week][0] || $timeStr > $this->prizeDate[$week][1]) {
-            return response()->json(['error' => '还未到抽奖时间'], 422);
+
+        if (!in_array($dateStr, $this->prizeDate)) {  //判断是否为周五
+            return response()->json(['error' => '抽奖还未开始,请周五再来'], 422);
+        }
+        if (date('H') < 20) {  //判断当前时间小于20点
+            return response()->json(['error' => '抽奖还未开始,请20:00再来'], 422);
         }
         $phones = [
-            '18871788125' => 0,
-            '13872586080' => 1,
-            '13997705186' => 2,
-            '13997720874' => 1,
-            '13094185089' => 0,
-            '18986812999' => 2,
-            '13872578099' => 1,
-            '18671607513' => 0,
-            '13487219601' => 2,
-            '13972599660' => 2,
-            '15997669695' => 0,
-            '13207206666' => 2,
+            '18972036881' => 0,
+            '13972026930' => 1,
+            '13377870925' => 2,
+            '18807202764' => 1,
+            '18062388898' => 0,
+            '18671877816' => 2,
+            '18972532907' => 1,
+            '15872485683' => 0,
+            '13872592275' => 2,
+            '17707175115' => 2,
+            '13972590712' => 0,
+            '13349861866' => 2,
+            '18771771557' => 1,
+            '18671737595' => 0,
+            '13207206666' => 0,
             '13545764970' => 1,
-            '18751287980' => 0,
+            '18751287980' => 1,
+            '13972580563' => 1,
+            '13997692181' => 0,
+            '15671077706' => 2,
         ];
         if (!in_array($user->phone, array_keys($phones))) {
             $redisBaseKey = 'wx:'.$this->itemName.':prizeCount';
@@ -201,6 +206,6 @@ class X200901Controller extends Common
             $user->prize_num++;
             $user->save();
         }
-        return Helper::Json(1, '分享成功', ['user'=>$user]);
+        return Helper::Json(1, '分享成功', ['user' => $user]);
     }
 }

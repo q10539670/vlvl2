@@ -14,7 +14,7 @@ class User extends Model
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 0.05;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 0.1;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
 //    private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
@@ -32,9 +32,9 @@ class User extends Model
             0 => ['prize_id' => 97, 'prize_level_name' => '幸运奖', 'prize_name' => '数据线', 'v' => 30, 'count' => 0, 'limit' => 0],
             1 => ['prize_id' => 98, 'prize_level_name' => '幸运奖', 'prize_name' => '定制笔记本套装', 'v' => 10, 'count' => 0, 'limit' => 0],
             2 => ['prize_id' => 99, 'prize_level_name' => '幸运奖', 'prize_name' => '精美月饼礼盒', 'v' => 10, 'count' => 0, 'limit' => 0],
-            3 => ['prize_id' => 1, 'prize_level_name' => '幸运奖', 'prize_name' => '摩飞早餐机', 'v' => 2, 'count' => 0, 'limit' => 0],
+//            3 => ['prize_id' => 1, 'prize_level_name' => '幸运奖', 'prize_name' => '摩飞早餐机', 'v' => 2, 'count' => 0, 'limit' => 0],
             4 => ['prize_id' => 4, 'prize_level_name' => '幸运奖', 'prize_name' => '小狗吸尘器', 'v' => 3, 'count' => 0, 'limit' => 0],
-            5 => ['prize_id' => 3, 'prize_level_name' => '幸运奖', 'prize_name' => '乐高', 'v' => 5, 'count' => 0, 'limit' => 0],
+//            5 => ['prize_id' => 3, 'prize_level_name' => '幸运奖', 'prize_name' => '乐高', 'v' => 5, 'count' => 0, 'limit' => 0],
 
         ],
         /*不中奖数组  该数组权重只对 中奖几率先大后小方式抽奖有效*/
@@ -76,6 +76,9 @@ class User extends Model
         ],
         '3' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
+            '4' => ['prize_id' => 4, 'limit' => 5],
+            '97' => ['prize_id' => 97, 'limit' => 20],
+            '98' => ['prize_id' => 98, 'limit' => 10],
             '99' => ['prize_id' => 99, 'limit' => 10],
         ],
         '4' => [
