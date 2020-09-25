@@ -445,3 +445,9 @@ Route::get('/x200901/export', 'X200901Controller@export');
 Route::get('/x200914/index',  'X200914Controller@index');
 Route::get('/x200914/export', 'X200914Controller@export');
 
+/**
+ * 美的抽奖  200925
+ */
+Route::get('/x200925/index',  'X200925Controller@index');
+Route::get('/x200925/export', 'X200925Controller@export');
+

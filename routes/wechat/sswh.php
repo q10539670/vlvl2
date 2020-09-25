@@ -568,3 +568,11 @@ Route::post('/x200826/prize', 'X200826Controller@randomPrize');               //
 Route::get('/x200914/init',  'X200914Controller@appInitHandler');            //初始化程序
 Route::get( '/x200914/user',  'X200914Controller@user');                      //获取/记录用户信息
 Route::post('/x200914/signup',  'X200914Controller@signUp');                  //报名
+
+/**
+ * 美的游戏抽奖   200925
+ */
+Route::get('/x200925/init',  'X200925Controller@appInitHandler');            //初始化程序
+Route::get( '/x200925/user',  'X200925Controller@user');                      //获取/记录用户信息
+Route::post('/x200925/post',  'X200925Controller@post');                      //提交信息
+Route::post('/x200925/prize', 'X200925Controller@randomPrize');               //抽奖

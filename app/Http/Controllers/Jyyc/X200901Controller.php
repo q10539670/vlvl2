@@ -16,12 +16,12 @@ class X200901Controller extends Common
     //宜昌中心·臻享福利
     protected $itemName = 'x200901';
 
-    protected $prizeDate = ['2020-09-04','2020-09-11','2020-09-18','2020-09-25'];
+    protected $prizeDate = ['2020-09-04', '2020-09-11', '2020-09-18', '2020-09-25'];
 
     protected $prize = [
         0 => ['prize_id' => 1, 'prize' => '摩飞早餐机'],
-        1 => ['prize_id' => 2, 'prize' => 'skg 颈肩按摩仪'],
-        2 => ['prize_id' => 3, 'prize' => '乐高'],
+        1 => ['prize_id' => 5, 'prize' => '榨汁机'],
+        2 => ['prize_id' => 4, 'prize' => '吸尘器'],
     ];
 
     const END_TIME = '2020-10-01 23:59:59';
@@ -106,7 +106,6 @@ class X200901Controller extends Common
             return response()->json(['error' => '您已经中奖了'], 422);
         }
         $dateStr = date('Y-m-d');
-        $week = User::getWeekForMonth();
 
         if (!in_array($dateStr, $this->prizeDate)) {  //判断是否为周五
             return response()->json(['error' => '抽奖还未开始,请周五再来'], 422);
@@ -115,26 +114,9 @@ class X200901Controller extends Common
             return response()->json(['error' => '抽奖还未开始,请20:00再来'], 422);
         }
         $phones = [
-            '18972036881' => 0,
-            '13972026930' => 1,
-            '13377870925' => 2,
-            '18807202764' => 1,
-            '18062388898' => 0,
-            '18671877816' => 2,
-            '18972532907' => 1,
-            '15872485683' => 0,
-            '13872592275' => 2,
-            '17707175115' => 2,
-            '13972590712' => 0,
-            '13349861866' => 2,
-            '18771771557' => 1,
-            '18671737595' => 0,
-            '13207206666' => 0,
-            '13545764970' => 1,
-            '18751287980' => 1,
-            '13972580563' => 1,
-            '13997692181' => 0,
-            '15671077706' => 2,
+            '13310569059' => 0,
+            '15572771222' => 1,
+            '13207206666' => 2,
         ];
         if (!in_array($user->phone, array_keys($phones))) {
             $redisBaseKey = 'wx:'.$this->itemName.':prizeCount';
