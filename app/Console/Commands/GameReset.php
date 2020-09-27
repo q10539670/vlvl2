@@ -159,8 +159,11 @@ class GameReset extends Command
 //            'game_num' => 1,
 //            'share_num' => 1
 //        ]);   //世纪山水
-        DB::table('x200730_user')->update([
-            'vote_num' => 3
+//        DB::table('x200730_user')->update([
+//            'vote_num' => 3
+//        ]);   //宜昌中心
+        DB::table('x200925_user')->where('status','!=',1)->update([
+            'prize_num' => 3
         ]);   //宜昌中心
         return $this->info('重置成功');
     }

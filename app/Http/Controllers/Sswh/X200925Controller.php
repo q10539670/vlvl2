@@ -26,7 +26,7 @@ class X200925Controller extends Common
         if (!$user = User::where(['openid' => $openid])->first()) {
             //查询总表
             $info = $this->searchSswhUser($request);
-            $userInfo = $this->userInfo($request, $info);
+            $userInfo = $this->userInfo($request, $info, ['prize_num' => 3]);
             //新增数据到表中
             User::create($userInfo);
             //查询
@@ -43,7 +43,7 @@ class X200925Controller extends Common
 
     /**
      * 提交信息
-     * @param Request $request
+     * @param  Request  $request
      * @return false|\Illuminate\Http\JsonResponse|string
      */
     public function post(Request $request)
@@ -82,24 +82,27 @@ class X200925Controller extends Common
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
+        if ($user->status == 1) {
+            return response()->json(['error' => '您已中奖'], 422);
+        }
         //阻止重复提交
-        if (!Helper::stopResubmit($this->itemName . ':randomPrize', $user->id, 3)) {
+        if (!Helper::stopResubmit($this->itemName.':randomPrize', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
         if ($request->score < 60) {
             return response()->json(['error' => '游戏成绩不足60分,不能抽奖'], 422);
         }
-        if ($user->status == 1) {
-            return Helper::json(-1, '您已中奖');
+        if ($user->prize_num <= 0) {
+            return response()->json(['error' => '今日游戏次数已用完'], 422);
         }
-        $redisCountBaseKey = 'wx:' . $this->itemName . ':prizeCount';
+        $redisCountBaseKey = 'wx:'.$this->itemName.':prizeCount';
         $prize = new User();
         try {
             $resultPrize = $prize->fixRandomPrize($redisCountBaseKey, self::VERSION); // 固定概率抽奖
             $redisCountKey = $resultPrize['prizeCountKey'];
         } catch (\Exception $e) {
             \Log::channel('wx')->info('美的_游戏抽奖'.$this->itemName, ['message' => $e->getMessage()]);
-            return response()->json(['error' => '抽奖失败,系统错误 ' . $e->getCode()], 422);
+            return response()->json(['error' => '抽奖失败,系统错误 '.$e->getCode()], 422);
         }
         $redis = app('redis');
         $redis->select(12);
@@ -114,7 +117,8 @@ class X200925Controller extends Common
         } else {
             $user->status = 2;
         }
-        $user->prize_num++;
+        $user->total_prize_num++;
+        $user->prize_num--;
         $user->score = $request->input('score');
         $user->prize = $resultPrize['resultPrize']['prize_name'];
         $user->prize_id = $resultPrize['resultPrize']['prize_id'];
@@ -134,13 +138,13 @@ class X200925Controller extends Common
         $dataArr = [
             'test', 'formal'
         ];
-        foreach ($redis->keys('wx:' . $this->itemName . ':prizeCount:*') as $v) {
+        foreach ($redis->keys('wx:'.$this->itemName.':prizeCount:*') as $v) {
 //            if(!in_array($v,$dateArr)){
             $redis->del($v);
 //            }
         }
         foreach ($dataArr as $k => $v) {
-            $redis->hmset('wx:' . $this->itemName . ':prizeCount:' . $v, ['0' => 0, '1' => 0]);
+            $redis->hmset('wx:'.$this->itemName.':prizeCount:'.$v, ['0' => 0, '1' => 0]);
         }
         echo '应用初始化成功';
         exit();

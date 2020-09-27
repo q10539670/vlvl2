@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @php
-    $statusNow = request()->input('status', '');
+    $banquetNow = request()->input('banquet_id', '');
 @endphp
 @section('css')
     <link rel="stylesheet" href="{{asset('/vlvl/layui/css/modules/layer/default/layer.css')}}">
@@ -53,13 +53,13 @@
     <div class="box">
         <div class="box-header with-border">
             <div class="row">
-                <div class="col-md-5 col-sm-2">
+                <div class="col-md-3 col-sm-2">
                     <div class="form-group">
                         <h3 class="box-title">用户列表</h3>
                     </div>
                 </div>
-                <div class="col-md-5 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <form class="form-inline" method="get" action="{{url('vlvl/x200901/index')}}">
+                <div class="col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                    <form class="form-inline" method="get" action="{{url('vlvl/x191029/index')}}">
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail3"></label>
                             <input type="text"
@@ -68,11 +68,13 @@
                                    class="form-control" size="16" placeholder="请输入姓名或手机号查询">
                         </div>
                         <div class="form-group">
-                            <select name="status" class="form-control">
-                                <option value="">请选择是否中奖</option>
-                                <option {{($statusNow =='0')?'selected':''}}  value="0">未抽奖</option>
-                                <option {{($statusNow =='1')?'selected':''}} value="1">已中奖</option>
-                                <option {{($statusNow =='2')?'selected':''}} value="2">未中奖</option>
+                            <select name="banquet_id" class="form-control">
+                                <option value="">请选择私宴</option>
+                                <option {{($banquetNow =='1')?'selected':''}} value="1">汉宴品菜</option>
+                                <option {{($banquetNow =='2')?'selected':''}} value="2">素宴修心</option>
+                                <option {{($banquetNow =='3')?'selected':''}} value="3">家宴传承</option>
+                                <option {{($banquetNow =='4')?'selected':''}} value="4">夜宴归真</option>
+                                <option {{($banquetNow =='5')?'selected':''}} value="5">国宴江城</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -103,8 +105,8 @@
                                     <th style="text-align: center;">头像/昵称</th>
                                     <th style="text-align: center;">姓名</th>
                                     <th style="text-align: center;">电话</th>
-                                    <th style="text-align: center;">奖品</th>
-                                    <th style="text-align: center;">中奖时间</th>
+                                    <th style="text-align: center;">房号</th>
+                                    <th style="text-align: center;">私宴</th>
                                     <th style="text-align: center;">参与时间</th>
                                 </tr>
                                 </thead>
@@ -121,8 +123,8 @@
                                         </td>
                                         <td>{{$user['name']}}</td>
                                         <td>{{$user['phone']}}</td>
-                                        <td>{{$user['prize']}}</td>
-                                        <td>{{$user['prized_at']}}</td>
+                                        <td>{{$user['room_num']}}</td>
+                                        <td>{{$user['banquet']}}</td>
                                         <td>{{$user['created_at']}}</td>
                                     </tr>
                                 @endforeach

@@ -56,6 +56,12 @@ Route::get('/x191014/comm', 'X191014Controller@comments');
 Route::post('/x191014/verify', 'X191014Controller@verify');
 Route::delete('/x191014/del', 'X191014Controller@del');
 
+/**
+ * 武汉院子 191029
+ */
+Route::get('/x191029/index',  'X191029Controller@index');
+Route::get('/x191029/export', 'X191029Controller@export');
+
 
 /**
  * 湘中美的置业 191115
