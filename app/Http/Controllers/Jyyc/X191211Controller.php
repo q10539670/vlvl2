@@ -56,7 +56,7 @@ class X191211Controller extends Common
             return response()->json(['error' => '未授权'], 422);
         }
 
-        if (!Helper::stopResubmit($this->itemName . ':post', $user->id, 3)) {
+        if (!Helper::stopResubmit($this->itemName.':post', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
         //检查信息
@@ -101,42 +101,43 @@ class X191211Controller extends Common
         }
         //阻止重复提交
 
-        if (!Helper::stopResubmit($this->itemName . ':randomPrize', $user->id, 3)) {
+        if (!Helper::stopResubmit($this->itemName.':randomPrize', $user->id, 3)) {
             return $this->returnJson(1, ['error' => '不要重复提交']);
         }
         $timeStr = date('H');
-        if (!in_array($timeStr, ['02','09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'])) {
+        if (!in_array($timeStr, ['02', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'])) {
             $timeStr = 'test';
         }
 
-        $redisCountBaseKey = 'wx:' . $this->itemName . ':prizeCount';
+        $redisCountBaseKey = 'wx:'.$this->itemName.':prizeCount';
         try {
             $resultPrize = $user->fixRandomPrize($redisCountBaseKey, $timeStr); // 固定概率抽奖
             $redisCountKey = $resultPrize['prizeCountKey'];
         } catch (\Exception $e) {
             \Log::channel('sswh')->info('天宸府红包_抽奖', ['message' => $e->getMessage()]);
-            return response()->json(['error' => '抽奖失败,系统错误 ' . $e->getCode()], 422);
+            return response()->json(['error' => '抽奖失败,系统错误 '.$e->getCode()], 422);
         }
         $redis = app('redis');
         $redis->select(12);
         if (self::OPEN_SEND_REDPACK == true) {
-        $redisCount = $redis->hIncrBy($redisCountKey, $resultPrize['resultPrize']['prize_id'], 1); //中奖数累计+1
-        //超发 中奖数回退 此次抽奖失效
-        if ($redisCount > $resultPrize['resultPrize']['limit']) {
-            $redis->hIncrBy($redisCountKey, $resultPrize['resultPrize']['prize_id'], -1);  //超发 中奖数回退
-            return response()->json(['error' => '抽奖失败,请重新抽奖'], 422);
-        }
+            $redisCount = $redis->hIncrBy($redisCountKey, $resultPrize['resultPrize']['prize_id'], 1); //中奖数累计+1
+            //超发 中奖数回退 此次抽奖失效
+            if ($redisCount > $resultPrize['resultPrize']['limit']) {
+                $redis->hIncrBy($redisCountKey, $resultPrize['resultPrize']['prize_id'], -1);  //超发 中奖数回退
+                return response()->json(['error' => '抽奖失败,请重新抽奖'], 422);
+            }
         }
         if ($resultPrize['resultPrize']['money'] != 0) {
-            $resultRedpack = $user->sendRedpack($resultPrize['resultPrize']['money'], $user->openid, $user->id, self::OPEN_SEND_REDPACK);
+            $resultRedpack = $user->sendRedpack($resultPrize['resultPrize']['money'], $user->openid, $user->id,
+                self::OPEN_SEND_REDPACK);
             $user->redpack_return_msg = $resultRedpack['return_msg'];
             $user->status = $resultRedpack['result_code'] == 'SUCCESS' ? 1 : 2;
             $user->redpack_describle = json_encode($resultRedpack, JSON_UNESCAPED_UNICODE);
             //红包发送失败 中奖数回退 并转未中奖
             if ($resultRedpack['result_code'] != 'SUCCESS') {
                 if (self::OPEN_SEND_REDPACK == true) {
-                $redis->hIncrBy($redisCountKey, $resultPrize['resultPrize']['prize_id'], -1);  // 红包发送失败  中奖数回退
-                $redis->hIncrBy($redisCountKey, $resultPrize['prizeConf']['failSendpack']['prize_id'], 1);  // 不中奖加1
+                    $redis->hIncrBy($redisCountKey, $resultPrize['resultPrize']['prize_id'], -1);  // 红包发送失败  中奖数回退
+                    $redis->hIncrBy($redisCountKey, $resultPrize['prizeConf']['failSendpack']['prize_id'], 1);  // 不中奖加1
                 }
                 $resultPrize['resultPrize'] = $resultPrize['prizeConf']['failSendpack'];
             }
@@ -146,7 +147,9 @@ class X191211Controller extends Common
         $user->money = $resultPrize['resultPrize']['money'] * 100;
         $user->prized_at = now()->toDateTimeString();
         $user->save();
-        return Helper::json(1, '抽奖成功', ['user' => $user, 'resultPrize' => $resultPrize['resultPrize'], 'allPrize' => $resultPrize, 'act' => $timeStr]);
+        return Helper::json(1, '抽奖成功', [
+            'user' => $user, 'resultPrize' => $resultPrize['resultPrize'], 'allPrize' => $resultPrize, 'act' => $timeStr
+        ]);
     }
 
     /*
@@ -171,13 +174,16 @@ class X191211Controller extends Common
             '18',
             '19',
         ];
-        foreach ($redis->keys('wx:' . $this->itemName . ':prizeCount:*') as $v) {
+        foreach ($redis->keys('wx:'.$this->itemName.':prizeCount:*') as $v) {
 //            if(!in_array($v,$dateArr)){
             $redis->del($v);
 //            }
         }
         foreach ($dateArr as $k => $v) {
-            $redis->hmset('wx:' . $this->itemName . ':prizeCount:' . $v, [ '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0, '7' => 0, '8' => 0,'20' => 0,'21' => 0,'22' => 0,]);
+            $redis->hmset('wx:'.$this->itemName.':prizeCount:'.$v, [
+                '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0, '7' => 0, '8' => 0, '20' => 0, '21' => 0,
+                '22' => 0,
+            ]);
         }
         echo '应用初始化成功';
         exit();

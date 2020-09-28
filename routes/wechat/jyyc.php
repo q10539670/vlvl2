@@ -176,3 +176,16 @@ Route::post('/x200901/prize', 'X200901Controller@prize');                  //抽
 Route::post('/x200901/post',  'X200901Controller@post');                   //抽奖
 Route::get('/x200901/init',  'X200901Controller@appInitHandler');         //抽奖
 Route::get('/x200901/share',  'X200901Controller@share');         //抽奖
+
+/**
+ * 20200928
+ */
+/**
+ * 20200901
+ */
+Route::get( '/x200928/user',  'X200928Controller@user');                   //获取/记录用户信息
+Route::post('/x200928/prize', 'X200928Controller@randomPrize');            //抽奖
+Route::post('/x200928/post',  'X200928Controller@post');                   //提交信息
+Route::get( '/x200928/init',  'X200928Controller@appInitHandler');         //初始化
+Route::get( '/x200928/send',  'X200928Controller@sendSms');                //发送验证码短信
+Route::post('/x200928/red_pack',  'X200928Controller@sendRedPack');        //发送红包

@@ -457,3 +457,8 @@ Route::get('/x200914/export', 'X200914Controller@export');
 Route::get('/x200925/index',  'X200925Controller@index');
 Route::get('/x200925/export', 'X200925Controller@export');
 
+/**
+ * 宜昌中心·天宸府  200928
+ */
+Route::get('/x200928/index',  'X200928Controller@index');
+Route::get('/x200928/export', 'X200928Controller@export');

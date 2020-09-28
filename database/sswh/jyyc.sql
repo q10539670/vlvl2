@@ -59,3 +59,29 @@ create table x200901_user
 ) ENGINE = innodb
   DEFAULT CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 宜昌中心天宸府现金抽奖
+CREATE TABLE x200928_user
+(
+    id                 INT UNSIGNED AUTO_INCREMENT,
+    openid             VARCHAR(36)  NOT NULL DEFAULT '' COMMENT 'openid',
+    nickname           VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar             VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name               VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    phone              VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '电话',
+    status             TINYINT(2)      NOT NULL DEFAULT 0 COMMENT '状态[0:未抽奖,10:已中奖未兑奖,11:中奖已兑奖,12:中奖已过期,2:未中奖]',
+    v_code             TINYINT(3)   NOT NULL DEFAULT 0 COMMENT '验证码',
+    money              TINYINT(4)   NOT NULL DEFAULT '0' COMMENT '中奖金额',
+    redpack_return_msg VARCHAR(128) NOT NULL DEFAULT '' COMMENT '红包返回信息',
+    redpack_describle  text COMMENT '红包详情',
+    prized_at          DATETIME     NULL     DEFAULT NULL,
+    created_at         DATETIME     NULL     DEFAULT NULL,
+    updated_at         DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id),
+    KEY openid (openid),
+    KEY status (status),
+    KEY money (money)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8
+  COLLATE utf8_general_ci COMMENT '用户表';
