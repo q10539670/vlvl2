@@ -216,4 +216,7 @@ class Helper
             $image->save();
         }
     }
+
+
+
 }

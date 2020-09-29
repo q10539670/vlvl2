@@ -16,8 +16,9 @@ class X200928Controller extends Common
     //宜昌中心
     protected $itemName = 'x200928';
 
-    const OPEN_SEND_REDPACK = false;  //红包开关
+    const OPEN_SEND_REDPACK = true;  //红包开关
     const END_TIME = '2020-10-05 23:59:59';  //结束时间
+    const START_TIME = '2020-09-30 08:00:00';  //开始时间
 
     /*
      * 获取/记录用户授权信息
@@ -46,14 +47,15 @@ class X200928Controller extends Common
      * */
     public function post(Request $request)
     {
-        if (time() > strtotime(self::END_TIME)) {
-            return response()->json(['error' => '活动已截止'], 422);
-        }
-
         if (!$user = User::where('openid', $request->openid)->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
-
+        if (time() > strtotime(self::END_TIME)) {
+            return response()->json(['error' => '活动已截止'], 422);
+        }
+        if (time() < strtotime(self::START_TIME)) {
+            return $this->returnJson(-1, "活动未开始");
+        }
         if (!Helper::stopResubmit($this->itemName.':post', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
@@ -87,6 +89,9 @@ class X200928Controller extends Common
             return response()->json(['error' => '未授权'], 422);
         }
 
+        if (time() < strtotime(self::START_TIME)) {
+            return $this->returnJson(-1, "活动未开始");
+        }
         if (time() > strtotime(self::END_TIME)) {
             return response()->json(['error' => '活动已结束'], 422);
         }
@@ -99,7 +104,7 @@ class X200928Controller extends Common
             return $this->returnJson(1, ['error' => '不要重复提交']);
         }
         $dateStr = date('Ymd');
-        $dateStr = 'test';
+//        $dateStr = 'test';
         $redisCountBaseKey = 'wx:'.$this->itemName.':prizeCount:'.$dateStr;
         try {
             $resultPrize = $user->fixRandomPrize($redisCountBaseKey); // 固定概率抽奖
@@ -138,6 +143,9 @@ class X200928Controller extends Common
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
+        if (time() < strtotime(self::START_TIME)) {
+            return $this->returnJson(-1, "活动未开始");
+        }
         if (time() > strtotime(self::END_TIME)) {
             return response()->json(['error' => '活动已结束'], 422);
 //            return $this->returnJson(1, ['error' => '活动已结束']);
@@ -169,6 +177,9 @@ class X200928Controller extends Common
     {
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
+        }
+        if (time() < strtotime(self::START_TIME)) {
+            return $this->returnJson(-1, "活动未开始");
         }
         if (time() > strtotime(self::END_TIME)) {
             return response()->json(['error' => '活动已结束'], 422);

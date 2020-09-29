@@ -85,7 +85,7 @@ class User extends Model
             1 => json_decode($successStr, true),
             2 => json_decode($failStr, true),
         ];
-        $randomCode = mt_rand(1, 4);
+        $randomCode = mt_rand(1, 3);
         if (in_array($randomCode, [1, 2, 3])) {  //成功
             return $resultMap[1];
         }
@@ -96,7 +96,7 @@ class User extends Model
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 1;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 0.8;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
     private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
@@ -109,16 +109,15 @@ class User extends Model
      * limit  预先准备的该奖品个数限制
      * */
     protected $prizeConf = [
+        'test'=>[0 => ['prize_id' => 1, 'prize_level_name' => '测试', 'prize_name' => '1元红包', 'money' => 1, 'v' => 1, 'count' => 0,  'limit' => 10]],
         /*中奖数组*/
         'prize' => [
-//            0 => ['prize_id' => 1, 'prize_level_name' => '六等奖', 'prize_name' => '1.88元红包', 'money' => 1.88, 'v' => 50, 'count' => 0,   'limit' => 50],
-//            1 => ['prize_id' => 2, 'prize_level_name' => '五等奖', 'prize_name' => '6.66元红包', 'money' => 6.66, 'v' => 30, 'count' => 0,   'limit' => 30],
-//            2 => ['prize_id' => 3, 'prize_level_name' => '四等奖', 'prize_name' => '8.88元红包', 'money' => 8.88, 'v' => 20, 'count' => 0,   'limit' => 20],
-//            3 => ['prize_id' => 4, 'prize_level_name' => '三等奖', 'prize_name' => '12.88元红包', 'money' => 12.88, 'v' => 15, 'count' => 0, 'limit' => 15],
-//            4 => ['prize_id' => 5, 'prize_level_name' => '二等奖', 'prize_name' => '66.60元红包', 'money' => 66.60, 'v' => 2, 'count' => 0,  'limit' => 2],
-//            5 => ['prize_id' => 6, 'prize_level_name' => '一等奖', 'prize_name' => '88.80元红包', 'money' => 88.80, 'v' => 1, 'count' => 0,  'limit' => 1],
-            5 => ['prize_id' => 6, 'prize_level_name' => '一等奖', 'prize_name' => '1元红包', 'money' => 1, 'v' => 1, 'count' => 0,  'limit' => 10],
-
+            0 => ['prize_id' => 1, 'prize_level_name' => '六等奖', 'prize_name' => '1.88元红包', 'money' => 1.88, 'v' => 50, 'count' => 0,   'limit' => 50],
+            1 => ['prize_id' => 2, 'prize_level_name' => '五等奖', 'prize_name' => '6.66元红包', 'money' => 6.66, 'v' => 30, 'count' => 0,   'limit' => 30],
+            2 => ['prize_id' => 3, 'prize_level_name' => '四等奖', 'prize_name' => '8.88元红包', 'money' => 8.88, 'v' => 20, 'count' => 0,   'limit' => 20],
+            3 => ['prize_id' => 4, 'prize_level_name' => '三等奖', 'prize_name' => '12.88元红包', 'money' => 12.88, 'v' => 15, 'count' => 0, 'limit' => 15],
+            4 => ['prize_id' => 5, 'prize_level_name' => '二等奖', 'prize_name' => '66.60元红包', 'money' => 66.60, 'v' => 2, 'count' => 0,  'limit' => 2],
+            5 => ['prize_id' => 6, 'prize_level_name' => '一等奖', 'prize_name' => '88.80元红包', 'money' => 88.80, 'v' => 1, 'count' => 0,  'limit' => 1],
         ],
         /*不中奖   --未中奖*/
         'notPrize' => ['prize_id' => 20, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'money' => 0, 'v' => 100, 'count' => 0, 'limit' => 100000],
@@ -223,17 +222,21 @@ class User extends Model
 //        if ($redis->get($redisCountKey . ':prizeNum') >= 15) {
 //            $zhongjianglv = 0.07;       //奖品发放超过一半后
 //        }
+        $attr = 'prize';
+        if (time()<strtotime('2020-09-30 08:00:00')) {
+            $attr = 'test';
+        }
         $finalConf = []; //最终生成的配置数组
         $jingduSum = 0; //精度计数
         $resultPrize = null; // 最终的中奖的信息
 
-        foreach ($this->prizeConf['prize'] as $k => $arr) {
-            $prize_id = $this->prizeConf['prize'][$k]['prize_id'];
-            $this->prizeConf['prize'][$k]['count'] = $prizeCountArr[$prize_id];
-            $this->prizeConf['prize'][$k]['v'] = $arr['v'] * 10;   //中奖权重 增加除不中奖以外的权重
+        foreach ($this->prizeConf[$attr] as $k => $arr) {
+            $prize_id = $this->prizeConf[$attr][$k]['prize_id'];
+            $this->prizeConf[$attr][$k]['count'] = $prizeCountArr[$prize_id];
+            $this->prizeConf[$attr][$k]['v'] = $arr['v'] * 10;   //中奖权重 增加除不中奖以外的权重
         }
         /*去除奖品发完的奖项*/
-        foreach ($this->prizeConf['prize'] as $k => $arr) {
+        foreach ($this->prizeConf[$attr] as $k => $arr) {
             if ($arr['count'] < $arr['limit']) {
                 $finalConf[] = $arr;
                 $jingduSum += $arr['v'];

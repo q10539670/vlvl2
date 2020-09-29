@@ -576,3 +576,9 @@ Route::get('/x200925/init',  'X200925Controller@appInitHandler');            //�
 Route::get( '/x200925/user',  'X200925Controller@user');                      //获取/记录用户信息
 Route::post('/x200925/post',  'X200925Controller@post');                      //提交信息
 Route::post('/x200925/prize', 'X200925Controller@randomPrize');               //抽奖
+
+
+/**
+ * 20200929 武汉院子
+ */
+Route::get( '/x200929/user',  'X200929Controller@user');                   //获取/记录用户信息
