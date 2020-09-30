@@ -18,7 +18,8 @@ $statusLabel = [
     10 => '中奖未兑奖',
     11 => '中奖已兑奖',
     12 => '中奖已过期',
-    2 => '未中奖'
+    2 => '未中奖',
+    3 => '红包发送失败'
 ];
 ?>
 @section('title', $title)
@@ -83,6 +84,7 @@ $statusLabel = [
                                 <option {{($statusNow =='11')?'selected':''}} value="11">中奖已兑奖</option>
                                 <option {{($statusNow =='12')?'selected':''}} value="12">中奖已过期</option>
                                 <option {{($statusNow =='2')?'selected':''}} value="2">未中奖</option>
+                                <option {{($statusNow =='3')?'selected':''}} value="3">红包发送失败</option>
                             </select>
                         </div>
                         <div class="form-group">

@@ -100,7 +100,7 @@ class User extends Model
     private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
-     *  v:出现的权重
+     * v:出现的权重
      * prize_id 为数据表里面的中奖类型 ID值
      * prize_level_name 中奖类型 如：一等奖，二等奖。。。
      * prize_name 奖品或奖品物品名称
