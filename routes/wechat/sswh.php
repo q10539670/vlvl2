@@ -582,3 +582,28 @@ Route::post('/x200925/prize', 'X200925Controller@randomPrize');               //
  * 20200929 武汉院子
  */
 Route::get( '/x200929/user',  'X200929Controller@user');                   //获取/记录用户信息
+
+/**
+ * 20201010
+ */
+Route::get( '/x201010/user',  'X201010Controller@user');                   //获取/记录用户信息
+
+/**
+ * 201013 宜昌中铁
+ */
+Route::get( '/x201013/user',    'X201013Controller@user');                 //获取/记录用户信息
+Route::post('/x201013/submit',  'X201013Controller@submitTitle');          //提交书名
+Route::get( '/x201013/get_title','X201013Controller@getTitleForRandom');   //获取书名
+
+/**
+ * 201013a 百事
+ */
+Route::get( '/x201013a/user',    'X201013aController@user');                 //获取/记录用户信息
+Route::post('/x201013a/reserve', 'X201013aController@reserve');              //预约
+Route::get( '/x201013a/init',    'X201013aController@appInitHandler');       //重置
+
+/**
+ * 201013b  大桥
+ */
+Route::get( '/x201013b/user',    'X201013bController@user');                 //获取/记录用户信息
+Route::post('/x201013b/reserve', 'X201013bController@reserve');              //预约

@@ -462,3 +462,21 @@ Route::get('/x200925/export', 'X200925Controller@export');
  */
 Route::get('/x200928/index',  'X200928Controller@index');
 Route::get('/x200928/export', 'X200928Controller@export');
+
+/**
+ * 宜昌中铁·世纪山水  201013
+ */
+Route::get('/x201013/index',  'X201013Controller@index');
+Route::post('/x201013/check',  'X201013Controller@checkTitle')->name('x201013.check');
+
+/**
+ * 百事可乐  201013a
+ */
+Route::get('/x201013a/index',  'X201013aController@index');
+Route::get('/x201013a/export', 'X201013aController@export');
+
+/**
+ * 大桥  201013b
+ */
+Route::get('/x201013b/index',  'X201013bController@index');
+Route::get('/x201013b/export', 'X201013bController@export');
