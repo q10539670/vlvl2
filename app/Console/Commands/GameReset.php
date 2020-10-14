@@ -165,6 +165,9 @@ class GameReset extends Command
         DB::table('x200925_user')->where('status','!=',1)->update([
             'prize_num' => 3
         ]);   //宜昌中心
+        DB::table('x201013a_user')->update([
+            'num_today' => 1
+        ]);   //宜昌中心
         return $this->info('重置成功');
     }
 }

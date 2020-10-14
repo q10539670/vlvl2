@@ -20,7 +20,7 @@ class X201013aController extends Controller
             ->when(preg_match("/^\d{11}$/", $nameOrCode), function ($query) use ($nameOrCode) {
                 return $query->where('phone', '=', $nameOrCode);
             });
-        $paginator = $query->orderBy('updated_at', 'desc')->paginate(15);
+        $paginator = $query->orderBy('reserve_date', 'asc')->orderBy('reserve_time', 'asc')->paginate(15);
         $exportUrl = asset('/vlvl/x201013a/export');
         $total = User::count();
         $redis = app('redis');

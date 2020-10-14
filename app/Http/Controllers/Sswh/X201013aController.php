@@ -73,7 +73,7 @@ class X201013aController extends Common
         $redis = app('redis');
         $redis->select(12);
         $count = $redis->hGet($redisCountKey,$time);
-        if ($count>=80) {
+        if ($count>=60) {
             return response()->json(['error' => '预约失败,该时段预约人数已满'], 422);
         }
         $validator = Validator::make($request->all(), [
@@ -92,9 +92,9 @@ class X201013aController extends Common
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()->first()], 422);
         }
-        $redisCount = $redis->hIncrBy($redisCountKey, $time, 1); //预约数累计+1
-        if ($redisCount > 80) {
-            $redis->hIncrBy($redisCountKey, $time, -1);  //超发 中奖数回退
+        $redisCount = $redis->hIncrBy($redisCountKey, $time, $request->num); //预约数累计+
+        if ($redisCount > 60) {
+            $redis->hIncrBy($redisCountKey, $time, -$request->num);  //超发 中奖数回退
             return response()->json(['error' => '预约失败,请重新预约'], 422);
         }
         RESERVE::create([

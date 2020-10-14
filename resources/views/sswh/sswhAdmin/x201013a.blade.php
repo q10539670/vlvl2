@@ -61,12 +61,12 @@ $statusLabel = [
     <div class="box">
         <div class="box-header with-border">
             <div class="row">
-                <div class="col-md-7 col-sm-2">
+                <div class="col-md-6 col-sm-2">
                     <div class="form-group">
                         <h3 class="box-title">用户列表</h3>
                     </div>
                 </div>
-                <div class="col-md-3 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                <div class="col-md-4 col-md-offset-2 col-sm-8 col-sm-offset-2">
                     <form class="form-inline" method="get" action="{{url('vlvl/x201013a/index')}}">
 
                         <div class="form-group">

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class Bl190716Controller extends Controller
 {
-    const END_TIME = '2020-07-26 23:59:59';
+    const END_TIME = '2021-07-26 23:59:59';
     /*
      * 获取/记录用户授权信息
      * */
