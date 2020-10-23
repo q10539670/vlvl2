@@ -16,10 +16,26 @@ class X201013aExport implements FromCollection, WithStrictNullComparison, WithHe
      */
     public function collection()
     {
+        $timeInfo = [
+            ["id"=>11,"time"=>"11:30-12:30"],
+            ["id"=>12,"time"=>"12:30-13:30"],
+            ["id"=>13,"time"=>"13:30-14:30"],
+            ["id"=>14,"time"=>"14:30-15:30"],
+            ["id"=>15,"time"=>"15:30-16:30"],
+            ["id"=>16,"time"=>"16:30-17:30"],
+            ["id"=>17,"time"=>"17:30-18:30"],
+            ["id"=>18,"time"=>"18:30-19:30"],
+            ["id"=>19,"time"=>"19:30-20:00"],
+        ];
         $reserves = Reserve::get(['name', 'phone', 'num', 'reserve_date', 'reserve_time', 'user_id']);
         foreach ($reserves as $reserve) {
             $reserve['nickname'] = $reserve->user->nickname;
-            $reserve['reserve_time'] = $reserve['reserve_time'].'点';
+            foreach($timeInfo as $v){
+                if ($reserve['reserve_time']==$v['id']){
+                    $reserve['reserve_time']=$v['time'];
+                }
+            }
+//            $reserve['reserve_time'] = $reserve['reserve_time'].'点';
             unset($reserve['user_id']);
         }
         return $reserves;

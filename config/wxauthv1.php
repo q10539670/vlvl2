@@ -24,5 +24,9 @@ return [
     'jchn' => [
         'openid' => 'oWFKkjgQ1iH26ws1joABOTyvZsqU',
         'key' => 'ec02b3e9fee36caf91f0f91161bc84f0'
-    ]
+    ],
+    'ctdc' => [
+    'openid' => 'oNulOxKnGUFqs7dXA1SrsdNGc5-w',
+    'key' => '2973801a43a948923a8c0e681299236a'
+]
 ];

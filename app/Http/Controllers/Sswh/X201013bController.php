@@ -14,7 +14,8 @@ class X201013bController extends Common
 {
     //百事可乐·武汉百事--预约盖念店
     protected $itemName = 'x201013b';
-    const END_TIME = '2020-10-23 23:59:59';
+    const END_TIME = '2020-10-15 23:59:59';
+
 
 
     /*

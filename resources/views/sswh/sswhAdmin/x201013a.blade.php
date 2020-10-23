@@ -21,6 +21,22 @@ $statusLabel = [
     2 => '未中奖',
     3 => '红包发送失败'
 ];
+
+//$str = '[{id:11,time:"11:30-12:30"},{id:12,time:"12:30-13:30"},{id:13,time:"13:30-14:30"},{id:14,time:"14:30-15:30"},{id:15,time:"15:30-16:30"},{id:16,time:"16:30-17:30"},{id:17,time:"17:30-18:30"},{id:18,time:"18:30-19:30"},{id:19,time:"19:30-20:00"}]';
+//$timeInfo = json_decode($str,true);
+$timeInfo = [
+  ["id"=>11,"time"=>"11:30-12:30"],
+  ["id"=>12,"time"=>"12:30-13:30"],
+  ["id"=>13,"time"=>"13:30-14:30"],
+  ["id"=>14,"time"=>"14:30-15:30"],
+  ["id"=>15,"time"=>"15:30-16:30"],
+  ["id"=>16,"time"=>"16:30-17:30"],
+  ["id"=>17,"time"=>"17:30-18:30"],
+  ["id"=>18,"time"=>"18:30-19:30"],
+  ["id"=>19,"time"=>"19:30-20:00"],
+];
+
+//dd($str,$timeInfo);
 ?>
 @section('title', $title)
 
@@ -123,7 +139,13 @@ $statusLabel = [
                                         <td align="center">{{$user['phone']}}</td>
                                         <td align="center">{{$user['num']}}</td>
                                         <td align="center">{{$user['reserve_date']}}</td>
-                                        <td align="center">{{$user['reserve_time']}}</td>
+                                        <td align="center">
+                                            @foreach($timeInfo as $v)
+                                                @if($user['reserve_time'] == $v['id'])
+                                                {{$v['time']}}
+                                                @endif
+                                            @endforeach
+                                        </td>
                                         <td align="center">{{$user['created_at']}}</td>
                                     </tr>
                                 @endforeach

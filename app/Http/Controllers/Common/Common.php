@@ -9,6 +9,7 @@ use App\Models\Qwt\QwtUsers as Qwt;
 use App\Models\Sswh\SswhUsers as Sswh;
 use App\Models\Jyyc\JyycUsers as Jyyc;
 use App\Models\Jchn\JchnUsers as Jchn;
+use App\Models\Ctdc\CtdcUsers as Ctdc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Common\BaseV1Controller as Controller;
 
@@ -79,6 +80,20 @@ class Common extends Controller
             ->first();
         return $user;
     }
+
+    /**
+     * 查询江宸天街文化用户
+     * @param Request $request
+     * @return
+     */
+    public function searchCtdcUser(Request $request)
+    {
+        $user = Ctdc::select('nickname', 'headimgurl')
+            ->where('openid', $request->openid)
+            ->first();
+        return $user;
+    }
+
     /**
      * 拼接用户信息
      * @param Request $request

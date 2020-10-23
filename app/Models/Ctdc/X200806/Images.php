@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Models\Sswh\X200806;
+namespace App\Models\Ctdc\X200806;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,6 @@ class Images extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\Sswh\X200806\User');
+        return $this->belongsTo('App\Models\Ctdc\X200806\User');
     }
 }

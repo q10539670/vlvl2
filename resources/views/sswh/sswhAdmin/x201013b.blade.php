@@ -2,6 +2,8 @@
 <?php
 $genderLabel = [0=> '未知',1=> '男', 2 => '女'];
 $onFootLabel = [0=> '未知',1=> '有', 2 => '无'];
+$str = '[{id:11,time:"11:30-12:30"},{id:12,time:"12:30-13:30"},{id:13,time:"13:30-14:30"},{id:14,time:"14:30-15:30"},{id:15,time:"15:30-16:30"},{id:16,time:"16:30-17:30"},{id:17,time:"17:30-18:30"},{id:18,time:"18:30-19:30"},{id:19,time:"19:30-20:00"}]';
+$timeInfo = json_decode($str,true);
 ?>
 @section('title', $title)
 
@@ -86,6 +88,7 @@ $onFootLabel = [0=> '未知',1=> '有', 2 => '无'];
                                     <th style="text-align: center;">姓名</th>
                                     <th style="text-align: center;">手机号码</th>
                                     <th style="text-align: center;">性别</th>
+                                    <th style="text-align: center;">年龄</th>
                                     <th style="text-align: center;">身份证号码</th>
                                     <th style="text-align: center;">徒步经验</th>
                                     <th style="text-align: center;">预约时间</th>
@@ -105,8 +108,9 @@ $onFootLabel = [0=> '未知',1=> '有', 2 => '无'];
                                         <td align="center">{{$user['name']}}</td>
                                         <td align="center">{{$user['mobile']}}</td>
                                         <td align="center">{{$genderLabel[$user['gender']]}}</td>
+                                        <td align="center">{{$user['age']?:""}}</td>
                                         <td align="center">{{$user['id_num']}}</td>
-                                            <td align="center">{{$onFootLabel[$user['on_foot']]}}</td>
+                                        <td align="center">{{$onFootLabel[$user['on_foot']]}}</td>
                                         <td align="center">{{$user['date']}}</td>
                                         <td align="center">{{$user['comment_1']}}</td>
                                         <td align="center">{{$user['comment_2']}}</td>

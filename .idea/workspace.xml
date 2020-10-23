@@ -24,11 +24,20 @@
   <component name="ChangeListManager">
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201013aController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201013aController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/Bl190716Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/Bl190716Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201013aController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201013aController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/X201013aExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/X201013aExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/X201013bExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/X201013bExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Common/Common.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Common/Common.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X200806Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Ctdc/X200806Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201013bController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201013bController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200806/Images.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ctdc/X200806/Images.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X200806/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ctdc/X200806/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/wxauthv1.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/wxauthv1.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201013a.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201013a.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201013b.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201013b.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,18 +184,22 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Ctdc" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\app\Http\Middleware\WxAuthV1" />
+      <recent name="D:\laragon\www\vlvl\routes\wechat" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Ctds" />
       <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
     </key>
   </component>
   <component name="RunManager">
@@ -245,6 +258,14 @@
       <workItem from="1602465526213" duration="12725000" />
       <workItem from="1602553981854" duration="21953000" />
       <workItem from="1602639474245" duration="13367000" />
+      <workItem from="1602810934390" duration="4007000" />
+      <workItem from="1603070291356" duration="10821000" />
+      <workItem from="1603155891930" duration="1858000" />
+      <workItem from="1603174092635" duration="4581000" />
+      <workItem from="1603242687205" duration="1900000" />
+      <workItem from="1603328777340" duration="6322000" />
+      <workItem from="1603415931474" duration="10184000" />
+      <workItem from="1603445128016" duration="1786000" />
     </task>
     <servers />
   </component>

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Http\Controllers\Sswh;
+namespace App\Http\Controllers\Ctdc;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Common\Common;
-use App\Models\Sswh\X200806\Images;
-use App\Models\Sswh\X200806\User;
+use App\Models\Ctdc\X200806\Images;
+use App\Models\Ctdc\X200806\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'wxAuthV1.tdrCheckOpenid' => \App\Http\Middleware\WxAuthV1\TdrCheckOpenid::class,
         'wxAuthV1.jyycCheckOpenid' => \App\Http\Middleware\WxAuthV1\JyycCheckOpenid::class,
         'wxAuthV1.jchnCheckOpenid' => \App\Http\Middleware\WxAuthV1\JchnCheckOpenid::class,
+        'wxAuthV1.ctdcCheckOpenid' => \App\Http\Middleware\WxAuthV1\CtdcCheckOpenid::class,
         'ticket_l191127_login' => \App\Http\Middleware\Ticket\L191127::class,
         'x200701' => \App\Http\Middleware\X200701::class,
         'cors' => \App\Http\Middleware\Cors::class,

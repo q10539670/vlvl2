@@ -513,13 +513,7 @@ Route::get('/x200722/share', 'X200722Controller@share');                   //分
 Route::get('/x200731/user', 'X200731Controller@user');                    //获取/记录用户信息
 Route::post('/x200731/post', 'X200731Controller@post');                     //报名
 
-/**
- * 楚天地产 上传  200806
- */
-Route::get('/x200806/user', 'X200806Controller@user');                    //获取/记录用户信息
-Route::post('/x200806/post', 'X200806Controller@post');                    //提奖信息
-Route::post('/x200806/upload', 'X200806Controller@upload');                  //上传
-Route::post('/x200806/images', 'X200806Controller@images');                  //获取所有照片
+
 
 
 /**

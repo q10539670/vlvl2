@@ -43,6 +43,7 @@ Route::group(['prefix' => 'sswh', 'namespace' => 'Sswh'], function () {
     });
 
 
+
     require __DIR__ . '/wechat/qwt-NoAuth.php'; //全网通 微信项目路由  不需要openid
 
     require __DIR__ . '/wechat/jctj-NoAuth.php'; //武汉江宸天街 微信项目路由  不需要openid
@@ -70,6 +71,12 @@ Route::group(['prefix' => 'sswh', 'namespace' => 'Jchn'], function () {
         require __DIR__ . '/wechat/jchn.php'; //荆楚红牛 微信项目路由   需要openid
     });
     require __DIR__ . '/wechat/jchn-NoAuth.php'; //荆楚红牛 微信项目路由  不需要openid
+});
+Route::group(['prefix' => 'sswh', 'namespace' => 'Ctdc'], function () {
+    Route::group(['middleware' => 'wxAuthV1.ctdcCheckOpenid'], function () {
+        require __DIR__ . '/wechat/ctdc.php'; //楚天地产 微信项目路由   需要openid
+    });
+    require __DIR__ . '/wechat/ctdc-NoAuth.php'; //楚天地产 微信项目路由  不需要openid
 });
 
 Route::group(['prefix' => 'sswh'], function () {

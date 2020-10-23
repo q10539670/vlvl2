@@ -18,10 +18,11 @@ class X201013bExport implements FromCollection, WithStrictNullComparison, WithHe
     {
         $genderLabel = [1 => '男', 2 => '女'];
         $onFootLabel = [1 => '有', 2 => '无'];
-        $users = User::get(['nickname', 'name', 'mobile', 'gender', 'on_foot','date','comment_1','comment_2', 'created_at']);
+        $users = User::get(['nickname', 'name', 'age','id_num','mobile', 'gender', 'on_foot','date','comment_1','comment_2', 'created_at']);
         foreach ($users as $v) {
             $v['gender'] = $genderLabel[$v['gender']] ?? '未知性别';
             $v['on_foot'] = $onFootLabel[$v['on_foot']] ?? '经验未知';
+            $v['id_num'] = '`'.$v['id_num'];
         }
         return $users;
     }
@@ -32,6 +33,8 @@ class X201013bExport implements FromCollection, WithStrictNullComparison, WithHe
         return [
             '昵称',
             '姓名',
+            '年龄',
+            '身份证',
             '电话',
             '性别',
             '徒步经验',
