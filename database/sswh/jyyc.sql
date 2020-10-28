@@ -85,3 +85,35 @@ CREATE TABLE x200928_user
   DEFAULT CHARACTER
       SET utf8
   COLLATE utf8_general_ci COMMENT '用户表';
+
+-- 宜昌中心
+CREATE TABLE x201028_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '姓名',
+    phone      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '手机号',
+    score      INT          NOT NULL DEFAULT 0 COMMENT '游戏成绩',
+    help_num   INT          NOT NULL DEFAULT 0 COMMENT '助力次数',
+    total      INT          NOT NULL DEFAULT 0 COMMENT '总成绩',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+CREATE TABLE x201028_help
+(
+    id             INT UNSIGNED AUTO_INCREMENT,
+    target_user_id INT      NOT NULL DEFAULT 0,
+    help_user_id   INT      NOT NULL DEFAULT 0,
+    created_at     DATETIME NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8
+  COLLATE utf8_general_ci COMMENT '助力表';

@@ -601,3 +601,12 @@ Route::get( '/x201013a/init',    'X201013aController@appInitHandler');       //�
  */
 Route::get( '/x201013b/user',    'X201013bController@user');                 //获取/记录用户信息
 Route::post('/x201013b/reserve', 'X201013bController@reserve');              //预约
+
+
+/**
+ * 中国中铁·世纪山水   200715
+ */
+Route::get( '/x201029/user',  'X201029Controller@user');                    //获取/记录用户信息
+Route::post('/x201029/score', 'X201029Controller@score');                   //提交成绩
+Route::get('/x201029/list',  'X201029Controller@list');                    //排行榜
+Route::get( '/x201029/share', 'X201029Controller@share');                   //分享

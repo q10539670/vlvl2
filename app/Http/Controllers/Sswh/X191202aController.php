@@ -14,7 +14,7 @@ class X191202aController extends Common
 
     protected $itemName = 'x191202a';
 
-    const END_TIME = '2019-12-12 23:59:59';
+    const END_TIME = '2020-12-12 23:59:59';
 
     /*
      * 获取/记录用户授权信息

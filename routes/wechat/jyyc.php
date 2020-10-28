@@ -187,4 +187,10 @@ Route::get( '/x200928/init',  'X200928Controller@appInitHandler');         //初
 Route::get( '/x200928/send',  'X200928Controller@sendSms');                //发送验证码短信
 Route::post('/x200928/red_pack',  'X200928Controller@sendRedPack');        //发送红包
 
-
+/**
+ * 201028
+ */
+Route::get( '/x201028/user', 'X201028Controller@user');                 //获取/记录用户信息
+Route::post('/x201028/post', 'X201028Controller@post');                 //用户个人信息提交
+Route::post('/x201028/score','X201028Controller@score');                //用户成绩提交
+Route::get( '/x201028/list', 'X201028Controller@list');                 //排行榜

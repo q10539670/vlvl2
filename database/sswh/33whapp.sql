@@ -1740,8 +1740,26 @@ CREATE TABLE x201013b_user
     id_num     VARCHAR(18)  NOT NULL DEFAULT '' COMMENT '身份证号码',
     on_foot    TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '是否徒步经验[1:有,2:无]',
     date       VARCHAR(10)  NOT NULL DEFAULT '' COMMENT '参与徒步活动时间',
-    comment_1    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '身体状态自评(17号)',
-    comment_2    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '身体状态自评(24号)',
+    comment_1  VARCHAR(255) NOT NULL DEFAULT '' COMMENT '身体状态自评(17号)',
+    comment_2  VARCHAR(255) NOT NULL DEFAULT '' COMMENT '身体状态自评(24号)',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 世纪山水
+CREATE TABLE x201029_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    game_num   INT          NOT NULL DEFAULT 0 COMMENT '游戏次数',
+    share_num  TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '分享次数',
+    score      INT          NOT NULL DEFAULT 0 COMMENT '游戏分数',
     created_at DATETIME     NULL     DEFAULT NULL,
     updated_at DATETIME     NULL     DEFAULT NULL,
     PRIMARY KEY (id)
