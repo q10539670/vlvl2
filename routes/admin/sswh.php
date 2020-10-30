@@ -480,3 +480,15 @@ Route::get('/x201013a/export', 'X201013aController@export');
  */
 Route::get('/x201013b/index',  'X201013bController@index');
 Route::get('/x201013b/export', 'X201013bController@export');
+
+/**
+ * 宜昌中心  201028
+ */
+Route::get('/x201028/index',  'X201028Controller@index');
+Route::get('/x201028/export', 'X201028Controller@export');
+
+/**
+ * 世纪山水  201029
+ */
+Route::get('/x201029/index',  'X201029Controller@index');
+Route::get('/x201029/export', 'X201029Controller@export');

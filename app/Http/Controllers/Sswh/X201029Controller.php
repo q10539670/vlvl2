@@ -65,18 +65,20 @@ class X201029Controller extends Common
         }
         //检查信息
         $validator = Validator::make($request->all(), [
-            'score' => 'required',
+            'score' => ['required','regex:/^[1-9]\d*\.{0,1}\d{0,2}$/'],//成绩不能超过2位小数
         ], [
             'score.required' => '成绩不能为空',
+            'score.regex' => '成绩格式错误',
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()->first()], 422);
         }
 
-        $score = $request->score * 10;
+        $score = $request->score * 100;
         //如果成绩比之前好 更新成绩
         if ($user['score'] > $score || $user['score'] == 0) {
             $user->score = $score;
+            $user->ranking_at = now()->toDateTimeString();
         }
         $user->game_num--;
         $user->save();

@@ -32,33 +32,49 @@ class X201028Controller extends Common
             //查询
             $user = User::where(['openid' => $openid])->first();
         }
-        $targetUserId = $request->target_user_id;
-        //判断target与help的id是否相同
-        if (preg_match("/^\d*$/", $targetUserId) && $targetUserId != $user->id && $targetUserId != 0) {
-            $todayStart = date('Y-m-d').' 00:00:00';
-            $todayend = date('Y-m-d').' 23:59:59';
-            //检查此用户今天是否助力过目标用户
-            $res = Help::where('target_user_id', $targetUserId)
-                ->where('help_user_id', $user->id)
-                ->WhereBetween('created_at', [$todayStart, $todayend])->get()->toArray();
-            if (empty($res)) {
-                $targetUser = User::find($targetUserId);
-                if ($targetUser != null) {
-                    $targetUser->help_num++;
-                    $targetUser->fill(['total' => $targetUser->total + 10]);
-                    $targetUser->save();
-                    //写入数据库,助力次数+1
-                    Help::create([
-                        'target_user_id' => $targetUserId,
-                        'help_user_id' => $user->id
-                    ]);
+        $help = 0;
+        $referer = $request->header("referer");
+        if (strpos($referer, 'target_user_id')) {
+            //截取参数
+            $paramStr = substr(strstr($referer, '?'), 1);
+            //把参数拆分成数组
+            $paramArr = explode('&', $paramStr);
+            //从$referer中提取target_user_id
+            foreach ($paramArr as $param) {
+                $params = explode('=', $param);
+                if ($params['0'] == 'target_user_id') {
+                    $target_user_id = $params['1'];
+                }
+            }
+            //判断target与help的id是否相同
+            if (preg_match("/^\d*$/", $target_user_id) && $target_user_id != $user->id && $target_user_id != 0) {
+                $todayStart = date('Y-m-d').' 00:00:00';
+                $todayend = date('Y-m-d').' 23:59:59';
+                //检查此用户今天是否助力过目标用户
+                $res = Help::where('target_user_id', $target_user_id)
+                    ->where('help_user_id', $user->id)
+                    ->WhereBetween('created_at', [$todayStart, $todayend])->get()->toArray();
+                if (empty($res)) {
+                    $targetUser = User::find($target_user_id);
+                    if ($targetUser != null) {
+                        $targetUser->help_num++;
+                        $targetUser->fill(['total' => $targetUser->total + 10]);
+                        $targetUser->save();
+                        //写入数据库,助力次数+1
+                        Help::create([
+                            'target_user_id' => $target_user_id,
+                            'help_user_id' => $user->id
+                        ]);
+                        $help++;//助力成功标志
+                    }
                 }
             }
         }
         return Helper::Json(1, "查询成功", [
             'user' => $user,
             'is_active_time' => (time() > strtotime(self::END_TIME)) ? 0 : 1,
-            'end_time' => self::END_TIME
+            'end_time' => self::END_TIME,
+            'help' => $help
         ]);
     }
 
@@ -137,7 +153,7 @@ class X201028Controller extends Common
     public function list()
     {
         //去0排序(成绩相同,按参与时间排序)
-        $list = User::where('score', '!=', 0)->orderBy('total', 'desc')->orderBy('created_at', 'desc')->take(20)->get();
+        $list = User::where('score', '!=', 0)->orderBy('total', 'desc')->orderBy('updated_at', 'desc')->take(20)->get();
         return Helper::Json(1, "排行榜数据查询成功", $list);
     }
 }
