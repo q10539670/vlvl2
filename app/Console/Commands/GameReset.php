@@ -173,6 +173,10 @@ class GameReset extends Command
             'game_num' => 3,
             'share_num' => 1
         ]);   //世纪山水
+        DB::table('x201105_user')->update([
+            'game_num' => 3,
+            'share_num' => 1
+        ]);   //世纪山水
         return $this->info('重置成功');
     }
 }

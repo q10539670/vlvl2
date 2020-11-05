@@ -492,3 +492,10 @@ Route::get('/x201028/export', 'X201028Controller@export');
  */
 Route::get('/x201029/index',  'X201029Controller@index');
 Route::get('/x201029/export', 'X201029Controller@export');
+
+/**
+ * 世纪山水 201105
+ */
+Route::get('/x201105/index',  'X201105Controller@index');
+Route::get('/x201105/export', 'X201105Controller@export');
+

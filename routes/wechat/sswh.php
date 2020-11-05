@@ -604,9 +604,17 @@ Route::post('/x201013b/reserve', 'X201013bController@reserve');              //�
 
 
 /**
- * 中国中铁·世纪山水   200715
+ * 中国中铁·世纪山水   201029
  */
 Route::get( '/x201029/user',  'X201029Controller@user');                    //获取/记录用户信息
 Route::post('/x201029/score', 'X201029Controller@score');                   //提交成绩
 Route::get('/x201029/list',  'X201029Controller@list');                    //排行榜
 Route::get( '/x201029/share', 'X201029Controller@share');                   //分享
+
+/**
+ * 中国中铁·世纪山水   201105
+ */
+Route::get( '/x201105/user',  'X201105Controller@user');                    //获取/记录用户信息
+Route::post('/x201105/score', 'X201105Controller@score');                   //提交成绩
+Route::get( '/x201105/list',  'X201105Controller@list');                    //排行榜
+Route::get( '/x201105/share', 'X201105Controller@share');                   //分享

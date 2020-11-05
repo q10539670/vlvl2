@@ -1767,3 +1767,21 @@ CREATE TABLE x201029_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 中国中铁·世纪山水
+CREATE TABLE x201105_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    game_num   INT          NOT NULL DEFAULT 0 COMMENT '游戏次数',
+    share_num  TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '分享次数',
+    score      INT          NOT NULL DEFAULT 0 COMMENT '游戏分数',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';

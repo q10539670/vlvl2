@@ -33,13 +33,13 @@ class Kernel extends ConsoleKernel
 //        $schedule->command('x191022:cmd location')->everyMinute();
 //        $schedule->command('x191119:cmd location')->everyMinute();
 //        $schedule->command('x191125:cmd location')->everyMinute();
-        $schedule->command('ticket_l191127:cmd check')->everyMinute();
-        $schedule->command('ticket_l191127:cmd sendredpack')->everyMinute();
-        $schedule->command('ticket_l191127:cmd recheckFail')->hourly();
-        $schedule->command('x191220:cmd location')->everyMinute(); //长沙天街 娃娃机抽奖
+//        $schedule->command('ticket_l191127:cmd check')->everyMinute();
+//        $schedule->command('ticket_l191127:cmd sendredpack')->everyMinute();
+//        $schedule->command('ticket_l191127:cmd recheckFail')->hourly();
+//        $schedule->command('x191220:cmd location')->everyMinute(); //长沙天街 娃娃机抽奖
 //        $schedule->command('dx190925:cmd export')->everyMinute();
-        $schedule->command('x200515:ranking')->dailyAt('00:01');
-        $schedule->command('x200701:sendMsg')->everyMinute();
+//        $schedule->command('x200515:ranking')->dailyAt('00:01');
+//        $schedule->command('x200701:sendMsg')->everyMinute();
     }
 
 
