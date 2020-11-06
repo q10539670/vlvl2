@@ -38,7 +38,7 @@ class X201105Controller extends Common
         return $this->returnJson(1, "查询成功", [
             'user' => $user,
             'is_active_time' => ($this->isTimeout(self::END_TIME)) ? 0 : 1,
-            'end_time' =>self::END_TIME
+            'end_time' => self::END_TIME
         ]);
 
     }
@@ -51,14 +51,14 @@ class X201105Controller extends Common
         if (time() > strtotime(self::END_TIME)) {
             return response()->json(['error' => '活动已截止'], 422);
         }
-//        if (time() < strtotime(self::START_TIME)) {
-//            return response()->json(['error' => '活动未开始'], 422);
-//        }
+        if (time() < strtotime(self::START_TIME)) {
+            return response()->json(['error' => '活动未开始'], 422);
+        }
         if (!$user = User::where('openid', $request->openid)->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
         //阻止重复提交
-        if (!Helper::stopResubmit($this->itemName . ':score', $user->id, 3)) {
+        if (!Helper::stopResubmit($this->itemName.':score', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
         if ($user->game_num <= 0) {
@@ -66,7 +66,7 @@ class X201105Controller extends Common
         }
         //检查信息
         $validator = Validator::make($request->all(), [
-            'score' => ['required','regex:/^[\d]*$/'],
+            'score' => ['required', 'regex:/^[\d]*$/'],
         ], [
             'score.required' => '成绩不能为空',
             'score.regex' => '成绩异常'
@@ -81,7 +81,7 @@ class X201105Controller extends Common
             ]);
         }
         $user->save();
-        return $this->returnJson(1, "成绩提交成功", ['user'=>$user]);
+        return $this->returnJson(1, "成绩提交成功", ['user' => $user]);
 
     }
 
@@ -92,14 +92,16 @@ class X201105Controller extends Common
     {
         $listAll = User::orderBy('score', 'desc')->orderBy('updated_at', 'asc')->take(60)->get()->toArray();
         //去掉成绩为0的结果
-        $list = array_filter($listAll, function($values){return $values['score'];});
+        $list = array_filter($listAll, function ($values) {
+            return $values['score'];
+        });
         $ranking = -1;
         foreach ($list as $key => $value) {
             if ($value['openid'] == $request->openid) {
                 $ranking = $key + 1;
             }
         }
-        return $this->returnJson(1, "排行榜数据查询成功", ['ranking' =>$ranking,'list' => $list]);
+        return $this->returnJson(1, "排行榜数据查询成功", ['ranking' => $ranking, 'list' => $list]);
     }
 
     /*
@@ -110,11 +112,11 @@ class X201105Controller extends Common
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
-        if ($user->share_num > 0) {
-            $user->share_num--;
-            $user->game_num++;
-            $user->save();
-        }
+//        if ($user->share_num > 0) {
+//            $user->share_num--;
+        $user->game_num++;
+        $user->save();
+//        }
         return Helper::json(1, '分享成功', ['user' => $user]);
     }
 

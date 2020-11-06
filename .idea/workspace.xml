@@ -25,10 +25,8 @@
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201105Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201105Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,24 +173,24 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Sswh" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Ctdc" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
     </key>
   </component>
   <component name="RunManager">
@@ -267,7 +265,8 @@
       <workItem from="1604281090497" duration="4515000" />
       <workItem from="1604366041394" duration="597000" />
       <workItem from="1604451682480" duration="597000" />
-      <workItem from="1604538474847" duration="8885000" />
+      <workItem from="1604538474847" duration="8977000" />
+      <workItem from="1604629052811" duration="8242000" />
     </task>
     <servers />
   </component>
@@ -327,10 +326,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="769" y="245" key="NewPhpClassDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1601258985434" />
-    <state x="461" y="169" key="SettingsEditor" timestamp="1604559317521">
+    <state x="225" y="338" key="SettingsEditor" timestamp="1604656465942">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1604559317521" />
+    <state x="225" y="338" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1604656465942" />
     <state x="716" y="368" key="cloudConfig.PluginsDialog" timestamp="1598602079702">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

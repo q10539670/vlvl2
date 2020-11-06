@@ -162,20 +162,19 @@ class GameReset extends Command
 //        DB::table('x200730_user')->update([
 //            'vote_num' => 3
 //        ]);   //宜昌中心
-        DB::table('x200925_user')->where('status','!=',1)->update([
-            'prize_num' => 3
-        ]);   //宜昌中心
-        DB::table('x201013a_user')->update([
-            'num_today' => 1
-        ]);   //宜昌中心
-
-        DB::table('x201029_user')->update([
-            'game_num' => 3,
-            'share_num' => 1
-        ]);   //世纪山水
+//        DB::table('x200925_user')->where('status','!=',1)->update([
+//            'prize_num' => 3
+//        ]);   //宜昌中心
+//        DB::table('x201013a_user')->update([
+//            'num_today' => 1
+//        ]);   //宜昌中心
+//
+//        DB::table('x201029_user')->update([
+//            'game_num' => 3,
+//            'share_num' => 1
+//        ]);   //世纪山水
         DB::table('x201105_user')->update([
-            'game_num' => 3,
-            'share_num' => 1
+            'game_num' => 3
         ]);   //世纪山水
         return $this->info('重置成功');
     }
