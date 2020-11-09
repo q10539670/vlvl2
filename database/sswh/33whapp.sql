@@ -1810,3 +1810,27 @@ CREATE TABLE x201106_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+
+-- 大桥老味道
+CREATE TABLE x201109_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    age        TINYINT(3)   NOT NULL DEFAULT 0 COMMENT '年龄',
+    gender     TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '性别[1:男,2:女]',
+    id_num     VARCHAR(18)  NOT NULL DEFAULT '' COMMENT '身份证号码',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    comment    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '你心目中的老味道',
+    reason     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '加入吃货团的理由',
+    img        VARCHAR(255) NOT NULL DEFAULT '' COMMENT '图片',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';

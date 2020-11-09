@@ -16,9 +16,8 @@ class User extends Model
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 0.1;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 0.91;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
     private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
-    private $quanZhong = 100;
     /*
      * 中奖配置数组
      *  v:出现的权重
@@ -51,7 +50,10 @@ class User extends Model
             6 => ['prize_id' => 7, 'prize_level_name' => '一等奖', 'prize_name' => '大象公仔', 'v' => 10, 'count' => 0, 'limit' => 0],
         ],
         /*不中奖   --未中奖*/
-        'notPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 100000],
+        'notPrize' => [
+            'prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0,
+            'limit' => 100000
+        ],
     ];
 
     protected $prizeConfLimit = [
@@ -59,36 +61,61 @@ class User extends Model
         'test' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '1' => ['prize_id' => 1, 'limit' => 10],
+            '2' => ['prize_id' => 2, 'limit' => 10],
+            '3' => ['prize_id' => 3, 'limit' => 1],
+            '4' => ['prize_id' => 4, 'limit' => 1],
+            '5' => ['prize_id' => 5, 'limit' => 1],
+            '6' => ['prize_id' => 6, 'limit' => 1],
+            '7' => ['prize_id' => 7, 'limit' => 1],
         ],
 
         /*正式*/
         'formal' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
-            '1' => ['prize_id' => 1, 'limit' => 50],
+            '1' => ['prize_id' => 1, 'limit' => 100],
+            '2' => ['prize_id' => 2, 'limit' => 100],
+            '3' => ['prize_id' => 3, 'limit' => 50],
+            '4' => ['prize_id' => 4, 'limit' => 50],
+            '5' => ['prize_id' => 5, 'limit' => 20],
+            '6' => ['prize_id' => 6, 'limit' => 20],
+            '7' => ['prize_id' => 7, 'limit' => 10],
         ],
     ];
 
     /*
+     * 获取中奖奖品的数量
+     */
+    public function getPrizeNum($prizeId, $version)
+    {
+        return $this->prizeConfLimit[$version][$prizeId]['limit'];
+    }
+
+    /*
      * 随机抽奖  中奖几率始终不变
      * */
-    public function fixRandomPrize($redisCountKey, $version)
+    public function fixRandomPrize($redisCountKey, $version,$score=100)
     {
         $zhongjianglv = $this->parseZhongJiangLv($this->zhongJiangLv); //解析中奖率 防止出错
-
+        $quanZhong = 100;
+        $finalConf = []; //最终生成的配置数组
+        $jingduSum = 0; //精度计数
         $resultPrize = null; // 最终的中奖的信息
-        $prizeCountKey = $redisCountKey.':'.$version;
+        $prizeCountKey = $redisCountKey . ':' . $version;
         $redis = app('redis');
         $redis->select(12);
         if (!$prizeCountArr = $redis->hGetAll($prizeCountKey)) {
 //            dd($prizeCountKey);
             throw new \Exception('缓存获取中奖统计失败', -2);
         }
+        if ($score > 400) {
+            $this->prizeConf['prize'][5]['v'] = 1000;
+        }
         //配置
         foreach ($this->prizeConf['prize'] as $k => $arr) {
             $moneyStr = strval($arr['prize_id']);
             $this->prizeConf['prize'][$k]['count'] = $prizeCountArr[$moneyStr];
             $this->prizeConf['prize'][$k]['limit'] = $this->prizeConfLimit[$version][$moneyStr]['limit'];
-            $this->prizeConf['prize'][$k]['v'] = $arr['v'] * $this->quanZhong;   //中奖权重 增加除不中奖以外的权重
+            $this->prizeConf['prize'][$k]['v'] = $arr['v'] * $quanZhong;   //中奖权重 增加除不中奖以外的权重
         }
         /*去除奖品发完的奖项*/
         foreach ($this->prizeConf['prize'] as $k => $arr) {

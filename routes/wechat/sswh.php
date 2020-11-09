@@ -612,9 +612,24 @@ Route::get('/x201029/list',  'X201029Controller@list');                    //排
 Route::get( '/x201029/share', 'X201029Controller@share');                   //分享
 
 /**
- * 中国中铁·世纪山水   201105
+ * 中国中铁·世纪山水 光棍节   201105
  */
 Route::get( '/x201105/user',  'X201105Controller@user');                    //获取/记录用户信息
 Route::post('/x201105/score', 'X201105Controller@score');                   //提交成绩
 Route::get( '/x201105/list',  'X201105Controller@list');                    //排行榜
 Route::get( '/x201105/share', 'X201105Controller@share');                   //分享
+
+/**
+ * 中国中铁·世纪山水  火锅英雄   201106
+ */
+Route::get( '/x201106/user',  'X201106Controller@user');                   //获取/记录用户信息
+Route::post('/x201106/post',  'X201106Controller@post');                   //确认奖品
+Route::post('/x201106/prize', 'X201106Controller@randomPrize');            //抽奖
+Route::get( '/x201106/share', 'X201106Controller@share');                   //分享
+Route::get( '/x201106/init',  'X201106Controller@appInitHandler');         //重置
+
+/**
+ * 201109  大桥
+ */
+Route::get( '/x201109/user', 'X201109Controller@user');                 //获取/记录用户信息
+Route::post('/x201109/post', 'X201109Controller@reserve');              //报名
