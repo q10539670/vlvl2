@@ -1,6 +1,7 @@
 @extends('layouts.adminlte.simple-d')
 <?php
 $genderLabel = [0 => '未知', 1 => '男', 2 => '女'];
+$statusNow = request()->input('status', '');
 ?>
 @section('title', $title)
 
@@ -41,12 +42,12 @@ $genderLabel = [0 => '未知', 1 => '男', 2 => '女'];
     <div class="box">
         <div class="box-header with-border">
             <div class="row">
-                <div class="col-md-6 col-sm-2">
+                <div class="col-md-5 col-sm-2">
                     <div class="form-group">
                         <h3 class="box-title">用户列表</h3>
                     </div>
                 </div>
-                <div class="col-md-4 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                <div class="col-md-5 col-md-offset-2 col-sm-8 col-sm-offset-2">
                     <form class="form-inline" method="get" action="{{url('vlvl/x201109/index')}}">
 
                         <div class="form-group">
@@ -55,6 +56,13 @@ $genderLabel = [0 => '未知', 1 => '男', 2 => '女'];
                                    name="nameOrPhone"
                                    value="{{(request()->has('nameOrPhone')&&(request()->nameOrPhone!=''))?request()->nameOrPhone:''}}"
                                    class="form-control" size="16" placeholder="请输入姓名或手机号查询">
+                        </div>
+                        <div class="form-group">
+                            <select name="status" class="form-control">
+                                <option value="">请选择是否报名</option>
+                                <option {{($statusNow =='0')?'selected':''}}  value="0">未报名</option>
+                                <option {{($statusNow =='1')?'selected':''}} value="1">已报名</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary form-control">查询</button>
@@ -107,10 +115,10 @@ $genderLabel = [0 => '未知', 1 => '男', 2 => '女'];
                                         <td align="center">{{$user['age']?:""}}</td>
                                         <td align="center">{{$user['id_num']}}</td>
                                         <td align="center">{{$user['comment']}}</td>
-                                        <td align="center">{{$user['reason']}}</td>
+                                        <td align="center" width="250">{{$user['reason']}}</td>
                                         @if($user['image'])
                                             <td align="center">
-                                                <img class="tb-img"
+                                                <img class="tb-img" width="100px"
                                                      src="{{'https://cdnn.sanshanwenhua.com/statics/'.$user['image']}}">
                                             </td>
                                         @else

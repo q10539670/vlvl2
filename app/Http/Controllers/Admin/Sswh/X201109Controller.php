@@ -13,11 +13,18 @@ class X201109Controller extends Controller
     public function index(Request $request)
     {
         $nameOrCode = $request->input('nameOrPhone');
+        $status = $request->input('status');
         $query = User::when(!preg_match("/^\d{11}$/", $nameOrCode), function ($query) use ($nameOrCode) {
             return $query->where('name', 'like', '%'.$nameOrCode.'%');
         })
             ->when(preg_match("/^\d{11}$/", $nameOrCode), function ($query) use ($nameOrCode) {
                 return $query->where('phone', '=', $nameOrCode);
+            })
+            ->when($status == 1, function ($query) use ($status) {
+                return $query->where('gender', '!=', 0);
+            })
+            ->when($status == 0, function ($query) use ($status) {
+                return $query->where('gender',$status);
             });
         $paginator = $query->orderBy('updated_at', 'desc')->paginate(15);
         $exportUrl = asset('/vlvl/x201109/export');

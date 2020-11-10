@@ -15,7 +15,7 @@ class X201106Controller extends Common
     protected $itemName = 'x201106';
 
     const END_TIME = '2020-11-15 23:59:59';
-    const VERSION = 'test'; //测试   formal:正式
+    const VERSION = 'formal'; //测试   formal:正式
 
     /*
      * 获取/记录用户授权信息
@@ -106,19 +106,19 @@ class X201106Controller extends Common
             return response()->json(['error' => '未授权'], 422);
         }
         if ($user->status == 3) {
-            return response()->json(['error' => '您已中奖'], 422);
+            return Helper::Json(1,'您已中奖',[]);
         }
         //阻止重复提交
         if (!Helper::stopResubmit($this->itemName.':randomPrize', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
         if ($user->prize_num <= 0) {
-            return response()->json(['error' => '今日游戏次数已用完'], 422);
+            return Helper::Json(1,'今日次数已用完',['user'=>$user]);
         }
-        if ($request->score < 300) {
+        if ($request->score < 150) {
             $user->prize_num--;
             $user->save();
-            return Helper::json(-1, '成绩不足300分', ['user'=>$user]);
+            return response()->json(-1, '成绩不足300分', ['user'=>$user],422);
         }
         $redisCountBaseKey = 'wx:'.$this->itemName.':prizeCount';
         $prize = new User();

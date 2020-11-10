@@ -50,10 +50,7 @@ class User extends Model
             6 => ['prize_id' => 7, 'prize_level_name' => '一等奖', 'prize_name' => '大象公仔', 'v' => 10, 'count' => 0, 'limit' => 0],
         ],
         /*不中奖   --未中奖*/
-        'notPrize' => [
-            'prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0,
-            'limit' => 100000
-        ],
+        'notPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 100000],
     ];
 
     protected $prizeConfLimit = [
@@ -62,11 +59,11 @@ class User extends Model
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '1' => ['prize_id' => 1, 'limit' => 10],
             '2' => ['prize_id' => 2, 'limit' => 10],
-            '3' => ['prize_id' => 3, 'limit' => 1],
-            '4' => ['prize_id' => 4, 'limit' => 1],
-            '5' => ['prize_id' => 5, 'limit' => 1],
-            '6' => ['prize_id' => 6, 'limit' => 1],
-            '7' => ['prize_id' => 7, 'limit' => 1],
+            '3' => ['prize_id' => 3, 'limit' => 10],
+            '4' => ['prize_id' => 4, 'limit' => 10],
+            '5' => ['prize_id' => 5, 'limit' => 10],
+            '6' => ['prize_id' => 6, 'limit' => 10],
+            '7' => ['prize_id' => 7, 'limit' => 10],
         ],
 
         /*正式*/
@@ -107,7 +104,7 @@ class User extends Model
 //            dd($prizeCountKey);
             throw new \Exception('缓存获取中奖统计失败', -2);
         }
-        if ($score > 400) {
+        if ($score > 300) {
             $this->prizeConf['prize'][5]['v'] = 1000;
         }
         //配置
