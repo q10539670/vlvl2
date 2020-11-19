@@ -16,7 +16,8 @@ class X201105Export implements FromCollection, WithStrictNullComparison,WithHead
     */
     public function collection()
     {
-        $users = User::get([ 'nickname', 'score','updated_at','openid']);
+        $users = User::where('score', '!=', 0)->orderBy('score', 'desc')->orderBy('updated_at',
+            'asc')->take(60)->get([ 'nickname', 'score','updated_at','openid']);
         return $users;
     }
     // 定义 'headings()' 方法

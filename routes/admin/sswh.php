@@ -510,3 +510,9 @@ Route::get('/x201106/export', 'X201106Controller@export');
  */
 Route::get('/x201109/index',  'X201109Controller@index');
 Route::get('/x201109/export', 'X201109Controller@export');
+
+/**
+ * 武汉院子 201119
+ */
+Route::get('/x201119/index',  'X201119Controller@index');
+Route::get('/x201119/export', 'X201119Controller@export');

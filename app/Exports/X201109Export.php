@@ -19,7 +19,7 @@ class X201109Export implements FromCollection, WithStrictNullComparison, WithHea
         $genderLabel = [1 => '男', 2 => '女'];
         $users = User::get(['nickname', 'name', 'age','id_num','mobile', 'gender', 'comment','reason', 'updated_at']);
         foreach ($users as $v) {
-            $v['gender'] = $genderLabel[$v['gender']] ?? '未知性别';
+            $v['gender'] = $genderLabel[$v['gender']] ?? '';
             $v['id_num'] = '`'.$v['id_num'];
         }
         return $users;

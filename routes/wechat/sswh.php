@@ -633,3 +633,9 @@ Route::get( '/x201106/init',  'X201106Controller@appInitHandler');         //重
  */
 Route::get( '/x201109/user', 'X201109Controller@user');                 //获取/记录用户信息
 Route::post('/x201109/post', 'X201109Controller@reserve');              //报名
+
+/**
+ * 201119  武汉院子
+ */
+Route::get( '/x201119/user', 'X201119Controller@user');                 //获取/记录用户信息
+Route::post('/x201119/post', 'X201119Controller@post');              //报名
