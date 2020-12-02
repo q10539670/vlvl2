@@ -27,7 +27,8 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->command('game:reset')->dailyAt('00:01');
-        $schedule->command('game:reset:week')->weeklyOn(5, '00:01');
+        $schedule->command('game:reset:week')->weeklyOn(1, '00:01');
+        $schedule->command('game:reset:month')->monthlyOn(1, '00:01');
 //        $schedule->command('dx190925:cmd location')->everyMinute();
 //        $schedule->command('x191009:cmd location')->everyMinute();
 //        $schedule->command('x191022:cmd location')->everyMinute();
@@ -38,7 +39,8 @@ class Kernel extends ConsoleKernel
 //        $schedule->command('ticket_l191127:cmd recheckFail')->hourly();
 //        $schedule->command('x191220:cmd location')->everyMinute(); //长沙天街 娃娃机抽奖
 //        $schedule->command('dx190925:cmd export')->everyMinute();
-//        $schedule->command('x200515:ranking')->dailyAt('00:01');
+        $schedule->command('x201201:sendMsg')->dailyAt('17:00');
+        $schedule->command('x201201a:sendMsg')->dailyAt('18:00');
 //        $schedule->command('x200701:sendMsg')->everyMinute();
     }
 

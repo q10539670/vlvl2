@@ -3,26 +3,27 @@
 namespace App\Console\Commands;
 
 use App\Helpers\Helper;
-use App\Models\Sswh\X200515\User;
+use App\Models\Sswh\X201201\Info;
+use App\Models\Sswh\X201201\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
 
-class GameReset extends Command
+class X201201 extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'game:reset';
+    protected $signature = 'x201201:sendMsg';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '每天重置游戏次数';
+    protected $description = '发送模板消息';
 
     /**
      * Create a new command instance.
@@ -34,31 +35,37 @@ class GameReset extends Command
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
+    /*
+     * template-id ： 3PU474JAjAn37yHCjH0mPNRaRTYyC2Knqx5sns3zxFw
+     * openid= oYYl55JPc5rJsUFIVomGcIZSs8E4 //test
      *
-     * @return mixed
-     */
+     * */
     public function handle()
     {
-        $url = 'http://tool.bitefu.net/jiari?d=' . date('Ymd');
-        $client = new \GuzzleHttp\Client();
-        $resClient = $client->request('GET', $url);
-        $result = json_decode($resClient->getBody()->getContents(), true);
+        $users = User::where('info_id','!=', 0)->get();
         $redis = app('redis');
         $redis->select(12);
-        $redis->set('date',$result);
-//        DB::table('x201105_user')->update([
-//            'game_num' => 3
-//        ]);   //世纪山水
-        return $this->info('重置成功');
+        $date = $redis->get('date');
+        if ($date == 0) {
+            foreach ($users as $user) {
+                $date = date('Y年m月d日');
+                $firstMsg = $date. '加班晚餐预定开始了';
+                $keyword1 = '17:00至18:00';
+                $keyword2 = '点击查看详情开始预定晚餐';
+                $result = $this->seedTemplateMsg($user->openid, $firstMsg, $keyword1,$keyword2);
+                $user->errmsg = $result['errmsg'];
+                $user->save();
+            }
+            return $this->info('模板消息发送完成');
+        } else {
+            return $this->info('今天不是工作日');
+        }
+
     }
 
-    //9DAE9Jx6s-qhZjBX_mO3uRH28eNlmbKafBGMuUZtTdk 模板ID
-    public function seedTemplateMsg($openid, $first, $keyword1)
+    public function seedTemplateMsg($openid, $first, $keyword1,$keyword2)
     {
-        $nowStr = now()->toDateTimeString();
-        $url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token='.Helper::getJchnAccessToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token='.Helper::getSswhAccessToken();
         $client = new \GuzzleHttp\Client();
         $data = [
             'touser' => $openid,
@@ -66,7 +73,7 @@ class GameReset extends Command
             'data' => [
                 'first' => ['value' => $first],
                 'keyword1' => ['value' => $keyword1],
-                'keyword2' => ['value' => $nowStr],
+                'keyword2' => ['value' => $keyword2],
                 'remark' => ['value' => '']
             ],
             "url" => "https://wx.sanshanwenhua.com/items/sswh201201/index.html",

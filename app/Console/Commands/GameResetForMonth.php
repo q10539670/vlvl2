@@ -6,21 +6,21 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
 
-class GameResetForWeek extends Command
+class GameResetForMonth extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'game:reset:week';
+    protected $signature = 'game:reset:month';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '每星期重置次数';
+    protected $description = '每月重置次数';
 
     /**
      * Create a new command instance.
@@ -39,13 +39,8 @@ class GameResetForWeek extends Command
      */
     public function handle()
     {
-//        DB::table('x200901_user')->where('status','!=',1)->update([
-//            'prize_num' => 1,
-//            'status' => 0,
-//            'share_num' =>2
-//        ]);   //宜昌中心
         DB::table('x201201_user')->update([
-            'w_num' => 0
+            'm_num' => 0
         ]);   //三山点餐
         return $this->info('重置成功');
     }

@@ -183,6 +183,30 @@ class Helper
         return '`' . $emojiStr;    //昵称前面加半角符号 防止 EXCEL报错
     }
 
+
+    /*
+     * 判断是否为工作日 0:工作日 1:假日 2:节日
+     */
+    public static function isWorkingDay()
+    {
+        $redis = app('redis');
+        $redis->select(12);
+        return $redis->get('date');
+    }
+
+    public static function formatDay($date='')
+    {
+        if (!$date) {
+            $start = date('Y-m-d').' 00:00:00';
+            $end = date('Y-m-d').' 23:59:59';
+        } else {
+            $start = $date.' 00:00:00';
+            $end = $date.' 23:59:59';
+        }
+
+        return [$start, $end];
+    }
+
     /**
      * 发送模板消息
      * @throws GuzzleException

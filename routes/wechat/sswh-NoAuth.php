@@ -58,3 +58,6 @@ Route::get('/x200817/site2_1/get_round', '\App\Http\Controllers\Sswh\X200817Site
 Route::post('/x200817/site2_2/prize', '\App\Http\Controllers\Sswh\X200817Site2_2Controller@prize');               //抽奖
 Route::get('/x200817/site2_2/prize_user', '\App\Http\Controllers\Sswh\X200817Site2_2Controller@prizeUsers');         //获取所有抽奖人
 Route::get('/x200817/site2_2/get_round', '\App\Http\Controllers\Sswh\X200817Site2_2Controller@getRound');         //获取所有抽奖人
+
+
+Route::get('/x201201/list', '\App\Http\Controllers\Sswh\X201201Controller@list');                  //当天点餐列表

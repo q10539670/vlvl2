@@ -1851,3 +1851,67 @@ CREATE TABLE x201119_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 三山点餐
+CREATE TABLE x201201_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    info_id    INT          NOT NULL DEFAULT 0 COMMENT '员工ID',
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    w_num      INT(11)      NOT NULL DEFAULT 0 COMMENT '周点餐次数',
+    m_num      INT(11)      NOT NULL DEFAULT 0 COMMENT '月点餐次数',
+    total_num  INT(11)      NOT NULL DEFAULT 0 COMMENT '总点餐次数',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+CREATE TABLE x201201_info
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    name       VARCHAR(16) NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11) NOT NULL DEFAULT '' COMMENT '电话',
+    status     TINYINT(1)  NOT NULL DEFAULT 0 COMMENT '员工状态[0:在职,1:离职]',
+    department VARCHAR(16) NOT NULL DEFAULT '' COMMENT '所属部门',
+    flag       TINYINT(1)  NOT NULL DEFAULT 0 COMMENT '状态[0:未验证,1:已验证]',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '公司员工表';
+
+CREATE TABLE x201201_order
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    user_id    INT        NOT NULL DEFAULT 0 COMMENT '用户ID',
+    status     TINYINT(1) NOT NULL DEFAULT 0 COMMENT '状态[0:正常,1:退订]',
+    created_at DATETIME   NULL     DEFAULT NULL,
+    updated_at DATETIME   NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '点餐表';
+
+CREATE TABLE x201202_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';

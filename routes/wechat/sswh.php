@@ -639,3 +639,11 @@ Route::post('/x201109/post', 'X201109Controller@reserve');              //报名
  */
 Route::get( '/x201119/user', 'X201119Controller@user');                 //获取/记录用户信息
 Route::post('/x201119/post', 'X201119Controller@post');              //报名
+
+/**
+ * 201201  三山点餐
+ */
+Route::get( '/x201201/user', 'X201201Controller@user');                 //获取/记录用户信息
+Route::post('/x201201/verify', 'X201201Controller@verify');             //验证
+Route::get('/x201201/order', 'X201201Controller@order');                //点餐
+Route::get('/x201201/cancel', 'X201201Controller@cancel');              //取消

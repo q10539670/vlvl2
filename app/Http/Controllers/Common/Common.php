@@ -18,7 +18,7 @@ class Common extends Controller
 
     /**
      * 查询三山文化用户
-     * @param Request $request
+     * @param  Request  $request
      * @return
      */
     public function searchSswhUser(Request $request)
@@ -31,7 +31,7 @@ class Common extends Controller
 
     /**
      * 查询全网通文化用户
-     * @param Request $request
+     * @param  Request  $request
      * @return array
      */
     public function searchQwtUser(Request $request)
@@ -44,7 +44,7 @@ class Common extends Controller
 
     /**
      * 查询江宸天街文化用户
-     * @param Request $request
+     * @param  Request  $request
      * @return
      */
     public function searchJctjUser(Request $request)
@@ -57,7 +57,7 @@ class Common extends Controller
 
     /**
      * 查询江宸天街文化用户
-     * @param Request $request
+     * @param  Request  $request
      * @return
      */
     public function searchJyycUser(Request $request)
@@ -70,7 +70,7 @@ class Common extends Controller
 
     /**
      * 查询江宸天街文化用户
-     * @param Request $request
+     * @param  Request  $request
      * @return
      */
     public function searchJchnUser(Request $request)
@@ -83,7 +83,7 @@ class Common extends Controller
 
     /**
      * 查询江宸天街文化用户
-     * @param Request $request
+     * @param  Request  $request
      * @return
      */
     public function searchCtdcUser(Request $request)
@@ -96,17 +96,17 @@ class Common extends Controller
 
     /**
      * 拼接用户信息
-     * @param Request $request
+     * @param  Request  $request
      * @param $user
-     * @param array $field
+     * @param  array  $field
      * @return array
      */
     public function userInfo(Request $request, $user, $field = [])
     {
         $userInfo = [
             'openid' => $request->openid,
-            'nickname' => $user['nickname']??'',
-            'avatar' => $user['headimgurl']??'',
+            'nickname' => $user['nickname'] ?? '',
+            'avatar' => $user['headimgurl'] ?? '',
         ];
         return $userInfo + $field;
     }
@@ -139,11 +139,29 @@ class Common extends Controller
     /**
      * 获取今日时间
      */
-    public function getToday()
+    public function getToday($date='')
     {
-        $todayStart = date('Y-m-d') . ' 00:00:00';
-        $todayend = date('Y-m-d') . ' 23:59:59';
+        if (!$date)
+        $todayStart = date('Y-m-d').' 00:00:00';
+        $todayend = date('Y-m-d').' 23:59:59';
         return [$todayStart, $todayend];
+    }
+
+    /**
+     * @param  string  $date
+     * @return string[]
+     */
+    public function formatDay($date='')
+    {
+        if (!$date) {
+            $start = date('Y-m-d').' 00:00:00';
+            $end = date('Y-m-d').' 23:59:59';
+        } else {
+            $start = $date.' 00:00:00';
+            $end = $date.' 23:59:59';
+        }
+
+        return [$start, $end];
     }
 
     /**
@@ -171,6 +189,13 @@ class Common extends Controller
         return $lists;
     }
 
+    public function isWorkingDay()
+    {
+        $redis = app('redis');
+        $redis->select(12);
+        return $redis->get('date');
+    }
+
     /**
      * 检测是否关注公众号
      * @param $user
@@ -180,7 +205,7 @@ class Common extends Controller
      */
     public function isSubscribe($user, $account)
     {
-        if ($user->subscribe != 1 && Helper::stopResubmit($this->itemName . ':userInfo', $user->id, 1800)) {
+        if ($user->subscribe != 1 && Helper::stopResubmit($this->itemName.':userInfo', $user->id, 1800)) {
             switch ($account) {
                 case 'Sswh':
                     $token = Helper::getSswhAccessToken();
@@ -198,7 +223,7 @@ class Common extends Controller
                     $token = Helper::getSswhAccessToken();
             }
 //            $token = Helper::getQwtAccessToken();
-            $url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token=' . $token . '&openid=' . $user->openid . '&lang=zh_CN';
+            $url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$token.'&openid='.$user->openid.'&lang=zh_CN';
             $client = new \GuzzleHttp\Client();
             $resClient = $client->request('GET', $url);
             $result = json_decode($resClient->getBody()->getContents(), true);
