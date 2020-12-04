@@ -516,3 +516,9 @@ Route::get('/x201109/export', 'X201109Controller@export');
  */
 Route::get('/x201119/index',  'X201119Controller@index');
 Route::get('/x201119/export', 'X201119Controller@export');
+
+/**
+ * 大桥 201204
+ */
+Route::get('/x201204/index',  'X201204Controller@index');
+Route::get('/x201204/export', 'X201204Controller@export');

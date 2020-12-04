@@ -1915,3 +1915,28 @@ CREATE TABLE x201202_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+
+-- 大桥"蟹蟹"有礼
+CREATE TABLE x201204_user
+(
+    id          INT UNSIGNED AUTO_INCREMENT,
+    openid      VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname    VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar      VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name        VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    age         TINYINT(3)   NOT NULL DEFAULT 0 COMMENT '年龄',
+    gender      TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '性别[1:男,2:女]',
+    id_num      VARCHAR(18)  NOT NULL DEFAULT '' COMMENT '身份证号码',
+    mobile      VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    dishes      TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '菜品[1:咖喱蟹 2:避风塘蟹 3:卤蟹 4:香辣蟹 5:蒜香螃蟹 6:花雕熟醉蟹 7:其它]',
+    main        VARCHAR(255) NOT NULL DEFAULT '' COMMENT '主料',
+    accessories VARCHAR(255) NOT NULL DEFAULT '' COMMENT '辅料',
+    flavoring   VARCHAR(255) NOT NULL DEFAULT '' COMMENT '调味料',
+    created_at  DATETIME     NULL     DEFAULT NULL,
+    updated_at  DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';

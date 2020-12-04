@@ -23,17 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vlvl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vlvl.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameResetForWeek.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameResetForWeek.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Common/Common.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Common/Common.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh-NoAuth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,6 +167,12 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/krlove/eloquent-model-generator" />
       <path value="$PROJECT_DIR$/vendor/krlove/code-generator" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gianKUz0oT9xlcmaY02Q6AaOPg" />
@@ -181,24 +184,24 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Console/Commands" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\app\Console\Commands" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Sswh\X201201" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Ctdc" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
     </key>
   </component>
   <component name="RunManager">
@@ -292,6 +295,9 @@
       <workItem from="1606785380098" duration="9662000" />
       <workItem from="1606804107624" duration="10728000" />
       <workItem from="1606871277300" duration="19122000" />
+      <workItem from="1606960081471" duration="2586000" />
+      <workItem from="1606963602662" duration="7405000" />
+      <workItem from="1607044597846" duration="11616000" />
     </task>
     <servers />
   </component>
@@ -343,18 +349,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#部署/0.0.1920.1050@0.0.1920.1050" timestamp="1598602039361" />
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1606705181108">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1606985624199">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1606705181108" />
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1606985624199" />
     <state x="769" y="245" key="NewPhpClassDialog" timestamp="1601258985434">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="769" y="245" key="NewPhpClassDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1601258985434" />
-    <state x="439" y="111" width="998" height="858" key="SettingsEditor" timestamp="1606705841330">
+    <state x="439" y="111" width="998" height="858" key="SettingsEditor" timestamp="1606961136997">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="439" y="111" width="998" height="858" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1606705841330" />
+    <state x="439" y="111" width="998" height="858" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1606961136997" />
     <state x="716" y="368" key="cloudConfig.PluginsDialog" timestamp="1598602079702">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
