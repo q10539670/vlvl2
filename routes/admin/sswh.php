@@ -522,3 +522,11 @@ Route::get('/x201119/export', 'X201119Controller@export');
  */
 Route::get('/x201204/index',  'X201204Controller@index');
 Route::get('/x201204/export', 'X201204Controller@export');
+
+/**
+ * 东湖金茂府投票 201208
+ */
+Route::get( '/x201208/index',  'X201208Controller@index');
+Route::get( '/x201208/export', 'X201208Controller@export');
+Route::post('/x201208/delete', 'X201208Controller@delete')->name('x201208.delete');
+

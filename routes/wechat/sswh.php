@@ -653,3 +653,13 @@ Route::get('/x201201/cancel', 'X201201Controller@cancel');              //取消
  */
 Route::get( '/x201204/user', 'X201204Controller@user');                 //获取/记录用户信息
 Route::post('/x201204/post', 'X201204Controller@apply');              //报名
+
+
+/**
+ * 东湖金茂府 201208
+ */
+Route::get( '/x201208/user',  'X201208Controller@user');                   //获取/记录用户信息
+Route::post('/x201208/post',  'X201208Controller@post');                  //用户提交报名
+Route::post('/x201208/users', 'X201208Controller@users');                //获取参赛用户
+Route::post('/x201208/vote',  'X201208Controller@vote');                  //获取参赛用户
+Route::post('/x201208/detail','X201208Controller@detail');                  //获取参赛用户

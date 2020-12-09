@@ -1940,3 +1940,39 @@ CREATE TABLE x201204_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 东湖金茂府
+CREATE TABLE x201208_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    num        TINYINT(3)   NOT NULL DEFAULT 0 COMMENT '投票次数',
+    image      VARCHAR(255) NOT NULL DEFAULT '' COMMENT '照片',
+    slogan     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '宣言',
+    polls      VARCHAR(255) NOT NULL DEFAULT '' COMMENT '票数',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+CREATE TABLE x201208_vote_log
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    user_id    INT      NOT NULL DEFAULT 0 COMMENT '用户ID',
+    target_id  INT      NOT NULL DEFAULT 0 COMMENT '目标ID',
+    created_at DATETIME NULL     DEFAULT NULL,
+    updated_at DATETIME NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '投票记录表';

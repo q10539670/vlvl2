@@ -23,12 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vlvl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vlvl.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201204Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201204Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
@@ -190,18 +187,18 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Ctdc" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
     </key>
   </component>
   <component name="RunManager">
@@ -298,6 +295,10 @@
       <workItem from="1606960081471" duration="2586000" />
       <workItem from="1606963602662" duration="7405000" />
       <workItem from="1607044597846" duration="11616000" />
+      <workItem from="1607076669164" duration="53000" />
+      <workItem from="1607303435104" duration="9780000" />
+      <workItem from="1607392417409" duration="12985000" />
+      <workItem from="1607478287915" duration="14622000" />
     </task>
     <servers />
   </component>
@@ -317,10 +318,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="540" y="179" key="#CLI_Interpreters" timestamp="1598600515478">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="540" y="179" key="#CLI_Interpreters/0.0.1920.1050@0.0.1920.1050" timestamp="1598600515478" />
     <state x="707" y="347" key="#Notifications" timestamp="1598943369540">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -333,22 +330,14 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="521" y="366" key="#SQL_方言/0.0.1920.1050@0.0.1920.1050" timestamp="1598942800635" />
-    <state x="536" y="170" key="#SSH_配置" timestamp="1598601933811">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="536" y="170" key="#SSH_配置/0.0.1920.1050@0.0.1920.1050" timestamp="1598601933811" />
     <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606705869755">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1606705869755" />
-    <state x="690" y="279" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606875955874">
+    <state x="690" y="279" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607396729850">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="279" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1606875955874" />
-    <state x="552" y="183" key="#部署" timestamp="1598602039361">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="552" y="183" key="#部署/0.0.1920.1050@0.0.1920.1050" timestamp="1598602039361" />
+    <state x="690" y="279" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1607396729850" />
     <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1606985624199">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -361,22 +350,6 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="439" y="111" width="998" height="858" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1606961136997" />
-    <state x="716" y="368" key="cloudConfig.PluginsDialog" timestamp="1598602079702">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="716" y="368" key="cloudConfig.PluginsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1598602079702" />
-    <state x="823" y="368" key="cloudConfig.SelfSettingsDialog" timestamp="1598602172948">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="823" y="368" key="cloudConfig.SelfSettingsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1598602172948" />
-    <state x="810" y="255" key="ftp.server.browser" timestamp="1598602036619">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="810" y="255" key="ftp.server.browser/0.0.1920.1050@0.0.1920.1050" timestamp="1598602036619" />
-    <state x="832" y="416" key="publish.login" timestamp="1598601897787">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="832" y="416" key="publish.login/0.0.1920.1050@0.0.1920.1050" timestamp="1598601897787" />
     <state x="674" y="295" key="refactoring.ChangeSignatureDialog" timestamp="1606816804102">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
