@@ -24,11 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201204Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201204Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201208Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201208Controller.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,6 +295,8 @@
       <workItem from="1607303435104" duration="9780000" />
       <workItem from="1607392417409" duration="12985000" />
       <workItem from="1607478287915" duration="14622000" />
+      <workItem from="1607563176046" duration="11976000" />
+      <workItem from="1607653471479" duration="5454000" />
     </task>
     <servers />
   </component>

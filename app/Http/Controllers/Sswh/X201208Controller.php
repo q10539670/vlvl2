@@ -159,11 +159,14 @@ class X201208Controller extends Common
         if (!$path = $request->image->store('/wx_items/x201208', $storeDriver)) {
             return response()->json(['error' => '上传错误,请重新上传'], 422);
         }
+        $imageInfo = getimagesize($request->image);
         $user->fill([
             'name' => $request->name,
             'mobile' => $request->mobile,
             'slogan' => $request->slogan,
             'image' => $path,
+            'width' => $imageInfo[0],
+            'height' => $imageInfo[1],
             'upload_at' => now()->toDateTimeString()
         ]);
         $user->save();
@@ -194,8 +197,11 @@ class X201208Controller extends Common
         $targetUser = User::find($request->target_id);
         if (!$targetUser) {
             return response()->json(['error' => '您投票的用户不存在'], 422);
-        } elseif ($targetUser['name'] == '') {
+        } elseif ($targetUser['image'] == '') {
             return response()->json(['error' => '您投票的用户暂未提交作品'], 422);
+        }
+        if ($user->id == $request->target_id) {
+            return response()->json(['error' => '自己不能给自己投票'], 422);
         }
         if (!Helper::stopResubmit($this->itemName.':vote', $user->id, 2)) {
             return response()->json(['error' => '不要重复提交'], 422);
