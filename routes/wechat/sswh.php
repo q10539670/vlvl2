@@ -663,3 +663,11 @@ Route::post('/x201208/post',  'X201208Controller@post');                  //用�
 Route::post('/x201208/users', 'X201208Controller@users');                //获取参赛用户
 Route::post('/x201208/vote',  'X201208Controller@vote');                  //获取参赛用户
 Route::post('/x201208/detail','X201208Controller@detail');                  //获取参赛用户
+
+
+/**
+ * 201216  保利
+ */
+Route::get( '/x201216/user',   'X201216Controller@user');                 //获取/记录用户信息
+Route::post('/x201216/post',   'X201216Controller@apply');                //报名
+Route::post('/x201216/verify', 'X201216Controller@verify');              //报名

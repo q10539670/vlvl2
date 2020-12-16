@@ -16,6 +16,34 @@ class Helper
         return 55556665;
     }
 
+    /**
+     * 给微信号推送一条消息 (方糖)
+     * @param $text
+     * @param  string  $desp
+     * @param  string  $key
+     * @return false|string
+     */
+    public static function sendToWechatForFT($text, $desp = '', $key = 'SCU135977Tfa0719cfcdc071fed91549bcb9a11cef5fd96b5539987')
+    {
+        $postdata = http_build_query(
+            array(
+                'text' => $text,
+                'desp' => $desp
+            )
+        );
+
+        $opts = array('http' =>
+            array(
+                'method'  => 'POST',
+                'header'  => 'Content-type: application/x-www-form-urlencoded',
+                'content' => $postdata
+            )
+        );
+        $context  = stream_context_create($opts);
+        return $result = file_get_contents('https://sc.ftqq.com/'.$key.'.send', false, $context);
+
+    }
+
     /*
      * 缓存数据
      * */

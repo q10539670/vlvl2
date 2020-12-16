@@ -1967,12 +1967,46 @@ CREATE TABLE x201208_vote_log
     id         INT UNSIGNED AUTO_INCREMENT,
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
-    user_id    INT      NOT NULL DEFAULT 0 COMMENT '用户ID',
-    target_id  INT      NOT NULL DEFAULT 0 COMMENT '目标ID',
-    created_at DATETIME NULL     DEFAULT NULL,
-    updated_at DATETIME NULL     DEFAULT NULL,
+    user_id    INT          NOT NULL DEFAULT 0 COMMENT '用户ID',
+    target_id  INT          NOT NULL DEFAULT 0 COMMENT '目标ID',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
     PRIMARY KEY (id)
 ) ENGINE = INNODB
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '投票记录表';
+
+CREATE TABLE x201216_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    company    TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '所属公司[1:武汉生物制品研究所有限责任公司 2:过要几天武汉血制公司 3:武汉中生毓晋生物公司]',
+    type       TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '意向毛坯或装修房源[1:毛坯 2:装修]',
+    house      TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '户型[1:99㎡ 2: 108㎡ 3: 115㎡ 4: 125㎡ 5: 133㎡]',
+    pay        TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '2成首付[1:是 2:否]',
+    code       VARCHAR(6)   NOT NULL DEFAULT '' COMMENT '使用的验证码',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+CREATE TABLE x201216_code
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    code       VARCHAR(6) NOT NULL DEFAULT '' COMMENT '验证码',
+    status     TINYINT(1) NOT NULL DEFAULT 0 COMMENT '是否使用[1:是 0:否]',
+    created_at DATETIME   NULL     DEFAULT NULL,
+    updated_at DATETIME   NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '验证码';

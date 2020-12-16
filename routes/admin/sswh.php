@@ -530,3 +530,9 @@ Route::get( '/x201208/index',  'X201208Controller@index');
 Route::get( '/x201208/export', 'X201208Controller@export');
 Route::post('/x201208/delete', 'X201208Controller@delete')->name('x201208.delete');
 
+/**
+ * 保利 201216
+ */
+Route::get('/x201216/index',  'X201216Controller@index');
+Route::get('/x201216/export', 'X201216Controller@export');
+
