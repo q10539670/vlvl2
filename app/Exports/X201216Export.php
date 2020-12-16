@@ -20,8 +20,9 @@ class X201216Export implements FromCollection, WithStrictNullComparison, WithHea
         $typeLabel = [1 => '毛坯', 2 => '装修', ];
         $houseLabel = [1 => '99㎡', 2 => '108㎡',3=>'115㎡',4=>'125㎡',5=> '133㎡'];
         $payLabel = [1 => '是', 2 => '否'];
+        $zigeLabel = [1 => '有', 2 => '无'];
         $users = User::where('name', '!=', '')->get([
-            'nickname', 'name', 'mobile', 'gender', 'company', 'type', 'house', 'pay',
+            'nickname', 'name', 'mobile', 'company', 'zige','type', 'house', 'pay',
             'updated_at'
         ]);
         foreach ($users as $v) {
@@ -29,6 +30,7 @@ class X201216Export implements FromCollection, WithStrictNullComparison, WithHea
             $v['type'] = $typeLabel[$v['type']] ?? '';
             $v['house'] = $houseLabel[$v['house']] ?? '';
             $v['pay'] = $payLabel[$v['pay']] ?? '';
+            $v['zige'] = $zigeLabel[$v['zige']] ?? '';
         }
         return $users;
     }
@@ -41,6 +43,7 @@ class X201216Export implements FromCollection, WithStrictNullComparison, WithHea
             '姓名',
             '电话',
             '所属公司',
+            '是否具有购买资格',
             '意向毛坯或装修房源',
             '意向户型',
             '2020年12月25日前是否能交齐2成首付',

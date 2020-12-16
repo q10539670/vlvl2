@@ -32,7 +32,7 @@ class X201216Controller extends Controller
         $redis = app('redis');
         $redis->select(0);
         $redisShareData = $redis->hGetAll('wx:view:bl201216');
-        return view('sswh.sswhAdmin.x201204', [
+        return view('sswh.sswhAdmin.x201216', [
             'title' => '保利', 'paginator' => $paginator, 'exportUrl' => $exportUrl,
             'redisShareData' => $redisShareData,
             'total' => $total
