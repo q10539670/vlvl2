@@ -536,3 +536,9 @@ Route::post('/x201208/delete', 'X201208Controller@delete')->name('x201208.delete
 Route::get('/x201216/index',  'X201216Controller@index');
 Route::get('/x201216/export', 'X201216Controller@export');
 
+/**
+ * 奥峰 201218
+ */
+Route::get('/x201218/index',  'X201218Controller@index');
+Route::get('/x201218/export', 'X201218Controller@export');
+

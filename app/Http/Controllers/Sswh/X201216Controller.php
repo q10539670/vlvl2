@@ -49,9 +49,9 @@ class X201216Controller extends Common
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
-        if ($user->code) {
-            return response()->json(['error' => '您已通过验证'], 422);
-        }
+//        if ($user->status) {
+//            return response()->json(['error' => '您已通过验证'], 422);
+//        }
         //阻止重复提交
         if (!Helper::stopResubmit($this->itemName.':verify', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
@@ -64,12 +64,10 @@ class X201216Controller extends Common
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()->first()], 422);
         }
-        if (!$code = Code::where('code', $request->input('code'))->where('status', 0)->first()) {
-            return response()->json(['error' => '验证码错误或已被使用'], 422);
+        if ($request->input('code') != '135790') {
+            return response()->json(['error' => '验证码错误'], 422);
         }
-        $code->status = 1;
-        $user->code = $request->input('code');
-        $code->save();
+        $user->status =1;
         $user->save();
         return Helper::Json(1, '验证通过');
 
@@ -92,6 +90,9 @@ class X201216Controller extends Common
         if (!Helper::stopResubmit($this->itemName.':apply', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交报名'], 422);
         }
+        if ($user->status != 1) {
+            return response()->json(['error' => '未通过验证'], 422);
+        }
         if ($user->name) {
             return response()->json(['error' => '不要重复提交报名'], 422);
         }
@@ -103,7 +104,6 @@ class X201216Controller extends Common
             'zige' => 'required',
             'type' => 'required',
             'house' => 'required',
-            'pay' => 'required',
         ], [
             'name.required' => '姓名不能为空',
             'mobile.required' => '电话不能为空',
@@ -111,14 +111,12 @@ class X201216Controller extends Common
             'zige.required' => '购买资格不能为空',
             'type.required' => '意向房源不能为空',
             'house.required' => '意向户型不能为空',
-            'pay.required' => '时候交齐2成首付不能为空',
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()->first()], 422);
         }
         $user->fill($data);
         $user->save();
-        $user->reserves;
         return Helper::Json(1, '登记成功', ['user' => $user]);
     }
 }

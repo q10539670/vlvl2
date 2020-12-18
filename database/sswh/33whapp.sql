@@ -2010,3 +2010,17 @@ CREATE TABLE x201216_code
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '验证码';
+
+-- 报名
+CREATE TABLE x201218_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
