@@ -71,6 +71,7 @@ class X201216Controller extends Common
         $user->save();
         return Helper::Json(1, '验证通过');
 
+
     }
 
     /**
