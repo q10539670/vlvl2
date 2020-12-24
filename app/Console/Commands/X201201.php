@@ -42,7 +42,9 @@ class X201201 extends Command
      * */
     public function handle()
     {
-        $users = User::where('info_id','!=', 0)->get();
+        $users = User::whereHas('info', function ($query) {
+            $query->where('status', 0);
+        })->get();//排除未验证以及离职的同事
         $redis = app('redis');
         $redis->select(12);
         $date = $redis->get('date');

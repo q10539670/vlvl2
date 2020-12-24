@@ -647,6 +647,7 @@ Route::get( '/x201201/user', 'X201201Controller@user');                 //获取
 Route::post('/x201201/verify', 'X201201Controller@verify');             //验证
 Route::get('/x201201/order', 'X201201Controller@order');                //点餐
 Route::get('/x201201/cancel', 'X201201Controller@cancel');              //取消
+Route::get('/x201201/test', 'X201201Controller@test');              //取消
 
 /**
  * 201204  大桥
@@ -671,3 +672,11 @@ Route::post('/x201208/detail','X201208Controller@detail');                  //�
 Route::get( '/x201216/user',   'X201216Controller@user');                 //获取/记录用户信息
 Route::post('/x201216/post',   'X201216Controller@apply');                //报名
 Route::post('/x201216/verify', 'X201216Controller@verify');              //报名
+
+/**
+ * 201224  大桥
+ */
+Route::get( '/x201224/user', 'X201224Controller@user');                 //获取/记录用户信息
+Route::post('/x201224/post', 'X201224Controller@apply');              //报名
+
+

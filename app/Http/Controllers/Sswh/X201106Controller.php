@@ -6,8 +6,11 @@ namespace App\Http\Controllers\Sswh;
 use App\Helpers\Helper;
 use App\Http\Controllers\Common\Common;
 use App\Models\Sswh\X201106\User;
+use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Log;
 
 class X201106Controller extends Common
 {
@@ -44,7 +47,7 @@ class X201106Controller extends Common
     /**
      * 提交信息
      * @param  Request  $request
-     * @return false|\Illuminate\Http\JsonResponse|string
+     * @return false|JsonResponse|string
      */
     public function post(Request $request)
     {
@@ -124,8 +127,8 @@ class X201106Controller extends Common
         $prize = new User();
         try {
             $resultPrize = $prize->fixRandomPrize($redisCountBaseKey, self::VERSION,$request->score); // 固定概率抽奖
-        } catch (\Exception $e) {
-            \Log::channel('wx')->info('美的_游戏抽奖'.$this->itemName, ['message' => $e->getMessage()]);
+        } catch (Exception $e) {
+            Log::channel('wx')->info('美的_游戏抽奖'.$this->itemName, ['message' => $e->getMessage()]);
             return response()->json(['error' => '抽奖失败,系统错误 '.$e->getCode().$e->getMessage()], 422);
         }
 

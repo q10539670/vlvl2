@@ -2015,8 +2015,47 @@ CREATE TABLE x201216_code
 CREATE TABLE x201218_user
 (
     id         INT UNSIGNED AUTO_INCREMENT,
+    name       VARCHAR(16) NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11) NOT NULL DEFAULT '' COMMENT '电话',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 大桥为爱打包
+CREATE TABLE x201224_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    gender     TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '性别[1:男,2:女]',
     mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    address    VARCHAR(128) NOT NULL DEFAULT '' COMMENT '地址',
+    id_num     VARCHAR(18)  NOT NULL DEFAULT '' COMMENT '身份证号码',
+    type       TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '志愿者类型[1:祝“福”志愿者 2:护航志愿者]',
+    comment    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '爱心宣言',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 金茂
+CREATE TABLE x201224a_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    comment    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '留言',
     created_at DATETIME     NULL     DEFAULT NULL,
     updated_at DATETIME     NULL     DEFAULT NULL,
     PRIMARY KEY (id)

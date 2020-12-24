@@ -64,3 +64,5 @@ Route::get('/x201201/list', '\App\Http\Controllers\Sswh\X201201Controller@list')
 
 
 Route::post('/x201218/post', '\App\Http\Controllers\Sswh\X201218Controller@apply');   //报名
+
+Route::post('/x201224a/post', '\App\Http\Controllers\Sswh\X201224aController@apply');              //报名

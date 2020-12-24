@@ -45,7 +45,7 @@ class X201201Controller extends Common
 
     /**
      * 验证
-     * @param  Request  $request
+     * @param Request $request
      * @return JsonResponse
      */
     public function verify(Request $request)
@@ -57,7 +57,7 @@ class X201201Controller extends Common
             return response()->json(['error' => '未授权'], 422);
         }
         //阻止重复提交
-        if (!Helper::stopResubmit($this->itemName.':verify', $user->id, 3)) {
+        if (!Helper::stopResubmit($this->itemName . ':verify', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
         if ($user->info_id != 0) {
@@ -107,7 +107,7 @@ class X201201Controller extends Common
             return response()->json(['error' => '点餐时间已过'], 422);
         }
         //阻止重复提交
-        if (!Helper::stopResubmit($this->itemName.':order', $user->id, 3)) {
+        if (!Helper::stopResubmit($this->itemName . ':order', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
         if (Order::where('user_id', $user->id)->where('status', 0)->whereBetween('created_at',
@@ -157,11 +157,11 @@ class X201201Controller extends Common
         $condition = $request->input('condition');
         $date = $request->input('date');
         $currentPage = $request->input('current_page'); //当前页
-        $perPage = $request->input('per_page',100);    //每页显示数量
+        $perPage = $request->input('per_page', 100);    //每页显示数量
         $query = Order::when(!preg_match("/^\d{11}$/", $condition), function ($query) use ($condition) {
             return $query->whereHas('user', function ($query) use ($condition) {
                 $query->whereHas('info', function ($query) use ($condition) {
-                    $query->where('name', 'like', '%'.$condition.'%');
+                    $query->where('name', 'like', '%' . $condition . '%');
                 });
             });
         })
@@ -174,7 +174,7 @@ class X201201Controller extends Common
             });
         if ($date == 'all') {
             $query = $query->where('status', 0);
-        }else {
+        } else {
             $query = $query->where('status', 0)->whereBetween('created_at', $this->formatDay($request->date));
         }
 
@@ -183,5 +183,12 @@ class X201201Controller extends Common
             $list->user->info;
         }
         return Helper::Json(1, '查询成功', ['lists' => $lists]);
+    }
+
+    public function test()
+    {
+        return User::whereHas('info', function ($query) {
+            $query->where('status', 0);
+        })->get();
     }
 }
