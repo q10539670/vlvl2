@@ -1,8 +1,10 @@
 @extends('layouts.adminlte.simple-d')
-@section('title', $title)
 <?php
-    $xmLabel = [1=>'方岛金茂智慧科学城',2=> '金茂华发武汉国际社区',3=> '滨江金茂府',4=> '东湖金茂府',5=>'华发阳逻金茂逸墅',6=> '阳逻金茂逸墅',7=> '阳逻金茂悦'];
+$statusNow = request()->input('status', '');
+$statusLabel = [0=>'未抽奖', 1=>'已中奖',2=>'未中奖'];
 ?>
+@section('title', $title)
+
 @section('css')
     <link rel="stylesheet" href="{{asset('/vlvl/layui/css/modules/layer/default/layer.css')}}">
     <style>
@@ -46,7 +48,7 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <form class="form-inline" method="get" action="{{url('vlvl/x201224a/index')}}">
+                    <form class="form-inline" method="get" action="{{url('vlvl/x201225/index')}}">
 
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail3"></label>
@@ -54,6 +56,14 @@
                                    name="nameOrPhone"
                                    value="{{(request()->has('nameOrPhone')&&(request()->nameOrPhone!=''))?request()->nameOrPhone:''}}"
                                    class="form-control" size="16" placeholder="请输入姓名或手机号查询">
+                        </div>
+                        <div class="form-group">
+                            <select name="status" class="form-control">
+                                <option value="">选择是否中奖</option>
+                                <option {{($statusNow =='0')?'selected':''}}  value="0">未抽奖</option>
+                                <option {{($statusNow =='1')?'selected':''}} value="1">已中奖</option>
+                                <option {{($statusNow =='2')?'selected':''}} value="1">未中奖</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary form-control">查询</button>
@@ -82,18 +92,16 @@
                                     <th width="35" align="center">序号</th>
                                     <th style="text-align: center;">头像/昵称</th>
                                     <th style="text-align: center;">姓名</th>
-                                    <th style="text-align: center;">手机号码</th>
-                                    <th style="text-align: center;">项目</th>
-                                    <th style="text-align: center;">房号</th>
-                                    <th style="text-align: center;">留言</th>
-                                    <th style="text-align: center;">报名时间</th>
+                                    <th style="text-align: center;">电话</th>
+                                    <th style="text-align: center;">奖品</th>
+                                    <th style="text-align: center;">状态</th>
+                                    <th style="text-align: center;">中奖时间</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($paginator as $user)
                                     <tr align="center">
                                         <?php $index = $paginator->perPage() * ($paginator->currentPage() - 1) ?>
-
                                         <td align="center">{{$index+$loop->iteration}}</td>
                                         <td>
                                             <img class="tdr-avatar" width="65" src="{{$user['avatar']}}" alt="">
@@ -101,12 +109,10 @@
                                         </td>
                                         <td align="center">{{$user['name']}}</td>
                                         <td align="center">{{$user['mobile']}}</td>
-                                        <td align="center">{{$xmLabel[$user['xm']] ?? ''}}</td>
-                                        <td align="center">{{$user['fh']}}</td>
-                                        <td align="center">{{$user['comment']}}</td>
-                                        <td align="center">{{$user['updated_at']}}</td>
+                                        <td align="center">{{$user['prize']}}</td>
+                                        <td align="center">{{$statusLabel[$user['status']] ?? ''}}</td>
+                                        <td align="center">{{$user['prized_at']}}</td>
                                     </tr>
-
                                 @endforeach
                                 </tbody>
                                 <tfoot>

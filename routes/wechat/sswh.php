@@ -680,3 +680,8 @@ Route::get( '/x201224/user', 'X201224Controller@user');                 //获取
 Route::post('/x201224/post', 'X201224Controller@apply');              //报名
 
 
+/**
+ * 201224a
+ */
+Route::get( '/x201224a/user', 'X201224aController@user');                 //获取/记录用户信息
+Route::post('/x201224a/post', 'X201224aController@apply');              //报名

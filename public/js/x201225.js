@@ -67,7 +67,7 @@ var api = {
      */
     user: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x201224/user',
+            $.get(api.baseUrl + '/x201225/user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -76,21 +76,15 @@ var api = {
     },
 
     /**
-     * 提交报名
+     * 提交信息
      */
     post: function (data) {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x201224/post',
+            $.post(api.baseUrl + '/x201225/post',
                 /*接收参数-start*/
                 {
                     'name': data.name,             //姓名
-                    'age': data.age,               //年龄
-                    'gender': data.gender,         //性别[1:男,2:女]
-                    'id_num': data.id_num,         //身份证号码
                     'mobile': data.mobile,         //手机号码
-                    'type': data.type,         //菜品[1:祝“福”志愿者 2:护航志愿者]
-                    'address': data.address,            //地址
-                    'comment': data.comment,     //爱心宣言
                 },
                 /*接收参数-end*/
                 function (res) {
@@ -98,5 +92,43 @@ var api = {
                     resolve(res);
                 });
         })
+    },
+
+    /**
+     * 答题
+     */
+    topic: function () {
+        return new Promise(function (resolve, reject) {
+            $.post(api.baseUrl + '/x201225/topic',
+                function (res) {
+                    api.debug && console.log(res);
+                    resolve(res);
+                });
+        })
+    },
+    /**
+     * 抽奖
+     */
+    price: function () {
+        return new Promise(function (resolve, reject) {
+            $.post(api.baseUrl + '/x201225/price',
+                function (res) {
+                    api.debug && console.log(res);
+                    resolve(res);
+                });
+        })
+    },
+
+    /**
+     *   分享
+     */
+    share: function () {
+        return new Promise(function (resolve, reject) {
+            $.get(api.baseUrl + '/x201225/share',
+                function (res) {
+                    api.debug && console.log(res);
+                    resolve(res);
+                });
+        });
     },
 };

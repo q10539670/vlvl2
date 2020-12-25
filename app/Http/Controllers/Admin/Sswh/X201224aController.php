@@ -20,7 +20,7 @@ class X201224aController extends Controller
                 return $query->where('phone', '=', $nameOrCode);
             });
         $paginator = $query->orderBy('updated_at', 'desc')->paginate(15);
-        $exportUrl = asset('/vlvl/x201224/export');
+        $exportUrl = asset('/vlvl/x201224a/export');
         $total = User::count();
         $redis = app('redis');
         $redis->select(0);

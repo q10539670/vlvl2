@@ -554,3 +554,9 @@ Route::get('/x201224a/export', 'X201224aController@export');
 Route::get('/x201224/index',  'X201224Controller@index');
 Route::get('/x201224/export', 'X201224Controller@export');
 
+/**
+ * 金茂 201224
+ */
+Route::get('/x201225/index',  'X201225Controller@index');
+Route::get('/x201225/export', 'X201225Controller@export');
+

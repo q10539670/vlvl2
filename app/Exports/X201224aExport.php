@@ -16,7 +16,12 @@ class X201224aExport implements FromCollection, WithStrictNullComparison, WithHe
      */
     public function collection()
     {
-        return User::get(['name', 'mobile', 'comment', 'updated_at']);
+        $xmLabel = [1=>'方岛金茂智慧科学城',2=> '金茂华发武汉国际社区',3=> '滨江金茂府',4=> '东湖金茂府',5=>'华发阳逻金茂逸墅',6=> '阳逻金茂逸墅',7=> '阳逻金茂悦'];
+        $users =  User::get(['name', 'mobile','xm','fh', 'comment', 'updated_at']);
+        foreach ($users as $v) {
+            $v['xm'] = $xmLabel[$v['xm']] ?? '';
+        }
+        return $users;
     }
 
     // 定义 'headings()' 方法
@@ -25,6 +30,8 @@ class X201224aExport implements FromCollection, WithStrictNullComparison, WithHe
         return [
             '姓名',
             '电话',
+            '项目',
+            '房号',
             '留言',
             '留言时间'
         ];
