@@ -16,7 +16,16 @@ class X201224aExport implements FromCollection, WithStrictNullComparison, WithHe
      */
     public function collection()
     {
-        $xmLabel = [1=>'方岛金茂智慧科学城',2=> '金茂华发武汉国际社区',3=> '滨江金茂府',4=> '东湖金茂府',5=>'华发阳逻金茂逸墅',6=> '阳逻金茂逸墅',7=> '阳逻金茂悦'];
+        $xmLabel = [
+            1=>'方岛金茂智慧科学城',
+            2=> '金茂华发武汉国际社区',
+            3=> '滨江金茂府',
+            4=> '东湖金茂府',
+            5=>'华发阳逻金茂逸墅',
+            6=> '阳逻金茂悦',
+            7=>'阳逻金茂逸墅',
+            8=>'建发金茂玺悦'
+        ];
         $users =  User::get(['name', 'mobile','xm','fh', 'comment', 'updated_at']);
         foreach ($users as $v) {
             $v['xm'] = $xmLabel[$v['xm']] ?? '';

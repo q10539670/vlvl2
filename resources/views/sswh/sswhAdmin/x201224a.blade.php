@@ -1,7 +1,16 @@
 @extends('layouts.adminlte.simple-d')
 @section('title', $title)
 <?php
-    $xmLabel = [1=>'方岛金茂智慧科学城',2=> '金茂华发武汉国际社区',3=> '滨江金茂府',4=> '东湖金茂府',5=>'华发阳逻金茂逸墅',6=> '阳逻金茂逸墅',7=> '阳逻金茂悦'];
+    $xmLabel = [
+        1=>'方岛金茂智慧科学城',
+        2=> '金茂华发武汉国际社区',
+        3=> '滨江金茂府',
+        4=> '东湖金茂府',
+        5=>'华发阳逻金茂逸墅',
+        6=> '阳逻金茂悦',
+        7=>'阳逻金茂逸墅',
+        8=>'建发金茂玺悦'
+    ];
 ?>
 @section('css')
     <link rel="stylesheet" href="{{asset('/vlvl/layui/css/modules/layer/default/layer.css')}}">

@@ -103,6 +103,9 @@ class X201225Controller extends Common
             return response()->json(['error' => $validator->errors()->first()], 422);
         }
         $user->topic_num = $request->topic_num;
+        if ($request->topic_num == 7) {
+            $user->prize_num++;
+        }
         $user->game_num--;
         $user->save();
         return $this->returnJson(1, "答题成功", ['user' => $user]);
@@ -120,18 +123,15 @@ class X201225Controller extends Common
         if (!$user = User::where(['openid' => $request->openid])->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
-        if ($user->prize_num >= 4) {
-            return response()->json(['error' => '今日抽奖次数已用完'], 422);
-        }
-        if ($user->topic_num != 7) {
-            return Helper::Json(-1,'答题数不够');
+        if ($user->prize_num <= 0) {
+            return response()->json(['error' => '没有抽奖次数'], 422);
         }
         //阻止重复提交
         if (!Helper::stopResubmit($this->itemName . ':randomPrize', $user->id, 3)) {
             return response()->json(['error' => '不要重复提交'], 422);
         }
         if ($user->status == 1) {
-            $user->prize_num++;
+            $user->prize_num--;
             $user->topic_num = 0;
             $user->save();
             return Helper::json(2, '抽奖成功', ['user' => $user]);
@@ -161,8 +161,8 @@ class X201225Controller extends Common
         } else {
             $user->status = 2;
         }
-        $user->prize_num++;
         $user->topic_num = 0;
+        $user->prize_num--;
         $user->prize = $resultPrize['resultPrize']['prize_name'];
         $user->prize_id = $resultPrize['resultPrize']['prize_id'];
         $user->prized_at = now()->toDateTimeString();
