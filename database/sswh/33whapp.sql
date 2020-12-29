@@ -2063,3 +2063,27 @@ CREATE TABLE x201224a_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 武汉院子 元旦
+CREATE TABLE x201229_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(12)  NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    game_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '游戏次数',
+    share_num  TINYINT      NOT NULL DEFAULT 0 COMMENT '分享次数',
+    prize_num  TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖次数',
+    prize      VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '奖品',
+    code       INT          NOT NULL DEFAULT 0 COMMENT '核销码',
+    status TINYINT NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖,3,已确定',
+    prized_at  DATETIME     NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';

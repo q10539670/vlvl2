@@ -54,6 +54,10 @@ class GameReset extends Command
         DB::table('x201208_user')->update([
             'num' => 3
         ]);
+        DB::table('x201225_user')->update([
+            'game_num' => 3,
+            'share_num' =>1
+        ]);
         return $this->info('重置成功');
     }
 

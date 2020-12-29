@@ -560,3 +560,9 @@ Route::get('/x201224/export', 'X201224Controller@export');
 Route::get('/x201225/index',  'X201225Controller@index');
 Route::get('/x201225/export', 'X201225Controller@export');
 
+/**
+ * 武汉院子 201229
+ */
+Route::get( '/x201229/index',  'X201229Controller@index');
+Route::get( '/x201229/export', 'X201229Controller@export');
+Route::post('/x201229/code',   'X201229Controller@verification');
