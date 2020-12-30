@@ -37,9 +37,9 @@ class User extends Model
     protected $prizeConf = [
         /*中奖数组*/
         'prize' => [
-            0 => ['prize_id' => 1, 'prize_level_name' => '三等奖', 'prize_name' => '楚天地产软皮笔记本', 'v' => 20, 'count' => 0, 'limit' => 0],
-            1 => ['prize_id' => 2, 'prize_level_name' => '二等奖', 'prize_name' => '天堂雨伞一把', 'v' => 10, 'count' => 0, 'limit' => 0],
-            2 => ['prize_id' => 3, 'prize_level_name' => '一等奖', 'prize_name' => '小米榨汁机', 'v' => 10, 'count' => 0, 'limit' => 0],
+            0 => ['prize_id' => 1, 'prize_level_name' => '三等奖', 'prize_name' => '雨伞', 'v' => 20, 'count' => 0, 'limit' => 0],
+            1 => ['prize_id' => 2, 'prize_level_name' => '二等奖', 'prize_name' => '笔记本钢笔套盒', 'v' => 10, 'count' => 0, 'limit' => 0],
+            2 => ['prize_id' => 3, 'prize_level_name' => '一等奖', 'prize_name' => '小米榨汁机', 'v' => 5, 'count' => 0, 'limit' => 0],
         ],
         /*不中奖   --未中奖*/
         'notPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 100000],
@@ -59,7 +59,7 @@ class User extends Model
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '1' => ['prize_id' => 1, 'limit' => 20],
             '2' => ['prize_id' => 2, 'limit' => 10],
-            '3' => ['prize_id' => 3, 'limit' => 10],
+            '3' => ['prize_id' => 3, 'limit' => 5],
         ],
     ];
 

@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Helpers\Helper;
 use App\Models\Sswh\X200515\User;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -38,6 +39,7 @@ class GameReset extends Command
      * Execute the console command.
      *
      * @return mixed
+     * @throws GuzzleException
      */
     public function handle()
     {
@@ -57,6 +59,10 @@ class GameReset extends Command
         DB::table('x201225_user')->update([
             'game_num' => 3,
             'share_num' =>1
+        ]);
+        DB::table('x201229_user')->update([
+            'game_num' => 1,
+            'share_num' =>2
         ]);
         return $this->info('重置成功');
     }

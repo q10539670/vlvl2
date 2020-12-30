@@ -122,7 +122,6 @@ $statusNow = request()->input('status', '');
                                                    onclick="values(this,{{$user['id']}})">核销</a>
                                             @endif
                                         </td>
-
                                     </tr>
                                 @endforeach
                                 </tbody>

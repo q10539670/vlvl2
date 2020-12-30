@@ -25,10 +25,8 @@
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201106Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X201106Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sswh/33whapp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sswh/33whapp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/sswh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Ctdc/X201225/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ctdc/X201225/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201229.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201229.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,18 +186,18 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
+      <recent name="D:\laragon\www\vlvl\app\Models\Ctdc" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\resources\views\layouts\adminlte" />
       <recent name="D:\laragon\www\vlvl\app\Exports" />
       <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
       <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Ctdc" />
     </key>
   </component>
   <component name="RunManager">
@@ -321,6 +319,7 @@
       <workItem from="1608860220657" duration="17947000" />
       <workItem from="1609119020147" duration="10521000" />
       <workItem from="1609205006024" duration="12470000" />
+      <workItem from="1609293148362" duration="15327000" />
     </task>
     <servers />
   </component>
