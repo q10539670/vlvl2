@@ -18,7 +18,7 @@ class X201225Controller extends Common
     protected $itemName = 'x201225';
 
     const END_TIME = '2021-01-10 23:59:59';
-    const VERSION = 'test'; //测试   formal:正式
+    const VERSION = 'formal'; //测试   formal:正式
 
     /*
      * 获取/记录用户授权信息

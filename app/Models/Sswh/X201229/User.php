@@ -12,6 +12,9 @@ class User extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'prized_at' => 'datetime:Y.m.d',
+    ];
     /*
      * 生成唯一随机码
      * */
@@ -115,7 +118,7 @@ class User extends Model
     /*
      * 随机抽奖  中奖几率始终不变
      * */
-    public function fixRandomPrize($redisCountKey, $version,$score=100)
+    public function fixRandomPrize($redisCountKey, $version)
     {
         $zhongjianglv = $this->parseZhongJiangLv($this->zhongJiangLv); //解析中奖率 防止出错
         $quanZhong = 100;

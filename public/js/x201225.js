@@ -109,9 +109,9 @@ var api = {
     /**
      * 抽奖
      */
-    price: function () {
+    prize: function () {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x201225/price',
+            $.post(api.baseUrl + '/x201225/prize',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);

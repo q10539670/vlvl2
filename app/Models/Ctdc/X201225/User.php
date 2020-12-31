@@ -59,7 +59,7 @@ class User extends Model
             '0' => ['prize_id' => 0, 'limit' => 100000],
             '1' => ['prize_id' => 1, 'limit' => 20],
             '2' => ['prize_id' => 2, 'limit' => 10],
-            '3' => ['prize_id' => 3, 'limit' => 5],
+            '3' => ['prize_id' => 3, 'limit' => 3],
         ],
     ];
 

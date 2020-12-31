@@ -689,8 +689,6 @@ Route::post('/x201224a/post', 'X201224aController@apply');              //报名
  */
 Route::get( '/x201229/user',    'X201229Controller@user');                   //获取/记录用户信息
 Route::post('/x201229/post',    'X201229Controller@post');                   //提交信息
-Route::post('/x201229/confirm', 'X201229Controller@confirmPrize');           //确认奖品
-Route::post('/x201229/reset',   'X201229Controller@resetPrize');             //重置奖品
 Route::post('/x201229/game',   'X201229Controller@game');                    //游戏
 Route::post('/x201229/prize',   'X201229Controller@randomPrize');            //抽奖
 Route::get( '/x201229/share',   'X201229Controller@share');                  //分享
