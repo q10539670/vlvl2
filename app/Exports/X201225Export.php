@@ -17,7 +17,7 @@ class X201225Export implements FromCollection, WithStrictNullComparison, WithHea
     public function collection()
     {
         $statusLabel = [0=>'未抽奖', 1=>'已中奖',2=>'未中奖'];
-        $users = User::get(['nickname', 'name','mobile', 'prize', 'status', 'prized_at']);
+        $users = User::where('status',1)->get(['nickname', 'name','mobile', 'prize', 'status', 'prized_at']);
         foreach ($users as $v) {
             $v['status'] = $statusLabel[$v['status']] ?? '';
         }

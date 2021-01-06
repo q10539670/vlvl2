@@ -30,7 +30,7 @@ class X201229Controller extends Controller
         $total = User::count();
         $redis = app('redis');
         $redis->select(0);
-        $redisShareData = $redis->hGetAll('wx:view:whyz201229');
+        $redisShareData = $redis->hGetAll('wx:view:whyz201230');
         return view('sswh.sswhAdmin.x201229', ['title' => '城开·泰禾武汉院子', 'paginator' => $paginator, 'exportUrl' => $exportUrl, 'redisShareData' => $redisShareData,'total' => $total]);
     }
 

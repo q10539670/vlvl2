@@ -75,7 +75,7 @@ class User extends Model
             3 => ['prize_id' => 4, 'prize_level_name' => '四等奖', 'prize_name' => '护手霜', 'v' => 15, 'count' => 0, 'limit' => 0],
             4 => ['prize_id' => 5, 'prize_level_name' => '三等奖', 'prize_name' => '化妆包', 'v' => 15, 'count' => 0, 'limit' => 0],
             5 => ['prize_id' => 6, 'prize_level_name' => '二等奖', 'prize_name' => '故宫日历', 'v' => 10, 'count' => 0, 'limit' => 0],
-            6 => ['prize_id' => 7, 'prize_level_name' => '一等奖', 'prize_name' => 'G20先生瓷', 'v' => 1, 'count' => 0, 'limit' => 0],
+           // 6 => ['prize_id' => 7, 'prize_level_name' => '一等奖', 'prize_name' => 'G20先生瓷', 'v' => 1, 'count' => 0, 'limit' => 0],
         ],
         /*不中奖   --未中奖*/
         'notPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 100000],
@@ -103,7 +103,7 @@ class User extends Model
             '4' => ['prize_id' => 4, 'limit' => 3],
             '5' => ['prize_id' => 5, 'limit' => 3],
             '6' => ['prize_id' => 6, 'limit' => 2],
-            '7' => ['prize_id' => 7, 'limit' => 2],
+            '7' => ['prize_id' => 7, 'limit' => 0],
         ],
     ];
 
