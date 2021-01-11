@@ -48,7 +48,7 @@ $statusLabel = [0=>'未抽奖', 1=>'已中奖',2=>'未中奖'];
                     </div>
                 </div>
                 <div class="col-md-5 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <form class="form-inline" method="get" action="{{url('vlvl/x201225/index')}}">
+                    <form class="form-inline" method="get" action="{{url('vlvl/x210111/index')}}">
 
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail3"></label>

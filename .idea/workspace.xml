@@ -24,9 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/X201225Export.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/X201225Export.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201229Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201229Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sswh/X201229/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sswh/X201229/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201225Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Sswh/X201225Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201225.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201225.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/sswh.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/sswh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wechat/ctdc.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat/ctdc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,25 +180,25 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts/adminlte" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201204.blade.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+      <recent name="D:\laragon\www\vlvl\app\Exports" />
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Ctdc" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\resources\views\layouts\adminlte" />
-      <recent name="D:\laragon\www\vlvl\app\Exports" />
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Sswh" />
     </key>
   </component>
   <component name="RunManager">
@@ -323,7 +324,10 @@
       <workItem from="1609378450233" duration="11772000" />
       <workItem from="1609723896549" duration="10398000" />
       <workItem from="1609809771595" duration="7617000" />
-      <workItem from="1609896158815" duration="12193000" />
+      <workItem from="1609896158815" duration="12632000" />
+      <workItem from="1609984809402" duration="13838000" />
+      <workItem from="1610070247383" duration="7001000" />
+      <workItem from="1610328066558" duration="10628000" />
     </task>
     <servers />
   </component>

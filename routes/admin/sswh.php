@@ -555,7 +555,7 @@ Route::get('/x201224/index',  'X201224Controller@index');
 Route::get('/x201224/export', 'X201224Controller@export');
 
 /**
- * 金茂 201224
+ * 楚天地产 201225
  */
 Route::get('/x201225/index',  'X201225Controller@index');
 Route::get('/x201225/export', 'X201225Controller@export');
@@ -566,3 +566,10 @@ Route::get('/x201225/export', 'X201225Controller@export');
 Route::get( '/x201229/index',  'X201229Controller@index');
 Route::get( '/x201229/export', 'X201229Controller@export');
 Route::post('/x201229/code',   'X201229Controller@verification');
+
+
+/**
+ * 楚天地产 210111
+ */
+Route::get('/x210111/index',  'X210111Controller@index');
+Route::get('/x210111/export', 'X210111Controller@export');
