@@ -2078,7 +2078,7 @@ CREATE TABLE x201229_user
     prize_num  TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖次数',
     prize      VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '奖品',
     code       INT          NOT NULL DEFAULT 0 COMMENT '核销码',
-    status TINYINT NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖,3,已确定',
+    status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖,3,已确定',
     prized_at  DATETIME     NULL     DEFAULT NULL COMMENT '中奖时间',
     created_at DATETIME     NULL     DEFAULT NULL,
     updated_at DATETIME     NULL     DEFAULT NULL,
@@ -2087,3 +2087,35 @@ CREATE TABLE x201229_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 金茂社群
+CREATE TABLE x210114_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    submit_num TINYINT      NOT NULL DEFAULT 0 COMMENT '投稿次数',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+CREATE TABLE x210114_works
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    user_id    INT          NOT NULL DEFAULT 0 COMMENT '用户ID',
+    title      VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '标题',
+    auth       VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '作者',
+    comment    TEXT         NOT NULL COMMENT '正文',
+    image      VARCHAR(255) NOT NULL DEFAULT '' COMMENT '照片',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '作品表';

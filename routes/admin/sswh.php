@@ -573,3 +573,10 @@ Route::post('/x201229/code',   'X201229Controller@verification');
  */
 Route::get('/x210111/index',  'X210111Controller@index');
 Route::get('/x210111/export', 'X210111Controller@export');
+
+/**
+ * 金茂社群 210114
+ */
+Route::get('/x210114/index',  'X210114Controller@index');
+Route::get('/x210114/export', 'X210114Controller@export');
+Route::post('/x210114/check',  'X210114Controller@check')->name('x210114.check');

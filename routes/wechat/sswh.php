@@ -693,3 +693,12 @@ Route::post('/x201229/game',   'X201229Controller@game');                    //�
 Route::post('/x201229/prize',   'X201229Controller@randomPrize');            //抽奖
 Route::get( '/x201229/share',   'X201229Controller@share');                  //分享
 Route::get( '/x201229/init',    'X201229Controller@appInitHandler');         //重置
+
+
+/**
+ * 金茂社群 210114
+ */
+Route::get( '/x210114/user',  'X210114Controller@user');                   //获取/记录用户信息
+Route::post('/x210114/post',  'X210114Controller@post');                  //用户提交报名
+Route::get('/x210114/works', 'X210114Controller@works');                //获取参赛用户
+Route::get('/x210114/detail','X210114Controller@detail');                  //获取参赛用户

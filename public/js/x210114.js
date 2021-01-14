@@ -67,7 +67,7 @@ var api = {
      */
     user: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x201204/user',
+            $.get(api.baseUrl + '/x210114/user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -76,24 +76,48 @@ var api = {
     },
 
     /**
-     * 提交报名
+     * 提交信息
      */
     post: function (data) {
+        var formData = new FormData();
+        formData.append('title', data.title);      //标题
+        formData.append('auth', data.auth);        //作者
+        formData.append('comment', data.comment);  //正文
+        formData.append('image', data.image);      //照片
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x201204/post',
-                /*接收参数-start*/
-                {
-                    'name': data.name,             //姓名
-                    'age': data.age,               //年龄
-                    'gender': data.gender,         //性别[1:男,2:女]
-                    'id_num': data.id_num,         //身份证号码
-                    'mobile': data.mobile,         //手机号码
-                    'dishes': data.dishes,         //菜品[1:咖喱蟹 2:避风塘蟹 3:卤蟹 4:香辣蟹 5:蒜香螃蟹 6:花雕熟醉蟹 7:其它]
-                    'main': data.main,            //主料
-                    'accessories': data.accessories,     //辅料
-                    'flavoring': data.flavoring,       //调味品
-                },
-                /*接收参数-end*/
+            $.ajax({
+                url: api.baseUrl + '/x210114/post',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    api.debug && console.log(res);
+                    resolve(res);
+                }
+            })
+        })
+    },
+
+    /**
+     * 所有作品
+     */
+    woks: function () {
+        return new Promise(function (resolve, reject) {
+            $.get(api.baseUrl + '/x210114/works',
+                function (res) {
+                    api.debug && console.log(res);
+                    resolve(res);
+                });
+        })
+    },
+
+    /**
+     * 作品详情
+     */
+    prize: function (id) {
+        return new Promise(function (resolve, reject) {
+            $.get(api.baseUrl + '/x210114/detail?id=' + id, //作品ID
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
