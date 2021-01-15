@@ -116,7 +116,7 @@ class X210114Controller extends Common
             'user_id' => $user->id,
             'title' => $request->title,
             'auth' => $request->auth,
-            'comment' => $request->comment,
+            'comment' => preg_replace("/\n|\r\n/i","<br>",$request->comment),
             'image' => $path,
             'created_at' => now()->toDateTimeString(),
             'updated_at' => now()->toDateTimeString()

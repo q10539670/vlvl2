@@ -129,7 +129,7 @@ $userStatus = [
 
                                         <td align="center">{{$user['title']}}</td>
                                         <td align="center">{{$user['auth']}}</td>
-                                        <td align="center">{{$user['comment']}}</td>
+                                        <td align="center">{!!  $user['comment']!!}</td>
                                         <td align="center" class="image">
                                             @if($user->image)
                                                 <img class="tb-img" title="用户ID：{{$user->user->id}}"
