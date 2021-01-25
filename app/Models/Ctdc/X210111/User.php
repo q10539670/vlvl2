@@ -16,7 +16,7 @@ class User extends Model
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 0.3;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 1;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
     private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
@@ -37,9 +37,11 @@ class User extends Model
     protected $prizeConf = [
         /*中奖数组*/
         'prize' => [
-            0 => ['prize_id' => 1, 'prize_level_name' => '三等奖', 'prize_name' => '高档养生保温杯', 'v' => 30, 'count' => 0, 'limit' => 0],
-            1 => ['prize_id' => 2, 'prize_level_name' => '二等奖', 'prize_name' => '珍珠液定制酱香型白酒', 'v' => 10, 'count' => 0, 'limit' => 0],
-            2 => ['prize_id' => 3, 'prize_level_name' => '一等奖', 'prize_name' => '床品四件套', 'v' => 300000, 'count' => 0, 'limit' => 0],
+            0 => ['prize_id' => 1, 'prize_level_name' => '三等奖', 'prize_name' => '高档养生保温杯', 'v' => 15, 'count' => 0, 'limit' => 0],
+            1 => ['prize_id' => 2, 'prize_level_name' => '二等奖', 'prize_name' => '珍珠液定制酱香型白酒', 'v' => 5, 'count' => 0, 'limit' => 0],
+            2 => ['prize_id' => 3, 'prize_level_name' => '一等奖', 'prize_name' => '床品四件套', 'v' => 1, 'count' => 0, 'limit' => 0],
+            3 => ['prize_id' => 4, 'prize_level_name' => '参与奖', 'prize_name' => '环保购物袋', 'v' => 100, 'count' => 0, 'limit' => 0],
+            4 => ['prize_id' => 5, 'prize_level_name' => '参与奖', 'prize_name' => '春联礼包', 'v' => 100, 'count' => 0, 'limit' => 0],
         ],
         /*不中奖   --未中奖*/
         'notPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 100000],
@@ -52,14 +54,18 @@ class User extends Model
             '1' => ['prize_id' => 1, 'limit' => 10],
             '2' => ['prize_id' => 2, 'limit' => 10],
             '3' => ['prize_id' => 3, 'limit' => 10],
+            '4' => ['prize_id' => 4, 'limit' => 10],
+            '5' => ['prize_id' => 5, 'limit' => 10],
         ],
 
         /*正式*/
         'formal' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
-            '1' => ['prize_id' => 1, 'limit' => 30],
-            '2' => ['prize_id' => 2, 'limit' => 10],
-            '3' => ['prize_id' => 3, 'limit' => 3],
+            '1' => ['prize_id' => 1, 'limit' => 15],
+            '2' => ['prize_id' => 2, 'limit' => 5],
+            '3' => ['prize_id' => 3, 'limit' => 1],
+            '4' => ['prize_id' => 4, 'limit' => 1000],
+            '5' => ['prize_id' => 5, 'limit' => 1000],
         ],
     ];
 

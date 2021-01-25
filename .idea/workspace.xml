@@ -24,8 +24,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8ce89250-5c6d-49e9-9177-e6253d298e62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X210114Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sswh/X210114Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x210114.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x210114.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GameReset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Ctdc/X210111Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Ctdc/X210111Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/CtdcCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/CtdcCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JchnCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JchnCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JctjCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JctjCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JyycCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/JyycCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/QwtCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/QwtCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/SswhCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/SswhCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/TdrCheckOpenid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WxAuthV1/TdrCheckOpenid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Ctdc/X210111/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ctdc/X210111/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,25 +186,25 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Console/Commands" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/resources/views/sswh/sswhAdmin/x201204.blade.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\vlvl\app\Console\Commands" />
+      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
+      <recent name="D:\laragon\www\vlvl\public\js" />
+      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Jyyc" />
       <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Ctdc" />
       <recent name="D:\laragon\www\vlvl\app\Models\Ctdc" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\vlvl\resources\views\sswh\sswhAdmin" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Admin\Sswh" />
-      <recent name="D:\laragon\www\vlvl\public\js" />
-      <recent name="D:\laragon\www\vlvl\app\Http\Controllers\Sswh" />
-      <recent name="D:\laragon\www\vlvl\app\Models\Sswh\X210114" />
     </key>
   </component>
   <component name="RunManager">
@@ -329,7 +337,13 @@
       <workItem from="1610415093065" duration="5279000" />
       <workItem from="1610501586764" duration="9743000" />
       <workItem from="1610588972998" duration="15084000" />
-      <workItem from="1610674351427" duration="2053000" />
+      <workItem from="1610674351427" duration="2670000" />
+      <workItem from="1610934313617" duration="5991000" />
+      <workItem from="1611021325155" duration="11605000" />
+      <workItem from="1611105915341" duration="14854000" />
+      <workItem from="1611192826575" duration="1847000" />
+      <workItem from="1611280184849" duration="10937000" />
+      <workItem from="1611537941094" duration="7489000" />
     </task>
     <servers />
   </component>
@@ -378,13 +392,13 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="674" y="295" key="refactoring.ChangeSignatureDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1606816804102" />
-    <state x="616" y="243" key="run.anything.popup" timestamp="1610593485070">
+    <state x="616" y="243" key="run.anything.popup" timestamp="1611559080720">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1610593485070" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1610593709070">
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1611559080720" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1611559090863">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1610593709070" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1611559090863" />
   </component>
 </project>

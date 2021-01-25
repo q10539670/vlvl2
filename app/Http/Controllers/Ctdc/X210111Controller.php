@@ -204,7 +204,7 @@ class X210111Controller extends Common
         }
         foreach ($dataArr as $k => $v) {
             $redis->hmset('wx:' . $this->itemName . ':prizeCount:' . $v,
-                ['0' => 0, '1' => 0, 2 => 0, 3 => 0]);
+                ['0' => 0, '1' => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0]);
         }
         echo '应用初始化成功';
         exit();

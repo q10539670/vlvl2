@@ -38,9 +38,10 @@ class JchnCheckOpenid
     /*
      * 计算 项目名称
     */
-    protected function getItemName()
-    {
+    protected function getItemName() {
         $urlStr = preg_replace("/(http|https):\/\//", '', $_SERVER['HTTP_REFERER']);
-        return explode('/', $urlStr)[2];
+        $arr = explode('/', $urlStr);
+        $arr2 = array_slice($arr,2,count($arr)-3);
+        return implode("/",$arr2);
     }
 }
