@@ -580,3 +580,11 @@ Route::get('/x210111/export', 'X210111Controller@export');
 Route::get('/x210114/index',  'X210114Controller@index');
 Route::get('/x210114/export', 'X210114Controller@export');
 Route::post('/x210114/check',  'X210114Controller@check')->name('x210114.check');
+
+
+/**
+ * 东湖金茂府投票 210126
+ */
+Route::get( '/x210126/index',  'X210126Controller@index');
+Route::get( '/x210126/export', 'X210126Controller@export');
+Route::post('/x210126/delete', 'X210126Controller@delete')->name('x210126.delete');

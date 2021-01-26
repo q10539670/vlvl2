@@ -702,3 +702,13 @@ Route::get( '/x210114/user',  'X210114Controller@user');                   //获
 Route::post('/x210114/post',  'X210114Controller@post');                  //用户提交报名
 Route::get('/x210114/works', 'X210114Controller@works');                //获取参赛用户
 Route::get('/x210114/detail','X210114Controller@detail');                  //获取参赛用户
+
+/**
+ * 天麓城 210126
+ */
+Route::get( '/x210126/user',  'X210126Controller@user');                   //获取/记录用户信息
+Route::post('/x210126/post',  'X210126Controller@post');                  //用户提交报名
+Route::post('/x210126/users', 'X210126Controller@users');                //获取参赛用户
+Route::post('/x210126/vote',  'X210126Controller@vote');                  //获取参赛用户
+Route::get('/x210126/detail','X210126Controller@detail');                  //获取参赛用户
+

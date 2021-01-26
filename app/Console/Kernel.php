@@ -41,6 +41,7 @@ class Kernel extends ConsoleKernel
 //        $schedule->command('dx190925:cmd export')->everyMinute();
         $schedule->command('x201201:sendMsg')->dailyAt('17:00');
         $schedule->command('x201201a:sendMsg')->dailyAt('18:00');
+        $schedule->command('sendWeatherEveryDay')->dailyAt('07:30');
 //        $schedule->command('x200701:sendMsg')->everyMinute();
     }
 

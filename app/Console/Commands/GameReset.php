@@ -43,24 +43,24 @@ class GameReset extends Command
      */
     public function handle()
     {
-        $this->getWorkingDay();
-//        $this->getWeather();
+        $this->getWorkingDay(); //判断工作日
+        $this->getWeather();    //获取天气信息
 
-        DB::table('x201208_user')->update([
-            'num' => 3
-        ]);
-        DB::table('x201225_user')->update([
-            'game_num' => 3,
-            'share_num' => 1
-        ]);
-        DB::table('x201229_user')->update([
-            'game_num' => 1,
-            'share_num' => 2
-        ]);
-        DB::table('x210111_user')->update([
-            'game_num' => 3,
-            'share_num' => 1
-        ]);
+//        DB::table('x201208_user')->update([
+//            'num' => 3
+//        ]);
+//        DB::table('x201225_user')->update([
+//            'game_num' => 3,
+//            'share_num' => 1
+//        ]);
+//        DB::table('x201229_user')->update([
+//            'game_num' => 1,
+//            'share_num' => 2
+//        ]);
+//        DB::table('x210111_user')->update([
+//            'game_num' => 3,
+//            'share_num' => 1
+//        ]);
         return $this->info('重置成功');
     }
 
@@ -70,29 +70,26 @@ class GameReset extends Command
         $path = '/address';
         $querys = 'prov=湖北&city=武汉&needday=1';
         $appcode = 'f00ed7c6c9af40968dee7fabeae4b8fe';
-        $headers = array();
-        array_push($headers, "Authorization:APPCODE " . $appcode);
         $url = $host . $path . "?" . $querys;
         $client = new \GuzzleHttp\Client();
-        $resClient = $client->request('GET', $url);
-        $result = $resClient->getBody()->getContents();
-        if ($result->ret !== 200) {
+        $resClient = $client->request('GET', $url,['headers' => ['Authorization' =>'APPCODE '.$appcode]]);
+        $result = json_decode($resClient->getBody()->getContents(), true);
+        if ($result['ret'] !== 200) {
             return false;
         }
-        $cityInfo = $result->data->cityInfo;
-        $detail = $result->data->detail;
-        $now = $result->data->now->city;
-        $city = $cityInfo->provinces . $cityInfo->city;
-        $date = $detail->date . '(' . $detail->nongli . ') ,' . $detail->week;
-        $updateTime = $detail->time;
-        $temperature = $detail->temperature . '℃';
-        $nDTemperature = $now->night_air_temperature . '℃ ~' . $now->day_air_temperature . '℃';
-        $weather = $detail->weather;
-        $quality = $detail->quality;
-        $nowTime = now()->toDateTimeString();
+        $cityInfo = $result['data']['cityinfo'];
+        $detail = $result['data']['now']['detail'];
+        $now = $result['data']['now']['city'];
+        $city = $cityInfo['provinces'] . $cityInfo['city'];
+        $date = $detail['date'] . '(' . $detail['nongli'] . ') , 星期' . $detail['week'];
+        $updateTime = $detail['time'];
+        $temperature = $detail['temperature'] . '℃';
+        $nDTemperature = $now['night_air_temperature'] . '℃ ~' . $now['day_air_temperature'] . '℃';
+        $weather = $now['weather'];
+        $quality = $detail['quality'];
         $weatherStr = '实时天气预报:\r\n城市: ' . $city . '\r\n日期: ' . $date . '\r\n更新时间: ' . $updateTime . '\r\n当前温度: '
             . $temperature . '\r\n白天夜间温度: ' . $nDTemperature . '\r\n天气: ' . $weather . '\r\n空气质量: ' . $quality .
-            '\r\n当前时间: ' . $nowTime . '\r\n点击查看15天天气';
+            '\r\n当前时间: ' . '\r\n点击查看15天天气';
         $redis = app('redis');
         $redis->select(12);
         $redis->set('weather', $weatherStr);

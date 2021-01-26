@@ -20,7 +20,7 @@ class X210111Controller extends Controller
             ->when(preg_match("/^\d{11}$/", $nameOrCode), function ($query) use ($nameOrCode) {
                 return $query->where('phone', '=', $nameOrCode);
             })
-            ->when($status !== '', function ($query) use ($status) {
+            ->when($status != '', function ($query) use ($status) {
                 return $query->where('status',  $status);
             });
         $paginator = $query->orderBy('updated_at', 'desc')->paginate(15);
@@ -41,4 +41,5 @@ class X210111Controller extends Controller
         return Excel::download(new X210111Export(), '楚天地产·答题抽奖参与名单.xlsx');
     }
 
+//夏天
 }
