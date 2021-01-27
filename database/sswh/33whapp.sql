@@ -2154,3 +2154,21 @@ CREATE TABLE x210126_vote_log
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '投票记录表';
+
+-- 中国中铁·世纪山水·天麓城
+CREATE TABLE x210127_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    score      INT          NOT NULL DEFAULT 0 COMMENT '游戏分数',
+    prize      INT          NOT NULL DEFAULT 0 COMMENT '奖品',
+    prized_at  DATETIME     NULL     DEFAULT NULL,
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';

@@ -35,11 +35,6 @@ class sendWeatherEveryDay extends Command
         parent::__construct();
     }
 
-    /*
-     * template-id ： 3PU474JAjAn37yHCjH0mPNRaRTYyC2Knqx5sns3zxFw
-     * openid= oYYl55JPc5rJsUFIVomGcIZSs8E4 //test
-     *
-     * */
     public function handle()
     {
         $users = User::whereHas('info', function ($query) {
@@ -54,11 +49,11 @@ class sendWeatherEveryDay extends Command
         $nowTime = date('H:i:s');
         $remark = str_replace('\r\n', "\r\n\r\n", $remark);
         $remark = str_replace('当前时间:', "当前时间: ". $nowTime, $remark);
-        $openid = 'oFOht0pPJmQWdIvMeYxKO6yKAbB8';  //测试
-        $result = $this->seedTemplateMsg($openid, $firstMsg, $keyword1,$keyword2, $remark);
-//        foreach ($users as $user) {
-//            $result = $this->seedTemplateMsg($user->openid, $firstMsg, $keyword1, $keyword2, $remark);
-//        }
+//        $openid = 'oFOht0pPJmQWdIvMeYxKO6yKAbB8';  //测试
+//        $result = $this->seedTemplateMsg($openid, $firstMsg, $keyword1,$keyword2, $remark);
+        foreach ($users as $user) {
+            $this->seedTemplateMsg($user->openid, $firstMsg, $keyword1, $keyword2, $remark);
+        }
         return $this->info('模板消息发送完成');
 
     }

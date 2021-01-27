@@ -67,50 +67,7 @@ var api = {
      */
     user: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x210126/user',
-                function (res) {
-                    api.debug && console.log(res);
-                    resolve(res);
-                });
-        });
-    },
-
-    /**
-     * 提交信息
-     */
-    post: function (data) {
-        var formData = new FormData();
-        formData.append('name', data.name);
-        formData.append('mobile', data.mobile);
-        formData.append('image', data.image);
-        formData.append('slogan', data.slogan);
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                url: api.baseUrl + '/x210126/post',
-                type: "post",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (res) {
-                    api.debug && console.log(res);
-                    resolve(res);
-                }
-            });
-        })
-    },
-
-
-    /**
-     * 查询所有照片
-     * 接收参数
-     * per_page      每页显示数量
-     * current_page  当前页数
-     * order         news:按最新照片排序,hot:按人气排序
-     * search        搜索姓名
-     * */
-    users: function () {
-        return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x210126/users',
+            $.get(api.baseUrl + '/x210127/user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -121,27 +78,14 @@ var api = {
     /**
      *  投票
      */
-    vote: function (targetId) {
+    score: function (score) {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x210126/vote',
+            $.post(api.baseUrl + '/x210127/score',
                 /*接收参数-start*/
                 {
-                    target_id:targetId,
+                    score:score    //游戏分数
                 },
                 /*接收参数-end*/
-                function (res) {
-                    api.debug && console.log(res);
-                    resolve(res);
-                });
-        });
-    },
-
-    /**
-     *  详情
-     */
-    detail: function (id) {
-        return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x210126/detail?id='+id,
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);

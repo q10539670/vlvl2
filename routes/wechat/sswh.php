@@ -712,3 +712,8 @@ Route::post('/x210126/users', 'X210126Controller@users');                //获�
 Route::post('/x210126/vote',  'X210126Controller@vote');                  //获取参赛用户
 Route::get('/x210126/detail','X210126Controller@detail');                  //获取参赛用户
 
+/**
+ * 天麓城 210127
+ */
+Route::get( '/x210127/user',  'X210127Controller@user');                   //获取/记录用户信息
+Route::post('/x210127/score',  'X210127Controller@score');                  //用户提交报名
