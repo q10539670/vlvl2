@@ -44,9 +44,9 @@ class sendWeatherEveryDay extends Command
         $redis->select(12);
         $firstMsg = '每日天气预报提醒';
         $keyword1 = '三山每日天气播报';
-        $keyword2 = date('Y年m月d日 H:i:s');
+        $keyword2 = date('Y年m月d日 H:i');
         $remark = $redis->get('weather');
-        $nowTime = date('H:i:s');
+        $nowTime = date('H:i');
         $remark = str_replace('\r\n', "\r\n\r\n", $remark);
         $remark = str_replace('当前时间:', "当前时间: ". $nowTime, $remark);
 //        $openid = 'oFOht0pPJmQWdIvMeYxKO6yKAbB8';  //测试

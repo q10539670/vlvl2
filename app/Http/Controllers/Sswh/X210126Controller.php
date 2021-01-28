@@ -16,8 +16,8 @@ class X210126Controller extends Common
     //中国中铁·世纪山水·天麓城
     protected $itemName = 'x210126';
 
-    const SUBMIT_TIME = '2020-02-04 00:00:00';
-    const START_TIME  = '2020-02-04 00:00:00';
+    const SUBMIT_TIME = '2020-02-05 00:00:00';
+    const START_TIME  = '2020-02-05 00:00:00';
     const END_TIME    = '2021-02-26 23:59:59';
 
     protected $prod = 'cdnn';
