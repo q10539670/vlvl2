@@ -54,7 +54,7 @@ class getApiData extends Command
         $appcode = 'f00ed7c6c9af40968dee7fabeae4b8fe';
         $url = $host . $path . "?" . $querys;
         $client = new \GuzzleHttp\Client();
-        $resClient = $client->request('GET', $url,['headers' => ['Authorization' =>'APPCODE '.$appcode]]);
+        $resClient = $client->request('GET', $url, ['headers' => ['Authorization' => 'APPCODE ' . $appcode]]);
         $result = json_decode($resClient->getBody()->getContents(), true);
         if ($result['ret'] !== 200) {
             return false;
@@ -83,10 +83,15 @@ class getApiData extends Command
      */
     public function getWorkingDay()
     {
-        $url = 'http://tool.bitefu.net/jiari?d=' . date('Ymd');
-        $client = new \GuzzleHttp\Client();
-        $resClient = $client->request('GET', $url);
-        $result = json_decode($resClient->getBody()->getContents(), true);
+        //过年假期 开始:20210209-20210220 12天
+        if (date('Ymd') >= '20210209' && date('Ymd') <= '20210220') {
+            $result = 2;//节假日
+        } else {
+            $url = 'http://tool.bitefu.net/jiari?d=' . date('Ymd');
+            $client = new \GuzzleHttp\Client();
+            $resClient = $client->request('GET', $url);
+            $result = json_decode($resClient->getBody()->getContents(), true);
+        }
         $redis = app('redis');
         $redis->select(12);
         $redis->set('date', $result);
