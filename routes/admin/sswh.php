@@ -594,3 +594,9 @@ Route::post('/x210126/delete', 'X210126Controller@delete')->name('x210126.delete
  */
 Route::get( '/x210127/index',  'X210127Controller@index');
 Route::get( '/x210127/export', 'X210127Controller@export');
+
+/**
+ * 金茂武汉·报名  200914
+ */
+Route::get('/x210203/index',  'X210203Controller@index');
+Route::get('/x210203/export', 'X210203Controller@export');

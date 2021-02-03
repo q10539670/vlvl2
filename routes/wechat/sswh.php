@@ -717,3 +717,12 @@ Route::get('/x210126/detail','X210126Controller@detail');                  //获
  */
 Route::get( '/x210127/user',  'X210127Controller@user');                   //获取/记录用户信息
 Route::post('/x210127/score',  'X210127Controller@score');                  //用户提交报名
+
+/**
+ * 金茂报名   210203
+ */
+Route::get( '/x210203/init',  'X210203Controller@appInitHandler');            //初始化程序
+Route::get( '/x210203/user',  'X210203Controller@user');                      //获取/记录用户信息
+Route::post('/x210203/signup','X210203Controller@signUp');                  //报名
+
+

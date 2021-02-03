@@ -2172,3 +2172,25 @@ CREATE TABLE x210127_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+-- 金茂社群
+CREATE TABLE x210203_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    item_id    TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '项目编号',
+    item       VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '项目名称',
+    room_no    VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '房号',
+    num        TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '参与人数',
+    sign_up_at DATETIME     NULL     DEFAULT NULL COMMENT '报名时间',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
