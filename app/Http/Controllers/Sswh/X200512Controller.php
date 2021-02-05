@@ -17,7 +17,7 @@ class X200512Controller extends Common
     protected $itemName = 'x200512';
 
     const START_TIME = '2020-01-17 09:00:00';
-    const END_TIME = '2020-06-02 20:00:00';
+    const END_TIME = '2021-06-02 20:00:00';
 
     protected $prod = 'cdnn';
 

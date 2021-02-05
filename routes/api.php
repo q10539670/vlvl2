@@ -87,7 +87,7 @@ Route::group(['prefix' => 'sswh'], function () {
 });
 
 //公共路由
-Route::post('/common/upload','\App\Http\Controllers\Common\UploadController@uploadSinglePic'); //上传图片
+Route::post('/common/upload','\App\Http\Controllers\Common\UploadController@uploadMultiplePic')->name('upload'); //上传图片
 Route::post('/common/app_id','\App\Http\Controllers\Common\UserAuthorize@appId');
 Route::post('/common/auth','\App\Http\Controllers\Common\UserAuthorize@auth')->name('auth.auth');
 Route::post('/common/share','\App\Http\Controllers\Common\UserAuthorize@share');

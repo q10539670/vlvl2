@@ -14,7 +14,7 @@ class X200212Controller extends Common
     //美的情人节
     protected $itemName = 'x200212';
 
-    const END_TIME = '2020-02-20 18:00:00';
+    const END_TIME = '2021-02-20 18:00:00';
 
     /*
      * 获取/记录用户授权信息

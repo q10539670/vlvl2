@@ -596,7 +596,15 @@ Route::get( '/x210127/index',  'X210127Controller@index');
 Route::get( '/x210127/export', 'X210127Controller@export');
 
 /**
- * 金茂武汉·报名  200914
+ * 金茂武汉·报名  210203
  */
 Route::get('/x210203/index',  'X210203Controller@index');
 Route::get('/x210203/export', 'X210203Controller@export');
+
+/**
+ * 中铁·龙盘湖·世纪山水 投票 210204
+ */
+Route::get('/x210204/index',  'X210204Controller@index');
+Route::get('/x210204/export_images', 'X210204Controller@exportImages');
+Route::get('/x210204/export_logs', 'X210204Controller@exportLogs');
+Route::post('/x210204/upload','X210204Controller@uploadImages')->name('x210204.upload');              //上传

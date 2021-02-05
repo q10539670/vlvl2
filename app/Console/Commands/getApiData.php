@@ -83,8 +83,8 @@ class getApiData extends Command
      */
     public function getWorkingDay()
     {
-        //过年假期 开始:20210209-20210220 12天
-        if (date('Ymd') >= '20210209' && date('Ymd') <= '20210220') {
+        //过年假期 开始:20210209-20210220
+        if (date('Ymd') >= '20210205' && date('Ymd') <= '20210220') {
             $result = 2;//节假日
         } else {
             $url = 'http://tool.bitefu.net/jiari?d=' . date('Ymd');

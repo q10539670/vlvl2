@@ -61,11 +61,11 @@ class User extends Model
         /*正式*/
         'formal' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
-            '1' => ['prize_id' => 1, 'limit' => 15],
+            '1' => ['prize_id' => 1, 'limit' => 14],
             '2' => ['prize_id' => 2, 'limit' => 5],
             '3' => ['prize_id' => 3, 'limit' => 1],
             '4' => ['prize_id' => 4, 'limit' => 1000],
-            '5' => ['prize_id' => 5, 'limit' => 1000],
+            '5' => ['prize_id' => 5, 'limit' => 105],
         ],
     ];
 

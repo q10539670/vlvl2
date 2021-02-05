@@ -725,4 +725,10 @@ Route::get( '/x210203/init',  'X210203Controller@appInitHandler');            //
 Route::get( '/x210203/user',  'X210203Controller@user');                      //获取/记录用户信息
 Route::post('/x210203/signup','X210203Controller@signUp');                  //报名
 
-
+/**
+ * 中铁·龙盘湖·世纪山水投票   210204
+ */
+Route::get( '/x210204/user',  'X210204Controller@user');                      //获取/记录用户信息
+Route::post( '/x210204/users',  'X210204Controller@users');                  //获取所有作品信息
+Route::post('/x210204/poll','X210204Controller@poll');                        //投票
+Route::get('/x210204/detail','X210204Controller@detail');                  //获取参赛用户

@@ -226,7 +226,7 @@ CREATE TABLE bm190830_team
     truename          VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '真实姓名',
     team_name         VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '舞团名称',
     team_peoples      INT          NOT NULL DEFAULT 0 COMMENT '舞团人数',
-    team_introduction VARCHAR(255) NOT NULL DEFAULT '' COMMENT '舞团简介',
+    team_INTroduction VARCHAR(255) NOT NULL DEFAULT '' COMMENT '舞团简介',
     team_age          INT          NOT NULL DEFAULT 0 COMMENT '成员均龄',
     phone             VARCHAR(15)  NOT NULL DEFAULT '' COMMENT '负责人电话',
     created_at        DATETIME     NULL     DEFAULT NULL,
@@ -280,7 +280,7 @@ CREATE TABLE tp190905_team
     number            INT          NOT NULL DEFAULT 0 COMMENT '编号',
     team_name         VARCHAR(255) NOT NULL DEFAULT '' COMMENT '参赛队伍名称',
     team_img          VARCHAR(255) NOT NULL DEFAULT '' COMMENT '参赛队伍图片',
-    team_introduction VARCHAR(255) NOT NULL DEFAULT '' COMMENT '舞团简介',
+    team_INTroduction VARCHAR(255) NOT NULL DEFAULT '' COMMENT '舞团简介',
     team_slogan       VARCHAR(255) NOT NULL DEFAULT '' COMMENT '舞团宣言',
     poll              INT          NOT NULL DEFAULT 0 COMMENT '票数',
     created_at        DATETIME     NULL     DEFAULT NULL,
@@ -714,7 +714,7 @@ CREATE TABLE x191014_vote_log
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '投票记录表';
 
-CREATE TABLE x191014_comment
+CREATE TABLE x191014_COMMENT
 (
     id         INT UNSIGNED AUTO_INCREMENT,
     user_id    INT          NOT NULL DEFAULT 0 COMMENT '用户id',
@@ -1740,8 +1740,8 @@ CREATE TABLE x201013b_user
     id_num     VARCHAR(18)  NOT NULL DEFAULT '' COMMENT '身份证号码',
     on_foot    TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '是否徒步经验[1:有,2:无]',
     date       VARCHAR(10)  NOT NULL DEFAULT '' COMMENT '参与徒步活动时间',
-    comment_1  VARCHAR(255) NOT NULL DEFAULT '' COMMENT '身体状态自评(17号)',
-    comment_2  VARCHAR(255) NOT NULL DEFAULT '' COMMENT '身体状态自评(24号)',
+    COMMENT_1  VARCHAR(255) NOT NULL DEFAULT '' COMMENT '身体状态自评(17号)',
+    COMMENT_2  VARCHAR(255) NOT NULL DEFAULT '' COMMENT '身体状态自评(24号)',
     created_at DATETIME     NULL     DEFAULT NULL,
     updated_at DATETIME     NULL     DEFAULT NULL,
     PRIMARY KEY (id)
@@ -1824,7 +1824,7 @@ CREATE TABLE x201109_user
     gender     TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '性别[1:男,2:女]',
     id_num     VARCHAR(18)  NOT NULL DEFAULT '' COMMENT '身份证号码',
     mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
-    comment    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '你心目中的老味道',
+    COMMENT    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '你心目中的老味道',
     reason     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '加入吃货团的理由',
     img        VARCHAR(255) NOT NULL DEFAULT '' COMMENT '图片',
     created_at DATETIME     NULL     DEFAULT NULL,
@@ -2038,7 +2038,7 @@ CREATE TABLE x201224_user
     address    VARCHAR(128) NOT NULL DEFAULT '' COMMENT '地址',
     id_num     VARCHAR(18)  NOT NULL DEFAULT '' COMMENT '身份证号码',
     type       TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '志愿者类型[1:祝“福”志愿者 2:护航志愿者]',
-    comment    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '爱心宣言',
+    COMMENT    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '爱心宣言',
     created_at DATETIME     NULL     DEFAULT NULL,
     updated_at DATETIME     NULL     DEFAULT NULL,
     PRIMARY KEY (id)
@@ -2055,7 +2055,7 @@ CREATE TABLE x201224a_user
     nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
     avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
     mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
-    comment    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '留言',
+    COMMENT    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '留言',
     created_at DATETIME     NULL     DEFAULT NULL,
     updated_at DATETIME     NULL     DEFAULT NULL,
     PRIMARY KEY (id)
@@ -2110,7 +2110,7 @@ CREATE TABLE x210114_works
     user_id    INT          NOT NULL DEFAULT 0 COMMENT '用户ID',
     title      VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '标题',
     auth       VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '作者',
-    comment    TEXT         NOT NULL COMMENT '正文',
+    COMMENT    TEXT         NOT NULL COMMENT '正文',
     image      VARCHAR(255) NOT NULL DEFAULT '' COMMENT '照片',
     created_at DATETIME     NULL     DEFAULT NULL,
     updated_at DATETIME     NULL     DEFAULT NULL,
@@ -2194,3 +2194,47 @@ CREATE TABLE x210203_user
   DEFAULT CHARACTER
       SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+
+-- 中铁·龙盘湖·世纪山水
+CREATE TABLE x210204_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '',
+    num   INT          NOT NULL DEFAULT 0 COMMENT '投票次数',
+    created_at DATETIME    NULL     DEFAULT NULL,
+    updated_at DATETIME    NULL     DEFAULT NULL,
+    PRIMARY KEY (id),
+    key (openid)
+) ENGINE = innodb
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
+
+create table x210204_images
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    number     INT          DEFAULT 0  NOT NULL COMMENT '编号',
+    image      VARCHAR(255) DEFAULT '' NOT NULL COMMENT '照片',
+    poll       INT          DEFAULT 0  NOT NULL COMMENT '票数',
+    created_at DATETIME               NULL,
+    updated_at DATETIME               NULL,
+    primary key (id)
+) ENGINE = innodb
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '选手表';
+
+create table x210204_log
+(
+    id         INT unsigned auto_increment,
+    user_id    INT          DEFAULT 0  NOT NULL COMMENT '用户id',
+    program_id INT          DEFAULT 0  NOT NULL COMMENT '选手id',
+    nickname   VARCHAR(64)  DEFAULT '' NOT NULL COMMENT '昵称',
+    avatar     VARCHAR(255) DEFAULT '' NOT NULL COMMENT '头像',
+    created_at DATETIME               NULL,
+    updated_at DATETIME               NULL,
+    primary key (id)
+) ENGINE = innodb
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '记录表';
