@@ -608,3 +608,11 @@ Route::get('/x210204/index',  'X210204Controller@index');
 Route::get('/x210204/export_images', 'X210204Controller@exportImages');
 Route::get('/x210204/export_logs', 'X210204Controller@exportLogs');
 Route::post('/x210204/upload','X210204Controller@uploadImages')->name('x210204.upload');              //上传
+
+
+/**
+ * 中铁·龙盘湖·世纪山水 投票 210205
+ */
+Route::get( '/x210205/index',  'X210205Controller@index');
+Route::get( '/x210205/export', 'X210205Controller@export');
+Route::post('/x210205/verify', 'X210205Controller@verify');

@@ -140,7 +140,7 @@ class X210204Controller extends Common
         //开启事务
         DB::beginTransaction();
         try {
-            $image->poll++;
+            $image->poll+=13;
             if (!$image->save()) {
                 throw new \Exception("数据库错误");
             }
