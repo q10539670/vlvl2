@@ -72,10 +72,12 @@
                                 <option value="">请选择项目</option>
                                 <option {{($itemNow =='1')?'selected':''}} value="1">东湖金茂府</option>
                                 <option {{($itemNow =='2')?'selected':''}} value="2">滨江金茂府</option>
-                                <option {{($itemNow =='3')?'selected':''}} value="3">阳逻片区</option>
-                                <option {{($itemNow =='4')?'selected':''}} value="4">方岛金茂智慧科学城</option>
-                                <option {{($itemNow =='5')?'selected':''}} value="4">武汉国际社区</option>
-                                <option {{($itemNow =='6')?'selected':''}} value="4">建发金茂玺悦</option>
+                                <option {{($itemNow =='3')?'selected':''}} value="3">华发阳逻金茂逸墅</option>
+                                <option {{($itemNow =='4')?'selected':''}} value="4">阳逻金茂逸墅</option>
+                                <option {{($itemNow =='5')?'selected':''}} value="5">阳逻金茂悦</option>
+                                <option {{($itemNow =='6')?'selected':''}} value="6">方岛金茂智慧科学城</option>
+                                <option {{($itemNow =='7')?'selected':''}} value="7">武汉国际社区</option>
+                                <option {{($itemNow =='8')?'selected':''}} value="8">建发金茂玺悦</option>
                             </select>
                         </div>
                         <div class="form-group">

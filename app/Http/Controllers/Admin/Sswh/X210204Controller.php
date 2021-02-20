@@ -102,4 +102,28 @@ class X210204Controller extends Controller
             'images' => $images,
         ]);
     }
+
+    function hide(Request $request)
+    {
+        $id = $request->input('id');
+        $image = Images::find($id);
+        if ($image->status ===1) {
+            return 0;
+        }
+        $image->status = 1;
+        $image->save();
+        return 1;
+    }
+
+    function display(Request $request)
+    {
+        $id = $request->input('id');
+        $image = Images::find($id);
+        if ($image->status ===0) {
+            return 0;
+        }
+        $image->status = 0;
+        $image->save();
+        return 1;
+    }
 }

@@ -2,6 +2,8 @@
 <?php
 $statusNow = request()->input('status', '');
 $prizeNow = request()->input('prize_id', '');
+$YHNow = request()->input('yh', '');
+$TYNow = request()->input('ty', '');
 ?>
 @section('title', $title)
 
@@ -42,12 +44,12 @@ $prizeNow = request()->input('prize_id', '');
     <div class="box">
         <div class="box-header with-border">
             <div class="row">
-                <div class="col-md-3 col-sm-2">
+                <div class="col-md-2 col-sm-2">
                     <div class="form-group">
                         <h3 class="box-title">用户列表</h3>
                     </div>
                 </div>
-                <div class="col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                     <form class="form-inline" method="get" action="{{url('vlvl/x210205/index')}}">
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail3"></label>
@@ -73,6 +75,20 @@ $prizeNow = request()->input('prize_id', '');
                                 <option {{($prizeNow =='4')?'selected':''}} value="4">1.08元现金红包</option>
                                 <option {{($prizeNow =='5')?'selected':''}} value="5">1.18元现金红包</option>
                                 <option {{($prizeNow =='6')?'selected':''}} value="6">2.08元现金红包</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="yh" class="form-control">
+                                <option value="">请选择是否核销优惠券</option>
+                                <option {{($YHNow =='0')?'selected':''}}  value="0">未核销</option>
+                                <option {{($YHNow =='1')?'selected':''}} value="1">已核销</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="ty" class="form-control">
+                                <option value="">请选择是否核销体验券</option>
+                                <option {{($TYNow =='0')?'selected':''}}  value="0">未核销</option>
+                                <option {{($TYNow =='1')?'selected':''}} value="1">已核销</option>
                             </select>
                         </div>
                         <div class="form-group">

@@ -608,6 +608,8 @@ Route::get('/x210204/index',  'X210204Controller@index');
 Route::get('/x210204/export_images', 'X210204Controller@exportImages');
 Route::get('/x210204/export_logs', 'X210204Controller@exportLogs');
 Route::post('/x210204/upload','X210204Controller@uploadImages')->name('x210204.upload');              //上传
+Route::post('/x210204/hide','X210204Controller@hide')->name('x210204.hide');              //上传
+Route::post('/x210204/display','X210204Controller@display')->name('x210204.display');              //上传
 
 
 /**

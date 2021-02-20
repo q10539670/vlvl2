@@ -13,7 +13,7 @@ class X210205Controller extends Common
 
     //世纪山水答题领红包
     protected $itemName = 'x210205';
-    protected $timeStr = 'test';
+    protected $timeStr = 'gold';
 
     //红包开关
     const OPEN_SEND_REDPACK = false;

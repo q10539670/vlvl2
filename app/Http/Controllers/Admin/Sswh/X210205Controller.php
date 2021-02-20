@@ -15,6 +15,8 @@ class X210205Controller extends Controller
         $prizeId = $request->input('prize_id');
         $status = $request->input('status');
         $nameOrMobile = $request->input('nameOrMobile');
+        $yh = $request->input('yh');
+        $ty = $request->input('ty');
         $query = User::when($prizeId != '', function ($query) use ($prizeId) {
             return $query->where('prize_id', $prizeId);
         })
@@ -26,7 +28,20 @@ class X210205Controller extends Controller
             })
             ->when(preg_match("/^\d{11}$/", $nameOrMobile), function ($query) use ($nameOrMobile) {
                 return $query->where('mobile', '=', $nameOrMobile);
-            });
+            })
+            ->when($yh === '0', function ($query) use ($yh) {
+                return $query->where('verification1_at',null);
+            })
+            ->when($yh ==='1', function ($query) use ($yh) {
+                return $query->where('verification1_at', '!=', null);
+            })
+            ->when($ty === '0', function ($query) use ($ty) {
+                return $query->where('verification2_at', null)->whereIn('prize_id',[1,2,3]);
+            })
+            ->when($ty === '1', function ($query) use ($ty) {
+                return $query->where('verification2_at', '!=', null);
+            })
+            ;
         $total = User::count();
         $paginator = $query->orderBy('created_at', 'desc')->paginate(10);
         $exportUrl = asset('/vlvl/x210205/export');

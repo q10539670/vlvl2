@@ -57,7 +57,7 @@ class X210204Controller extends Common
         $perPage = $request->has('per_page') ? $request->per_page : 6; //每页显示数量
         $currentPage = $request->has('current_page') ? $request->current_page : 1; //当前页
         $where = function ($query) use ($request) {
-            $query->where('image', '!=', '');
+            $query->where('image', '!=', '')->where('status',0);
             if ($request->has('search') && ($request->search != '')) {
                 if (is_numeric($request->search)) {
                     $query->where('id', $request->search);
@@ -75,7 +75,7 @@ class X210204Controller extends Common
         }
         $query = Images::where($where);
         if ($request->order == 'news') {
-            $query->orderBy('created_at', 'desc');
+            $query->orderBy('id', 'desc');
         } else {
             $query->orderBy('poll', 'desc')->orderBy('created_at', 'asc');
         }
@@ -101,7 +101,7 @@ class X210204Controller extends Common
             return response()->json(['error' => '未授权'], 422);
         }
         $detail = Images::where('id', $request->id)->first();
-        if ($detail->image == '') {
+        if ($detail->image == '' || $detail->status != 0) {
             return response()->json(['error' => '当前ID错误'], 422);
         }
         $allUsers = Images::where('image', '!=', '')->orderBy('poll','desc')->get()->toArray();

@@ -14,9 +14,10 @@ class X210203Controller extends Common
     //金茂报名
     protected $itemName = 'x210203';
 
-    protected $itemCount = [1 => 100, 2 => 50, 3 => 25, 4 => 20, 5 => 10, 6 => 50,7=>75,8=>20];
+    protected $itemCount = [1 => 100, 2 => 50, 3 => 10, 4 => 20, 5 => 25, 6 => 75,7=>50,8=>20];
 
     const END_TIME = '2021-02-28 18:00:00';
+    const START_TIME = '2021-02-10 10:00:00';
 
 //    const RELEASE = 'test'; //test:测试 formal:正式
 
@@ -53,6 +54,9 @@ class X210203Controller extends Common
         if (time() > strtotime(self::END_TIME)) {
             return response()->json(['error' => '活动时间截止'], 422);
         }
+        if (time() < strtotime(self::START_TIME)) {
+            return response()->json(['error' => '活动时间未开始'], 422);
+        }
         if (!$user = User::where('openid', $request->openid)->first()) {
             return response()->json(['error' => '未授权'], 422);
         }
@@ -83,7 +87,7 @@ class X210203Controller extends Common
         if ($redisCount >= $this->itemCount[$itemId]) {
             return response()->json(['error' => '该项目报名人数已满'], 422);
         }
-        $item = ['东湖','滨江','金茂悦','阳逻金茂逸墅','华发阳逻金茂逸墅','国社','方岛','玺悦'];
+        $item = ['东湖金茂府','滨江金茂府','华发阳逻金茂逸墅','阳逻金茂逸墅','阳逻金茂悦','方岛金茂智慧科学城','武汉国际社区','建发金茂玺悦'];
         $request['sign_up_at'] = now()->toDateTimeString();
         $request['item'] = $item[$itemId-1];
         $user->fill($request->all());
