@@ -16,7 +16,11 @@ class X210205Export implements FromCollection, WithStrictNullComparison,WithHead
      */
     public function collection()
     {
-        return User::get(['nickname','name','mobile','prize','prized_at','verification1_at','verification2_at']);
+        $users =  User::get(['nickname','name','mobile','prize','prized_at','verification1_at','verification2_at']);
+        foreach($users as $user) {
+            $user->nickname = str_replace('=','',$user->nickname);
+        }
+        return $users;
     }
     // 定义 'headings()' 方法
     public function headings(): array

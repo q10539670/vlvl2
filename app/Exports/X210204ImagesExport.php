@@ -16,7 +16,7 @@ class X210204ImagesExport implements FromCollection, WithStrictNullComparison, W
      */
     public function collection()
     {
-        $images = Images::get(['number', 'poll', 'image']);
+        $images = Images::get(['id', 'poll', 'image']);
         foreach ($images as $image) {
             $image->image = 'https://cdnn.sanshanwenhua.com/statics/' . $image->image;
         }

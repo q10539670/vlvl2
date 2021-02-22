@@ -2203,9 +2203,9 @@ CREATE TABLE x210204_user
     openid     VARCHAR(36)  NOT NULL DEFAULT '',
     nickname   VARCHAR(64)  NOT NULL DEFAULT '',
     avatar     VARCHAR(255) NOT NULL DEFAULT '',
-    num   INT          NOT NULL DEFAULT 0 COMMENT '投票次数',
-    created_at DATETIME    NULL     DEFAULT NULL,
-    updated_at DATETIME    NULL     DEFAULT NULL,
+    num        INT          NOT NULL DEFAULT 0 COMMENT '投票次数',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
     PRIMARY KEY (id),
     key (openid)
 ) ENGINE = innodb
@@ -2218,8 +2218,8 @@ create table x210204_images
     number     INT          DEFAULT 0  NOT NULL COMMENT '编号',
     image      VARCHAR(255) DEFAULT '' NOT NULL COMMENT '照片',
     poll       INT          DEFAULT 0  NOT NULL COMMENT '票数',
-    created_at DATETIME               NULL,
-    updated_at DATETIME               NULL,
+    created_at DATETIME                NULL,
+    updated_at DATETIME                NULL,
     primary key (id)
 ) ENGINE = innodb
   DEFAULT CHARACTER SET utf8mb4
@@ -2232,9 +2232,34 @@ create table x210204_log
     program_id INT          DEFAULT 0  NOT NULL COMMENT '选手id',
     nickname   VARCHAR(64)  DEFAULT '' NOT NULL COMMENT '昵称',
     avatar     VARCHAR(255) DEFAULT '' NOT NULL COMMENT '头像',
-    created_at DATETIME               NULL,
-    updated_at DATETIME               NULL,
+    created_at DATETIME                NULL,
+    updated_at DATETIME                NULL,
     primary key (id)
 ) ENGINE = innodb
   DEFAULT CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci COMMENT '记录表';
+
+
+-- 武汉院子元宵节
+CREATE TABLE x210222_user
+(
+    id         INT UNSIGNED AUTO_INCREMENT,
+    openid     VARCHAR(36)  NOT NULL DEFAULT '',
+    nickname   VARCHAR(64)  NOT NULL DEFAULT '' COMMENT '昵称',
+    avatar     VARCHAR(255) NOT NULL DEFAULT '' COMMENT '头像',
+    name       VARCHAR(12)  NOT NULL DEFAULT '' COMMENT '姓名',
+    mobile     VARCHAR(11)  NOT NULL DEFAULT '' COMMENT '电话',
+    game_num   TINYINT      NOT NULL DEFAULT 0 COMMENT '游戏次数',
+    prize_num  TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖次数',
+    prize      VARCHAR(16)  NOT NULL DEFAULT '' COMMENT '奖品',
+    code       INT          NOT NULL DEFAULT 0 COMMENT '核销码',
+    status     TINYINT      NOT NULL DEFAULT 0 COMMENT '抽奖状态:0,未抽奖1,已中奖,2,未中奖,3,已确定',
+    prized_at  DATETIME     NULL     DEFAULT NULL COMMENT '中奖时间',
+    created_at DATETIME     NULL     DEFAULT NULL,
+    updated_at DATETIME     NULL     DEFAULT NULL,
+    PRIMARY KEY (id),
+    KEY (status)
+) ENGINE = INNODB
+  DEFAULT CHARACTER
+      SET utf8mb4
+  COLLATE utf8mb4_unicode_ci COMMENT '用户表';
