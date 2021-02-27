@@ -15,11 +15,11 @@ use Log;
 class X210222Controller extends Common
 {
     //武汉院子 游戏抽奖
-    protected $itemName = 'x201229';
+    protected $itemName = 'x210222';
 
     const END_TIME = '2021-02-28 23:59:59';
-    const START_TIME = '2021-01-01 00:00:00';
-    const VERSION = 'test'; //测试   formal:正式
+    const START_TIME = '2021-02-25 09:00:00';
+    const VERSION = 'formal'; //测试   formal:正式
 
     /*
      * 获取/记录用户授权信息
@@ -58,7 +58,7 @@ class X210222Controller extends Common
 
     /*
      * 随机抽奖
-     *  status     1中奖  2：未中奖【红包发送失败】     3:未中奖【未抽中奖】
+     *  status     1中奖  2：未中奖
      * */
     public function randomPrize(Request $request)
     {
@@ -109,11 +109,11 @@ class X210222Controller extends Common
     }
 
     /**
-     * 提交信息
+     * 确认领奖
      * @param Request $request
-     * @return false|JsonResponse|string
+     * @return JsonResponse
      */
-    public function post(Request $request)
+    public function confirmPrize(Request $request)
     {
         if (time() > strtotime(self::END_TIME)) {
             return response()->json(['error' => '活动时间截止'], 422);
@@ -127,17 +127,6 @@ class X210222Controller extends Common
         if ($user->status == 0 || $user->status == 2) {
             return response()->json(['error' => '您未中奖,不能确认领奖'], 422);
         }
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'mobile' => 'required',
-        ], [
-            'mobile.required' => '电话不能为空',
-            'name.required' => '名字不能为空',
-        ]);
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()->first()], 422);
-        }
-
         $redisCountKey = 'wx:' . $this->itemName . ':prizeCount:' . self::VERSION;
         $redis = app('redis');
         $redis->select(12);
@@ -148,8 +137,6 @@ class X210222Controller extends Common
             $redis->hIncrBy($redisCountKey, $user->prize_id, -1);  //超发 中奖数回退
             return response()->json(['error' => '确认失败,该奖品已发完,请重新抽奖'], 422);
         }
-        $user->name = $request->name;
-        $user->mobile = $request->mobile;
         $user->status = 3;
         $user->code = $user->getUniqueCode(6);
         $user->code_at = now()->toDateTimeString();
@@ -159,6 +146,34 @@ class X210222Controller extends Common
             $redis->hIncrBy($redisCountKey, $user->prize_id, -1);  //数据库异常 中奖数回退
             return response()->json(['error' => '数据异常,请重新提交'], 422);
         }
+        return $this->returnJson(1,'确认奖品成功',['user'=>$user]);
+    }
+    /**
+     * 提交信息
+     * @param Request $request
+     * @return false|JsonResponse|string
+     */
+    public function post(Request $request)
+    {
+        if (time() > strtotime(self::END_TIME)) {
+            return response()->json(['error' => '活动时间截止'], 422);
+        }
+        if (!$user = User::where('openid', $request->openid)->first()) {
+            return response()->json(['error' => '未授权'], 422);
+        }
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'mobile' => 'required',
+        ], [
+            'mobile.required' => '电话不能为空',
+            'name.required' => '名字不能为空',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()->first()], 422);
+        }
+        $user->name = $request->name;
+        $user->mobile = $request->mobile;
+        $user->save();
         return $this->returnJson(1, "提交成功", ['user' => $user]);
     }
 
@@ -176,7 +191,7 @@ class X210222Controller extends Common
         }
         foreach ($dataArr as $k => $v) {
             $redis->hmset('wx:' . $this->itemName . ':prizeCount:' . $v,
-                ['0' => 0, '1' => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0]);
+                ['0' => 0, '1' => 0, 2 => 0, 3 => 0, 4 => 0]);
         }
         echo '应用初始化成功';
         exit();

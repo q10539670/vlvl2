@@ -52,9 +52,9 @@ class getApiData extends Command
         $path = '/address';
         $querys = 'prov=湖北&city=武汉&needday=1';
         $appcode = 'f00ed7c6c9af40968dee7fabeae4b8fe';
-        $url = $host . $path . "?" . $querys;
+        $url = $host.$path."?".$querys;
         $client = new \GuzzleHttp\Client();
-        $resClient = $client->request('GET', $url, ['headers' => ['Authorization' => 'APPCODE ' . $appcode]]);
+        $resClient = $client->request('GET', $url, ['headers' => ['Authorization' => 'APPCODE '.$appcode]]);
         $result = json_decode($resClient->getBody()->getContents(), true);
         if ($result['ret'] !== 200) {
             return false;
@@ -62,16 +62,16 @@ class getApiData extends Command
         $cityInfo = $result['data']['cityinfo'];
         $detail = $result['data']['now']['detail'];
         $now = $result['data']['now']['city'];
-        $city = $cityInfo['provinces'] . $cityInfo['city'];
-        $date = $detail['date'] . '(' . $detail['nongli'] . ') , 星期' . $detail['week'];
+        $city = $cityInfo['provinces'].$cityInfo['city'];
+        $date = $detail['date'].'('.$detail['nongli'].') , 星期'.$detail['week'];
         $updateTime = $detail['time'];
-        $temperature = $detail['temperature'] . '℃';
-        $nDTemperature = $now['night_air_temperature'] . '℃ ~' . $now['day_air_temperature'] . '℃';
+        $temperature = $detail['temperature'].'℃';
+        $nDTemperature = $now['night_air_temperature'].'℃ ~'.$now['day_air_temperature'].'℃';
         $weather = $now['weather'];
         $quality = $detail['quality'];
-        $weatherStr = '实时天气预报:\r\n城市: ' . $city . '\r\n日期: ' . $date . '\r\n更新时间: ' . $updateTime . '\r\n当前温度: '
-            . $temperature . '\r\n白天夜间温度: ' . $nDTemperature . '\r\n天气: ' . $weather . '\r\n空气质量: ' . $quality .
-            '\r\n当前时间: ' . '\r\n点击查看15天天气';
+        $weatherStr = '实时天气预报:\r\n城市: '.$city.'\r\n日期: '.$date.'\r\n更新时间: '.$updateTime.'\r\n当前温度: '
+            .$temperature.'\r\n白天夜间温度: '.$nDTemperature.'\r\n天气: '.$weather.'\r\n空气质量: '.$quality.
+            '\r\n当前时间: '.'\r\n点击查看15天天气';
         $redis = app('redis');
         $redis->select(12);
         $redis->set('weather', $weatherStr);
@@ -84,14 +84,14 @@ class getApiData extends Command
     public function getWorkingDay()
     {
         //过年假期 开始:20210209-20210220
-        if (date('Ymd') >= '20210205' && date('Ymd') <= '20210320') {
-            $result = 2;//节假日
-        } else {
-            $url = 'http://tool.bitefu.net/jiari?d=' . date('Ymd');
-            $client = new \GuzzleHttp\Client();
-            $resClient = $client->request('GET', $url);
-            $result = json_decode($resClient->getBody()->getContents(), true);
-        }
+//        if (date('Ymd') >= '20210205' && date('Ymd') <= '20210320') {
+//            $result = 2;//节假日
+//        } else {
+        $url = 'http://tool.bitefu.net/jiari?d='.date('Ymd');
+        $client = new \GuzzleHttp\Client();
+        $resClient = $client->request('GET', $url);
+        $result = json_decode($resClient->getBody()->getContents(), true);
+//        }
         $redis = app('redis');
         $redis->select(12);
         $redis->set('date', $result);

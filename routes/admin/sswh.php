@@ -618,3 +618,10 @@ Route::post('/x210204/display','X210204Controller@display')->name('x210204.displ
 Route::get( '/x210205/index',  'X210205Controller@index');
 Route::get( '/x210205/export', 'X210205Controller@export');
 Route::post('/x210205/verify', 'X210205Controller@verify');
+
+/**
+ * 武汉院子 210222
+ */
+Route::get( '/x210222/index',  'X210222Controller@index');
+Route::get( '/x210222/export', 'X210222Controller@export');
+Route::post('/x210222/code',   'X210222Controller@verification');

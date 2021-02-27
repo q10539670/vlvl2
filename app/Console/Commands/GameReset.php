@@ -41,12 +41,9 @@ class GameReset extends Command
      */
     public function handle()
     {
-        DB::table('x210126_user')->update([
-            'num' => 3
-        ]); //天麓城投票 停止时间:2021-02-26 23:59:59
-//        DB::table('x210204_user')->update([
-//            'num' => 10
-//        ]); //天麓城投票 停止时间:2021-02-18 23:59:59
+        DB::table('x21022_user')->update([
+            'prize_num' => 3
+        ]); //武汉院子抽奖 停止时间:2021-02-26 23:59:59
         return $this->info('重置成功');
     }
 }

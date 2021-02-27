@@ -18,7 +18,7 @@ class X210126Controller extends Common
 
     const SUBMIT_TIME = '2020-02-05 00:00:00';
     const START_TIME  = '2020-02-05 00:00:00';
-    const END_TIME    = '2021-02-26 23:59:59';
+    const END_TIME    = '2021-02-25 23:59:59';
 
     protected $prod = 'cdnn';
 

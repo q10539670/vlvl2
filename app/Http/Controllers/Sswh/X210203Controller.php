@@ -14,7 +14,7 @@ class X210203Controller extends Common
     //金茂报名
     protected $itemName = 'x210203';
 
-    protected $itemCount = [1 => 100, 2 => 50, 3 => 10, 4 => 20, 5 => 25, 6 => 75,7=>50,8=>20];
+    protected $itemCount = [1 => 100, 2 => 50, 3 => 10, 4 => 20, 5 => 25, 6 => 75, 7 => 50, 8 => 20];
 
     const END_TIME = '2021-02-28 18:00:00';
     const START_TIME = '2021-02-10 10:00:00';
@@ -87,9 +87,9 @@ class X210203Controller extends Common
         if ($redisCount >= $this->itemCount[$itemId]) {
             return response()->json(['error' => '该项目报名人数已满'], 422);
         }
-        $item = ['东湖金茂府','滨江金茂府','华发阳逻金茂逸墅','阳逻金茂逸墅','阳逻金茂悦','方岛金茂智慧科学城','武汉国际社区','建发金茂玺悦'];
+        $item = ['东湖金茂府', '滨江金茂府', '华发阳逻金茂逸墅', '阳逻金茂逸墅', '阳逻金茂悦', '方岛金茂智慧科学城', '武汉国际社区', '建发金茂玺悦'];
         $request['sign_up_at'] = now()->toDateTimeString();
-        $request['item'] = $item[$itemId-1];
+        $request['item'] = $item[$itemId - 1];
         $user->fill($request->all());
         $user->save();
         $redisCount = $redis->hIncrBy($redisCountBaseKey, $itemId, 1); //报名数累计+1
@@ -105,7 +105,7 @@ class X210203Controller extends Common
             $redis->del($v);
 //            }
         }
-        $redis->hmset('wx:' . $this->itemName . ':signUpCount', [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0,7=>0,8=>0]);
+        $redis->hmset('wx:' . $this->itemName . ':signUpCount', [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0]);
         echo '应用初始化成功';
         exit();
     }

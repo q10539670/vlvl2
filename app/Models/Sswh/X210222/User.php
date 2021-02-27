@@ -44,7 +44,7 @@ class User extends Model
     * 处理抽奖 -- 开始
     * #######################################################################################################################################################
     * */
-    private $zhongJiangLv = 1;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
+    private $zhongJiangLv = 0.8;  //设置中奖率 如果大于 1 始终会转化为0~1之间的小数
     private $prizeKey = 'prize';  // 数据库里面的 中奖类型索引的字段 名称
     /*
      * 中奖配置数组
@@ -58,24 +58,18 @@ class User extends Model
      * */
     /*
      * 奖品：
-            海底捞免费体验券：       20 张
-            恒温泳池体验券：        100 张
-            大象公仔：             10 个
-            专属定制时尚鼠标垫：     20 个
-            专属定制暖心抱枕被：     50 个
-            专属定制U型枕：         50 个
-            专属定制帆布袋：         100个
+            马克杯：       20
+            数据线：       20
+            雨伞：         8 个
+            好运抱枕：      3 个
      */
     protected $prizeConf = [
         /*中奖数组*/
         'prize' => [
-            0 => ['prize_id' => 1, 'prize_level_name' => '七等奖', 'prize_name' => '马克杯', 'v' => 20, 'count' => 0, 'limit' => 0],
-            1 => ['prize_id' => 2, 'prize_level_name' => '六等奖', 'prize_name' => '数据线', 'v' => 20, 'count' => 0, 'limit' => 0],
-            2 => ['prize_id' => 3, 'prize_level_name' => '五等奖', 'prize_name' => '雨伞', 'v' => 8, 'count' => 0, 'limit' => 0],
-            3 => ['prize_id' => 4, 'prize_level_name' => '四等奖', 'prize_name' => '新年运势袜子套盒', 'v' => 3, 'count' => 0, 'limit' => 0],
-            4 => ['prize_id' => 5, 'prize_level_name' => '三等奖', 'prize_name' => '好事将至笔记本礼盒', 'v' => 3, 'count' => 0, 'limit' => 0],
-            5 => ['prize_id' => 6, 'prize_level_name' => '二等奖', 'prize_name' => '扭转乾坤幸运饼干', 'v' => 3, 'count' => 0, 'limit' => 0],
-            6 => ['prize_id' => 7, 'prize_level_name' => '一等奖', 'prize_name' => '好运抱枕', 'v' => 3, 'count' => 0, 'limit' => 0],
+            0 => ['prize_id' => 1, 'prize_level_name' => '四等奖', 'prize_name' => '精致马克杯', 'v' => 20, 'count' => 0, 'limit' => 0],
+            1 => ['prize_id' => 2, 'prize_level_name' => '三等奖', 'prize_name' => '定制保温杯', 'v' => 20, 'count' => 0, 'limit' => 0],
+            2 => ['prize_id' => 3, 'prize_level_name' => '二等奖', 'prize_name' => '定制精品雨伞', 'v' => 8, 'count' => 0, 'limit' => 0],
+            3 => ['prize_id' => 4, 'prize_level_name' => '一等奖', 'prize_name' => '好运抱枕', 'v' => 3, 'count' => 0, 'limit' => 0],
         ],
         /*不中奖   --未中奖*/
         'notPrize' => ['prize_id' => 0, 'prize_level_name' => '未中奖', 'prize_name' => '未中奖', 'v' => 100, 'count' => 0, 'limit' => 100000],
@@ -89,21 +83,15 @@ class User extends Model
             '2' => ['prize_id' => 2, 'limit' => 10],
             '3' => ['prize_id' => 3, 'limit' => 10],
             '4' => ['prize_id' => 4, 'limit' => 10],
-            '5' => ['prize_id' => 5, 'limit' => 10],
-            '6' => ['prize_id' => 6, 'limit' => 10],
-            '7' => ['prize_id' => 7, 'limit' => 10],
         ],
 
         /*正式*/
         'formal' => [
             '0' => ['prize_id' => 0, 'limit' => 100000],
-            '1' => ['prize_id' => 1, 'limit' => 20],
+            '1' => ['prize_id' => 1, 'limit' => 50],
             '2' => ['prize_id' => 2, 'limit' => 20],
             '3' => ['prize_id' => 3, 'limit' => 8],
             '4' => ['prize_id' => 4, 'limit' => 3],
-            '5' => ['prize_id' => 5, 'limit' => 3],
-            '6' => ['prize_id' => 6, 'limit' => 3],
-            '7' => ['prize_id' => 7, 'limit' => 3],
         ],
     ];
 

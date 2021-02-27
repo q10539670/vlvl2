@@ -741,3 +741,14 @@ Route::post('/x210205/post',  'X210205Controller@post');                  //获�
 Route::post('/x210205/topic','X210205Controller@topic');                        //投票
 Route::post( '/x210205/prize','X210205Controller@randomPrize');                  //获取参赛用户
 Route::get( '/x210205/init','X210205Controller@appInitHandler');                  //获取参赛用户
+
+
+/**
+ * 中铁·龙盘湖·世纪山水投票   210222
+ */
+Route::get( '/x210222/user',  'X210222Controller@user');                      //获取/记录用户信息
+Route::post('/x210222/post',  'X210222Controller@post');                  //提交信息
+Route::post('/x210222/game', 'X210222Controller@game');                        //游戏次数
+Route::get( '/x210222/confirm', 'X210222Controller@confirmPrize');                        //确认奖品
+Route::post('/x210222/prize', 'X210222Controller@randomPrize');                  //抽奖
+Route::get( '/x210222/init',  'X210222Controller@appInitHandler');                  //初始化
