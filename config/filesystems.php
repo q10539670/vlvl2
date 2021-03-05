@@ -51,9 +51,16 @@ return [
 
         'public' => [
             'driver' => 'local',
-//            'root' => storage_path('app/public'),
-            'root' => env('STORE_PATH'.'/app/public',storage_path('app/public')),
+            'root' => storage_path('app/public'),
+//            'root' => env('STORE_PATH'.'/app/public',storage_path('app/public')),
             'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        'prod' => [
+            'driver' => 'local',
+            'root' => "/data/wwwroot/wx.sanshanwenhua.com/statics",
+            'url' => "",
             'visibility' => 'public',
         ],
 
@@ -66,6 +73,12 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'storage2' => [
+            'driver' => 'local',
+            'root' => '/data1/wx.sanshanwenhua.com/storage/app/public',
+            'url' => env('APP_URL') . '/storage2',
+            'visibility' => 'public',
+        ],
     ],
 
 ];

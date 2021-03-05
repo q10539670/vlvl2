@@ -14,12 +14,20 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+Route::get('/example/testWeb', '\App\Http\Controllers\Example\TestController@testWeb');
+Route::get('/example/test', '\App\Http\Controllers\Example\TestController@test');
 
-Route::get('/example/testWeb','\App\Http\Controllers\Example\TestController@testWeb');
-Route::get('/example/test','\App\Http\Controllers\Example\TestController@test');
 
+Route::group(['namespace' => 'Admin\Sswh'], function () {
+    require __DIR__ . '/admin/sswh.php'; //三山文化 微信项目后台路由
+});
 
-//
-////后台简单页面 190604
-//
-Route::get('/sswhAdmin/login','\App\Http\Controllers\Sswh\SswhAdmin\LoginController@index');
+Route::group(['namespace' => 'Admin\Qwt'], function () {
+    require __DIR__ . '/admin/qwt.php'; //全网通 微信项目后台路由
+});
+
+Route::group(['namespace' => 'Admin\Jctj'], function () {
+    require __DIR__ . '/admin/jctj.php'; //武汉江宸天街 微信项目后台路由
+});
+
+require __DIR__ . '/admin/ticket.php';  //汤达人

@@ -38,7 +38,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            'throttle:60,1',
+            'throttle:1000,1',
             'bindings',
             \Barryvdh\Cors\HandleCors::class,
         ],
@@ -62,6 +62,15 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'wxAuthV1.sswhCheckOpenid' => \App\Http\Middleware\WxAuthV1\SswhCheckOpenid::class,
+        'wxAuthV1.qwtCheckOpenid' => \App\Http\Middleware\WxAuthV1\QwtCheckOpenid::class,
+        'wxAuthV1.jctjCheckOpenid' => \App\Http\Middleware\WxAuthV1\JctjCheckOpenid::class,
+        'wxAuthV1.tdrCheckOpenid' => \App\Http\Middleware\WxAuthV1\TdrCheckOpenid::class,
+        'wxAuthV1.jyycCheckOpenid' => \App\Http\Middleware\WxAuthV1\JyycCheckOpenid::class,
+        'wxAuthV1.jchnCheckOpenid' => \App\Http\Middleware\WxAuthV1\JchnCheckOpenid::class,
+        'wxAuthV1.ctdcCheckOpenid' => \App\Http\Middleware\WxAuthV1\CtdcCheckOpenid::class,
+        'ticket_l191127_login' => \App\Http\Middleware\Ticket\L191127::class,
+        'x200701' => \App\Http\Middleware\X200701::class,
+        'cors' => \App\Http\Middleware\Cors::class,
     ];
 
     /**

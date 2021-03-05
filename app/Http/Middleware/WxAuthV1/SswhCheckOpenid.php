@@ -21,6 +21,8 @@ class SswhCheckOpenid
             if (isset($_SESSION[$itemName])) {
                 $request->openid = $_SESSION[$itemName];
                 return $next($request);
+            }else{
+                return response()->json(['error' => '未授权','data'=>$_SESSION,'itemName'=>$itemName], 410);
             }
         }
         if($request->hasHeader('authorization')){ //调试用户
@@ -30,15 +32,16 @@ class SswhCheckOpenid
                 return $next($request);
             }
         }
-        return response()->json(['error' => '未授权'], 410);
+        return response()->json(['error' => '未授权','data'=>$_SESSION], 410);
     }
 
     /*
      * 计算 项目名称
     */
-    protected function getItemName()
-    {
+    protected function getItemName() {
         $urlStr = preg_replace("/(http|https):\/\//", '', $_SERVER['HTTP_REFERER']);
-        return explode('/', $urlStr)[2];
+        $arr = explode('/', $urlStr);
+        $arr2 = array_slice($arr,2,count($arr)-3);
+        return implode("/",$arr2);
     }
 }

@@ -89,6 +89,13 @@ return [
             'driver' => 'errorlog',
             'level' => 'debug',
         ],
+
+        'sswh' =>[
+            'driver' => 'daily',
+            'path' => storage_path('logs/sswh.log'),
+            'level' => 'info',
+            'days' => 30,
+        ],
     ],
 
 ];
