@@ -752,3 +752,12 @@ Route::post('/x210222/game', 'X210222Controller@game');                        /
 Route::get( '/x210222/confirm', 'X210222Controller@confirmPrize');                        //确认奖品
 Route::post('/x210222/prize', 'X210222Controller@randomPrize');                  //抽奖
 Route::get( '/x210222/init',  'X210222Controller@appInitHandler');                  //初始化
+
+/**
+ * 天麓城 210305
+ */
+Route::get( '/x210305/user',  'X210305Controller@user');                   //获取/记录用户信息
+Route::post('/x210305/post',  'X210305Controller@post');                  //用户提交报名
+Route::post('/x210305/users', 'X210305Controller@users');                //获取参赛用户
+Route::post('/x210305/vote',  'X210305Controller@vote');                  //获取参赛用户
+Route::get( '/x210305/detail','X210305Controller@detail');                  //获取参赛用户

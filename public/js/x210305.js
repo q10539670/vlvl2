@@ -67,7 +67,7 @@ var api = {
      */
     user: function () {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x210126/user',
+            $.get(api.baseUrl + '/x210305/user',
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);
@@ -86,7 +86,7 @@ var api = {
         formData.append('slogan', data.slogan);
         return new Promise(function (resolve, reject) {
             $.ajax({
-                url: api.baseUrl + '/x210126/post',
+                url: api.baseUrl + '/x210305/post',
                 type: "post",
                 data: formData,
                 processData: false,
@@ -105,7 +105,7 @@ var api = {
      * */
     users: function (data) {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x210126/users',
+            $.post(api.baseUrl + '/x210305/users',
                 /*接收参数-start*/
                 {
                     per_page: data.per_page,            //每页显示数量
@@ -126,7 +126,7 @@ var api = {
      */
     vote: function (targetId) {
         return new Promise(function (resolve, reject) {
-            $.post(api.baseUrl + '/x210126/vote',
+            $.post(api.baseUrl + '/x210305/vote',
                 /*接收参数-start*/
                 {
                     target_id: targetId,
@@ -144,7 +144,7 @@ var api = {
      */
     detail: function (id) {
         return new Promise(function (resolve, reject) {
-            $.get(api.baseUrl + '/x210126/detail?id=' + id,
+            $.get(api.baseUrl + '/x210305/detail?id=' + id,
                 function (res) {
                     api.debug && console.log(res);
                     resolve(res);

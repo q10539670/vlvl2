@@ -180,3 +180,32 @@ class User extends Model
      * #######################################################################################################################################################
      * */
 }
+
+/*
+https://apt.cdalei.com/
+https://apt.167025.cn/
+https://repo.cydiabc.top/
+http://apt.autotouch.net/
+https://c1d3r.com/repo/
+http://cokepokes.github.io/
+https://apt.cydiakk.com/
+https://iwba.cn/
+https://repo.dynastic.co/
+https://cydia.akemi.ai/
+http://limenos.net/repo/
+https://repo.incendo.ws/
+https://repo.initnil.com/
+https://apt.initnil.com/
+http://repo.nullpixel.uk/
+http://opa334.github.io/
+http://beta.unlimapps.com/
+https://repo.1conan.com/
+https://apt.25mao.com/
+https://apt.fcydia.com/
+http://repo.qqtlr.com/
+http://aquawu.github.io/igg/
+http://repoipodhacks142.com/
+https://ib-soft.net/cydia/
+
+
+ */

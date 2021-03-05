@@ -625,3 +625,10 @@ Route::post('/x210205/verify', 'X210205Controller@verify');
 Route::get( '/x210222/index',  'X210222Controller@index');
 Route::get( '/x210222/export', 'X210222Controller@export');
 Route::post('/x210222/code',   'X210222Controller@verification');
+
+/**
+ * 中国中铁·世纪山水·天麓城 210305
+ */
+Route::get( '/x210305/index',  'X210305Controller@index');
+Route::get( '/x210305/export', 'X210305Controller@export');
+Route::post('/x210305/delete', 'X210305Controller@delete')->name('x210305.delete');
